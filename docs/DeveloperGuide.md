@@ -264,14 +264,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+
+**Use case: Add a description to an expense**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list expenses
+2.  UniSave shows a list of expenses
+3.  User requests to add a description to a specific expense in the list
+4.  UniSave adds the description input by user to the specific expense
 
     Use case ends.
 
@@ -283,11 +284,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. UniSave shows an error message.
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: Delete the current description of an expense**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of expenses
+3.  User requests to delete the description of a specific expense in the list
+4.  UniSave deletes the description of expense chosen by the user.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. UniSave shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: View category labels**
+
+**MSS**
+
+1.  User requests to list available category labels
+2.  UniSave shows a list of existing category labels
+
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
