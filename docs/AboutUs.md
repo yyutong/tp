@@ -9,7 +9,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Xie Yaoren
 
 <img src="images/johndoe.png" width="200px">
 
@@ -17,38 +17,39 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Project Advisor
+* Role: Testing
+* Responsibilities: Model
 
-### Jane Doe
+### Wayne Tan Kin Lun
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/tanwayne890.png.jpg" width="200px">
 
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Team Lead
+* Role: Deliverables & Deadlines
 * Responsibilities: UI
 
-### Johnny Doe
+### Zhang Yuanxing
 
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
 
-* Role: Developer
-* Responsibilities: Data
+* Role: Documentation & Code Quality
+* Responsibilities: Data, Storage
 
-### Jean Doe
+### Yao Yuming
 
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Developer
+* Role: Scheduling & Tracking
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Yang Yutong
 
 <img src="images/johndoe.png" width="200px">
 
