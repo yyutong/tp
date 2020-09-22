@@ -5,8 +5,8 @@
 
 ![Ui](docs/images/Ui.png)
 
-Unisave is a desktop finance planner app, optimized for use via a Command Line Interface (CLI) while still having 
-the benefits of a Graphical User Interface (GUI). If you can type fast, Unisave can get your financial management 
+UniSave is a desktop finance planner app, optimized for use via a Command Line Interface (CLI) while still having 
+the benefits of a Graphical User Interface (GUI). If you can type fast, UniSave can get your financial management 
 tasks done faster than traditional GUI apps.
 
 ### Acknowledgement
