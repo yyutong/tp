@@ -242,7 +242,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: 
+**Value proposition**:
 1. Problem: spendings in different currency not tracked by many existing apps -> track spending in different currency
 2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
 
@@ -331,8 +331,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  UniSave shows a list of existing expenses
 
     Use case ends.
-      
-      
+
+
 **Use case: Delete a current expense**
 
 **MSS**
