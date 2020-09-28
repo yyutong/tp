@@ -376,9 +376,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
 
     * 3a1. UniSave shows an error message.
+    
+    Use case resume at Step 2
 
-      Use case resumes at step 2.        
-      
+
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.

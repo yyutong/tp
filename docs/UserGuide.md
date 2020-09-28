@@ -149,7 +149,7 @@ Set the budget for UniSave. Default zero budget. Pop up for input when first lau
 
 Format: `setBudget a/AMOUNT`
 
-Example: 
+Example:
 `setBudget a/1000`: Set the budget to 1000.
  
 ### Show budget : `showBudget`
