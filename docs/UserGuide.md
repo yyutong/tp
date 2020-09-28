@@ -151,7 +151,7 @@ Format: `setBudget a/AMOUNT`
 
 Example:
 `setBudget a/1000`: Set the budget to 1000.
- 
+
 ### Show budget : `showBudget`
 
 Show the budget last set and the remaining budget in the UniSave.
