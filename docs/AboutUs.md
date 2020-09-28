@@ -22,7 +22,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Wayne Tan Kin Lun
 
-<img src="images/tanwayne890.png" width="200px">
+<img src="images/tanwayne890.png.jpg" width="200px">
 
 [[github](https://github.com/tanwayne890)]
 [[portfolio](team/johndoe.md)]
