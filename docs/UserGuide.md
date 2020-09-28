@@ -107,7 +107,11 @@ View an expense in the expense list.
 
 Format: `view INDEX`
 
-View the expense at the specified INDEX. The index refers to the index number shown in the displayed expense list. 
+
+View the expense at the specified INDEX.
+
+The index refers to the index number shown in the displayed expense list.
+
 
 * The index must be a **positive integer** 1, 2, 3, …​
 

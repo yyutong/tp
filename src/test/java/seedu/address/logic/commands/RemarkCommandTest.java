@@ -37,7 +37,7 @@ public class RemarkCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     private static final String REMARK_STUB = "Some remark";
-    
+
     @Test
     public void execute() {
         final Remark remark = new Remark("Some remark");
@@ -144,5 +144,4 @@ public class RemarkCommandTest {
         RemarkCommand remarkCommand = new RemarkCommand(outOfBoundIndex, new Remark(VALID_REMARK_BOB));
         assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
-    
 }

@@ -355,7 +355,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. UniSave shows an error message.
 
       Use case resumes at step 2.
-   
+
 **Use case: Add expense with its category**
 
 **MSS**
@@ -377,8 +377,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     * 3a1. UniSave shows an error message.
 
-      Use case resumes at step 2.
-            
+      Use case resumes at step 2.        
+      
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
