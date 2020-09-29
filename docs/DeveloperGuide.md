@@ -237,15 +237,16 @@ _{Explain here how the data archiving feature will be implemented}_
 **Target user profile**:
 
 * university international students who have the habit of bookkeeping
+* university international students who want to plan their finance
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
+* spend various currency
 
 **Value proposition**:
-1. Problem: spendings in different currency not tracked by many existing apps -> track spending in different currency
+1. Problem: spending in different currency not tracked by many existing apps -> track spending in different currency
 2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
-
 
 
 ### User stories
