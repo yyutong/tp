@@ -268,6 +268,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
 
+**Use case: List all expenses**
+
+**MSS**
+
+1.  User requests to list all the expenses
+2.  AddressBook shows a list of expenses
+
+    Use case ends.
+    
+**Use case: List all expenses in a specific category**
+
+**MSS**
+1.  User requests to list all the expenses in a specific category
+2.  AddressBook shows a list of expenses in that category
+
+
 **Use case: Add a description to an expense**
 
 **MSS**
@@ -277,19 +293,34 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  User requests to add a description to a specific expense in the list
 4.  UniSave adds the description input by user to the specific expense
 
+
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The input category is invalid or does not exist.
 
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. UniSave shows an error message.
+    * 2a1. UniSave shows an error message.
 
       Use case resumes at step 2.
+      
+      
+**Use case: Set a budget**
+
+**MSS**
+1.  User requests to set a budget
+2.  Unisave sets a budget
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The input budget is invalid.
+
+    * 2a1. UniSave shows an error message.
+
+      Use case resumes at step 2.
+      
 
 **Use case: Delete the current description of an expense**
 
@@ -313,6 +344,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. UniSave shows an error message.
 
       Use case resumes at step 2.
+      
 
 **Use case: View category labels**
 
