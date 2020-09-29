@@ -242,7 +242,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: 
+**Value proposition**:
 1. Problem: spendings in different currency not tracked by many existing apps -> track spending in different currency
 2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
 
@@ -322,6 +322,63 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  UniSave shows a list of existing category labels
 
     Use case ends.
+
+**Use case: View expense**
+
+**MSS**
+
+1.  User requests to list all the expenses
+2.  UniSave shows a list of existing expenses
+
+    Use case ends.
+
+
+**Use case: Delete a current expense**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of existing expenses
+3.  User requests to delete a specific expenses in the list
+4.  UniSave deletes the requested expense chosen by the user.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. UniSave shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Add expense with its category**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of existing expenses
+3.  User requests to add a category to a specific expense in the list
+4.  UniSave adds the category input by user to the specific expense
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. UniSave shows an error message.
+
+    Use case resume at Step 2
+
 
 
 ### Non-Functional Requirements

@@ -107,7 +107,11 @@ View an expense in the expense list.
 
 Format: `view INDEX`
 
-View the expense at the specified INDEX. The index refers to the index number shown in the displayed expense list. 
+
+View the expense at the specified INDEX.
+
+The index refers to the index number shown in the displayed expense list.
+
 
 * The index must be a **positive integer** 1, 2, 3, …​
 
@@ -145,9 +149,9 @@ Set the budget for UniSave. Default zero budget. Pop up for input when first lau
 
 Format: `setBudget a/AMOUNT`
 
-Example: 
+Example:
 `setBudget a/1000`: Set the budget to 1000.
- 
+
 ### Show budget : `showBudget`
 
 Show the budget last set and the remaining budget in the UniSave.
