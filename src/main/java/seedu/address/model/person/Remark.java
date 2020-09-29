@@ -10,9 +10,8 @@ public class Remark {
     public final String value;
 
     /**
-     * Constructor for Remark.
+     * Constructor for Remark
      */
-
     public Remark(String remark) {
         requireNonNull(remark);
         value = remark;
