@@ -264,28 +264,46 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Set Budget**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
-
-    Use case ends.
+1.  User requests to set a new budget.
+2.  UniSave updates and displays the new budget.
+* Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. UniSave detects an error in the entered value.
+    * 1a1. UniSave requests for the correct value.
+    * 1a2. User enters a valid value.
+    * 1a3. UniSave updates and displays the new budget.
+    * Use case ends.
 
-  Use case ends.
+**Use case: View Total Budget**
 
-* 3a. The given index is invalid.
+**MSS**
 
-    * 3a1. AddressBook shows an error message.
+1.  User requests to view total budget.
+2.  UniSave displays the total budget.
+* Use case ends.
 
-      Use case resumes at step 2.
+**Extensions**
+
+* 2a. User does not have a budget set yet.
+    * 2a1. Unisave displays the default budget 0.
+    * 2a2. UniSave requests for setting a budget.
+    * 2a3. User sets a budget.
+    * 2a4. UniSave displays the amount set by the user.
+    * Use case ends.
+
+**Use case: View Remaining Budget**
+
+**MSS**
+
+1.  User requests to view remaining budget.
+2.  UniSave displays the remaining budget.
+* Use case ends.
 
 *{More to be added}*
 
