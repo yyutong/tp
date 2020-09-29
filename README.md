@@ -1,5 +1,5 @@
 
-##UniSave
+## UniSave
 
 [![CI Status](https://github.com/AY2021S1-CS2103T-W10-1/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-W10-1/tp/actions)
 
