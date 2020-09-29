@@ -263,7 +263,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
 | `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
 | `* *`    | user                                       | List all categories                | view all expenses                                                                       |
-| `* *`    | user with many persons in the address book | List all expenses in one category  | view all expenses spent under one category                                              |
+| `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
 
 *{More to be added}*
 
