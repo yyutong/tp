@@ -248,7 +248,6 @@ _{Explain here how the data archiving feature will be implemented}_
 1. Problem: spending in different currency not tracked by many existing apps -> track spending in different currency
 2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
 
-
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
