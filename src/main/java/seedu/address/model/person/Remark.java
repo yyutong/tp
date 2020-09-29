@@ -8,8 +8,14 @@ import static java.util.Objects.requireNonNull;
  */
 public class Remark {
     public final String value;
+<<<<<<< HEAD
     /**
      * Constructor for remark.
+=======
+
+    /**
+     * Constructor for Remark
+>>>>>>> branch-update-TargetUserProfile
      */
     public Remark(String remark) {
         requireNonNull(remark);
