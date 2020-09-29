@@ -252,14 +252,18 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                                  |
+| -------- | ------------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------- |
+| `* * *`  | user                                       | Add an expense with category       | keep track of my accounts                                                               |
+| `* * *`  | user                                       | View an expense                    | easily see the details such as dates, amount and descriptions of a specific expense     |
+| `* * *`  | user                                       | Delete an expense                  | delete the expense when I added wrongly                                                 |
+| `* * *`  | user                                       | List all expenses                  | view all expenses                                                                       |
+| `* * *`  | user                                       | Tag an expense                     | view the specific task I spend on                                                       |
+| `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
+| `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
+| `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
+| `* *`    | user                                       | List all categories                | view all expenses                                                                       |
+| `* *`    | user with many persons in the address book | List all expenses in one category  | view all expenses spent under one category                                              |
 
 *{More to be added}*
 
