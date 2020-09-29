@@ -247,6 +247,10 @@ _{Explain here how the data archiving feature will be implemented}_
 **Value proposition**:
 1. Problem: spending in different currency not tracked by many existing apps -> track spending in different currency
 2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
+3. Problem: student want to plan their finance, but writing them down is too troublesome -> this app is very convenient to use as users can record their finance any time they want
+4. Problem: Student spend at various fields, too messy to record -> the labels functions allow students to organize their spending
+5. Problem: Existing apps are complicated, not easy to use -> this app is simple to use and very user-friendly.
+
 
 ### User stories
 
