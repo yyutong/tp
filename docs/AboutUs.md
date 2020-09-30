@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Xie Yaoren
 
-<img src="images/BILLXYR.png" width="200px">
+<img src="images/billxyr.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/BILLXYR)]
@@ -22,7 +22,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Wayne Tan Kin Lun
 
-<img src="images/tanwayne890.png.jpg" width="200px">
+<img src="images/tanwayne890.png" width="200px">
 
 [[github](https://github.com/tanwayne890)]
 [[portfolio](team/johndoe.md)]
