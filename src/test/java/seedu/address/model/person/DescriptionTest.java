@@ -1,7 +1,5 @@
 package seedu.address.model.person;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -33,6 +31,7 @@ class DescriptionTest {
         // valid addresses
         assertTrue(Description.isValidDescription("Movie, together with popcorn"));
         assertTrue(Description.isValidDescription("-")); // one character
-        assertTrue(Description.isValidDescription("Went out with friends; Watched movie; Had ice cream and tea; Bugis junction")); // long description
+        assertTrue(Description.isValidDescription("Went out with friends; Watched movie; "
+                + "Had ice cream and tea; Bugis junction")); // long description
     }
 }
