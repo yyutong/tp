@@ -1,18 +1,26 @@
 package seedu.address.model.person;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.time.LocalDate;
 
 public class Date {
 
+    public static final String MESSAGE_CONSTRAINTS =
+            "Date should only contain numbers, and it should be at least 1 digits long";
+    public static final String VALIDATION_REGEX = "\\d{1,}";
     public final String date;
 
     /**
      * Constructor for Date.
-     * @param date The date of the expenses.
+     * @param inputDay Allow user to type in how many days ago he spent the money.
      */
-    public Date (String date) {
-        this.date = date;
+    public Date(String inputDay) {
+        checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
+        LocalDate localdate = LocalDate.now();
+        int convertedDay = Integer.parseInt(inputDay);
+        LocalDate dayBefore = localdate.minusDays(convertedDay);
+        this.date = dayBefore.toString();
     }
-
     /**
      * Constructor for Date.
      * when the date is not entered, localdate will be used for the date of expeense
@@ -23,13 +31,10 @@ public class Date {
     }
 
     /**
-     * Constructor for Date.
-     * @param howManyDayBefore Allow user to type in how many days ago he spent the money.
+     * Returns true if a given string is a valid Day.
      */
-    public Date (int howManyDayBefore) {
-        LocalDate localdate = LocalDate.now();
-        LocalDate dayBefore = localdate.minusDays(howManyDayBefore);
-        this.date = dayBefore.toString();
+    public static boolean isValidDate(String test) {
+        return test.matches(VALIDATION_REGEX);
     }
 
     @Override
