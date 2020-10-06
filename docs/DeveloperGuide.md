@@ -236,27 +236,37 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* university international students who want to plan their finance
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
+* spend various currency
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**:
 
+1. Problem: spending in different currency not tracked by many existing apps -> track spending in different currency
+2. Problem: student exceeds budget, spending without control -> help you manage expense reasonably, save some money at the end of the month
+3. Problem: student want to plan their finance, but writing them down is too troublesome -> this app is very convenient to use as users can record their finance any time they want
+4. Problem: Student spend at various fields, too messy to record -> the labels functions allow students to organize their spending
+5. Problem: Existing apps are complicated, not easy to use -> this app is simple to use and very user-friendly.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                                  |
+| -------- | ------------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------- |
+| `* * *`  | user                                       | Add an expense with category       | keep track of my accounts                                                               |
+| `* * *`  | user                                       | View an expense                    | easily see the details such as dates, amount and descriptions of a specific expense     |
+| `* * *`  | user                                       | Delete an expense                  | delete the expense when I added wrongly                                                 |
+| `* * *`  | user                                       | List all expenses                  | view all expenses                                                                       |
+| `* * *`  | user                                       | Tag an expense                     | view the specific task I spend on                                                       |
+| `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
+| `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
+| `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
+| `* *`    | user                                       | List all categories                | view all expenses                                                                       |
+| `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
 
 *{More to be added}*
 
@@ -264,14 +274,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add expense with its category**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list expenses
+2.  UniSave shows a list of existing expenses
+3.  User requests to add a category to a specific expense in the list
+4.  UniSave adds the category input by user to the specific expense
 
     Use case ends.
 
@@ -283,24 +293,172 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. UniSave shows an error message.
+
+    Use case resume at Step 2
+
+**Use case: View expense**
+
+**MSS**
+
+1.  User requests to list all the expenses
+2.  UniSave shows a list of existing expenses
+
+    Use case ends.
+    
+**Use case: Delete a current expense**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of existing expenses
+3.  User requests to delete a specific expenses in the list
+4.  UniSave deletes the requested expense chosen by the user.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. UniSave shows an error message.
+
+      Use case resumes at step 2.
+      
+**Use case: Add a description to an expense**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of expenses
+3.  User requests to add a description to a specific expense in the list
+4.  UniSave adds the description input by user to the specific expense
+
+**Use case: Delete the current description of an expense**
+
+**MSS**
+
+1.  User requests to list expenses
+2.  UniSave shows a list of expenses
+3.  User requests to delete the description of a specific expense in the list
+4.  UniSave deletes the description of expense chosen by the user.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. UniSave shows an error message.
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Extensions**
+
+* 2a. The input category is invalid or does not exist.
+
+    * 2a1. UniSave shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: List all expenses**
+
+**MSS**
+
+1.  User requests to list all the expenses
+2.  AddressBook shows a list of expenses
+
+    Use case ends.
+    
+**Use case: View category labels**
+
+**MSS**
+
+1.  User requests to list available category labels
+2.  UniSave shows a list of existing category labels
+
+    Use case ends.
+
+**Use case: List all expenses in a specific category**
+
+**MSS**
+1.  User requests to list all the expenses in a specific category
+2.  AddressBook shows a list of expenses in that category
+
+**Use case: Set Budget**
+
+**MSS**
+
+1.  User requests to set a new budget.
+2.  UniSave updates and displays the new budget.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. UniSave detects an error in the entered value.
+    * 1a1. UniSave requests for the correct value.
+    * 1a2. User enters a valid value.
+    * 1a3. UniSave updates and displays the new budget.
+    * Use case ends.
+
+**Use case: View Total Budget**
+
+**MSS**
+
+1.  User requests to view total budget.
+2.  UniSave displays the total budget.
+    
+    Use case ends.
+
+**Extensions**
+
+* 2a. User does not have a budget set yet.
+    * 2a1. Unisave displays the default budget 0.
+    * 2a2. UniSave requests for setting a budget.
+    * 2a3. User sets a budget.
+    * 2a4. UniSave displays the amount set by the user.
+    * Use case ends.
+
+**Use case: View Remaining Budget**
+
+**MSS**
+
+1.  User requests to view remaining budget.
+2.  UniSave displays the remaining budget.
+
+    Use case ends.
+
+**Use case: Alert**
+
+**MSS**
+
+1.  User's spending exceed budget.
+2.  UniSave shows alerts.
+
+    Use case ends.
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+1. Should be able to function well without connecting to internet.
+2. Should be accessed for a single user.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using a mouse.
+4. The product should be easy to use by a novice with no experience of using a finance tracking application.
+5. Documentation should be easy to read and understand with proper highlighting.
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Expense**: The amount of money spent by the user student in a certain event
+* **Budget**: The maximum amount of money that the user student can spend
 
 --------------------------------------------------------------------------------------------------------------------
 
