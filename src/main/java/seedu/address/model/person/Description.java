@@ -37,6 +37,12 @@ public class Description {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public boolean isEmpty(){
+        return value==null
+                ? true
+                : false;
+    }
+
     @Override
     public String toString() {
         return value;
