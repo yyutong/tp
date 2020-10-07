@@ -10,7 +10,7 @@ public class Amount {
         this.value = (double) 0;
     }
 
-    public Amount(double value) {
+    public Amount(Double value) {
         this.value = value;
     }
 
