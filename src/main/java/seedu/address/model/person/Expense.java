@@ -1,17 +1,8 @@
 package seedu.address.model.person;
 
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Remark;
-import seedu.address.model.tag.Tag;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 public class Expense {
 
@@ -96,7 +87,7 @@ public class Expense {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
 
-        if(description.isEmpty()){
+        if (description.isEmpty()) {
             builder.append(" Amount: ")
                     .append(this.getAmount())
                     .append(" Date: ")
@@ -104,7 +95,7 @@ public class Expense {
                     .append(" Category: ")
                     .append(this.getCategory());
             return builder.toString();
-        } else{
+        } else {
             builder.append(" Amount: ")
                     .append(this.getAmount())
                     .append(" Date: ")
