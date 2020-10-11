@@ -41,8 +41,8 @@ public class Expense {
 
 
     /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if both expenses of the same name have identical attributes.
+     * This defines a weaker notion of equality between two expenses.
      */
     public boolean isSameExpense(Expense otherExpense) {
         if (otherExpense == this) {
@@ -57,8 +57,8 @@ public class Expense {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both expenses have the same identity and data fields.
+     * This defines a stronger notion of equality between two expenses.
      */
     @Override
     public boolean equals(Object other) {
