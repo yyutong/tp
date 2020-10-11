@@ -1,8 +1,8 @@
 package seedu.address.testutil;
 
-import seedu.address.model.person.Date;
-import seedu.address.model.person.Category;
 import seedu.address.model.person.Amount;
+import seedu.address.model.person.Category;
+import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Expense;
 
