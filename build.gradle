@@ -41,17 +41,6 @@ task coverage(type: JacocoReport) {
 }
 
 dependencies {
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
-    implementation 'junit:junit:4.12'
     String jUnitVersion = '5.4.0'
     String javaFxVersion = '11'
 
