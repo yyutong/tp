@@ -16,8 +16,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 import seedu.address.model.*;
-import seedu.address.storage.Storage;
-import seedu.address.storage.UserPrefsStorage;
+import seedu.address.storage.*;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 
@@ -44,7 +43,10 @@ public class ExpenseMainApp extends Application {
         AppParameters appParameters = AppParameters.parse(getParameters());
         config = initConfig(appParameters.getConfigPath());
 
-        storage = null;
+        UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
+        UserPrefs userPrefs = initPrefs(userPrefsStorage);
+        ExpenseBookStorage expenseBookStorage = new JsonExpenseBookStorage(userPrefs.getAddressBookFilePath());
+        storage = new StorageManager(expenseBookStorage, userPrefsStorage);
 
         initLogging(config);
 
