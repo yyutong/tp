@@ -97,7 +97,7 @@ public class ExpenseModelManager implements Model {
 
     @Override
     public void deleteExpense(Expense targetExpense) {
-
+        expenseBook.removeExpense(targetExpense);
     }
     @Override
     public void addExpense(Expense expense) {
