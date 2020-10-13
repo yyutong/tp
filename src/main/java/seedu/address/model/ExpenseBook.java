@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.UniqueExpenseList;
 
@@ -91,6 +92,10 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         requireNonNull(editedExpense);
 
         expenses.setExpense(target, editedExpense);
+    }
+
+    public void viewExpense(Index index){
+        expenses.view(index);
     }
 
     /**

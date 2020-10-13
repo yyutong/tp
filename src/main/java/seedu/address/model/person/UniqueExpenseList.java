@@ -9,6 +9,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.exceptions.DuplicateExpenseException;
 import seedu.address.model.person.exceptions.ExpenseNotFoundException;
 
@@ -47,6 +48,16 @@ public class UniqueExpenseList implements Iterable<Expense> {
             throw new DuplicateExpenseException();
         }
         internalList.add(toAdd);
+    }
+
+    /**
+     * View the detals of a certain expense.
+     *
+     * @param index The index of the expense to be viewed in the ExpenseBook.
+     */
+    public void view(Index index){
+        requireAllNonNull(index);
+        Expense expense = internalList.get(index.getOneBased());
     }
 
     /**

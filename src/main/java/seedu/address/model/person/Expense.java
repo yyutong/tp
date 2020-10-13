@@ -90,20 +90,26 @@ public class Expense {
         if (description.isEmpty()) {
             builder.append(" Amount: ")
                     .append(this.getAmount())
+                    .append("/n")
                     .append(" Date: ")
                     .append(this.getDate())
+                    .append("/n")
                     .append(" Category: ")
-                    .append(this.getCategory());
+                    .append(this.getCategory())
+                    .append("/n");
             return builder.toString();
         } else {
             builder.append(" Amount: ")
                     .append(this.getAmount())
+                    .append("/n")
                     .append(" Date: ")
                     .append(this.getDate())
                     .append(" Category: ")
+                    .append("/n")
                     .append(this.getCategory())
                     .append(" Description: ")
-                    .append(this.getDescription());
+                    .append(this.getDescription())
+                    .append("/n");
             return builder.toString();
         }
     }

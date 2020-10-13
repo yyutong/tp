@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -78,6 +79,13 @@ public interface Model {
      */
     void setExpense(Expense target, Expense editedExpense);
 
+    /**
+     * View the detals of a certain expense.
+     *
+     * @param index The index of the expense to be viewed in the ExpenseBook.
+     */
+    void viewExpense(Index index);
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
@@ -89,4 +97,6 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+//    void updateFilteredExpenseList(Index index);
 }

@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -23,12 +24,16 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+
     private final FilteredList<Expense> filteredExpenses;
+    private final ExpenseBook expenseBook;
+
+    private Expense expenseToBeViewed;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyExpenseBook expenseBook, ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
@@ -36,13 +41,16 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
+        this.expenseBook = new ExpenseBook(expenseBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        filteredExpenses = new FilteredList<>(this.addressBook.getExpenseList());
+        filteredExpenses = new FilteredList<>(this.expenseBook.getExpenseList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new ExpenseBook(), new UserPrefs());
     }
+
+    //=========== ExpenseBook ==================================================================================
 
     //=========== UserPrefs ==================================================================================
 
@@ -121,6 +129,18 @@ public class ModelManager implements Model {
     public void deleteExpense(Expense targetExpense) {
         addressBook.removeExpense(targetExpense);
     }
+
+    /**
+     * View the detals of a certain expense.
+     *
+     * @param index The index of the expense to be viewed in the ExpenseBook.
+     */
+    @Override
+    public void viewExpense(Index index) {
+        requireAllNonNull(index);
+        expenseBook.viewExpense(index);
+    }
+
     /**
      * To add a person.
      */
