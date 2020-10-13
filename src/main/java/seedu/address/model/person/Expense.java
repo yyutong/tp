@@ -87,15 +87,15 @@ public class Expense {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
 
-//        if (description.isEmpty()) {
-//            builder.append(" Amount: ")
-//                    .append(this.getAmount())
-//                    .append(" Date: ")
-//                    .append(this.getDate())
-//                    .append(" Category: ")
-//                    .append(this.getCategory());
-//            return builder.toString();
-//        } else {
+        if (description.isEmpty()) {
+            builder.append(" Amount: ")
+                    .append(this.getAmount())
+                    .append(" Date: ")
+                    .append(this.getDate())
+                    .append(" Category: ")
+                    .append(this.getCategory());
+            return builder.toString();
+        } else {
             builder.append(" Amount: ")
                     .append(this.getAmount())
                     .append(" Date: ")
@@ -105,7 +105,7 @@ public class Expense {
                     .append(" Description: ")
                     .append(this.getDescription());
             return builder.toString();
-//        }
+        }
     }
 
 }

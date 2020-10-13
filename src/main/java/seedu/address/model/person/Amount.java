@@ -16,7 +16,7 @@ public class Amount {
 
     @Override
     public String toString() {
-        return String.format("Amount: S$ .2f", this.value);
+        return String.format("S$ %.2f", this.value);
     }
 
     @Override
