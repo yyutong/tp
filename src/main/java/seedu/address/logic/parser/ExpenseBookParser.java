@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DescriptionCommand;
+import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -38,8 +39,8 @@ public class ExpenseBookParser {
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
 
-//            case ExpenseListCommand.COMMAND_WORD:
-//                return new ExpenseListCommand();
+            case ListExpenseCommand.COMMAND_WORD:
+                return new ListExpenseCommand();
             case DescriptionCommand
                     .COMMAND_WORD:
                 return new DescriptionCommandParser().parse(arguments);
