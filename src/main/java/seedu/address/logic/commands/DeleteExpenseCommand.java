@@ -9,7 +9,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Expense;
-import seedu.address.model.person.Person;
 
 /**
  * Deletes a person identified using it's displayed index from the address book.
@@ -23,7 +22,7 @@ public class DeleteExpenseCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_Expense_SUCCESS = "Deleted expense: %1$s";
+    public static final String MESSAGE_DELETE_EXPENSE_SUCCESS = "Deleted expense: %1$s";
 
     private final Index targetIndex;
 
@@ -42,7 +41,7 @@ public class DeleteExpenseCommand extends Command {
 
         Expense expenseToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteExpense(expenseToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_Expense_SUCCESS, expenseToDelete));
+        return new CommandResult(String.format(MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete));
     }
 
     @Override
