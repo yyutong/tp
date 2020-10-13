@@ -305,7 +305,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  UniSave shows a list of existing expenses
 
     Use case ends.
-    
+
 **Use case: Delete a current expense**
 
 **MSS**
@@ -328,7 +328,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. UniSave shows an error message.
 
       Use case resumes at step 2.
-      
+
 **Use case: Add a description to an expense**
 
 **MSS**
@@ -377,7 +377,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  AddressBook shows a list of expenses
 
     Use case ends.
-    
+
 **Use case: View category labels**
 
 **MSS**
@@ -416,7 +416,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  User requests to view total budget.
 2.  UniSave displays the total budget.
-    
+
     Use case ends.
 
 **Extensions**

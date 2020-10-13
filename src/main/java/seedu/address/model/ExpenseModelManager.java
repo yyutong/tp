@@ -70,13 +70,13 @@ public class ExpenseModelManager implements Model {
 
     @Override
     public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+        return userPrefs.getExpenseBookFilePath();
     }
 
     @Override
     public void setAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+        userPrefs.setExpenseBookFilePath(addressBookFilePath);
     }
 
     @Override
@@ -145,7 +145,9 @@ public class ExpenseModelManager implements Model {
     }
     /**
      * Returns an updated Expense List
+     * @param predicate
      */
+    @Override
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {
         requireNonNull(predicate);
         filteredExpenses.setPredicate(predicate);
