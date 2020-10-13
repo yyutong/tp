@@ -25,15 +25,15 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
 
-    private final FilteredList<Expense> filteredExpenses;
-    private final ExpenseBook expenseBook;
+//    private final FilteredList<Expense> filteredExpenses;
+//    private final ExpenseBook expenseBook;
 
     private Expense expenseToBeViewed;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyExpenseBook expenseBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
@@ -41,13 +41,13 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        this.expenseBook = new ExpenseBook(expenseBook);
+//        this.expenseBook = new ExpenseBook(expenseBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        filteredExpenses = new FilteredList<>(this.expenseBook.getExpenseList());
+//        filteredExpenses = new FilteredList<>(this.expenseBook.getExpenseList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new ExpenseBook(), new UserPrefs());
+        this(new AddressBook(), new UserPrefs());
     }
 
     //=========== ExpenseBook ==================================================================================
