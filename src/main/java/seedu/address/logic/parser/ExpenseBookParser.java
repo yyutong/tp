@@ -41,13 +41,12 @@ public class ExpenseBookParser {
 
             case ListExpenseCommand.COMMAND_WORD:
                 return new ListExpenseCommand();
-            case DescriptionCommand
-                    .COMMAND_WORD:
+
+            case DescriptionCommand.COMMAND_WORD:
                 return new DescriptionCommandParser().parse(arguments);
 
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
-
 }
