@@ -25,7 +25,7 @@ public class DescriptionCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "d/ [DESCRIPTION]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "r/ Movie time.";
+            + "d/ Movie time.";
 
     public static final String MESSAGE_NOT_IMPLEMENTED_YET = "Description command not implemented yet";
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Description: %2$s";
@@ -58,7 +58,7 @@ public class DescriptionCommand extends Command {
                 description);
 
         model.setExpense(expenseToEdit, editedExpense);
-//        model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+        model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
 
         return new CommandResult(generateSuccessMessage(editedExpense));
     }

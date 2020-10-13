@@ -16,6 +16,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 import seedu.address.model.*;
+import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.*;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
@@ -27,7 +28,7 @@ public class ExpenseMainApp extends Application {
 
     public static final Version VERSION = new Version(0, 6, 0, true);
 
-    private static final Logger logger = LogsCenter.getLogger(ExpenseMainApp.class);
+    private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
     protected Ui ui;
     protected Logic logic;
@@ -37,7 +38,7 @@ public class ExpenseMainApp extends Application {
 
     @Override
     public void init() throws Exception {
-        logger.info("=============================[ Initializing UniSave ]===========================");
+        logger.info("=============================[ Initializing AddressBook ]===========================");
         super.init();
 
         AppParameters appParameters = AppParameters.parse(getParameters());
@@ -45,12 +46,12 @@ public class ExpenseMainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        ExpenseBookStorage expenseBookStorage = new JsonExpenseBookStorage(userPrefs.getAddressBookFilePath());
+        ExpenseBookStorage expenseBookStorage = new JsonExpenseBookStorage(userPrefs.getExpenseBookFilePath());
         storage = new StorageManager(expenseBookStorage, userPrefsStorage);
 
         initLogging(config);
 
-        model = initModelManager(storage, null);
+        model = initModelManager(storage, userPrefs);
 
         logic = new LogicManager(model, storage);
 
@@ -63,9 +64,22 @@ public class ExpenseMainApp extends Application {
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyExpenseBook> addressBookOptional;
+        Optional<ReadOnlyExpenseBook> expenseBookOptional;
         ReadOnlyExpenseBook initialData;
-        initialData = new ExpenseBook();
+        try {
+            expenseBookOptional = storage.readExpenseBook();
+            if (!expenseBookOptional.isPresent()) {
+                logger.info("Data file not found. Will be starting with a sample ExpenseBook");
+            }
+            initialData = expenseBookOptional.orElseGet(SampleDataUtil::getSampleExpenseBook);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
+            initialData = new ExpenseBook();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
+            initialData = new ExpenseBook();
+        }
+
         return new ExpenseModelManager(initialData, userPrefs);
     }
 
@@ -143,12 +157,17 @@ public class ExpenseMainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        logger.info("Starting UniSave" + ExpenseMainApp.VERSION);
+        logger.info("Starting AddressBook " + MainApp.VERSION);
         ui.start(primaryStage);
     }
 
     @Override
     public void stop() {
-        logger.info("============================ [ Stopping UniSave ] =============================");
+        logger.info("============================ [ Stopping Address Book ] =============================");
+        try {
+            storage.saveUserPrefs(model.getUserPrefs());
+        } catch (IOException e) {
+            logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
+        }
     }
 }
