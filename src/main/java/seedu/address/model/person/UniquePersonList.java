@@ -25,8 +25,11 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
 public class UniquePersonList implements Iterable<Person> {
 
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
+    private final ObservableList<Expense> internalListExpense = FXCollections.observableArrayList();
     private final ObservableList<Person> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
+    private final ObservableList<Expense> internalUnmodifiableListExpense =
+            FXCollections.unmodifiableObservableList(internalListExpense);
 
     /**
      * Returns true if the list contains an equivalent person as the given argument.
@@ -34,6 +37,14 @@ public class UniquePersonList implements Iterable<Person> {
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
         return internalList.stream().anyMatch(toCheck::isSamePerson);
+    }
+
+    /**
+     * Returns true if the list contains an expense as the given argument.
+     */
+    public boolean contain(Expense toCheckExpense) {
+        requireNonNull(toCheckExpense);
+        return internalListExpense.stream().anyMatch(toCheckExpense::isSameExpense);
     }
 
     /**
@@ -46,6 +57,18 @@ public class UniquePersonList implements Iterable<Person> {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
+    }
+
+    /**
+     * Adds expense to the list.
+     * The expense must not already exist in the list.
+     */
+    public void addExpense(Expense toAddExpense) {
+        requireNonNull(toAddExpense);
+        if (contain(toAddExpense)) {
+            throw new DuplicatePersonException();
+        }
+        internalListExpense.add(toAddExpense);
     }
 
     /**
@@ -79,6 +102,17 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Removes the equivalent person from the list.
+     * The person must exist in the list.
+     */
+    public void removeExpense(Expense toRemove) {
+        requireNonNull(toRemove);
+        if (!internalListExpense.remove(toRemove)) {
+            throw new PersonNotFoundException();
+        }
+    }
+
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
@@ -104,6 +138,13 @@ public class UniquePersonList implements Iterable<Person> {
         return internalUnmodifiableList;
     }
 
+    /**
+     * Returns the backing list as an unmodifiable {@code ObservableList}.
+     */
+    public ObservableList<Expense> asUnmodifiableObservableListExpense() {
+        return internalUnmodifiableListExpense;
+    }
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();
@@ -113,7 +154,7 @@ public class UniquePersonList implements Iterable<Person> {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof UniquePersonList // instanceof handles nulls
-                        && internalList.equals(((UniquePersonList) other).internalList));
+                && internalList.equals(((UniquePersonList) other).internalList));
     }
 
     @Override
