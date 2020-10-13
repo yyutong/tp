@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DescriptionCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ShowBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -43,6 +44,12 @@ public class ExpenseBookParser {
             case DescriptionCommand
                     .COMMAND_WORD:
                 return new DescriptionCommandParser().parse(arguments);
+
+            case ShowBudgetCommand
+                    .COMMAND_WORD:
+                return new ShowBudgetCommandParser().parse(arguments);
+
+
 
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
