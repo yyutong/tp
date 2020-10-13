@@ -17,31 +17,30 @@ import seedu.address.model.person.Person;
 /**
  * Represents the in-memory model of the address book data.
  */
-public class ModelManager implements Model {
+public class ExpenseModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final ExpenseBook expenseBook;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
     private final FilteredList<Expense> filteredExpenses;
+
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ExpenseModelManager(ReadOnlyExpenseBook expenseBook, ReadOnlyUserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, userPrefs);
+        requireAllNonNull(expenseBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with expense book: " + expenseBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.expenseBook = new ExpenseBook(expenseBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        filteredExpenses = new FilteredList<>(this.addressBook.getExpenseList());
+        filteredExpenses = new FilteredList<>(this.expenseBook.getExpenseList());
     }
 
-    public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+    public ExpenseModelManager() {
+        this(new ExpenseBook(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -50,11 +49,6 @@ public class ModelManager implements Model {
     public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
         requireNonNull(userPrefs);
         this.userPrefs.resetData(userPrefs);
-    }
-
-    @Override
-    public void setExpense(Expense target, Expense editedExpense) {
-        requireAllNonNull(target, editedExpense);
     }
 
     @Override
@@ -86,73 +80,47 @@ public class ModelManager implements Model {
 
     @Override
     public void setExpenseBook(ReadOnlyExpenseBook expenseBook) {
+        this.expenseBook.resetData(expenseBook);
     }
 
     @Override
     public ReadOnlyExpenseBook getExpenseBook() {
-        return new ExpenseBook();
+        return expenseBook;
     }
 
     //=========== AddressBook ================================================================================
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
-    }
-    public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
-    }
-    /**
-     * To check whether the person exists
-     */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return addressBook.hasPerson(person);
-    }
 
     @Override
     public boolean hasExpense(Expense expense) {
-        requireNonNull(expense);
-        return addressBook.hasExpense(expense);
-    }
-    public void deletePerson(Person target) {
-        addressBook.removePerson(target);
+        return false;
     }
 
     @Override
     public void deleteExpense(Expense targetExpense) {
-        addressBook.removeExpense(targetExpense);
-    }
-    /**
-     * To add a person.
-     */
-    public void addPerson(Person person) {
-        addressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    }
 
+    }
     @Override
     public void addExpense(Expense expense) {
-        addressBook.addExpense(expense);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    }
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
 
-        addressBook.setPerson(target, editedPerson);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
     @Override
     public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+        return null;
     }
 
+
+    //edited
+    @Override
+    public void setExpense(Expense target, Expense editedExpense) {
+        requireAllNonNull(target, editedExpense);
+        expenseBook.setExpense(target, editedExpense);
+    }
+
+    //=========== Filtered Expense List Accessors =============================================================
+
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Expense} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
@@ -162,9 +130,17 @@ public class ModelManager implements Model {
 
     @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
-        requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+
     }
+    /**
+     * Returns an updated Expense List
+     */
+    public void updateFilteredExpenseList(Predicate<Expense> predicate) {
+        requireNonNull(predicate);
+        filteredExpenses.setPredicate(predicate);
+    }
+
+    // end of edit
 
     @Override
     public boolean equals(Object obj) {
@@ -174,15 +150,15 @@ public class ModelManager implements Model {
         }
 
         // instanceof handles nulls
-        if (!(obj instanceof ModelManager)) {
+        if (!(obj instanceof ExpenseModelManager)) {
             return false;
         }
 
         // state check
-        ModelManager other = (ModelManager) obj;
-        return addressBook.equals(other.addressBook)
+        ExpenseModelManager other = (ExpenseModelManager) obj;
+        return expenseBook.equals(other.expenseBook)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredExpenses.equals(other.filteredExpenses);
     }
 
 }
