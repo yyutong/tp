@@ -174,4 +174,10 @@ public class ExpenseModelManager implements Model {
         return expenseBook.getRemainingBudget();
     }
 
+    @Override
+    public void setExpenseBookBudget(double budget) {
+        expenseBook.setBudget(budget);
+    }
+
+
 }

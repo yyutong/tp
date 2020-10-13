@@ -100,4 +100,6 @@ public interface Model {
     double getExpenseBookBudget();
 
     double getExpenseBookRemaining();
+
+    void setExpenseBookBudget(double budget);
 }

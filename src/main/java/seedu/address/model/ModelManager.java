@@ -186,6 +186,12 @@ public class ModelManager implements Model {
         return 0;
     }
 
+    //dummy
+    @Override
+    public void setExpenseBookBudget(double budget) {
+
+    }
+
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object
