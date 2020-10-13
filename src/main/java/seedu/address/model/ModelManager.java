@@ -75,13 +75,13 @@ public class ModelManager implements Model {
 
     @Override
     public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+        return userPrefs.getExpenseBookFilePath();
     }
 
     @Override
     public void setAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+        userPrefs.setExpenseBookFilePath(addressBookFilePath);
     }
 
     @Override
@@ -164,6 +164,14 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    /**
+     * Returns an updated Expense List
+     * @param predicate
+     */
+    @Override
+    public void updateFilteredExpenseList(Predicate<Expense> predicate) {
     }
 
     @Override
