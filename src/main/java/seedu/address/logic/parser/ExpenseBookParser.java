@@ -6,9 +6,9 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DescriptionCommand;
-import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -40,10 +40,8 @@ public class ExpenseBookParser {
         switch (commandWord) {
             case DescriptionCommand.COMMAND_WORD:
                 return new DescriptionCommandParser().parse(arguments);
-
             case AddExpenseCommand.COMMAND_WORD:
                 return new AddExpenseCommandParser().parse(arguments);
-
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
