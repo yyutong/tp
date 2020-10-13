@@ -1,0 +1,13 @@
+{
+  "expenses": [ {
+    "amount": 11,
+    "date": "2020-10-01",
+    "category": "entertainment",
+    "description": "movie time"
+  }, {
+    "amount": 26,
+    "date": "2020-10-01",
+    "category": "dinner",
+    "description": "at vivo city"
+  } ]
+}

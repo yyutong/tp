@@ -38,8 +38,8 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane commandBoxPlaceholder;
 
-//    @FXML
-//    private MenuItem helpMenuItem;
+    @FXML
+    private MenuItem helpMenuItem;
 
     @FXML
     private StackPane expenseListPanelPlaceholder;
@@ -111,7 +111,11 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         expenseListPanel = new ExpenseListPanel(logic.getFilteredExpenseList());
-        expenseListPanelPlaceholder.getChildren().add(expenseListPanel.getRoot());
+        expenseListPanelPlaceholder
+                .getChildren()
+                .add(
+                        expenseListPanel
+                                .getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
