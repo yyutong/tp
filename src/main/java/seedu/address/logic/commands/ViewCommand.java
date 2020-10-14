@@ -37,9 +37,9 @@ public class ViewCommand extends Command {
         }
 
         Expense expenseToView = lastShownList.get(targetIndex.getZeroBased());
-        String message = targetIndex.getOneBased() + "\n" + expenseToView.toString();
-//        model.viewExpense(targetIndex);
-        return new CommandResult(String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, message));
+        String prefix = String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, targetIndex.getZeroBased());
+        String message = prefix + "\n" + expenseToView.toString();
+        return new CommandResult(message);
     }
 
     @Override
