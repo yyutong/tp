@@ -174,6 +174,24 @@ public class ModelManager implements Model {
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {
     }
 
+    //dummy
+    @Override
+    public double getExpenseBookBudget() {
+        return 0;
+    }
+
+    //dummy
+    @Override
+    public double getExpenseBookRemaining() {
+        return 0;
+    }
+
+    //dummy
+    @Override
+    public void setExpenseBookBudget(double budget) {
+
+    }
+
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object

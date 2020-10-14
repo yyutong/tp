@@ -163,4 +163,21 @@ public class ExpenseModelManager implements Model {
                 && filteredExpenses.equals(other.filteredExpenses);
     }
 
+    //yuanxing edited
+    @Override
+    public double getExpenseBookBudget() {
+        return expenseBook.getBudget();
+    }
+
+    @Override
+    public double getExpenseBookRemaining() {
+        return expenseBook.getRemainingBudget();
+    }
+
+    @Override
+    public void setExpenseBookBudget(double budget) {
+        expenseBook.setBudget(budget);
+    }
+
+
 }
