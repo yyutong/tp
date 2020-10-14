@@ -103,6 +103,7 @@ public class Expense {
                     .append("\n")
                     .append(" Date: ")
                     .append(this.getDate())
+                    .append("\n")
                     .append(" Category: ")
                     .append(this.getCategory())
                     .append("\n")

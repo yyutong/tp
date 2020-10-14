@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,6 +13,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.Category;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -24,6 +26,7 @@ public class ExpenseModelManager implements Model {
     private final ExpenseBook expenseBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Expense> filteredExpenses;
+
 
 
     /**
@@ -120,7 +123,6 @@ public class ExpenseModelManager implements Model {
         expenseBook.setExpense(target, editedExpense);
     }
 
-
     //=========== Filtered Expense List Accessors =============================================================
 
     /**
@@ -181,6 +183,11 @@ public class ExpenseModelManager implements Model {
     @Override
     public void setExpenseBookBudget(double budget) {
         expenseBook.setBudget(budget);
+    }
+
+    @Override
+    public List<Category> getCategoryLabels() {
+        return expenseBook.getCategoryLabels();
     }
 
 

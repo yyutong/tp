@@ -4,6 +4,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -163,5 +164,17 @@ public class UniqueExpenseList implements Iterable<Expense> {
             used += internalList.get(i).getAmount().getValue();
         }
         return this.budget - used;
+    }
+
+    public List<Category> getCategoryLabels(){
+        List<Category> categories = new ArrayList<>();
+        for(int i = 0; i < internalList.size(); i++) {
+            Expense current = internalList.get(i);
+            Category currentCategory = current.getCategory();
+            if(!categories.contains(currentCategory)){
+                categories.add(currentCategory);
+            }
+        }
+        return categories;
     }
 }

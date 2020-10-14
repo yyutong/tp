@@ -37,7 +37,7 @@ public class ViewCommand extends Command {
         }
 
         Expense expenseToView = lastShownList.get(targetIndex.getZeroBased());
-        String prefix = String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, targetIndex.getZeroBased());
+        String prefix = String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, targetIndex.getOneBased());
         String message = prefix + "\n" + expenseToView.toString();
         return new CommandResult(message);
     }
