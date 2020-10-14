@@ -168,7 +168,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
 
     public List<Category> getCategoryLabels(){
         List<Category> categories = new ArrayList<>();
-        for(int i = 0; i < internalList.size() -1; i++) {
+        for(int i = 0; i < internalList.size(); i++) {
             Expense current = internalList.get(i);
             Category currentCategory = current.getCategory();
             if(!categories.contains(currentCategory)){
