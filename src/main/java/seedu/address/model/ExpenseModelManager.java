@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -117,6 +118,16 @@ public class ExpenseModelManager implements Model {
     public void setExpense(Expense target, Expense editedExpense) {
         requireAllNonNull(target, editedExpense);
         expenseBook.setExpense(target, editedExpense);
+    }
+
+    /**
+     * View the detals of a certain expense.
+     *
+     * @param index The index of the expense to be viewed in the ExpenseBook.
+     */
+    @Override
+    public void viewExpense(Index index) {
+        expenseBook.viewExpense(index);
     }
 
     //=========== Filtered Expense List Accessors =============================================================

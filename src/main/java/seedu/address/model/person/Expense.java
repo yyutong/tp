@@ -86,7 +86,6 @@ public class Expense {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-
         if (description.isEmpty()) {
             builder.append(" Amount: ")
                     .append(this.getAmount())
@@ -98,14 +97,16 @@ public class Expense {
         } else {
             builder.append(" Amount: ")
                     .append(this.getAmount())
+                    .append("/n")
                     .append(" Date: ")
                     .append(this.getDate())
                     .append(" Category: ")
+                    .append("/n")
                     .append(this.getCategory())
                     .append(" Description: ")
-                    .append(this.getDescription());
+                    .append(this.getDescription())
+                    .append("/n");
             return builder.toString();
         }
     }
-
 }
