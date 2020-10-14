@@ -93,7 +93,6 @@ public interface Model {
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
-     * @param predicate
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
 

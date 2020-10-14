@@ -1,11 +1,9 @@
 package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents an expense's description in the finance manager.
- * Guarantees: immutable;
  */
 public class Description {
 

@@ -8,8 +8,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Expense;
 import seedu.address.model.person.Description;
+import seedu.address.model.person.Expense;
 
 
 /**
@@ -54,7 +54,8 @@ public class DescriptionCommand extends Command {
         }
 
         Expense expenseToEdit = lastShownList.get(index.getZeroBased());
-        Expense editedExpense = new Expense(expenseToEdit.getAmount(), expenseToEdit.getDate(), expenseToEdit.getCategory(),
+        Expense editedExpense = new Expense(
+                expenseToEdit.getAmount(), expenseToEdit.getDate(), expenseToEdit.getCategory(),
                 description);
 
         model.setExpense(expenseToEdit, editedExpense);
@@ -86,7 +87,8 @@ public class DescriptionCommand extends Command {
      * {@code expenseToEdit}.
      */
     private String generateSuccessMessage(Expense expenseToEdit) {
-        String message = !description.value.isEmpty() ? MESSAGE_ADD_DESCRIPTION_SUCCESS : MESSAGE_DELETE_DESCRIPTION_SUCCESS;
+        String message = !description.value.isEmpty() ? MESSAGE_ADD_DESCRIPTION_SUCCESS
+                                                      : MESSAGE_DELETE_DESCRIPTION_SUCCESS;
         return String.format(message, expenseToEdit);
     }
 }
