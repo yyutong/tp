@@ -2,7 +2,11 @@ package seedu.address.model.util;
 
 import seedu.address.model.ExpenseBook;
 import seedu.address.model.ReadOnlyExpenseBook;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Amount;
+import seedu.address.model.person.Category;
+import seedu.address.model.person.Date;
+import seedu.address.model.person.Description;
+import seedu.address.model.person.Expense;
 
 
 /**

@@ -130,4 +130,19 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     public int hashCode() {
         return expenses.hashCode();
     }
+
+    //yuanxing edited
+    public void setBudget(double budget) {
+        expenses.setBudget(budget);
+    }
+
+    public double getBudget() {
+        return expenses.getBudget();
+    }
+
+    public double getRemainingBudget() {
+        return expenses.getRemainingBudget();
+    }
+    //end of yuanxing edits
+
 }

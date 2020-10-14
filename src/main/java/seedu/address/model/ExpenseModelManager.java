@@ -93,16 +93,18 @@ public class ExpenseModelManager implements Model {
 
     @Override
     public boolean hasExpense(Expense expense) {
-        return false;
+        requireNonNull(expense);
+        return expenseBook.hasExpense(expense);
     }
 
     @Override
     public void deleteExpense(Expense targetExpense) {
-
+        expenseBook.removeExpense(targetExpense);
     }
     @Override
     public void addExpense(Expense expense) {
-
+        expenseBook.addExpense(expense);
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 
     @Override
@@ -173,5 +175,22 @@ public class ExpenseModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredExpenses.equals(other.filteredExpenses);
     }
+
+    //yuanxing edited
+    @Override
+    public double getExpenseBookBudget() {
+        return expenseBook.getBudget();
+    }
+
+    @Override
+    public double getExpenseBookRemaining() {
+        return expenseBook.getRemainingBudget();
+    }
+
+    @Override
+    public void setExpenseBookBudget(double budget) {
+        expenseBook.setBudget(budget);
+    }
+
 
 }

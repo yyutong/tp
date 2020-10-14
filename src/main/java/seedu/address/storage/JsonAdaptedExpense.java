@@ -1,16 +1,18 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Amount;
+import seedu.address.model.person.Category;
+import seedu.address.model.person.Date;
+import seedu.address.model.person.Description;
+import seedu.address.model.person.Expense;
+import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 
@@ -60,29 +62,22 @@ class JsonAdaptedExpense {
         if (amount == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Amount.class.getSimpleName()));
         }
-//        if (!Amount.isValidAmount(amount)) {
-//            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
-//        }
         final Amount modelAmount = new Amount(Double.valueOf(amount));
 
         if (date == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName()));
         }
-//        if (!Phone.isValidPhone(phone)) {
-//            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
-//        }
         final Date modelDate = new Date(date);
 
         if (category == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Category.class.getSimpleName()));
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, Category.class.getSimpleName()));
         }
-//        if (!Email.isValidEmail(email)) {
-//            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
-//        }
         final Category modelCategory = new Category(category);
 
         if (description == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
         final Description modelDescription = new Description(description);
         return new Expense(modelAmount, modelDate, modelCategory, modelDescription);
