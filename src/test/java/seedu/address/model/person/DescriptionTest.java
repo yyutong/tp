@@ -19,19 +19,19 @@ class DescriptionTest {
         assertThrows(IllegalArgumentException.class, () -> new Description(invalidDescription));
     }
 
-    @Test
-    public void isValidDescription() {
-        // null address
-        assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
-
-        // invalid addresses
-        assertFalse(Description.isValidDescription("")); // empty string
-        assertFalse(Description.isValidDescription(" ")); // spaces only
-
-        // valid addresses
-        assertTrue(Description.isValidDescription("Movie, together with popcorn"));
-        assertTrue(Description.isValidDescription("-")); // one character
-        assertTrue(Description.isValidDescription("Went out with friends; Watched movie; "
-                + "Had ice cream and tea; Bugis junction")); // long description
-    }
+//    @Test
+//    public void isValidDescription() {
+//        // null address
+//        assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
+//
+//        // invalid addresses
+//        assertFalse(Description.isValidDescription("")); // empty string
+//        assertFalse(Description.isValidDescription(" ")); // spaces only
+//
+//        // valid addresses
+//        assertTrue(Description.isValidDescription("Movie, together with popcorn"));
+//        assertTrue(Description.isValidDescription("-")); // one character
+//        assertTrue(Description.isValidDescription("Went out with friends; Watched movie; "
+//                + "Had ice cream and tea; Bugis junction")); // long description
+//    }
 }
