@@ -45,16 +45,16 @@ public class ExpenseBookParser {
         switch (commandWord) {
         case DescriptionCommand.COMMAND_WORD:
             return new DescriptionCommandParser().parse(arguments);
+
         case AddExpenseCommand.COMMAND_WORD:
             return new AddExpenseCommandParser().parse(arguments);
+
         case DeleteExpenseCommand.COMMAND_WORD:
             return new DeleteExpenseCommandParser().parse(arguments);
 
         case ListExpenseCommand.COMMAND_WORD:
             return new ListExpenseCommand();
 
-        case DescriptionCommand.COMMAND_WORD:
-            return new DescriptionCommandParser().parse(arguments);
         case DeleteDescriptionCommand.COMMAND_WORD:
             return new DeleteDescriptionCommandParser().parse(arguments);
 
@@ -63,8 +63,9 @@ public class ExpenseBookParser {
 
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
+
         default:
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 }
