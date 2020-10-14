@@ -69,7 +69,8 @@ public class ExpenseMainApp extends Application {
     }
 
     /**
-     * Returns a {@code ExpenseModelManager} with the data from {@code storage}'s expense book and {@code userPrefs}. <br>
+     * Returns a {@code ExpenseModelManager} with the data from {@code storage}'s expense book
+     * and {@code userPrefs}. <br>
      * The data from the sample expense book will be used instead if {@code storage}'s expense book is not found,
      * or an empty expense book will be used instead if errors occur when reading {@code storage}'s expense book.
      */
