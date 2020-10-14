@@ -116,6 +116,12 @@ The index refers to the index number shown in the displayed expense list.
 Examples:
 * `view 1` views the `amount, category, date and description` of the 1st expense displayed in the list.
 
+### View Category Labels : `viewCategoryLables`
+
+Show all the category lables used in the UniSave.
+
+Format: `showCategoryLables`
+
 ### Add a description to an expense : `addDes`
 
 Add a description to an existing expense in the finance book.
