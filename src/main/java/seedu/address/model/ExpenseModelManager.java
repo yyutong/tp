@@ -125,7 +125,6 @@ public class ExpenseModelManager implements Model {
      *
      * @param index The index of the expense to be viewed in the ExpenseBook.
      */
-    @Override
     public void viewExpense(Index index) {
         expenseBook.viewExpense(index);
     }

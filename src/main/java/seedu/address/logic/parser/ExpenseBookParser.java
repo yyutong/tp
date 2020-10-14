@@ -12,6 +12,7 @@ import seedu.address.logic.commands.DeleteExpenseCommand;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DescriptionCommand;
 import seedu.address.logic.commands.ListExpenseCommand;
+import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
@@ -52,18 +53,22 @@ public class ExpenseBookParser {
 
         case DeleteExpenseCommand.COMMAND_WORD:
             return new DeleteExpenseCommandParser().parse(arguments);
+
         case ListExpenseCommand.COMMAND_WORD:
             return new ListExpenseCommand();
 
+        case ListExpenseByCategoryCommand.COMMAND_WORD:
+            return new ListExpenseByCategoryCommandParser().parse(arguments);
+
         case ViewCommand.COMMAND_WORD:
             return new ViewCommandParser().parse(arguments);
-            
+
         case DeleteDescriptionCommand.COMMAND_WORD:
             return new DeleteDescriptionCommandParser().parse(arguments);
-            
+
         case ShowBudgetCommand.COMMAND_WORD:
             return new ShowBudgetCommandParser().parse(arguments);
-            
+
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
 
