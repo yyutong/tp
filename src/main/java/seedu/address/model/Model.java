@@ -96,4 +96,10 @@ public interface Model {
      * @param predicate
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
+
+    double getExpenseBookBudget();
+
+    double getExpenseBookRemaining();
+
+    void setExpenseBookBudget(double budget);
 }
