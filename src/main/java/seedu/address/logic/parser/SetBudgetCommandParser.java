@@ -1,7 +1,5 @@
 package seedu.address.logic.parser;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -13,6 +11,10 @@ public class SetBudgetCommandParser implements Parser<SetBudgetCommand> {
         try {
             //needs oop later
             double budget = Double.parseDouble(userInput.split(" ")[1]);
+            if (budget <= 0) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL));
+            }
             return new SetBudgetCommand(budget);
         } catch (Exception pe) {
             throw new ParseException(
