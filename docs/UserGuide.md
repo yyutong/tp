@@ -145,10 +145,10 @@ Examples:
 
 Set the budget for UniSave. Default zero budget. Pop up for input when first launched.
 
-Format: `setBudget a/AMOUNT`
+Format: `setBudget AMOUNT`
 
 Example:
-`setBudget a/1000`: Set the budget to 1000.
+`setBudget 1000`: Set the budget to 1000.
 
 ### Show budget : `showBudget`
 

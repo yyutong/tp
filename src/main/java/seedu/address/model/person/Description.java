@@ -27,6 +27,10 @@ public class Description {
         value = description;
     }
 
+    public boolean isEmpty() {
+        return value.equals("");
+    }
+
 
     @Override
     public String toString() {

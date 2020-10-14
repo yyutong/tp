@@ -9,8 +9,13 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteExpenseCommand;
+import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DescriptionCommand;
+import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.SetBudgetCommand;
+import seedu.address.logic.commands.ShowBudgetCommand;
+
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -44,9 +49,22 @@ public class ExpenseBookParser {
             return new AddExpenseCommandParser().parse(arguments);
         case DeleteExpenseCommand.COMMAND_WORD:
             return new DeleteExpenseCommandParser().parse(arguments);
+
+        case ListExpenseCommand.COMMAND_WORD:
+            return new ListExpenseCommand();
+
+        case DescriptionCommand.COMMAND_WORD:
+            return new DescriptionCommandParser().parse(arguments);
+        case DeleteDescriptionCommand.COMMAND_WORD:
+            return new DeleteDescriptionCommandParser().parse(arguments);
+
+        case ShowBudgetCommand.COMMAND_WORD:
+            return new ShowBudgetCommandParser().parse(arguments);
+
+        case SetBudgetCommand.COMMAND_WORD:
+            return new SetBudgetCommandParser().parse(arguments);
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
-
 }

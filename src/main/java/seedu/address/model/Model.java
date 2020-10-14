@@ -95,4 +95,10 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
+
+    double getExpenseBookBudget();
+
+    double getExpenseBookRemaining();
+
+    void setExpenseBookBudget(double budget);
 }
