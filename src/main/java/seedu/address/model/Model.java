@@ -98,4 +98,6 @@ public interface Model {
      * @param predicate
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
+
+    void showCategoryLabels();
 }

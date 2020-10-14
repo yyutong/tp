@@ -153,6 +153,11 @@ public class ExpenseModelManager implements Model {
         filteredExpenses.setPredicate(predicate);
     }
 
+    @Override
+    public void showCategoryLabels() {
+
+    }
+
     // end of edit
 
     @Override
