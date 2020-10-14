@@ -10,6 +10,9 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DescriptionCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.SetBudgetCommand;
+import seedu.address.logic.commands.ShowBudgetCommand;
+
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -47,6 +50,14 @@ public class ExpenseBookParser {
             case DeleteDescriptionCommand
                     .COMMAND_WORD:
                 return new DeleteDescriptionCommandParser().parse(arguments);
+
+            case ShowBudgetCommand
+                    .COMMAND_WORD:
+                return new ShowBudgetCommandParser().parse(arguments);
+
+            case SetBudgetCommand
+                    .COMMAND_WORD:
+                return new SetBudgetCommandParser().parse(arguments);
 
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

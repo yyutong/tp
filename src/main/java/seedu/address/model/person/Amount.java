@@ -3,13 +3,6 @@ package seedu.address.model.person;
 public class Amount {
     public final Double value;
 
-    /**
-     * Constructor for default amount with value 0.
-     */
-    public Amount() {
-        this.value = (double) 0;
-    }
-
     public Amount(Double value) {
         this.value = value;
     }
@@ -29,6 +22,10 @@ public class Amount {
     @Override
     public int hashCode() {
         return value.hashCode();
+    }
+
+    public double getValue() {
+        return this.value;
     }
 
 }
