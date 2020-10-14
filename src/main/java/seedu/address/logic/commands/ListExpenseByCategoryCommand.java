@@ -5,7 +5,6 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.core.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.person.CategoryContainsKeywordsPredicate;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 /**
  * Finds and lists all expenses in expense book whose category contains any of the argument keywords.
