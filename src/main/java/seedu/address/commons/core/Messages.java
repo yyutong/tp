@@ -5,7 +5,7 @@ package seedu.address.commons.core;
  */
 public class Messages {
     public static final String MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX = "The expense index provided is invalid";
-
+    public static final String MESSAGE_EXPENSES_LISTED_OVERVIEW = "%1$d expenses listed!";
 
 
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
