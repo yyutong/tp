@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -23,7 +24,11 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+
     private final FilteredList<Expense> filteredExpenses;
+//    private final ExpenseBook expenseBook;
+
+    private Expense expenseToBeViewed;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -36,6 +41,7 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
+//        this.expenseBook = new ExpenseBook(expenseBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         filteredExpenses = new FilteredList<>(this.addressBook.getExpenseList());
     }
@@ -43,6 +49,8 @@ public class ModelManager implements Model {
     public ModelManager() {
         this(new AddressBook(), new UserPrefs());
     }
+
+    //=========== ExpenseBook ==================================================================================
 
     //=========== UserPrefs ==================================================================================
 
@@ -121,6 +129,7 @@ public class ModelManager implements Model {
     public void deleteExpense(Expense targetExpense) {
         addressBook.removeExpense(targetExpense);
     }
+
     /**
      * To add a person.
      */
