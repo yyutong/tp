@@ -15,10 +15,10 @@ public class ShowBudgetCommand extends Command {
         double budget = model.getExpenseBookBudget();
         if (model.getExpenseBookBudget() <= 0) {
             String setNew = String.format(MESSAGE_SETNEW, budget);
-            return new CommandResult(MESSAGE_SETNEW);
+            return new CommandResult(setNew);
         } else {
             String budgetMsg = String.format(MESSAGE_BUDGET, budget);
-            String remainingMsg = String.format(MESSAGE_REMAINING, budget);
+            String remainingMsg = String.format(MESSAGE_REMAINING, model.getExpenseBookRemaining());
             return new CommandResult(budgetMsg + remainingMsg);
         }
     }
