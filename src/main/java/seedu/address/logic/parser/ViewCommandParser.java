@@ -4,12 +4,10 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static java.util.Objects.requireNonNull;
 import seedu.address.commons.exceptions.IllegalValueException;
 
-import java.util.Arrays;
-
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 public class ViewCommandParser {
 
@@ -22,13 +20,9 @@ public class ViewCommandParser {
 //        String trimmedArgs = args.trim();
         requireNonNull(args);
         try{
-            int index = Integer.parseInt(args);
-            if (index<=0) {
-                throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE));
-            }
-            return new ViewCommand(Index.fromOneBased(index));
-        } catch(IllegalValueException e) {
+            Index index = ParserUtil.parseIndex(args);
+            return new ViewCommand(index);
+        } catch(ParseException e) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ViewCommand.MESSAGE_USAGE));
         }

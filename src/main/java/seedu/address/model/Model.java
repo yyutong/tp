@@ -79,13 +79,6 @@ public interface Model {
      */
     void setExpense(Expense target, Expense editedExpense);
 
-    /**
-     * View the detals of a certain expense.
-     *
-     * @param index The index of the expense to be viewed in the ExpenseBook.
-     */
-    void viewExpense(Index index);
-
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 

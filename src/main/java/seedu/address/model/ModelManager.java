@@ -25,7 +25,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
 
-//    private final FilteredList<Expense> filteredExpenses;
+    private final FilteredList<Expense> filteredExpenses;
 //    private final ExpenseBook expenseBook;
 
     private Expense expenseToBeViewed;
@@ -43,7 +43,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
 //        this.expenseBook = new ExpenseBook(expenseBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-//        filteredExpenses = new FilteredList<>(this.expenseBook.getExpenseList());
+        filteredExpenses = new FilteredList<>(this.addressBook.getExpenseList());
     }
 
     public ModelManager() {
@@ -128,17 +128,6 @@ public class ModelManager implements Model {
     @Override
     public void deleteExpense(Expense targetExpense) {
         addressBook.removeExpense(targetExpense);
-    }
-
-    /**
-     * View the detals of a certain expense.
-     *
-     * @param index The index of the expense to be viewed in the ExpenseBook.
-     */
-    @Override
-    public void viewExpense(Index index) {
-        requireAllNonNull(index);
-        expenseBook.viewExpense(index);
     }
 
     /**
