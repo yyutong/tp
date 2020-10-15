@@ -193,6 +193,7 @@ Action | Format, Examples
 **List** | `list`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
+**View existing categori labels** | `viewCategory`
 **Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
 **Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`

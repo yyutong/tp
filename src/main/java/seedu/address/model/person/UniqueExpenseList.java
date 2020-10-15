@@ -160,7 +160,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
 
     public double getRemainingBudget() {
         double used = 0;
-        for (int i = 0; i < internalList.size() - 1; i++) {
+        for (int i = 0; i < internalList.size(); i++) {
             used += internalList.get(i).getAmount().getValue();
         }
         return this.budget - used;
