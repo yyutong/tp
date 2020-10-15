@@ -28,7 +28,6 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
 
     private final FilteredList<Expense> filteredExpenses;
-//    private final ExpenseBook expenseBook;
 
 
     /**
@@ -42,7 +41,6 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-//        this.expenseBook = new ExpenseBook(expenseBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         filteredExpenses = new FilteredList<>(this.addressBook.getExpenseList());
     }

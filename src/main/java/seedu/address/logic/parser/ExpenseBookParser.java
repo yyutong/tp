@@ -6,6 +6,19 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.logic.commands.AddExpenseCommand;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteExpenseCommand;
+import seedu.address.logic.commands.DeleteDescriptionCommand;
+import seedu.address.logic.commands.DescriptionCommand;
+import seedu.address.logic.commands.ListExpenseCommand;
+import seedu.address.logic.commands.ListExpenseByCategoryCommand;
+import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ViewCommand;
+import seedu.address.logic.commands.SetBudgetCommand;
+import seedu.address.logic.commands.ShowBudgetCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
@@ -34,35 +47,50 @@ public class ExpenseBookParser {
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
-            case DescriptionCommand.COMMAND_WORD:
-                return new DescriptionCommandParser().parse(arguments);
+        case DescriptionCommand.COMMAND_WORD:
+            return new DescriptionCommandParser().parse(arguments);
 
-            case AddExpenseCommand.COMMAND_WORD:
-                return new AddExpenseCommandParser().parse(arguments);
+        case AddExpenseCommand.COMMAND_WORD:
+            return new AddExpenseCommandParser().parse(arguments);
 
-            case DeleteExpenseCommand.COMMAND_WORD:
-                return new DeleteExpenseCommandParser().parse(arguments);
+        case DeleteExpenseCommand.COMMAND_WORD:
+            return new DeleteExpenseCommandParser().parse(arguments);
 
-            case ListExpenseCommand.COMMAND_WORD:
-                return new ListExpenseCommand();
+        case ListExpenseCommand.COMMAND_WORD:
+            return new ListExpenseCommand();
 
-            case ViewCommand.COMMAND_WORD:
-                return new ViewCommandParser().parse(arguments);
+        case ViewCommand.COMMAND_WORD:
+            return new ViewCommandParser().parse(arguments);
 
-            case ViewCategoryCommand.COMMAND_WORD:
-                return new ViewCategoryCommandParser().parse(arguments);
+        case ViewCategoryCommand.COMMAND_WORD:
+            return new ViewCategoryCommandParser().parse(arguments);
 
-            case DeleteDescriptionCommand.COMMAND_WORD:
-                return new DeleteDescriptionCommandParser().parse(arguments);
+        case DeleteDescriptionCommand.COMMAND_WORD:
+            return new DeleteDescriptionCommandParser().parse(arguments);
 
-            case ShowBudgetCommand.COMMAND_WORD:
-                return new ShowBudgetCommandParser().parse(arguments);
+        case DeleteExpenseCommand.COMMAND_WORD:
+            return new DeleteExpenseCommandParser().parse(arguments);
 
-            case SetBudgetCommand.COMMAND_WORD:
-                return new SetBudgetCommandParser().parse(arguments);
+        case ListExpenseCommand.COMMAND_WORD:
+            return new ListExpenseCommand();
 
-            default:
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        case ListExpenseByCategoryCommand.COMMAND_WORD:
+            return new ListExpenseByCategoryCommandParser().parse(arguments);
+
+        case ViewCommand.COMMAND_WORD:
+            return new ViewCommandParser().parse(arguments);
+
+        case DeleteDescriptionCommand.COMMAND_WORD:
+            return new DeleteDescriptionCommandParser().parse(arguments);
+
+        case ShowBudgetCommand.COMMAND_WORD:
+            return new ShowBudgetCommandParser().parse(arguments);
+
+        case SetBudgetCommand.COMMAND_WORD:
+            return new SetBudgetCommandParser().parse(arguments);
+            
+        default:
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 }

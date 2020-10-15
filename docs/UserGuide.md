@@ -76,15 +76,20 @@ Examples:
 
 Shows a list of all expenses.
 
-Format: `list [c/CATEGORY]`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Category item is optional for showing all expenses in the specific category.
-</div>
+Format: `list`
 
 Examples:
 * `list`: list all the expenses in all the categories.
-* `list c/FOODBEVERAGE`: list all the expenses in the food beverage category.
+
+### Listing all expenses in a category : `listbycategory`
+
+Shows a list of all expenses belongs to the category.
+
+Format: `listbycategory CATEGORY`
+
+Examples:
+* `listbycategory entertainment`: list all the expenses in entertainment.
+
 
 ### Deleting an expense: `delete`
 
