@@ -20,7 +20,7 @@ public class ViewCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_VIEW_EXPENSE_SUCCESS = "View Expense: %1$s";
+    public static final String MESSAGE_VIEW_EXPENSE_SUCCESS = "View Expense: %s";
 
     private final Index targetIndex;
 
@@ -37,9 +37,9 @@ public class ViewCommand extends Command {
         }
 
         Expense expenseToView = lastShownList.get(targetIndex.getZeroBased());
-        String message = targetIndex.toString() + "\n" + expenseToView.toString();
-//        model.viewExpense(targetIndex);
-        return new CommandResult(String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, message));
+        String prefix = String.format(MESSAGE_VIEW_EXPENSE_SUCCESS, targetIndex.getOneBased());
+        String message = prefix + "\n" + expenseToView.toString();
+        return new CommandResult(message);
     }
 
     @Override
