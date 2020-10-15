@@ -68,27 +68,15 @@ public class ExpenseBookParser {
         case DeleteDescriptionCommand.COMMAND_WORD:
             return new DeleteDescriptionCommandParser().parse(arguments);
 
-        case DeleteExpenseCommand.COMMAND_WORD:
-            return new DeleteExpenseCommandParser().parse(arguments);
-
-        case ListExpenseCommand.COMMAND_WORD:
-            return new ListExpenseCommand();
-
         case ListExpenseByCategoryCommand.COMMAND_WORD:
             return new ListExpenseByCategoryCommandParser().parse(arguments);
-
-        case ViewCommand.COMMAND_WORD:
-            return new ViewCommandParser().parse(arguments);
-
-        case DeleteDescriptionCommand.COMMAND_WORD:
-            return new DeleteDescriptionCommandParser().parse(arguments);
 
         case ShowBudgetCommand.COMMAND_WORD:
             return new ShowBudgetCommandParser().parse(arguments);
 
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
-            
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
