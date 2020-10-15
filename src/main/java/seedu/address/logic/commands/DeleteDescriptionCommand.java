@@ -8,8 +8,9 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Expense;
 import seedu.address.model.person.Description;
+import seedu.address.model.person.Expense;
+
 
 
 /**
@@ -30,8 +31,8 @@ public class DeleteDescriptionCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Description: %2$s";
     public static final String MESSAGE_ADD_DESCRIPTION_SUCCESS = "Added description to Expense: %1$s \n";
     public static final String MESSAGE_DELETE_DESCRIPTION_SUCCESS = "Removed description from Expense: %1$s \n";
-    private final Index index;
     private static final Description EMPTY_DESCRIPTION = new Description("");
+    private final Index index;
 
     /**
      * @param index of the expense in the filtered expense list to edit the description
@@ -51,7 +52,8 @@ public class DeleteDescriptionCommand extends Command {
         }
 
         Expense expenseToEdit = lastShownList.get(index.getZeroBased());
-        Expense editedExpense = new Expense(expenseToEdit.getAmount(), expenseToEdit.getDate(), expenseToEdit.getCategory(),
+        Expense editedExpense = new Expense(expenseToEdit.getAmount(), expenseToEdit.getDate(),
+                expenseToEdit.getCategory(),
                 EMPTY_DESCRIPTION);
 
         model.setExpense(expenseToEdit, editedExpense);

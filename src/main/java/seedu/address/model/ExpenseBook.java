@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.Category;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.UniqueExpenseList;
 
@@ -144,5 +145,9 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.getRemainingBudget();
     }
     //end of yuanxing edits
+
+    public List<Category> getCategoryLabels(){
+        return expenses.getCategoryLabels();
+    }
 
 }
