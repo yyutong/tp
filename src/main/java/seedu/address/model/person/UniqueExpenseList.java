@@ -58,7 +58,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
      *
      * @param index The index of the expense to be viewed in the ExpenseBook.
      */
-    public void view(Index index){
+    public void view (Index index) {
         requireAllNonNull(index);
         Expense expense = internalList.get(index.getOneBased());
     }
@@ -166,12 +166,12 @@ public class UniqueExpenseList implements Iterable<Expense> {
         return this.budget - used;
     }
 
-    public List<Category> getCategoryLabels(){
+    public List<Category> getCategoryLabels() {
         List<Category> categories = new ArrayList<>();
-        for(int i = 0; i < internalList.size(); i++) {
+        for (int i = 0; i < internalList.size(); i++) {
             Expense current = internalList.get(i);
             Category currentCategory = current.getCategory();
-            if(!categories.contains(currentCategory)){
+            if (!categories.contains(currentCategory)) {
                 categories.add(currentCategory);
             }
         }
