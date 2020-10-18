@@ -47,9 +47,6 @@ public class ExpenseBookParser {
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
-        case DescriptionCommand.COMMAND_WORD:
-            return new DescriptionCommandParser().parse(arguments);
-
         case AddExpenseCommand.COMMAND_WORD:
             return new AddExpenseCommandParser().parse(arguments);
 
