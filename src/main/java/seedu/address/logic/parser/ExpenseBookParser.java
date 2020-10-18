@@ -1,25 +1,24 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.*;
-import seedu.address.logic.parser.exceptions.ParseException;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
 import seedu.address.logic.commands.DescriptionCommand;
-import seedu.address.logic.commands.ListExpenseCommand;
-import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ViewCommand;
+import seedu.address.logic.commands.ListExpenseByCategoryCommand;
+import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.commands.ShowBudgetCommand;
+import seedu.address.logic.commands.ViewCategoryCommand;
+import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 /**
  * Parses user input.
