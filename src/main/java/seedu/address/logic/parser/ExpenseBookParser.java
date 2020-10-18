@@ -10,7 +10,6 @@ import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
-import seedu.address.logic.commands.DescriptionCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.ListExpenseCommand;
