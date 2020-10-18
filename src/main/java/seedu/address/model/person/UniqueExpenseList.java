@@ -4,11 +4,13 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.exceptions.DuplicateExpenseException;
 import seedu.address.model.person.exceptions.ExpenseNotFoundException;
 
@@ -49,6 +51,16 @@ public class UniqueExpenseList implements Iterable<Expense> {
             throw new DuplicateExpenseException();
         }
         internalList.add(toAdd);
+    }
+
+    /**
+     * View the detals of a certain expense.
+     *
+     * @param index The index of the expense to be viewed in the ExpenseBook.
+     */
+    public void view(Index index){
+        requireAllNonNull(index);
+        Expense expense = internalList.get(index.getOneBased());
     }
 
     /**
@@ -148,9 +160,21 @@ public class UniqueExpenseList implements Iterable<Expense> {
 
     public double getRemainingBudget() {
         double used = 0;
-        for (int i = 0; i < internalList.size() - 1; i++) {
+        for (int i = 0; i < internalList.size(); i++) {
             used += internalList.get(i).getAmount().getValue();
         }
         return this.budget - used;
+    }
+
+    public List<Category> getCategoryLabels(){
+        List<Category> categories = new ArrayList<>();
+        for(int i = 0; i < internalList.size(); i++) {
+            Expense current = internalList.get(i);
+            Category currentCategory = current.getCategory();
+            if(!categories.contains(currentCategory)){
+                categories.add(currentCategory);
+            }
+        }
+        return categories;
     }
 }
