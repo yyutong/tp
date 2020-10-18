@@ -76,15 +76,20 @@ Examples:
 
 Shows a list of all expenses.
 
-Format: `list [c/CATEGORY]`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Category item is optional for showing all expenses in the specific category.
-</div>
+Format: `list`
 
 Examples:
 * `list`: list all the expenses in all the categories.
-* `list c/FOODBEVERAGE`: list all the expenses in the food beverage category.
+
+### Listing all expenses in a category : `listbycategory`
+
+Shows a list of all expenses belongs to the category.
+
+Format: `listbycategory CATEGORY`
+
+Examples:
+* `listbycategory entertainment`: list all the expenses in entertainment.
+
 
 ### Deleting an expense: `delete`
 
@@ -115,6 +120,12 @@ The index refers to the index number shown in the displayed expense list.
 
 Examples:
 * `view 1` views the `amount, category, date and description` of the 1st expense displayed in the list.
+
+### View Category Labels : `viewCategory`
+
+Show all the category lables used in the UniSave.
+
+Format: `viewCategory`
 
 ### Add a description to an expense : `addDes`
 
@@ -187,6 +198,7 @@ Action | Format, Examples
 **List** | `list`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
+**View existing categori labels** | `viewCategory`
 **Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
 **Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`

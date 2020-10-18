@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -11,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.person.Category;
 import seedu.address.model.person.Expense;
 import seedu.address.model.person.Person;
 
@@ -23,7 +25,9 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+
     private final FilteredList<Expense> filteredExpenses;
+
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -43,6 +47,8 @@ public class ModelManager implements Model {
     public ModelManager() {
         this(new AddressBook(), new UserPrefs());
     }
+
+    //=========== ExpenseBook ==================================================================================
 
     //=========== UserPrefs ==================================================================================
 
@@ -121,6 +127,7 @@ public class ModelManager implements Model {
     public void deleteExpense(Expense targetExpense) {
         addressBook.removeExpense(targetExpense);
     }
+
     /**
      * To add a person.
      */
@@ -190,6 +197,11 @@ public class ModelManager implements Model {
     @Override
     public void setExpenseBookBudget(double budget) {
 
+    }
+
+    @Override
+    public List<Category> getCategoryLabels() {
+        return null;
     }
 
     @Override
