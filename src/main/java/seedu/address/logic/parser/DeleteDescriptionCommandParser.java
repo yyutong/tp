@@ -28,7 +28,8 @@ public class DeleteDescriptionCommandParser implements Parser<DeleteDescriptionC
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (IllegalValueException ive) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DescriptionCommand.MESSAGE_USAGE), ive);
+            throw new ParseException(String.format(
+                    MESSAGE_INVALID_COMMAND_FORMAT, DescriptionCommand.MESSAGE_USAGE), ive);
         }
 
         return new DeleteDescriptionCommand(index);

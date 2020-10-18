@@ -95,7 +95,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         expenses.setExpense(target, editedExpense);
     }
 
-    public void viewExpense(Index index){
+    public void viewExpense(Index index) {
         expenses.view(index);
     }
 
@@ -146,7 +146,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
     //end of yuanxing edits
 
-    public List<Category> getCategoryLabels(){
+    public List<Category> getCategoryLabels() {
         return expenses.getCategoryLabels();
     }
 
