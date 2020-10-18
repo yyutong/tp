@@ -1,8 +1,8 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.Model;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import seedu.address.model.Model;
 
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "setBudget";
@@ -11,6 +11,9 @@ public class SetBudgetCommand extends Command {
 
     private final double budget;
 
+    /**
+     * Construct a SetBudget object.
+     */
     public SetBudgetCommand(double budget) {
         requireAllNonNull(budget);
         this.budget = budget;
