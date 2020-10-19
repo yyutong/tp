@@ -6,9 +6,9 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Expense;
-import seedu.address.model.person.UniqueExpenseList;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.UniqueExpenseList;
 
 /**
  * Wraps all data at the UniSave level

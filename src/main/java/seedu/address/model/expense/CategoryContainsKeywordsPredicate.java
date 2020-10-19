@@ -1,9 +1,9 @@
-package seedu.address.model.person;
+package seedu.address.model.expense;
+
+import seedu.address.commons.util.StringUtil;
 
 import java.util.List;
 import java.util.function.Predicate;
-
-import seedu.address.commons.util.StringUtil;
 
 /**
  * Tests that a {@code Expense}'s {@code Category} matches any of the keywords given.

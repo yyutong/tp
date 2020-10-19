@@ -2,10 +2,8 @@ package seedu.address.logic.commands;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Category;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewCategoryCommand extends Command {
