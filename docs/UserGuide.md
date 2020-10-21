@@ -212,6 +212,7 @@ Action | Format, Examples
 --------|------------------
 **Add** | `add a/AMOUNT c/CATEGORY d/DATE [D/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE d/2020-09-12`
 **List** | `list`
+**List by category** | `listbycategory CATEGORY` <br> e.g., `listbycategory food`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
 **View existing category labels** | `viewCategory`
