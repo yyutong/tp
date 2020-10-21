@@ -14,7 +14,6 @@ public class ListExpenseCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Listed all expenses";
 
-
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
