@@ -10,4 +10,5 @@ class DescriptionTest {
     public void constructor_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new Description(null));
     }
+
 }
