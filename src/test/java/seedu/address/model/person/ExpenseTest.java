@@ -10,7 +10,6 @@ public class ExpenseTest {
 
     @Test
     public void isSameExpense() {
-        
         Amount buy_book_expense = new Amount(10.0);
         Category buy_book_category = new Category("study");
         Date buy_book_date = new Date("2");
