@@ -47,14 +47,14 @@ public class ExpenseTest {
         Description buyBookDescription = new Description("bought book at coop");
 
         assertThrows(NullPointerException.class, () -> new Expense(buyBookExpense, null,
-                        buyBookCategory, buyBookDescription));
+                buyBookCategory, buyBookDescription));
 
         Category buyFoodCategory = new Category("food");
         Date buyFoodDate = new Date("2");
         Description buyFoodDescription = new Description("bought sushi for dinner");
 
         assertThrows(NullPointerException.class, () -> new Expense(null, buyFoodDate,
-                        buyFoodCategory, buyFoodDescription));
+                buyFoodCategory, buyFoodDescription));
 
         Amount movieExpense = new Amount(10.0);
         Date movieDate = new Date("1");
