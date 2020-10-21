@@ -8,6 +8,7 @@ UniSave is a **desktop app for managing expenses, optimized for use via a Comman
 * Table of Contents
     * [Quick start](#quickstart)
     * [Features](#features)
+        * [Commands](#commands)
     * [Command summary](#command-summary)
 
 
@@ -53,7 +54,9 @@ UniSave is a **desktop app for managing expenses, optimized for use via a Comman
 
 </div>
 
-### Adding an expense: `add`
+### Commands  <a name="commands"></a>
+
+#### Adding an expense: `add`
 
 Adds an expense to a category.  Must specify category when adding the expense.
 
@@ -77,7 +80,7 @@ Examples:
 
 ![add](images/addExpenseCommand.png)
 
-### Listing all expenses : `list`
+#### Listing all expenses : `list`
 
 Shows a list of all expenses.
 
@@ -86,7 +89,7 @@ Format: `list`
 Examples:
 * `list`: list all the expenses in all the categories.
 
-### Listing all expenses in a category : `listbycategory`
+#### Listing all expenses in a category : `listbycategory`
 
 Shows a list of all expenses belongs to the category.
 
@@ -96,7 +99,7 @@ Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
 ![list](images/listCommand.png)
 
-### Deleting an expense: `delete`
+#### Deleting an expense: `delete`
 
 Deletes the specified expense from the expense list.
 
@@ -110,7 +113,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd expense in the expense list.
 ![delete](images/deleteExpenseCommand.png)
 
-### View an expense : `view`
+#### View an expense : `view`
 
 View an expense in the expense list.
 
@@ -129,7 +132,7 @@ Examples:
 
 ![view](images/viewCommand.png)
 
-### View Category Labels : `viewCategory`
+#### View Category Labels : `viewCategory`
 
 Show all the category lables used in the UniSave.
 
@@ -137,7 +140,7 @@ Format: `viewCategory`
 
 ![viewCategory](images/viewCategoryCommand.png)
 
-### Add a description to an expense : `addDes`
+#### Add a description to an expense : `addDes`
 
 Add a description to an existing expense in the finance book.
 
@@ -149,7 +152,7 @@ Format: `addDes INDEX d/DESCRIPTION`
 Examples:
 `addDes 3 d/movies` Add the description field `movies` to the 3rd expense.
 
-### Delete description of an expense: `deleteDes`
+#### Delete description of an expense: `deleteDes`
 
 Delete the description field of an existing expense.
 
@@ -164,7 +167,7 @@ Examples:
 
 ![deleteDes](images/deleteDesCommand.png)
 
-### Set Budget : `setBudget`
+#### Set Budget : `setBudget`
 
 Set the budget for UniSave. Default zero budget. Pop up for input when first launched.
 
@@ -175,7 +178,7 @@ Example:
 
 ![setBudget](images/setBudgetCommand.png)
 
-### Show budget : `showBudget`
+#### Show budget : `showBudget`
 
 Show the budget last set and the remaining budget in the UniSave.
 
@@ -183,17 +186,17 @@ Format: `showBudget`
 
 ![showBudget](images/showBudgetCommand.png)
 
-### Exiting the program : `exit`
+#### Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
-### Saving the data `[Coming soon]`
+#### Saving the data `[Coming soon]`
 
 UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### Archiving data files `[coming in v2.0]`
+#### Archiving data files `[coming in v2.0]`
 
 _{explain the feature here}_
 
