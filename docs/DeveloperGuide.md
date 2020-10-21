@@ -488,7 +488,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting an expense
 
 1. Deleting an expense while all persons are being shown
 
