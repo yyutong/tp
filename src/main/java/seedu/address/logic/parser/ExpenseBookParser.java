@@ -49,6 +49,9 @@ public class ExpenseBookParser {
         case DeleteExpenseCommand.COMMAND_WORD:
             return new DeleteExpenseCommandParser().parse(arguments);
 
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommandParser().parse();
+
         case ListExpenseCommand.COMMAND_WORD:
             return new ListExpenseCommand();
 
