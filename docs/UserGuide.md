@@ -6,11 +6,14 @@ title: User Guide
 UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, UniSave can get your financial management tasks done faster than traditional GUI apps.
 
 * Table of Contents
-{:toc}
+    * [Quick start](#quickstart)
+    * [Features](#features)
+    * [Command summary](#command-summary)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Quick start <a name="quickstart"></a>
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -36,7 +39,7 @@ UniSave is a **desktop app for managing expenses, optimized for use via a Comman
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## Features <a name="features"></a>
 
 <div markdown="block" class="alert alert-info">
 
@@ -72,6 +75,8 @@ Examples:
 * `add a/100 c/FOODBEVERAGE d/2020-09-12`
 * `add a/50 c/ENTERTAINMENT d/2020-09-11 D/yayymovie!`
 
+![add](images/addExpenseCommand.png)
+
 ### Listing all expenses : `list`
 
 Shows a list of all expenses.
@@ -89,7 +94,7 @@ Format: `listbycategory CATEGORY`
 
 Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
-
+![list](images/listCommand.png)
 
 ### Deleting an expense: `delete`
 
@@ -103,6 +108,7 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd expense in the expense list.
+![delete](images/deleteExpenseCommand.png)
 
 ### View an expense : `view`
 
@@ -119,13 +125,17 @@ The index refers to the index number shown in the displayed expense list.
 * The index must be a **positive integer** 1, 2, 3, …​
 
 Examples:
-* `view 1` views the `amount, category, date and description` of the 1st expense displayed in the list.
+* `view 3` views the `amount, category, date and description` of the third expense displayed in the list.
+
+![view](images/viewCommand.png)
 
 ### View Category Labels : `viewCategory`
 
 Show all the category lables used in the UniSave.
 
 Format: `viewCategory`
+
+![viewCategory](images/viewCategoryCommand.png)
 
 ### Add a description to an expense : `addDes`
 
@@ -150,7 +160,9 @@ Format: `deleteDes INDEX`
 * The `INDEX` **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-`deleteDes 1` Deletes the description field of the 1st expense.
+`deleteDes 6` Deletes the description field of the 1st expense.
+
+![deleteDes](images/deleteDesCommand.png)
 
 ### Set Budget : `setBudget`
 
@@ -159,13 +171,17 @@ Set the budget for UniSave. Default zero budget. Pop up for input when first lau
 Format: `setBudget AMOUNT`
 
 Example:
-`setBudget 1000`: Set the budget to 1000.
+`setBudget 500.0`: Set the budget to 500.
+
+![setBudget](images/setBudgetCommand.png)
 
 ### Show budget : `showBudget`
 
 Show the budget last set and the remaining budget in the UniSave.
 
 Format: `showBudget`
+
+![showBudget](images/showBudgetCommand.png)
 
 ### Exiting the program : `exit`
 
@@ -190,7 +206,7 @@ _{explain the feature here}_
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command summary <a name="command-summary"></a>
 
 Action | Format, Examples
 --------|------------------
