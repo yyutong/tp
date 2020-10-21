@@ -1,8 +1,8 @@
 package seedu.address.model.person;
 
-import static seedu.address.testutil.Assert.assertThrows;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
+import static seedu.address.testutil.Assert.assertThrows;
 
 class DescriptionTest {
 
@@ -10,4 +10,5 @@ class DescriptionTest {
     public void constructor_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new Description(null));
     }
+
 }
