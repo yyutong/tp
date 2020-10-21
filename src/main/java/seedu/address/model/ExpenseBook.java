@@ -107,6 +107,22 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         expenses.remove(key);
     }
 
+    public void setBudget(double budget) {
+        expenses.setBudget(budget);
+    }
+
+    public double getBudget() {
+        return expenses.getBudget();
+    }
+
+    public double getRemainingBudget() {
+        return expenses.getRemainingBudget();
+    }
+
+    public List<Category> getCategoryLabels(){
+        return expenses.getCategoryLabels();
+    }
+
     //// util methods
 
     @Override
@@ -132,22 +148,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
-    //yuanxing edited
-    public void setBudget(double budget) {
-        expenses.setBudget(budget);
-    }
 
-    public double getBudget() {
-        return expenses.getBudget();
-    }
-
-    public double getRemainingBudget() {
-        return expenses.getRemainingBudget();
-    }
-    //end of yuanxing edits
-
-    public List<Category> getCategoryLabels(){
-        return expenses.getCategoryLabels();
-    }
 
 }

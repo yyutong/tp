@@ -12,7 +12,6 @@ import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.Person;
 import seedu.address.model.tag.Tag;
 
 
