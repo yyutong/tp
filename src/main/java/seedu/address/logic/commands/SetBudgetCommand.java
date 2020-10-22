@@ -21,6 +21,7 @@ public class SetBudgetCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
+
         model.setExpenseBookBudget(budget);
         String msg = String.format(MESSAGE_SET_BUDGET_SUCCESS, budget);
         return new CommandResult(msg);
