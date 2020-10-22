@@ -9,6 +9,7 @@ public class Date {
             "Date should only contain numbers, and it should be at least 1 digits long";
     public static final String VALIDATION_REGEX = "\\d{1,}";
     public final String date;
+    public final String howManyDaysAgo;
 
     /**
      * Constructor for Date.
@@ -16,6 +17,8 @@ public class Date {
      */
     public Date(String inputDay) {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
+        this.howManyDaysAgo = inputDay;
+        assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
         LocalDate localdate = LocalDate.now();
         int convertedDay = Integer.parseInt(inputDay);
         LocalDate dayBefore = localdate.minusDays(convertedDay);
@@ -27,6 +30,7 @@ public class Date {
      */
     public Date () {
         LocalDate localdate = LocalDate.now();
+        this.howManyDaysAgo = "0";
         this.date = localdate.toString();
     }
 
@@ -45,6 +49,13 @@ public class Date {
     @Override
     public int hashCode() {
         return this.date.hashCode();
+    }
+
+    public String getDate() {
+        return this.date;
+    }
+    public String getHowManyDaysAgo() {
+        return this.howManyDaysAgo;
     }
 
     @Override
