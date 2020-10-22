@@ -7,21 +7,17 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.person.Expense;
-import seedu.address.model.person.Person;
 
 /**
  * API of the Logic components
  */
 public interface Logic {
 
-    /** Returns an unmodifiable view of the filtered list of persons */
+    /** Returns an unmodifiable view of the filtered list of expenses */
     ObservableList<Expense> getFilteredExpenseList();
-
-
-
-
 
     /**
      * Executes the command and returns the result.
@@ -35,12 +31,9 @@ public interface Logic {
     /**
      * Returns the AddressBook.
      *
-     * @see seedu.address.model.Model#getAddressBook()
+     * @see Model#getExpenseBook()
      */
-    ReadOnlyAddressBook getAddressBook();
-
-    /** Returns an unmodifiable view of the filtered list of persons */
-    ObservableList<Person> getFilteredPersonList();
+    ReadOnlyExpenseBook getExpenseBook();
 
     /**
      * Returns the user prefs' address book file path.
