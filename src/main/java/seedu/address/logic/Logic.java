@@ -1,25 +1,22 @@
 package seedu.address.logic;
 
-import java.nio.file.Path;
-
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyExpenseBook;
+
 
 /**
  * API of the Logic components
  */
 public interface Logic {
 
-    /** Returns an unmodifiable view of the filtered list of persons */
+    /** Returns an unmodifiable view of the filtered list of expenses */
     ObservableList<Expense> getFilteredExpenseList();
-
-
-
-
 
     /**
      * Executes the command and returns the result.
@@ -31,9 +28,14 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the ExpenseBook.
+     *
+     * @see Model#getExpenseBook()
      */
-    Path getAddressBookFilePath();
+    ReadOnlyExpenseBook getExpenseBook();
+
+    /**
+
 
     /**
      * Returns the user prefs' GUI settings.

@@ -1,4 +1,3 @@
-
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
@@ -35,7 +34,6 @@ public class ParserUtil {
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
-
 
     /**
      * Parses a {@code String name} into a {@code Name}.

@@ -10,11 +10,6 @@ import seedu.address.model.expense.Category;
 class CategoryTest {
 
     @Test
-    public void constructor_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new Category(null));
-    }
-
-    @Test
     public void constructor_invalidCategory_throwsIllegalArgumentException() {
         String invalidCategory = "";
         assertThrows(IllegalArgumentException.class, () -> new Category(invalidCategory));

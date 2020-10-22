@@ -1,6 +1,5 @@
 package seedu.address.logic;
 
-import java.nio.file.Path;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -42,8 +41,6 @@ public class LogicManager implements Logic {
         return model.getFilteredExpenseList();
     }
 
-
-
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
@@ -59,12 +56,6 @@ public class LogicManager implements Logic {
         return model.getExpenseBook();
     }
 
-
-
-    @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
-    }
 
     @Override
     public GuiSettings getGuiSettings() {
