@@ -7,6 +7,12 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Expense;
+
 public class ExpenseTest {
 
     @Test

@@ -12,35 +12,37 @@ import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 
 
-
 /**
  * Changes the description of an existing expense in the address book.
  */
-public class DeleteDescriptionCommand extends Command {
+public class DescriptionCommand extends Command {
 
-    public static final String COMMAND_WORD = "deleteDes";
+    public static final String COMMAND_WORD = "addDes";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes the description of the expense identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the description of the expense identified "
             + "by the index number used in the last expense listing. "
-            + "Existing expense will have empty description.\n"
+            + "Existing description will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "d/ [DESCRIPTION]\n"
-            + "Example: " + COMMAND_WORD + " 1 ";
+            + "Example: " + COMMAND_WORD + " 1 "
+            + "d/ Movie time.";
 
     public static final String MESSAGE_NOT_IMPLEMENTED_YET = "Description command not implemented yet";
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Description: %2$s";
     public static final String MESSAGE_ADD_DESCRIPTION_SUCCESS = "Added description to Expense: %1$s \n";
     public static final String MESSAGE_DELETE_DESCRIPTION_SUCCESS = "Removed description from Expense: %1$s \n";
-    private static final Description EMPTY_DESCRIPTION = new Description("");
     private final Index index;
+    private final Description description;
 
     /**
      * @param index of the expense in the filtered expense list to edit the description
+     * @param description of the expense to be updated to
      */
-    public DeleteDescriptionCommand(Index index) {
-        requireAllNonNull(index);
+    public DescriptionCommand(Index index, Description description) {
+        requireAllNonNull(index, description);
 
         this.index = index;
+        this.description = description;
     }
 
     @Override
@@ -52,9 +54,9 @@ public class DeleteDescriptionCommand extends Command {
         }
 
         Expense expenseToEdit = lastShownList.get(index.getZeroBased());
-        Expense editedExpense = new Expense(expenseToEdit.getAmount(), expenseToEdit.getDate(),
-                expenseToEdit.getCategory(),
-                EMPTY_DESCRIPTION);
+        Expense editedExpense = new Expense(
+                expenseToEdit.getAmount(), expenseToEdit.getDate(), expenseToEdit.getCategory(),
+                description);
 
         model.setExpense(expenseToEdit, editedExpense);
         model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
@@ -70,13 +72,14 @@ public class DeleteDescriptionCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof DeleteDescriptionCommand)) {
+        if (!(other instanceof DescriptionCommand)) {
             return false;
         }
 
         // state check
-        DeleteDescriptionCommand e = (DeleteDescriptionCommand) other;
-        return index.equals(e.index);
+        DescriptionCommand e = (DescriptionCommand) other;
+        return index.equals(e.index)
+                && description.equals(e.description);
     }
 
     /**
@@ -84,7 +87,8 @@ public class DeleteDescriptionCommand extends Command {
      * {@code expenseToEdit}.
      */
     private String generateSuccessMessage(Expense expenseToEdit) {
-        String message = MESSAGE_DELETE_DESCRIPTION_SUCCESS;
+        String message = !description.value.isEmpty() ? MESSAGE_ADD_DESCRIPTION_SUCCESS
+                                                      : MESSAGE_DELETE_DESCRIPTION_SUCCESS;
         return String.format(message, expenseToEdit);
     }
 }

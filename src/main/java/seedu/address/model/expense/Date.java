@@ -1,7 +1,10 @@
-package seedu.address.model.person;
+package seedu.address.model.expense;
+
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
+
+
 
 public class Date {
 

@@ -6,8 +6,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Expense;
-
+import seedu.address.model.expense.Expense;
 
 public class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
