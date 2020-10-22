@@ -12,20 +12,18 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Expense;
-import seedu.address.model.person.Person;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Expense;
 
 /**
  * Represents the in-memory model of the address book data.
  */
 public class ExpenseModelManager implements Model {
-    private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
+    private static final Logger logger = LogsCenter.getLogger(ExpenseModelManager.class);
 
     private final ExpenseBook expenseBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Expense> filteredExpenses;
-
 
 
     /**
@@ -71,12 +69,12 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
+    public Path getExpenseBookFilePath() {
         return userPrefs.getExpenseBookFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
+    public void setExpenseBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         userPrefs.setExpenseBookFilePath(addressBookFilePath);
     }
@@ -109,11 +107,6 @@ public class ExpenseModelManager implements Model {
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 
-    @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return null;
-    }
-
 
     //edited
     @Override
@@ -133,13 +126,9 @@ public class ExpenseModelManager implements Model {
         return filteredExpenses;
     }
 
-    @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
-
-    }
     /**
      * Returns an updated Expense List
-     * @param predicate
+     * @param predicate predicate
      */
     @Override
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {
@@ -168,7 +157,6 @@ public class ExpenseModelManager implements Model {
                 && filteredExpenses.equals(other.filteredExpenses);
     }
 
-    //yuanxing edited
     @Override
     public double getExpenseBookBudget() {
         return expenseBook.getBudget();

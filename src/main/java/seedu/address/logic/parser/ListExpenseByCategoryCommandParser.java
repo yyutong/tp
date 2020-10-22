@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.CategoryContainsKeywordsPredicate;
+import seedu.address.model.expense.CategoryContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new ListExpenseByCategoryCommand object

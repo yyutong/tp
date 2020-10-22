@@ -9,7 +9,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Expense;
+
+
 
 /**
  * API of the Logic components
@@ -29,16 +31,16 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the AddressBook.
+     * Returns the ExpenseBook.
      *
      * @see Model#getExpenseBook()
      */
     ReadOnlyExpenseBook getExpenseBook();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' expense book file path.
      */
-    Path getAddressBookFilePath();
+    Path getExpenseBookFilePath();
 
     /**
      * Returns the user prefs' GUI settings.
