@@ -14,7 +14,7 @@ import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.expense.Expense;
 
 /**
- * An Immutable AddressBook that is serializable to JSON format.
+ * An Immutable ExpenseBook that is serializable to JSON format.
  */
 @JsonRootName(value = "expensebook")
 class JsonSerializableExpenseBook {
@@ -24,7 +24,7 @@ class JsonSerializableExpenseBook {
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableExpenseBook} with the given expenses.
      */
     @JsonCreator
     public JsonSerializableExpenseBook(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {
@@ -32,16 +32,16 @@ class JsonSerializableExpenseBook {
     }
 
     /**
-     * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
+     * Converts a given {@code ReadOnlyExpenseBook} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableExpenseBook}.
      */
     public JsonSerializableExpenseBook(ReadOnlyExpenseBook source) {
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
     }
 
     /**
-     * Converts this address book into the model's {@code AddressBook} object.
+     * Converts this expense book into the model's {@code ExpenseBook} object.
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */
