@@ -128,7 +128,7 @@ public class ExpenseModelManager implements Model {
 
     /**
      * Returns an updated Expense List
-     * @param predicate
+     * @param predicate predicate
      */
     @Override
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {
@@ -157,7 +157,6 @@ public class ExpenseModelManager implements Model {
                 && filteredExpenses.equals(other.filteredExpenses);
     }
 
-    //yuanxing edited
     @Override
     public double getExpenseBookBudget() {
         return expenseBook.getBudget();

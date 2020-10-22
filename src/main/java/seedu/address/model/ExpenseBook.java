@@ -57,15 +57,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
 
         setExpenses(newData.getExpenseList());
     }
-
-    /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
-     */
-    public void removePerson(Expense key) {
-        expenses.remove(key);
-    }
-
     //// person-level operations
 
     /**
@@ -119,7 +110,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.getRemainingBudget();
     }
 
-    public List<Category> getCategoryLabels(){
+    public List<Category> getCategoryLabels() {
         return expenses.getCategoryLabels();
     }
 
