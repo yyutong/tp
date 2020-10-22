@@ -1,5 +1,6 @@
 package seedu.address.logic;
 
+import java.nio.file.Path;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -56,6 +57,10 @@ public class LogicManager implements Logic {
         return model.getExpenseBook();
     }
 
+    @Override
+    public Path getExpenseBookFilePath() {
+        return model.getExpenseBookFilePath();
+    }
 
     @Override
     public GuiSettings getGuiSettings() {

@@ -39,7 +39,7 @@ public interface Model {
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getExpenseBookFilePath();
 
     /**
      * Replaces address book data with the data in {@code addressBook}.
@@ -51,7 +51,7 @@ public interface Model {
     /**
      * Sets the user prefs' address book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setExpenseBookFilePath(Path expenseBookFilePath);
 
     /**
      * Returns true if the expense exists in the address book.

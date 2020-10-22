@@ -9,6 +9,8 @@ import seedu.address.model.expense.Expense;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
 
+import java.nio.file.Path;
+
 
 /**
  * API of the Logic components
@@ -34,7 +36,10 @@ public interface Logic {
      */
     ReadOnlyExpenseBook getExpenseBook();
 
-    
+    /**
+     * Returns the user prefs' expense book file path.
+     */
+    Path getExpenseBookFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

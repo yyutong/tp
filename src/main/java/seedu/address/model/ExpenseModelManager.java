@@ -69,12 +69,12 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
+    public Path getExpenseBookFilePath() {
         return userPrefs.getExpenseBookFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
+    public void setExpenseBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         userPrefs.setExpenseBookFilePath(addressBookFilePath);
     }
