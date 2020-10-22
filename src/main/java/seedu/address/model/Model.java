@@ -95,4 +95,5 @@ public interface Model {
     void setExpenseBookBudget(double budget);
 
     List<Category> getCategoryLabels();
+
 }
