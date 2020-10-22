@@ -1,10 +1,5 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.Assert.assertThrows;
 
 public class AddCommandTest {
 //
@@ -30,7 +25,7 @@ public class AddCommandTest {
 //        AddCommand addCommand = new AddCommand(validPerson);
 //        ModelStub modelStub = new ModelStubWithPerson(validPerson);
 //
-//        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+//        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSO, () -> addCommand.execute(modelStub));
 //    }
 //
 //    @Test
