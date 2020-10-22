@@ -34,8 +34,7 @@ public interface Logic {
      */
     ReadOnlyExpenseBook getExpenseBook();
 
-    /**
-
+    
 
     /**
      * Returns the user prefs' GUI settings.
