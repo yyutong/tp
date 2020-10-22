@@ -1,4 +1,3 @@
-
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
@@ -10,10 +9,10 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Amount;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Date;
-import seedu.address.model.person.Description;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Description;
 import seedu.address.model.tag.Tag;
 
 /**

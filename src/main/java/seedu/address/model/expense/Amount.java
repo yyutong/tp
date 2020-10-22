@@ -1,4 +1,4 @@
-package seedu.address.model.person;
+package seedu.address.model.expense;
 
 public class Amount {
     public final Double value;

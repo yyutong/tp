@@ -13,7 +13,7 @@ import seedu.address.logic.parser.ExpenseBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Expense;
 import seedu.address.storage.Storage;
 
 /**
@@ -58,8 +58,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
+    public Path getExpenseBookFilePath() {
+        return model.getExpenseBookFilePath();
     }
 
     @Override
