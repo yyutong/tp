@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 import seedu.address.model.UserPrefs;
-import seedu.address.testutil.TypicalIndexes;
 import seedu.address.testutil.TypicalExpenses;
+import seedu.address.testutil.TypicalIndexes;
 
 public class ViewExpenseCommandTest {
 

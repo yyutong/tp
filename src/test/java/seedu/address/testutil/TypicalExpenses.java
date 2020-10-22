@@ -4,9 +4,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_MOVIE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOOKS;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOOKS;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOVIE;
 
 import java.util.ArrayList;
