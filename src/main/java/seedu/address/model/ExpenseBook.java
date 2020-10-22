@@ -6,9 +6,9 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Expense;
-import seedu.address.model.person.UniqueExpenseList;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.UniqueExpenseList;
 
 /**
  * Wraps all data at the UniSave level
@@ -57,15 +57,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
 
         setExpenses(newData.getExpenseList());
     }
-
-    /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
-     */
-    public void removePerson(Expense key) {
-        expenses.remove(key);
-    }
-
     //// person-level operations
 
     /**
@@ -107,6 +98,22 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         expenses.remove(key);
     }
 
+    public void setBudget(double budget) {
+        expenses.setBudget(budget);
+    }
+
+    public double getBudget() {
+        return expenses.getBudget();
+    }
+
+    public double getRemainingBudget() {
+        return expenses.getRemainingBudget();
+    }
+
+    public List<Category> getCategoryLabels() {
+        return expenses.getCategoryLabels();
+    }
+
     //// util methods
 
     @Override
@@ -132,22 +139,5 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
-    //yuanxing edited
-    public void setBudget(double budget) {
-        expenses.setBudget(budget);
-    }
-
-    public double getBudget() {
-        return expenses.getBudget();
-    }
-
-    public double getRemainingBudget() {
-        return expenses.getRemainingBudget();
-    }
-    //end of yuanxing edits
-
-    public List<Category> getCategoryLabels() {
-        return expenses.getCategoryLabels();
-    }
 
 }

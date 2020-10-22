@@ -9,7 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Expense;
 
 /**
  * Adds a person to the address book.
@@ -39,7 +39,7 @@ public class AddExpenseCommand extends Command {
     private final Expense toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddExpenseCommand to add the specified {@code Expense}
      */
     public AddExpenseCommand(Expense expense) {
         requireNonNull(expense);
@@ -54,6 +54,7 @@ public class AddExpenseCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        assert toAdd.getAmount().getValue() >= 0 : "Invalid Expense Amount being Added";
         model.addExpense(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

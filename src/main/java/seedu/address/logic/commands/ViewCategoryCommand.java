@@ -4,7 +4,8 @@ import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Category;
+import seedu.address.model.expense.Category;
+
 
 public class ViewCategoryCommand extends Command {
 

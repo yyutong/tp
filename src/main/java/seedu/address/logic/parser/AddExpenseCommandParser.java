@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Amount;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Date;
-import seedu.address.model.person.Description;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Expense;
 
 
 /**
@@ -23,8 +23,8 @@ import seedu.address.model.person.Expense;
 public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddCommand
-     * and returns an AddCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the AddExpenseCommand
+     * and returns an AddExpenseCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddExpenseCommand parse(String args) throws ParseException {

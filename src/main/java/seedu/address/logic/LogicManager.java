@@ -11,12 +11,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.ExpenseBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyExpenseBook;
-import seedu.address.model.person.Expense;
-import seedu.address.model.person.Person;
+import seedu.address.model.expense.Expense;
 import seedu.address.storage.Storage;
 
 /**
@@ -46,12 +43,6 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return null;
-    }
-
-
-    @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
@@ -66,14 +57,9 @@ public class LogicManager implements Logic {
         return model.getExpenseBook();
     }
 
-    public ReadOnlyAddressBook getAddressBook() {
-        return new AddressBook();
-    }
-
-
     @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
+    public Path getExpenseBookFilePath() {
+        return model.getExpenseBookFilePath();
     }
 
     @Override

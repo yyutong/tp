@@ -6,12 +6,9 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-class CategoryTest {
+import seedu.address.model.expense.Category;
 
-    @Test
-    public void constructor_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new Category(null));
-    }
+class CategoryTest {
 
     @Test
     public void constructor_invalidCategory_throwsIllegalArgumentException() {

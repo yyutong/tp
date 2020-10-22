@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.person.CategoryContainsKeywordsPredicate;
+import seedu.address.model.expense.CategoryContainsKeywordsPredicate;
 
 /**
  * Finds and lists all expenses in expense book whose category contains any of the argument keywords.
@@ -17,7 +17,7 @@ public class ListExpenseByCategoryCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose category contains any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + "entertainment";
+            + "Example: " + COMMAND_WORD + " entertainment";
 
     private final CategoryContainsKeywordsPredicate predicate;
 

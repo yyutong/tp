@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.CategoryContainsKeywordsPredicate;
+import seedu.address.model.expense.CategoryContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new ListExpenseByCategoryCommand object
@@ -24,7 +24,7 @@ public class ListExpenseByCategoryCommandParser implements Parser<ListExpenseByC
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByCategoryCommand.MESSAGE_USAGE));
         }
-
+        assert !trimmedArgs.isEmpty();
         String[] categoryKeywords = trimmedArgs.split("\\s+");
 
         return new ListExpenseByCategoryCommand(new CategoryContainsKeywordsPredicate(Arrays.asList(categoryKeywords)));

@@ -6,16 +6,13 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Expense;
-import seedu.address.model.person.Person;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Expense;
 
 /**
  * The API of the Model component.
  */
 public interface Model {
-    /** {@code Predicate} that always evaluate to true */
-    Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     Predicate<Expense> PREDICATE_SHOW_ALL_EXPENSES = unused -> true;
 
@@ -42,7 +39,7 @@ public interface Model {
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getExpenseBookFilePath();
 
     /**
      * Replaces address book data with the data in {@code addressBook}.
@@ -54,7 +51,7 @@ public interface Model {
     /**
      * Sets the user prefs' address book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setExpenseBookFilePath(Path expenseBookFilePath);
 
     /**
      * Returns true if the expense exists in the address book.
@@ -80,17 +77,10 @@ public interface Model {
      */
     void setExpense(Expense target, Expense editedExpense);
 
-    /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Person> getFilteredPersonList();
 
     /** Returns an unmodifiable view of the filtered Expense list */
     ObservableList<Expense> getFilteredExpenseList();
 
-    /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
-     * @throws NullPointerException if {@code predicate} is null.
-     */
-    void updateFilteredPersonList(Predicate<Person> predicate);
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
@@ -105,4 +95,5 @@ public interface Model {
     void setExpenseBookBudget(double budget);
 
     List<Category> getCategoryLabels();
+
 }

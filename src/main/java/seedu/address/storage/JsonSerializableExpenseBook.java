@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.ExpenseBook;
 import seedu.address.model.ReadOnlyExpenseBook;
-import seedu.address.model.person.Expense;
+import seedu.address.model.expense.Expense;
 
 /**
  * An Immutable ExpenseBook that is serializable to JSON format.
