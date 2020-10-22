@@ -12,9 +12,9 @@ import seedu.address.model.person.Expense;
 public class ExpenseBuilder {
 
     public static final Double DEFAULT_AMOUNT = 10.0;
-    public static final String DEFAULT_DATE = "2020-10-07";
+    public static final String DEFAULT_DATE = "0";
     public static final String DEFAULT_CATEGORY = "FOOD";
-    public static final String DEFAULT_DESCRIPTION = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_DESCRIPTION = "Bought sushi for dinner";
     private Amount amount;
     private Date date;
     private Category category;
@@ -52,6 +52,7 @@ public class ExpenseBuilder {
      * Sets the {@code Address} of the {@code Person} that we are building.
      */
     public ExpenseBuilder withDate(String date) {
+        this.date = new Date(date);
         return this;
     }
 

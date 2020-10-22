@@ -16,7 +16,6 @@ import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.commands.ShowBudgetCommand;
 import seedu.address.logic.commands.ViewCategoryCommand;
-import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -50,11 +49,11 @@ public class ExpenseBookParser {
         case DeleteExpenseCommand.COMMAND_WORD:
             return new DeleteExpenseCommandParser().parse(arguments);
 
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommandParser().parse();
+
         case ListExpenseCommand.COMMAND_WORD:
             return new ListExpenseCommand();
-
-        case ViewCommand.COMMAND_WORD:
-            return new ViewCommandParser().parse(arguments);
 
         case ViewCategoryCommand.COMMAND_WORD:
             return new ViewCategoryCommandParser().parse(arguments);

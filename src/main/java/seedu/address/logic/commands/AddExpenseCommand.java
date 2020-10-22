@@ -39,7 +39,7 @@ public class AddExpenseCommand extends Command {
     private final Expense toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddExpenseCommand to add the specified {@code Expense}
      */
     public AddExpenseCommand(Expense expense) {
         requireNonNull(expense);
@@ -54,6 +54,7 @@ public class AddExpenseCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        assert toAdd.getAmount().getValue() >= 0 : "Invalid Expense Amount being Added";
         model.addExpense(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

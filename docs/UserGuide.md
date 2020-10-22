@@ -97,6 +97,7 @@ Format: `listbycategory CATEGORY`
 
 Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
+
 ![list](images/listCommand.png)
 
 #### Deleting an expense: `delete`
@@ -111,6 +112,7 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd expense in the expense list.
+
 ![delete](images/deleteExpenseCommand.png)
 
 #### View an expense : `view`

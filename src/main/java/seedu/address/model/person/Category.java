@@ -26,6 +26,7 @@ public class Category {
      * @param category A valid category name.
      */
     public Category(String category) {
+        assert category != null : "Need to include the category of the expenses";
         requireNonNull(category);
         checkArgument(isValidCategory(category), MESSAGE_CONSTRAINTS);
         categoryName = category;
