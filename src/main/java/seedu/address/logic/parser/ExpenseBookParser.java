@@ -43,34 +43,38 @@ public class ExpenseBookParser {
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
-        case AddExpenseCommand.COMMAND_WORD:
-            return new AddExpenseCommandParser().parse(arguments);
+            case ViewCommand.COMMAND_WORD:
+                return new ViewCommandParser().parse(arguments);
 
-        case DeleteExpenseCommand.COMMAND_WORD:
-            return new DeleteExpenseCommandParser().parse(arguments);
+            case AddExpenseCommand.COMMAND_WORD:
+                return new AddExpenseCommandParser().parse(arguments);
 
-        case HelpCommand.COMMAND_WORD:
-            return new HelpCommandParser().parse();
+            case DeleteExpenseCommand.COMMAND_WORD:
+                return new DeleteExpenseCommandParser().parse(arguments);
 
-        case ListExpenseCommand.COMMAND_WORD:
-            return new ListExpenseCommand();
+            case HelpCommand.COMMAND_WORD:
+                return new HelpCommandParser().parse();
 
-        case ViewCategoryCommand.COMMAND_WORD:
-            return new ViewCategoryCommandParser().parse(arguments);
+            case ListExpenseCommand.COMMAND_WORD:
+                return new ListExpenseCommand();
 
-        case DeleteDescriptionCommand.COMMAND_WORD:
-            return new DeleteDescriptionCommandParser().parse(arguments);
+            case ViewCategoryCommand.COMMAND_WORD:
+                return new ViewCategoryCommandParser().parse(arguments);
 
-        case ListExpenseByCategoryCommand.COMMAND_WORD:
-            return new ListExpenseByCategoryCommandParser().parse(arguments);
+            case DeleteDescriptionCommand.COMMAND_WORD:
+                return new DeleteDescriptionCommandParser().parse(arguments);
 
-        case ShowBudgetCommand.COMMAND_WORD:
-            return new ShowBudgetCommandParser().parse(arguments);
+            case ListExpenseByCategoryCommand.COMMAND_WORD:
+                return new ListExpenseByCategoryCommandParser().parse(arguments);
 
-        case SetBudgetCommand.COMMAND_WORD:
-            return new SetBudgetCommandParser().parse(arguments);
-        default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            case ShowBudgetCommand.COMMAND_WORD:
+                return new ShowBudgetCommandParser().parse(arguments);
+
+            case SetBudgetCommand.COMMAND_WORD:
+                return new SetBudgetCommandParser().parse(arguments);
+
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 }
