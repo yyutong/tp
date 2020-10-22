@@ -52,7 +52,7 @@ public class DeleteDescriptionCommand extends Command {
         }
 
         Expense expenseToEdit = lastShownList.get(index.getZeroBased());
-        assert !expenseToEdit.getDescription().isEmpty(): "Description is already deleted.";
+        assert !expenseToEdit.getDescription().isEmpty() : "Description is already deleted.";
 
         Expense editedExpense = new Expense(expenseToEdit.getAmount(), expenseToEdit.getDate(),
                 expenseToEdit.getCategory(),
