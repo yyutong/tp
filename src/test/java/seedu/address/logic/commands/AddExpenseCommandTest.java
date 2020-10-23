@@ -8,10 +8,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBuilder;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/master
 public class AddExpenseCommandTest {
 
     @Test
