@@ -20,6 +20,11 @@ import seedu.address.testutil.ExpenseBookBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class CommandTestUtil {
+    public static final String INVALID_CATEGORY_1 = "";
+    public static final String INVALID_CATEGORY_2 = " ";
+    public static final String INVALID_DATE_1 = "-1";
+    public static final String INVALID_DATE_2 = "$";
+    public static final String INVALID_DATE_3 = "1010";
     public static final Double VALID_AMOUNT_BOOKS = 20.0;
     public static final Double VALID_AMOUNT_MOVIE = 10.0;
     public static final String VALID_DATE_BOOKS = "1";
@@ -29,6 +34,7 @@ public class CommandTestUtil {
     public static final String VALID_DESCRIPTION_BOOKS = "Bought textbook";
     public static final String VALID_DESCRIPTION_MOVIE = "Watched 1917 on Tuesday";
 
+<<<<<<< HEAD
     public static final String AMOUNT_DESC_BOOKS = " " + PREFIX_AMOUNT + VALID_AMOUNT_BOOKS;
     public static final String AMOUNT_DESC_MOVIE = " " + PREFIX_AMOUNT + VALID_AMOUNT_MOVIE;
     public static final String DATE_DESC_BOOKS = " " + PREFIX_DATE + VALID_DATE_BOOKS;
@@ -46,6 +52,9 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+=======
+
+>>>>>>> upstream/master
     public static final ExpenseBuilder BOOKS;
     public static final ExpenseBuilder MOVIE;
 

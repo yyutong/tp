@@ -66,6 +66,8 @@ public class ExpenseBookParser {
             return new ShowBudgetCommandParser().parse(arguments);
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommandParser().parse();
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
