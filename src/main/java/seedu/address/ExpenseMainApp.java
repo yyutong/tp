@@ -78,7 +78,9 @@ public class ExpenseMainApp extends Application {
         Optional<ReadOnlyExpenseBook> expenseBookOptional;
         ReadOnlyExpenseBook initialData;
         try {
+            logger.info("Trying to get data file.");
             expenseBookOptional = storage.readExpenseBook();
+            logger.info("storage.readExpenseBook() is " + storage.readExpenseBook().toString());
             if (!expenseBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample ExpenseBook");
             }
@@ -177,6 +179,8 @@ public class ExpenseMainApp extends Application {
         logger.info("============================ [ Stopping UniSave ] =============================");
         try {
             storage.saveUserPrefs(model.getUserPrefs());
+            //storage.saveExpenseBook(model.getExpenseBook());
+            //logger.info("expense book data saved at " + model.getExpenseBook().toString());
         } catch (IOException e) {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }

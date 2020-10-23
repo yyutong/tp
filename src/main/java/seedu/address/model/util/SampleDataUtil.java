@@ -1,6 +1,7 @@
 package seedu.address.model.util;
 
 import seedu.address.model.ExpenseBook;
+import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
@@ -37,6 +38,13 @@ public class SampleDataUtil {
             sampleAb.addExpense(sampleExpense);
         }
         return sampleAb;
+    }
+
+    public static ReadOnlyExpenseBook getExpenseBookWithoutSample(ExpenseBook expenseBook) {
+        for (Expense sampleExpense : getSampleExpenses()) {
+            expenseBook.removeExpense(sampleExpense);
+        }
+        return expenseBook;
     }
 
 }
