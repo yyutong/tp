@@ -139,8 +139,8 @@ This section describes some noteworthy details on how certain features are imple
 
 The proposed delete mechanism is facilitated by `VersionedExpenseBook`. It extends `ExpenseBook` and stored internally as an `ExpenseBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `VersionedAddressBook#save()` — Saves the current expense book state in its history.
-* `VersionedAddressBook#delete()` — Restores the previous expense book state from its history.
+* `VersionedExpenseBook#save()` — Saves the current expense book state in its history.
+* `VersionedExpenseBook#delete()` — Restores the previous expense book state from its history.
 
 
 These operations are exposed in the `Model` interface as `Model#saveExpenseBook()`, `Model#deleteExpenseBook()` respectively.
