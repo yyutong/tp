@@ -28,6 +28,8 @@ public class ViewCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         List<Expense> lastShownList = model.getFilteredExpenseList();
 
+        assert targetIndex.getZeroBased() >= 0 : "index should be a positive number";
+
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
         }
