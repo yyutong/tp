@@ -1,47 +1,31 @@
 package seedu.address.logic.parser;
-
-//package seedu.address.logic.parser;
 //
 //import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
-//import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BOOKS;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_MOVIE;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_BOOKS;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_MOVIE;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOOKS;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOOKS;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOVIE;
 //import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 //import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-//import static seedu.address.testutil.TypicalPersons.AMY;
-//import static seedu.address.testutil.TypicalPersons.BOB;
+//import static seedu.address.testutil.TypicalExpenses.BOOKS;
+//import static seedu.address.testutil.TypicalExpenses.MOVIE;
 //
 //import org.junit.jupiter.api.Test;
 //
-//import seedu.address.model.person.Email;
+//import seedu.address.model.expense.Expense;
 //import seedu.address.model.tag.Tag;
-//
+//import seedu.address.testutil.ExpenseBuilder;
+
 public class AddCommandParserTest {
-//    private AddCommandParser parser = new AddCommandParser();
-//
+//    private AddExpenseCommandParser parser = new AddExpenseCommandParser();
+
 //    @Test
 //    public void parse_allFieldsPresent_success() {
-//        Person expectedPerson = new PersonBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
+//        Expense expectedExpense = new ExpenseBuilder(BOOKS).withCategory(VALID_CATEGORY_BOOKS).build();
 //
 //        // whitespace only preamble
 //        assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
@@ -73,7 +57,7 @@ public class AddCommandParserTest {
 //    @Test
 //    public void parse_optionalFieldsMissing_success() {
 //        // zero tags
-//        Person expectedPerson = new PersonBuilder(AMY).withTags().build();
+//        Expense expectedPerson = new ExpenseBuilder(BOOKS).withAmount(null).build();
 //        assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY,
 //                new AddCommand(expectedPerson));
 //    }

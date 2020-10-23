@@ -1,57 +1,47 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+import seedu.address.model.expense.Expense;
+import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandTest {
-//
-//    @Test
-//    public void constructor_nullPerson_throwsNullPointerException() {
-//        assertThrows(NullPointerException.class, () -> new AddCommand(null));
-//    }
-//
-//    @Test
-//    public void execute_personAcceptedByModel_addSuccessful() throws Exception {
-//        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
-//        Person validPerson = new PersonBuilder().build();
-//
-//        CommandResult commandResult = new AddCommand(validPerson).execute(modelStub);
-//
-//        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validPerson), commandResult.getFeedbackToUser());
-//        assertEquals(Arrays.asList(validPerson), modelStub.personsAdded);
-//    }
-//
-//    @Test
-//    public void execute_duplicatePerson_throwsCommandException() {
-//        Person validPerson = new PersonBuilder().build();
-//        AddCommand addCommand = new AddCommand(validPerson);
-//        ModelStub modelStub = new ModelStubWithPerson(validPerson);
-//
-//        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSO, () -> addCommand.execute(modelStub));
-//    }
-//
-//    @Test
-//    public void equals() {
-//        Person alice = new PersonBuilder().withName("Alice").build();
-//        Person bob = new PersonBuilder().withName("Bob").build();
-//        AddCommand addAliceCommand = new AddCommand(alice);
-//        AddCommand addBobCommand = new AddCommand(bob);
-//
-//        // same object -> returns true
-//        assertTrue(addAliceCommand.equals(addAliceCommand));
-//
-//        // same values -> returns true
-//        AddCommand addAliceCommandCopy = new AddCommand(alice);
-//        assertTrue(addAliceCommand.equals(addAliceCommandCopy));
-//
-//        // different types -> returns false
-//        assertFalse(addAliceCommand.equals(1));
-//
-//        // null -> returns false
-//        assertFalse(addAliceCommand.equals(null));
-//
-//        // different person -> returns false
-//        assertFalse(addAliceCommand.equals(addBobCommand));
-//    }
-//
+
+    @Test
+    public void constructor_nullPerson_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new AddExpenseCommand(null));
+    }
+
+    @Test
+    public void equals() {
+        Expense books = new ExpenseBuilder().withAmount(30.0).build();
+        Expense movie = new ExpenseBuilder().withAmount(14.0).build();
+        AddExpenseCommand addBooksCommand = new AddExpenseCommand(books);
+        AddExpenseCommand addMovieCommand = new AddExpenseCommand(movie);
+
+        // same object -> returns true
+        assertTrue(addBooksCommand.equals(addBooksCommand));
+
+        // same values -> returns true
+        AddExpenseCommand addBooksCommandCopy = new AddExpenseCommand(books);
+        assertTrue(addBooksCommand.equals(addBooksCommandCopy));
+
+        // different types -> returns false
+        assertFalse(addBooksCommand.equals(1));
+
+        // null -> returns false
+        assertFalse(addBooksCommand.equals(null));
+
+        // different person -> returns false
+        assertFalse(addBooksCommand.equals(addMovieCommand));
+
+        // different person -> returns false
+        assertFalse(addMovieCommand.equals(addBooksCommand));
+    }
+
 //    /**
 //     * A default model stub that have all of the methods failing.
 //     */
