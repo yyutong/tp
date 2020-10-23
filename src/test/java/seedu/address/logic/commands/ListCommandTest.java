@@ -5,6 +5,7 @@ import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 import seedu.address.model.UserPrefs;

@@ -1,20 +1,19 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.HelpCommand.ADDDESCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.ADDEXPENSECOMMAND;
 import static seedu.address.logic.commands.HelpCommand.DELETECOMMOND;
-import static seedu.address.logic.commands.HelpCommand.EXITCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.DELETEDESCOMMOND;
+import static seedu.address.logic.commands.HelpCommand.EXITCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.LISTBYCATEGORYCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.LISTCOMMOND;
-import static seedu.address.logic.commands.HelpCommand.SHOWBUDGETCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.SETBUDGETCOMMOND;
+import static seedu.address.logic.commands.HelpCommand.SHOWBUDGETCOMMOND;
+import static seedu.address.logic.commands.HelpCommand.SHOWING_HELP_MESSAGE;
 import static seedu.address.logic.commands.HelpCommand.VIEWCATEGORYCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.VIEWCOMMOND;
-import static seedu.address.logic.commands.HelpCommand.SHOWING_HELP_MESSAGE;
 
 import org.junit.jupiter.api.Test;
 
