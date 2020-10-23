@@ -2,7 +2,7 @@ package seedu.address.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;;
+import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
@@ -11,7 +11,6 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.MOVIE;
 
 import java.io.IOException;
-
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.BeforeEach;
