@@ -77,7 +77,7 @@ public class AddCommandParserTest {
         // missing name prefix
         assertParseFailure(parser, userInput1, expectedMessage);
 
-        String userInput2 = " a/" + VALID_AMOUNT_MOVIE  + " D/" + VALID_DATE_MOVIE
+        String userInput2 = " a/" + VALID_AMOUNT_MOVIE + " D/" + VALID_DATE_MOVIE
                 + " d/" + VALID_DESCRIPTION_MOVIE;
 
         // missing phone prefix
