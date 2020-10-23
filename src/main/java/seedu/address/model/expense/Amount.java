@@ -1,6 +1,8 @@
 package seedu.address.model.expense;
 
 public class Amount {
+    public static final String MESSAGE_CONSTRAINTS =
+            "Amount should only positive numbers";
     public final Double value;
 
     public Amount(Double value) {
