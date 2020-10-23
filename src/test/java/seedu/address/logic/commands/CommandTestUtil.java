@@ -2,6 +2,11 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -29,6 +34,23 @@ public class CommandTestUtil {
     public static final String VALID_DESCRIPTION_BOOKS = "Bought textbook";
     public static final String VALID_DESCRIPTION_MOVIE = "Watched 1917 on Tuesday";
 
+    public static final String AMOUNT_DESC_BOOKS = " " + PREFIX_AMOUNT + VALID_AMOUNT_BOOKS;
+    public static final String AMOUNT_DESC_MOVIE = " " + PREFIX_AMOUNT + VALID_AMOUNT_MOVIE;
+    public static final String DATE_DESC_BOOKS = " " + PREFIX_DATE + VALID_DATE_BOOKS;
+    public static final String DATE_DESC_MOVIE = " " + PREFIX_DATE + VALID_DATE_MOVIE;
+    public static final String CATEGORY_DESC_BOOKS = " " + PREFIX_CATEGORY + VALID_CATEGORY_BOOKS;
+    public static final String CATEGORY_DESC_MOVIE = " " + PREFIX_CATEGORY + VALID_CATEGORY_MOVIE;
+    public static final String DESCRIPTION_DESC_BOOKS = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BOOKS;
+    public static final String DESCRIPTION_DESC_MOVIE = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_MOVIE;
+
+    public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT
+            + "-1"; // negative number not allowed in Amount
+    public static final String INVALID_DATE_DESC = " " + PREFIX_DATE
+            + "-1"; // '-1' negative number not allowed in Date
+    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+
+    public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
+    public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
     public static final ExpenseBuilder BOOKS;
     public static final ExpenseBuilder MOVIE;
