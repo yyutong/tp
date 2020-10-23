@@ -1,7 +1,49 @@
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+!include style.puml
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":ExpenseBookParser" as ExpenseBookParser LOGIC_COLOR
+participant "l:ListCommand" as ListCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant "fe:FilteredList" as FilteredList MODEL_COLOR
+end box
+
+[-> LogicManager : execute(list)
+activate LogicManager
+
+LogicManager -> ExpenseBookParser : parseCommand(list)
+activate ExpenseBookParser
+
+create ListCommand
+ExpenseBookParser -> ListCommand
+activate ListCommand
+
+ListCommand --> ExpenseBookParser
+deactivate ListCommand
+
+ExpenseBookParser --> LogicManager : l
+deactivate AddressBookParser
+
+LogicManager -> ListCommand : execute()
+activate ListCommand
+
+ListCommand -> Model : updateFilteredExpenseList()
+activate Model
+
+Model -> FilteredList : setPredicate(Predicate)
+
+Model --> ListCommand
+deactivate Model
+
+ListCommand --> LogicManager : result
+deactivate ListCommand
+ListCommand -[hidden]-> LogicManager : result
+destroy ListCommand
+
+[<--LogicManager
+deactivate LogicManager
 @enduml
