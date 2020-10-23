@@ -221,6 +221,24 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
+### \[Proposed\] List feature
+
+#### Proposed Implementation
+
+The proposed list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
+`ListExpenseCommand` is created at `ExpenseBookParser` which is called by `LogicManager` to parse input string into `Command`.
+`LogicManager` takes in input string from `CommandBox` which belongs to one of the GUI component.
+
+Given below is an example usage scenario of how the list feature behaves at each step.
+
+Step 1: User initialize app, there is a expense list
+Step 2: list command
+Step 3: Command box ->... model called updatefilteredexpenselist
+Step 4: filteredlist javafx
+sequence diagram
+activity diagram
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
