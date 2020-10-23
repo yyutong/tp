@@ -20,6 +20,11 @@ import seedu.address.testutil.ExpenseBookBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class CommandTestUtil {
+    public static final String INVALID_CATEGORY_1 = "";
+    public static final String INVALID_CATEGORY_2 = " ";
+    public static final String INVALID_DATE_1 = "-1";
+    public static final String INVALID_DATE_2 = "$";
+    public static final String INVALID_DATE_3 = "1010";
     public static final Double VALID_AMOUNT_BOOKS = 20.0;
     public static final Double VALID_AMOUNT_MOVIE = 10.0;
     public static final String VALID_DATE_BOOKS = "1";
@@ -46,6 +51,7 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
     public static final ExpenseBuilder BOOKS;
     public static final ExpenseBuilder MOVIE;
 
