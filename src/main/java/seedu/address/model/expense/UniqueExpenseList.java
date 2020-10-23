@@ -176,4 +176,21 @@ public class UniqueExpenseList implements Iterable<Expense> {
         }
         return categories;
     }
+    public int getExpenseSumByCategory(String categoryName) {
+        int counter = 0;
+        for (int i = 0; i < internalList.size(); i = i + 1) {
+            Expense current = internalList.get(i);
+            Category currentCategory = current.getCategory();
+            String currentCategoryName = currentCategory.categoryName;
+            if (currentCategoryName.equals(categoryName)) {
+                counter = counter + 1;
+            }
+        }
+        return counter;
+    }
+
+    public int getTotalExpense() {
+        int sum = internalList.size();
+        return sum;
+    }
 }

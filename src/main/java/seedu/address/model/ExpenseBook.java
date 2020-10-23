@@ -114,6 +114,14 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.getCategoryLabels();
     }
 
+    public int getExpenseSumByCategory(String categoryName) {
+        return expenses.getExpenseSumByCategory(categoryName);
+    }
+
+    public int getTotalExpense() {
+        return expenses.getTotalExpense();
+    }
+
     //// util methods
 
     @Override
