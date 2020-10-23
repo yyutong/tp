@@ -3,14 +3,12 @@ package seedu.address.logic;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOVIE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.MOVIE;
-
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -19,18 +17,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
-import seedu.address.model.UserPrefs;
-import seedu.address.storage.JsonExpenseBookStorage;
-import seedu.address.storage.JsonUserPrefsStorage;
-import seedu.address.storage.StorageManager;
 import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.expense.Expense;
@@ -50,10 +42,6 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonExpenseBookStorage addressBookStorage =
-                new JsonExpenseBookStorage(temporaryFolder.resolve("addressBook.json"));
-        JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
         JsonExpenseBookStorage expenseBookStorage =
                 new JsonExpenseBookStorage(temporaryFolder.resolve("expenseBook.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
@@ -69,16 +57,6 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
-        String deleteExpenseCommand = "delete 9";
-        assertCommandException(deleteExpenseCommand, MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
-    }
-
-    @Test
-    public void execute_validCommand_success() throws Exception {
-        String listExpenseCommand = ListExpenseCommand.COMMAND_WORD;
-        assertCommandSuccess(listExpenseCommand, ListExpenseCommand.MESSAGE_SUCCESS, model);
-    }
-
         String deleteCommand = "delete 9";
         assertCommandException(deleteCommand, MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
     }
@@ -122,7 +100,7 @@ public class LogicManagerTest {
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandSuccess(String inputCommand, String expectedMessage,
-            Model expectedModel) throws CommandException, ParseException {
+                                      Model expectedModel) throws CommandException, ParseException {
         CommandResult result = logic.execute(inputCommand);
         assertEquals(expectedMessage, result.getFeedbackToUser());
         assertEquals(expectedModel, model);
@@ -149,7 +127,7 @@ public class LogicManagerTest {
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage) {
+                                      String expectedMessage) {
         Model expectedModel = new ExpenseModelManager(model.getExpenseBook(), new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
@@ -162,11 +140,14 @@ public class LogicManagerTest {
      * @see #assertCommandSuccess(String, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage, Model expectedModel) {
+                                      String expectedMessage, Model expectedModel) {
         assertThrows(expectedException, expectedMessage, () -> logic.execute(inputCommand));
         assertEquals(expectedModel, model);
     }
 
+    /**
+     * A stub class to throw an {@code IOException} when the save method is called.
+     */
     private static class JsonAddressBookIoExceptionThrowingStub extends JsonExpenseBookStorage {
         private JsonAddressBookIoExceptionThrowingStub(Path filePath) {
             super(filePath);
