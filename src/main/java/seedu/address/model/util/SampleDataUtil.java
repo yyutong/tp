@@ -1,7 +1,6 @@
 package seedu.address.model.util;
 
 import seedu.address.model.ExpenseBook;
-import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
