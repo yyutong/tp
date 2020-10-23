@@ -9,7 +9,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOVIE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.MOVIE;
+
 import java.io.IOException;
+
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -78,7 +80,9 @@ public class LogicManagerTest {
         ExpenseModelManager expectedModel = new ExpenseModelManager();
         expectedModel.addExpense(expectedExpense);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
-//        assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
+        //fails
+        //need to edit again later
+        assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
     }
 
     @Test
