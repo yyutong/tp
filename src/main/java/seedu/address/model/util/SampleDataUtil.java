@@ -39,4 +39,11 @@ public class SampleDataUtil {
         return sampleAb;
     }
 
+    public static ReadOnlyExpenseBook getExpenseBookWithoutSample(ExpenseBook expenseBook) {
+        for (Expense sampleExpense : getSampleExpenses()) {
+            expenseBook.removeExpense(sampleExpense);
+        }
+        return expenseBook;
+    }
+
 }

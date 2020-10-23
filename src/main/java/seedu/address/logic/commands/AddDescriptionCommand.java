@@ -15,7 +15,7 @@ import seedu.address.model.expense.Expense;
 /**
  * Changes the description of an existing expense in the address book.
  */
-public class DescriptionCommand extends Command {
+public class AddDescriptionCommand extends Command {
 
     public static final String COMMAND_WORD = "addDes";
 
@@ -38,7 +38,7 @@ public class DescriptionCommand extends Command {
      * @param index of the expense in the filtered expense list to edit the description
      * @param description of the expense to be updated to
      */
-    public DescriptionCommand(Index index, Description description) {
+    public AddDescriptionCommand(Index index, Description description) {
         requireAllNonNull(index, description);
 
         this.index = index;
@@ -72,12 +72,12 @@ public class DescriptionCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof DescriptionCommand)) {
+        if (!(other instanceof AddDescriptionCommand)) {
             return false;
         }
 
         // state check
-        DescriptionCommand e = (DescriptionCommand) other;
+        AddDescriptionCommand e = (AddDescriptionCommand) other;
         return index.equals(e.index)
                 && description.equals(e.description);
     }

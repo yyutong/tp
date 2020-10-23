@@ -14,6 +14,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.util.SampleDataUtil;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -74,9 +75,9 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
-    public void setExpenseBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setExpenseBookFilePath(addressBookFilePath);
+    public void setExpenseBookFilePath(Path expenseBookFilePath) {
+        requireNonNull(expenseBookFilePath);
+        userPrefs.setExpenseBookFilePath(expenseBookFilePath);
     }
 
     @Override
@@ -87,6 +88,14 @@ public class ExpenseModelManager implements Model {
     @Override
     public ReadOnlyExpenseBook getExpenseBook() {
         return expenseBook;
+    }
+
+    /**
+     * Returns an unmodifiable view of expense list with sample removed.
+     */
+    @Override
+    public ReadOnlyExpenseBook getExpenseBookWithoutSample() {
+        return SampleDataUtil.getExpenseBookWithoutSample(expenseBook);
     }
 
     //=========== AddressBook ================================================================================
@@ -114,6 +123,8 @@ public class ExpenseModelManager implements Model {
         requireAllNonNull(target, editedExpense);
         expenseBook.setExpense(target, editedExpense);
     }
+
+
 
     //=========== Filtered Expense List Accessors =============================================================
 
