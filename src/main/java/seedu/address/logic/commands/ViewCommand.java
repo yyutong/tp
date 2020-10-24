@@ -8,7 +8,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
-
 public class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
 
@@ -28,6 +27,8 @@ public class ViewCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         List<Expense> lastShownList = model.getFilteredExpenseList();
+
+        assert targetIndex.getZeroBased() >= 0 : "index should be a positive number";
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);

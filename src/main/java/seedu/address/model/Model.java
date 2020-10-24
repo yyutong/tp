@@ -48,6 +48,10 @@ public interface Model {
 
     /** Returns the AddressBook */
     ReadOnlyExpenseBook getExpenseBook();
+
+    /** Returns the with sample removed */
+    ReadOnlyExpenseBook getExpenseBookWithoutSample();
+
     /**
      * Sets the user prefs' address book file path.
      */
@@ -95,4 +99,5 @@ public interface Model {
     void setExpenseBookBudget(double budget);
 
     List<Category> getCategoryLabels();
+
 }

@@ -22,7 +22,6 @@ public class DeleteDescriptionCommandParser implements Parser<DeleteDescriptionC
     public DeleteDescriptionCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
-
         Index index;
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
