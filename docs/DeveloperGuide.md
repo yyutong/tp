@@ -231,12 +231,16 @@ The proposed list feature belongs to `ListExpenseCommand` extends `Command`. Thi
 
 Given below is an example usage scenario of how the list feature behaves at each step.
 
-Step 1: User initialize app, there is a expense list
-Step 2: list command
-Step 3: Command box ->... model called updatefilteredexpenselist
-Step 4: filteredlist javafx
-sequence diagram
-activity diagram
+Step 1: User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses.
+Step 2: After user inputs list command, the steps can be shown from this sequence diagram.
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:**  
+`FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app GUI.
+
+The following activity diagram summarizes what happens when a user executes a new command:
 
 
 

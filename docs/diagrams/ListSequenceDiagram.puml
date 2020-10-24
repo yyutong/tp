@@ -1,5 +1,10 @@
 @startuml
 !include style.puml
+skinparam BoxPadding 20
+
+box Ui UI_COLOR_T1
+participant ":MainWindow" as MainWindow UI_COLOR
+end box
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
@@ -12,7 +17,10 @@ participant ":Model" as Model MODEL_COLOR
 participant "fe:FilteredList" as FilteredList MODEL_COLOR
 end box
 
-[-> LogicManager : execute(list)
+[-> MainWindow
+activate MainWindow
+
+MainWindow -> LogicManager : execute(list)
 activate LogicManager
 
 LogicManager -> ExpenseBookParser : parseCommand(list)
@@ -44,6 +52,10 @@ deactivate ListCommand
 ListCommand -[hidden]-> LogicManager : result
 destroy ListCommand
 
-[<--LogicManager
+MainWindow <--LogicManager : result
 deactivate LogicManager
+
+[<-- MainWindow
+deactivate MainWindow
+
 @enduml
