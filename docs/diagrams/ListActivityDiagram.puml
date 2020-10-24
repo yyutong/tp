@@ -1,10 +1,6 @@
 @startuml
-(*)  --> "check input"
-If "input is verbose" then
---> [Yes] "turn on verbosity"
---> "run command"
-else
---> "run command"
-Endif
+(*)  --> "User execute list command"
+--> "Ui shows the expense list"
+--> "Ui shows command result"
 -->(*)
 @enduml
