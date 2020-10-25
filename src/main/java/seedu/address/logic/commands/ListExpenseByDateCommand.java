@@ -4,24 +4,24 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.expense.CategoryContainsKeywordsPredicate;
+import seedu.address.model.expense.DateContainsKeywordsPredicate;
 
 /**
- * Finds and lists all expenses in expense book whose category contains any of the argument keywords.
- * Keyword matching is case insensitive.
+ * Finds and lists all expenses in expense book whose date matches the keyword.
+ * Keyword matching is case sensitive.
  */
 public class ListExpenseByDateCommand extends Command {
 
     public static final String COMMAND_WORD = "listbydate";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose category contains any of "
-            + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " entertainment";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose date matches "
+            + "the specified keywords (case-sensitive) and displays them as a list with index numbers.\n"
+            + "Parameters: YYYY-MM-DD \n"
+            + "Example: " + COMMAND_WORD + "2020-12-25";
 
-    private final CategoryContainsKeywordsPredicate predicate;
+    private final DateContainsKeywordsPredicate predicate;
 
-    public ListExpenseByDateCommand(CategoryContainsKeywordsPredicate predicate) {
+    public ListExpenseByDateCommand(DateContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
