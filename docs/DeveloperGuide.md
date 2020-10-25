@@ -308,8 +308,8 @@ _{Explain here how the data archiving feature will be implemented}_
 ### Manage description of Expense Feature
 
 As an expense management application, one of the most important features is to add a description when
- recording down and tracking the expenses, so that later when users review their expenses, they have a better
- idea of what he spent on. 
+recording down and tracking the expenses, so that later when users review their expenses, they have a better
+idea of what he spent on. 
 
 This section will cover the details of the current implementation and design considerations of
 the description management feature.
