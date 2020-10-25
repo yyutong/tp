@@ -99,5 +99,8 @@ public interface Model {
     void setExpenseBookBudget(double budget);
 
     List<Category> getCategoryLabels();
+    int getExpenseSumByCategory(String categoryName);
+
+    int getTotalExpense();
 
 }

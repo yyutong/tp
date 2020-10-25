@@ -188,5 +188,13 @@ public class ExpenseModelManager implements Model {
         return expenseBook.getCategoryLabels();
     }
 
+    @Override
+    public int getExpenseSumByCategory(String categoryName) {
+        return expenseBook.getExpenseSumByCategory(categoryName);
+    }
 
+    @Override
+    public int getTotalExpense() {
+        return expenseBook.getTotalExpense();
+    }
 }
