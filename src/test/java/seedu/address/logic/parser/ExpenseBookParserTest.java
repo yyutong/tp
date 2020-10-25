@@ -10,13 +10,12 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.AddDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
-import seedu.address.logic.commands.DescriptionCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Description;
-
 
 public class ExpenseBookParserTest {
 
@@ -25,9 +24,10 @@ public class ExpenseBookParserTest {
     @Test
     public void parseCommand_description() throws Exception {
         final Description remark = new Description("Some remark.");
-        DescriptionCommand command = (DescriptionCommand) parser.parseCommand(DescriptionCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_EXPENSE.getOneBased() + " " + PREFIX_DESCRIPTION + remark.value);
-        assertEquals(new DescriptionCommand(INDEX_FIRST_EXPENSE, remark), command);
+        AddDescriptionCommand command = (AddDescriptionCommand) parser.parseCommand(
+                AddDescriptionCommand.COMMAND_WORD + " "
+                        + INDEX_FIRST_EXPENSE.getOneBased() + " " + PREFIX_DESCRIPTION + remark.value);
+        assertEquals(new AddDescriptionCommand(INDEX_FIRST_EXPENSE, remark), command);
     }
 
     @Test

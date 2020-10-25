@@ -60,10 +60,10 @@ UniSave is a **desktop app for managing expenses, optimized for use via a Comman
 
 Adds an expense to a category.  Must specify category when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY d/DATE [D/DESCRIPTION]`
+Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be in the form of yyyy-mm-dd
+A date should be a single integer
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -75,8 +75,8 @@ The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be add
 </div>
 
 Examples:
-* `add a/100 c/FOODBEVERAGE d/2020-09-12`
-* `add a/50 c/ENTERTAINMENT d/2020-09-11 D/yayymovie!`
+* `add a/100 c/FOODBEVERAGE d/1`
+* `add a/50 c/ENTERTAINMENT d/0 D/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -215,7 +215,7 @@ _{explain the feature here}_
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add a/AMOUNT c/CATEGORY d/DATE [D/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE d/2020-09-12`
+**Add** | `add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE D/1`
 **List** | `list`
 **List by category** | `listbycategory CATEGORY` <br> e.g., `listbycategory food`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`

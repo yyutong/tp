@@ -67,11 +67,14 @@ public class JsonUtil {
         T jsonFile;
 
         try {
+            //logger.info("getting json file in JsonUtil");
             jsonFile = deserializeObjectFromJsonFile(filePath, classOfObjectToDeserialize);
+            //logger.info("finish getting json file in JsonUtil");
         } catch (IOException e) {
             logger.warning("Error reading from jsonFile file " + filePath + ": " + e);
             throw new DataConversionException(e);
         }
+        logger.info("json file gotten is " + Optional.of(jsonFile).toString());
 
         return Optional.of(jsonFile);
     }
