@@ -333,8 +333,8 @@ _{Explain here how the data archiving feature will be implemented}_
 ### Manage description of Expense Feature
 
 As an expense management application, one of the most important features is to add a description when
- recording down and tracking the expenses, so that later when users review their expenses, they have a better
- idea of what he spent on. 
+recording down and tracking the expenses, so that later when users review their expenses, they have a better
+idea of what he spent on. 
 
 This section will cover the details of the current implementation and design considerations of
 the description management feature.
@@ -349,6 +349,8 @@ The expense management feature supports five main operations:
 * `addDes` - add a description to an existing expense.
 * `deleteDes` - delete the description of an existing expense.
 
+####Add description
+<div>
 The add description features and delete description feature are mainly supported by the `Expense` class.
 
 Given below is the class diagram of the `Expense` class.
@@ -391,6 +393,85 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
 
+####View an expense 
+<div>
+The view expense feature is facilitated by the `ExpenseBook` class.
+
+Given below is the class diagram of the `ExpenseBook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `ViewCommand`:
+
+Fig. Activity Diagram for the Execution of `ViewCommand`
+![AddDescriptionActivityDiagram](images/ViewActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `view 1` to view the details of the expense with index 1(the first expense) 
+in the displayed expense list.
+The `ViewCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
+and creates a CommandResult which contains the details of the first expense found in the list.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `view 1`:
+
+High Level Sequence Diagram for the Execution of `view 1`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1: Directly see the expense from the UI.
+** Pros: No need to type in any command.
+** Cons: May take some time to scroll down the list to look for the correct index, especially when the 
+         expense list is sorted by date/amount.
+         
+         
+####View all existing expense categories 
+<div>
+The view existing expense categories feature is facilitated by the ExpenseBook class.
+
+Given below is the class diagram of the `ExpenseBook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
+
+Fig. Activity Diagram for the Execution of `viewCategory`
+![AddDescriptionActivityDiagram](images/ViewCategoryActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `viewCategory` to view all the existing expense category labels 
+        in the ExpenseBook in Unisave.
+The `ViewCategoryCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
+and creates a CommandResult which contains the details of the first expense found in the list.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `viewCategory`:
+
+High Level Sequence Diagram for the Execution of `viewCategory`
+![AddDescriptionActivityDiagram](images/ViewCategorySequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1: Directly search for existing expense categories from the UI.
+** Pros: No need to type in any command.
+** Cons: Takes a lot of time to do so.
 
 --------------------------------------------------------------------------------------------------------------------
 
