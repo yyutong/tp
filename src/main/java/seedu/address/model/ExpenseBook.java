@@ -72,7 +72,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         this.expenses.exchange(this.dollarSign, exchangeRate);
     }
 
-
     /**
      * Resets the existing data of this {@code ExpenseBook} with {@code newData}.
      */

@@ -95,9 +95,13 @@ public interface Model {
 
     double getExpenseBookRemaining();
 
+    void expenseBookExchange(double exchangeRate);
+
     void setExpenseBookBudget(double budget);
 
     String getExpenseBookCurrency();
+
+    void setExpenseBookCurrency(String dollarSign);
 
     List<Category> getCategoryLabels();
     int getExpenseSumByCategory(String categoryName);

@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -84,6 +85,33 @@ public class ParserUtil {
         requireNonNull(description);
         String trimmedDescription = description.trim();
         return new Description(trimmedDescription);
+    }
+
+    /**
+     * Parses a {@code String name} into a {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static String parseCurrency(String currency) throws ParseException {
+        requireNonNull(currency);
+        return currency.trim();
+    }
+
+    /**
+     * Parses a {@code String name} into a {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static double parseExchangeRate(String rate) throws ParseException {
+        requireNonNull(rate);
+        try {
+            return Double.parseDouble(rate.trim());
+        } catch (Exception pe) {
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT), pe);
+        }
     }
 
 }

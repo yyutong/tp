@@ -11,6 +11,7 @@ import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
+import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.ListExpenseCommand;
@@ -76,7 +77,9 @@ public class ExpenseBookParser {
         case SortByTimeCommand.COMMAND_WORD:
             return new SortByTimeCommandParser().parse(arguments);
         case HelpCommand.COMMAND_WORD:
-            return new HelpCommandParser().parse();
+            return new HelpCommandParser().parse(arguments);
+        case ExchangeCommand.COMMAND_WORD:
+            return new ExchangeCommandParser().parse(arguments);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
