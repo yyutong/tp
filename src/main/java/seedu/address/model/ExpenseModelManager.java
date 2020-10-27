@@ -98,7 +98,7 @@ public class ExpenseModelManager implements Model {
         return SampleDataUtil.getExpenseBookWithoutSample(expenseBook);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== ExpenseBook ================================================================================
 
     @Override
     public boolean hasExpense(Expense expense) {
@@ -196,5 +196,29 @@ public class ExpenseModelManager implements Model {
     @Override
     public int getTotalExpense() {
         return expenseBook.getTotalExpense();
+    }
+
+    @Override
+    public void sortByDescendingAmount() {
+        expenseBook.sortByDescendingAmount();
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+    }
+
+    @Override
+    public void sortByAscendingAmount() {
+        expenseBook.sortByAscendingAmount();
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+    }
+
+    @Override
+    public void sortByDescendingTime() {
+        expenseBook.sortByDescendingTime();
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+    }
+
+    @Override
+    public void sortByAscendingTime() {
+        expenseBook.sortByAscendingTime();
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 }

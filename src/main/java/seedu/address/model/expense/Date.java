@@ -13,6 +13,7 @@ public class Date {
     public static final String VALIDATION_REGEX = "\\d{1,}";
     public final String date;
     public final String howManyDaysAgo;
+    private LocalDate localDate;
 
     /**
      * Constructor for Date.
@@ -25,6 +26,7 @@ public class Date {
         LocalDate localdate = LocalDate.now();
         int convertedDay = Integer.parseInt(inputDay);
         LocalDate dayBefore = localdate.minusDays(convertedDay);
+        localDate = dayBefore;
         this.date = dayBefore.toString();
     }
     /**
@@ -42,6 +44,10 @@ public class Date {
      */
     public static boolean isValidDate(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    public LocalDate getLocalDate() {
+        return this.localDate;
     }
 
     @Override
