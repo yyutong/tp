@@ -152,6 +152,9 @@ public class ExpenseList implements Iterable<Expense> {
         return internalList.hashCode();
     }
 
+    /**
+     * Sorts the expense list by ascending amount.
+     */
     public void sortByAscendingAmount() {
         internalList.sort(new Comparator<Expense>() {
             @Override
@@ -168,6 +171,9 @@ public class ExpenseList implements Iterable<Expense> {
 
     }
 
+    /**
+     * Sorts the expense list by descending amount.
+     */
     public void sortByDescendingAmount() {
         internalList.sort(new Comparator<Expense>() {
             @Override
@@ -183,6 +189,9 @@ public class ExpenseList implements Iterable<Expense> {
         });
     }
 
+    /**
+     * Sorts the expense list by descending timr.
+     */
     public void sortByDescendingTime() {
         internalList.sort(new Comparator<Expense>() {
             @Override
@@ -200,6 +209,9 @@ public class ExpenseList implements Iterable<Expense> {
         });
     }
 
+    /**
+     * Sorts the expense list by ascending time.
+     */
     public void sortByAscendingTime() {
         internalList.sort(new Comparator<Expense>() {
             @Override
