@@ -2,10 +2,6 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -13,7 +9,7 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
-import seedu.address.model.tag.Tag;
+
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -89,5 +85,5 @@ public class ParserUtil {
         String trimmedDescription = description.trim();
         return new Description(trimmedDescription);
     }
-    
+
 }
