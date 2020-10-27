@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.UniqueExpenseList;
+import seedu.address.model.expense.ExpenseList;
 
 /**
  * Wraps all data at the UniSave level
@@ -16,7 +16,7 @@ import seedu.address.model.expense.UniqueExpenseList;
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
 
-    private final UniqueExpenseList expenses;
+    private final ExpenseList expenses;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -26,7 +26,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      *   among constructors.
      */
     {
-        expenses = new UniqueExpenseList();
+        expenses = new ExpenseList();
     }
 
     public ExpenseBook() {}

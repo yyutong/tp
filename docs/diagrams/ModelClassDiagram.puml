@@ -5,11 +5,11 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model <<Rectangle>>{
-Interface ReadOnlyAddressBook <<Interface>>
+Interface ReadOnlyExpenseBook <<Interface>>
 Interface Model <<Interface>>
 Interface ObservableList <<Interface>>
-Class AddressBook
-Class ReadOnlyAddressBook
+Class ExpenseBook
+Class ReadOnlyExpenseBook
 Class Model
 Class ModelManager
 Class UserPrefs
@@ -36,17 +36,16 @@ ExpenseBook .up.|> ReadOnlyExpenseBook
 
 ExpenseModelManager .up.|> Model
 Model .right.> ObservableList
-ExpenseModelManager o--> "1" AddressBook
+ExpenseModelManager o--> "1" ExpenseBook
 ExpenseModelManager o-left-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 ExpenseBook *--> "1" UniqueExpenseList
 UniqueExpenseList o--> "*" Expense
-Expense *--> Name
-Expense *--> Phone
-Expense *--> Email
-Expense *--> Address
-Expense *--> "*" Tag
+Expense *--> Amount
+Expense *--> Date
+Expense *--> Category
+Expense *--> Description
 
 Amount -[hidden]right-> Category
 Category -[hidden]right-> Date
