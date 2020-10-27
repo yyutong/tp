@@ -15,7 +15,6 @@ import seedu.address.model.expense.Category;
 public class ShowStatisticCommand extends Command {
 
     public static final String COMMAND_WORD = "showStatistic";
-
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": show number of expenses by categories in ascending order. \n"
             + "Example: " + COMMAND_WORD;
@@ -28,8 +27,7 @@ public class ShowStatisticCommand extends Command {
      *
      */
     // function to sort hashmap by values
-    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm)
-    {
+    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
         // Create a list from elements of HashMap
         List<Map.Entry<String, Integer> > list =
                 new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
@@ -37,8 +35,7 @@ public class ShowStatisticCommand extends Command {
         // Sort the list
         Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
             public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2)
-            {
+                               Map.Entry<String, Integer> o2) {
                 return (o1.getValue()).compareTo(o2.getValue());
             }
         });
