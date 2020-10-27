@@ -14,14 +14,10 @@ Given below are my contributions to the project.
 
 * **New Feature**: 
 
-* **Code contributed**: [RepoSense link]()
+* **Code contributed**: 
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
   * Developer Guide:
-    * Added implementation details of the `delete` feature.
