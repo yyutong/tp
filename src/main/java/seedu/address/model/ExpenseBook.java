@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.UniqueExpenseList;
+import seedu.address.model.expense.ExpenseList;
 
 /**
  * Wraps all data at the UniSave level
@@ -16,7 +16,8 @@ import seedu.address.model.expense.UniqueExpenseList;
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
 
-    private final UniqueExpenseList expenses;
+    private final ExpenseList expenses;
+    private double budget = 0;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -26,7 +27,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      *   among constructors.
      */
     {
-        expenses = new UniqueExpenseList();
+        expenses = new ExpenseList();
     }
 
     public ExpenseBook() {}
@@ -99,15 +100,15 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
 
     public void setBudget(double budget) {
-        expenses.setBudget(budget);
+        this.budget = budget;
     }
 
     public double getBudget() {
-        return expenses.getBudget();
+        return this.budget;
     }
 
     public double getRemainingBudget() {
-        return expenses.getRemainingBudget();
+        return this.budget - expenses.totalSpending();
     }
 
     public List<Category> getCategoryLabels() {

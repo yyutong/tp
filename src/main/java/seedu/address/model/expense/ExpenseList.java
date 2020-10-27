@@ -10,27 +10,17 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.expense.exceptions.DuplicateExpenseException;
 import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 
 /**
- * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A person is considered unique by comparing using {@code Person#isSamePerson(Person)}. As such, adding and updating of
- * persons uses Person#isSamePerson(Person) for equality so as to ensure that the person being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a person uses Person#equals(Object) so
- * as to ensure that the person with exactly the same fields will be removed.
- *
+ * A list of expenses that does not allow nulls.
  * Supports a minimal set of list operations.
- *
- * @see Expense#isSameExpense(Expense)
  */
-public class UniqueExpenseList implements Iterable<Expense> {
+public class ExpenseList implements Iterable<Expense> {
 
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
-
-    private double budget = 0;
 
     /**
      * Returns true if the list contains an equivalent expense as the given argument.
@@ -46,9 +36,6 @@ public class UniqueExpenseList implements Iterable<Expense> {
      */
     public void add(Expense toAdd) {
         requireNonNull(toAdd);
-        if (contains(toAdd)) {
-            throw new DuplicateExpenseException();
-        }
         internalList.add(toAdd);
     }
 
@@ -57,7 +44,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
      *
      * @param index The index of the expense to be viewed in the ExpenseBook.
      */
-    public void view (Index index) {
+    public void view(Index index) {
         requireAllNonNull(index);
         Expense expense = internalList.get(index.getOneBased());
     }
@@ -65,7 +52,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
     /**
      * Replaces the expense {@code target} in the list with {@code editedExpense}.
      * {@code target} must exist in the list.
-     * The expense identity of {@code editedExpense} must not be the same as another existing person in the list.
+     * The expense identity of {@code editedExpense} must not be the same as another existing expense in the list.
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireAllNonNull(target, editedExpense);
@@ -74,11 +61,6 @@ public class UniqueExpenseList implements Iterable<Expense> {
         if (index == -1) {
             throw new ExpenseNotFoundException();
         }
-
-        if (!target.isSameExpense(editedExpense) && contains(editedExpense)) {
-            throw new DuplicateExpenseException();
-        }
-
         internalList.set(index, editedExpense);
     }
 
@@ -93,76 +75,25 @@ public class UniqueExpenseList implements Iterable<Expense> {
         }
     }
 
-    public void setExpenses(UniqueExpenseList replacement) {
-        requireNonNull(replacement);
-        internalList.setAll(replacement.internalList);
-    }
-
     /**
-     * Replaces the contents of this list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of this list with {@code expenses}.
+     * {@code expenses} must not be nulls.
      */
     public void setExpenses(List<Expense> expenses) {
         requireAllNonNull(expenses);
-        if (!expensesAreUnique(expenses)) {
-            throw new DuplicateExpenseException();
-        }
-
         internalList.setAll(expenses);
     }
 
     /**
-     * Returns the backing list as an unmodifiable {@code ObservableList}.
+     * Add up the amount in the {@code expenses}.
+     * @return total spending of the expense list.
      */
-    public ObservableList<Expense> asUnmodifiableObservableList() {
-        return internalUnmodifiableList;
-    }
-
-    @Override
-    public Iterator<Expense> iterator() {
-        return internalList.iterator();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof UniqueExpenseList // instanceof handles nulls
-                && internalList.equals(((UniqueExpenseList) other).internalList));
-    }
-
-    @Override
-    public int hashCode() {
-        return internalList.hashCode();
-    }
-
-    /**
-     * Returns true if {@code expenses} contains only unique expenses.
-     */
-    private boolean expensesAreUnique(List<Expense> expenses) {
-        for (int i = 0; i < expenses.size() - 1; i++) {
-            for (int j = i + 1; j < expenses.size(); j++) {
-                if (expenses.get(i).isSameExpense(expenses.get(j))) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
-
-    public double getBudget() {
-        return this.budget;
-    }
-
-    public double getRemainingBudget() {
-        double used = 0;
+    public double totalSpending() {
+        double spending = 0;
         for (int i = 0; i < internalList.size(); i++) {
-            used += internalList.get(i).getAmount().getValue();
+            spending += internalList.get(i).getAmount().getValue();
         }
-        return this.budget - used;
+        return spending;
     }
 
     public List<Category> getCategoryLabels() {
@@ -193,4 +124,29 @@ public class UniqueExpenseList implements Iterable<Expense> {
         int sum = internalList.size();
         return sum;
     }
+
+    /**
+     * Returns the backing list as an unmodifiable {@code ObservableList}.
+     */
+    public ObservableList<Expense> asUnmodifiableObservableList() {
+        return internalUnmodifiableList;
+    }
+
+    @Override
+    public Iterator<Expense> iterator() {
+        return internalList.iterator();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ExpenseList // instanceof handles nulls
+                && internalList.equals(((ExpenseList) other).internalList));
+    }
+
+    @Override
+    public int hashCode() {
+        return internalList.hashCode();
+    }
+
 }
