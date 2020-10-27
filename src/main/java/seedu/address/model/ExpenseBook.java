@@ -17,6 +17,7 @@ import seedu.address.model.expense.ExpenseList;
 public class ExpenseBook implements ReadOnlyExpenseBook {
 
     private final ExpenseList expenses;
+    private double budget = 0;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -99,15 +100,15 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
 
     public void setBudget(double budget) {
-        expenses.setBudget(budget);
+        this.budget = budget;
     }
 
     public double getBudget() {
-        return expenses.getBudget();
+        return this.budget;
     }
 
     public double getRemainingBudget() {
-        return expenses.getRemainingBudget();
+        return this.budget - expenses.totalSpending();
     }
 
     public List<Category> getCategoryLabels() {

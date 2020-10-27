@@ -22,7 +22,6 @@ public class ExpenseList implements Iterable<Expense> {
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
-    private double budget = 0;
 
     /**
      * Returns true if the list contains an equivalent expense as the given argument.
@@ -85,21 +84,13 @@ public class ExpenseList implements Iterable<Expense> {
         requireAllNonNull(expenses);
         internalList.setAll(expenses);
     }
-
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
-
-    public double getBudget() {
-        return this.budget;
-    }
-
-    public double getRemainingBudget() {
-        double used = 0;
+    
+    public double totalSpending() {
+        double spending = 0;
         for (int i = 0; i < internalList.size(); i++) {
-            used += internalList.get(i).getAmount().getValue();
+            spending += internalList.get(i).getAmount().getValue();
         }
-        return this.budget - used;
+        return spending;
     }
 
     public List<Category> getCategoryLabels() {
