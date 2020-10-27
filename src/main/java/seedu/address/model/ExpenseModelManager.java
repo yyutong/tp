@@ -199,7 +199,7 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
-    public void sortByDescendingAmount(){
+    public void sortByDescendingAmount() {
         expenseBook.sortByDescendingAmount();
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }

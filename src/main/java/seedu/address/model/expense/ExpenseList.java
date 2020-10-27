@@ -187,11 +187,11 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if (expense.getDate().localDate
-                        .isBefore(other.getDate().localDate)) {
+                if (expense.getDate().getLocalDate()
+                        .isBefore(other.getDate().getLocalDate())) {
                     return 1;
-                } else if (expense.getDate().localDate
-                        .isBefore(other.getDate().localDate)) {
+                } else if (expense.getDate().getLocalDate()
+                        .isBefore(other.getDate().getLocalDate())) {
                     return -1;
                 } else {
                     return 0;
@@ -204,11 +204,11 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if (expense.getDate().localDate
-                        .isAfter(other.getDate().localDate)) {
+                if (expense.getDate().getLocalDate()
+                        .isAfter(other.getDate().getLocalDate())) {
                     return 1;
-                } else if (expense.getDate().localDate
-                        .isAfter(other.getDate().localDate)) {
+                } else if (expense.getDate().getLocalDate()
+                        .isAfter(other.getDate().getLocalDate())) {
                     return -1;
                 } else {
                     return 0;

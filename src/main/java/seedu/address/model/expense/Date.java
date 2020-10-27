@@ -46,6 +46,10 @@ public class Date {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public LocalDate getLocalDate(){
+        return this.localDate;
+    }
+
     @Override
     public String toString() {
         return this.date;

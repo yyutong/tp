@@ -8,8 +8,6 @@ import seedu.address.model.Model;
 public class SortByTimeCommand extends Command {
     public static final String COMMAND_WORD = "sortByTime";
 
-    public String order;
-
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all existing expenses by descending  "
             + "or ascending time.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
@@ -19,10 +17,15 @@ public class SortByTimeCommand extends Command {
 
     public static final String MESSAGE_SUCCESS_ASCENDING = "Expenses sorted by ascending time!";
 
+
+    private String order;
+
     public SortByTimeCommand(String order) {
         this.order = order;
     }
-
+    public String getOrder(){
+        return order;
+    }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -36,8 +39,8 @@ public class SortByTimeCommand extends Command {
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_DESCENDING));
         } else {
-            throw new CommandException("The sorting order can only be descending or ascending.\n" +
-                    "Please specify again!");
+            throw new CommandException("The sorting order can only be descending or ascending.\n"
+                    + "Please specify again!");
         }
     }
 

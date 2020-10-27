@@ -8,8 +8,6 @@ import seedu.address.model.Model;
 public class SortByAmountCommand extends Command {
     public static final String COMMAND_WORD = "sortByAmount";
 
-    public String order;
-
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all existing expenses by descending  "
             + "or ascending amount.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
@@ -19,8 +17,14 @@ public class SortByAmountCommand extends Command {
 
     public static final String MESSAGE_SUCCESS_ASCENDING = "Expenses sorted by ascending amount!";
 
+    private String order;
+
     public SortByAmountCommand(String order) {
         this.order = order;
+    }
+
+    public String getOrder(){
+        return order;
     }
 
 
@@ -36,8 +40,8 @@ public class SortByAmountCommand extends Command {
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_DESCENDING));
         } else {
-            throw new CommandException("The sorting order can only be descending or ascending.\n" +
-                    "Please specify again!");
+            throw new CommandException("The sorting order can only be descending or ascending.\n"
+                    + "Please specify again!");
         }
     }
 
