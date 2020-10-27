@@ -60,6 +60,10 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         this.dollarSign = dollarSign;
     }
 
+    public String getCurrency() {
+        return this.dollarSign;
+    }
+
     /**
      * Exchange the {@code expenses} to the input currency.
      * @param exchangeRate from the current currency.

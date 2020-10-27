@@ -184,6 +184,11 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
+    public String getExpenseBookCurrency() {
+        return expenseBook.getCurrency();
+    }
+
+    @Override
     public List<Category> getCategoryLabels() {
         return expenseBook.getCategoryLabels();
     }
