@@ -6,11 +6,13 @@ import java.util.Objects;
 
 public class Expense {
 
+    private static final String DEFAULT_CURRENCY = "SGD";
     // Identity fields
     private final Amount amount;
     private final Date date;
     private final Category category;
     private final Description description;
+    private final String dollarSign;
 
     /**
      * Every field must be present and not null.
@@ -21,6 +23,19 @@ public class Expense {
         this.date = date;
         this.category = category;
         this.description = description;
+        this.dollarSign = DEFAULT_CURRENCY;
+    }
+
+    /**
+     * Every field must be present and not null.
+     */
+    public Expense(Amount amount, String dollarSign, Date date, Category category, Description description) {
+        requireAllNonNull(amount, date, category);
+        this.amount = amount;
+        this.date = date;
+        this.category = category;
+        this.description = description;
+        this.dollarSign = dollarSign;
     }
 
     public Amount getAmount() {
@@ -39,6 +54,9 @@ public class Expense {
         return this.description;
     }
 
+    public Expense exchange(String dollarSign, double exchangeRate) {
+        return new Expense(new Amount(amount.getValue() * exchangeRate), dollarSign, date, category, description);
+    }
 
     /**
      * Returns true if both persons of the same name have at least one other identity field that is the same.
@@ -89,6 +107,7 @@ public class Expense {
         if (description.isEmpty()) {
             builder.append(" Amount: ")
                     .append(this.getAmount())
+                    .append(this.dollarSign)
                     .append("\n")
                     .append(" Date: ")
                     .append(this.getDate())
@@ -96,10 +115,10 @@ public class Expense {
                     .append(" Category: ")
                     .append(this.getCategory())
                     .append("\n");
-            return builder.toString();
         } else {
             builder.append(" Amount: ")
                     .append(this.getAmount())
+                    .append(this.dollarSign)
                     .append("\n")
                     .append(" Date: ")
                     .append(this.getDate())
@@ -110,7 +129,7 @@ public class Expense {
                     .append(" Description: ")
                     .append(this.getDescription())
                     .append("\n");
-            return builder.toString();
         }
+        return builder.toString();
     }
 }
