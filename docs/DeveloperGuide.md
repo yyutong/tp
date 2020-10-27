@@ -264,13 +264,12 @@ High Level Sequence Diagram for the Execution of `showBudget`.
 ##### Aspect: How to handle the case when the remaining budget is negative (i.e. current spending exceed the budget).
 
 * Alternative 1 (current choice): Show the remaining budget at negative value, and ask the user to set a new budget.
-    ** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-    ** Cons: Is not supposed to happen in real life, not intuitive.
+  * Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+  * Cons: Is not supposed to happen in real life, not intuitive.
 
 * Alternative 2: Show alerts when the user is overspending, and does not allow the user to spend more before set a new budget.
-
-** Pros: No more negative budget, more intuitive.
-** Cons: Much more complicated implementation.
+  * Pros: No more negative budget, more intuitive.
+  * Cons: Much more complicated implementation.
 
 ### \[Proposed\] Undo/redo feature
 

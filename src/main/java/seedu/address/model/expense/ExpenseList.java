@@ -22,7 +22,6 @@ public class ExpenseList implements Iterable<Expense> {
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
-
     /**
      * Returns true if the list contains an equivalent expense as the given argument.
      */
@@ -84,7 +83,7 @@ public class ExpenseList implements Iterable<Expense> {
         requireAllNonNull(expenses);
         internalList.setAll(expenses);
     }
-    
+
     public double totalSpending() {
         double spending = 0;
         for (int i = 0; i < internalList.size(); i++) {
