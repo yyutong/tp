@@ -6,19 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddDescriptionCommand;
-import seedu.address.logic.commands.AddExpenseCommand;
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteDescriptionCommand;
-import seedu.address.logic.commands.DeleteExpenseCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ListExpenseByCategoryCommand;
-import seedu.address.logic.commands.ListExpenseCommand;
-import seedu.address.logic.commands.SetBudgetCommand;
-import seedu.address.logic.commands.ShowBudgetCommand;
-import seedu.address.logic.commands.ShowStatisticCommand;
-import seedu.address.logic.commands.ViewCategoryCommand;
-import seedu.address.logic.commands.ViewCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -69,6 +57,10 @@ public class ExpenseBookParser {
             return new ShowStatisticCommandParser().parse(arguments);
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
+        case SortByAmountCommand.COMMAND_WORD:
+            return new SortByAmountCommandParser().parse(arguments);
+        case SortByTimeCommand.COMMAND_WORD:
+            return new SortByTimeCommandParser().parse(arguments);
         case HelpCommand.COMMAND_WORD:
             return new HelpCommandParser().parse();
         default:

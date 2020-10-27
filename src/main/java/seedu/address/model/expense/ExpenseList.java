@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -147,6 +148,71 @@ public class ExpenseList implements Iterable<Expense> {
     @Override
     public int hashCode() {
         return internalList.hashCode();
+    }
+
+    public void sortByAscendingAmount() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if(expense.getAmount().value > other.getAmount().value) {
+                    return 1;
+                } else if(expense.getAmount().value < other.getAmount().value){
+                    return -1;
+                } else{
+                    return 0;
+                }
+            }
+        });
+
+    }
+
+    public void sortByDescendingAmount() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if(expense.getAmount().value > other.getAmount().value) {
+                    return -1;
+                } else if(expense.getAmount().value < other.getAmount().value){
+                    return 1;
+                } else{
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public void sortByDescendingTime() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if(expense.getDate().localDate
+                        .isBefore(other.getDate().localDate)){
+                    return 1;
+                } else if(expense.getDate().localDate
+                        .isBefore(other.getDate().localDate)){
+                    return -1;
+                } else{
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public void sortByAscendingTime() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if(expense.getDate().localDate
+                        .isAfter(other.getDate().localDate)){
+                    return 1;
+                } else if(expense.getDate().localDate
+                        .isAfter(other.getDate().localDate)){
+                    return -1;
+                } else{
+                    return 0;
+                }
+            }
+        });
     }
 
 }

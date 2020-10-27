@@ -103,4 +103,11 @@ public interface Model {
 
     int getTotalExpense();
 
+    void sortByDescendingAmount();
+
+    void sortByAscendingAmount();
+
+    void sortByDescendingTime();
+
+    void sortByAscendingTime();
 }
