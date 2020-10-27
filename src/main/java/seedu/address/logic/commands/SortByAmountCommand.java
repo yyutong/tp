@@ -23,7 +23,7 @@ public class SortByAmountCommand extends Command {
         this.order = order;
     }
 
-    public String getOrder(){
+    public String getOrder() {
         return order;
     }
 

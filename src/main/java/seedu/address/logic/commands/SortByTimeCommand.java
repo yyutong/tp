@@ -23,7 +23,7 @@ public class SortByTimeCommand extends Command {
     public SortByTimeCommand(String order) {
         this.order = order;
     }
-    public String getOrder(){
+    public String getOrder() {
         return order;
     }
 
