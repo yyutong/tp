@@ -87,6 +87,7 @@ public class ExpenseList implements Iterable<Expense> {
 
     /**
      * Add up the amount in the {@code expenses}.
+     *
      * @return total spending of the expense list.
      */
     public double totalSpending() {
@@ -108,6 +109,7 @@ public class ExpenseList implements Iterable<Expense> {
         }
         return categories;
     }
+
     public int getExpenseSumByCategory(String categoryName) {
         int counter = 0;
         for (int i = 0; i < internalList.size(); i = i + 1) {
@@ -154,11 +156,11 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if(expense.getAmount().value > other.getAmount().value) {
+                if (expense.getAmount().value > other.getAmount().value) {
                     return 1;
-                } else if(expense.getAmount().value < other.getAmount().value){
+                } else if (expense.getAmount().value < other.getAmount().value) {
                     return -1;
-                } else{
+                } else {
                     return 0;
                 }
             }
@@ -170,11 +172,11 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if(expense.getAmount().value > other.getAmount().value) {
+                if (expense.getAmount().value > other.getAmount().value) {
                     return -1;
-                } else if(expense.getAmount().value < other.getAmount().value){
+                } else if (expense.getAmount().value < other.getAmount().value) {
                     return 1;
-                } else{
+                } else {
                     return 0;
                 }
             }
@@ -185,13 +187,13 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if(expense.getDate().localDate
-                        .isBefore(other.getDate().localDate)){
+                if (expense.getDate().localDate
+                        .isBefore(other.getDate().localDate)) {
                     return 1;
-                } else if(expense.getDate().localDate
-                        .isBefore(other.getDate().localDate)){
+                } else if (expense.getDate().localDate
+                        .isBefore(other.getDate().localDate)) {
                     return -1;
-                } else{
+                } else {
                     return 0;
                 }
             }
@@ -202,13 +204,13 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.sort(new Comparator<Expense>() {
             @Override
             public int compare(Expense expense, Expense other) {
-                if(expense.getDate().localDate
-                        .isAfter(other.getDate().localDate)){
+                if (expense.getDate().localDate
+                        .isAfter(other.getDate().localDate)) {
                     return 1;
-                } else if(expense.getDate().localDate
-                        .isAfter(other.getDate().localDate)){
+                } else if (expense.getDate().localDate
+                        .isAfter(other.getDate().localDate)) {
                     return -1;
-                } else{
+                } else {
                     return 0;
                 }
             }
