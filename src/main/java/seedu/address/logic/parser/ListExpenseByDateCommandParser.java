@@ -26,9 +26,26 @@ public class ListExpenseByDateCommandParser implements Parser<ListExpenseByDateC
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByCategoryCommand.MESSAGE_USAGE));
         }
         assert !trimmedArgs.isEmpty();
-        String[] categoryKeywords = trimmedArgs.split("\\s+");
+        String[] dateKeywords = trimmedArgs.split("\\s+");
+        checkValidDate(dateKeywords);
 
-        return new ListExpenseByDateCommand(new DateContainsKeywordsPredicate(Arrays.asList(categoryKeywords)));
+        return new ListExpenseByDateCommand(new DateContainsKeywordsPredicate(Arrays.asList(dateKeywords)));
     }
 
+    // for each input date, check dashes
+    private void checkValidDate(String[] inputDates) throws ParseException {
+        // create a new array for dates to not modifying original array
+        String[] copyDates = new String[inputDates.length];
+        for (int i = 0; i < inputDates.length; i++) {
+            copyDates[i] = inputDates[i];
+        }
+
+        for (String date: copyDates) {
+            String[] splitDateByDash = date.split("-");
+            if (splitDateByDash.length != 3) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByCategoryCommand.MESSAGE_USAGE));
+            }
+        }
+    }
 }
