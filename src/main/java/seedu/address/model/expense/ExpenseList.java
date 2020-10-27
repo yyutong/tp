@@ -84,6 +84,10 @@ public class ExpenseList implements Iterable<Expense> {
         internalList.setAll(expenses);
     }
 
+    /**
+     * Add up the amount in the {@code expenses}.
+     * @return total spending of the expense list.
+     */
     public double totalSpending() {
         double spending = 0;
         for (int i = 0; i < internalList.size(); i++) {
