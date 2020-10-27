@@ -169,10 +169,6 @@ The following sequence diagram shows how the delete operation works:
 
 ![UndoSequenceDiagram](images/deleteExpenseSequenceDiagram.png)
 
-
-
-
-
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteExpenseCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
@@ -238,6 +234,39 @@ Step 3: As we can see from the sequence diagram, a result is also returned to `U
 The following activity diagram summarizes what happens when a user executes a new command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
+
+####Show Budget feature
+<div>
+The show budget feature is mainly supported by the `ExpenseBook` class.
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+Fig. Activity Diagram for the Execution of `ShowBudgetCommand`
+![ShowBudgetActivityDiagram](images/ShowBudgetActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `showBudget` to check the current budget.
+UI shows the message of current budget and remaining budget.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `showBudget` when a budget was set:
+
+High Level Sequence Diagram for the Execution of `showBudget`.
+![ShowBudgetSequenceDiagram](images/ShowBudgetSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
 
 ### \[Proposed\] Undo/redo feature
 
