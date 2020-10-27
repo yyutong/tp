@@ -14,10 +14,10 @@ Class Amount
 Class Date
 Class Category
 Class Description
-Class UniqueExpenseList
+Class ExpenseList
 
-ExpenseBook *--> "1" UniqueExpenseList
-UniqueExpenseList o--> "*" Expense
+ExpenseBook *--> "1" ExpenseList
+ExpenseList o--> "*" Expense
 Expense *--> "1" Amount
 Expense *--> "1" Date
 Expense *--> "1" Category

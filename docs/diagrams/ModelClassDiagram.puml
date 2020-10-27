@@ -5,13 +5,13 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model <<Rectangle>>{
-Interface ReadOnlyAddressBook <<Interface>>
+Interface ReadOnlyExpenseBook <<Interface>>
 Interface Model <<Interface>>
 Interface ObservableList <<Interface>>
-Class AddressBook
-Class ReadOnlyAddressBook
+Class ExpenseBook
+Class ReadOnlyExpenseBook
 Class Model
-Class ModelManager
+Class ExpenseModelManager
 Class UserPrefs
 Class ReadOnlyUserPrefs
 
@@ -21,12 +21,7 @@ Class Amount
 Class Category
 Class Date
 Class Description
-Class UniqueExpenseList
-}
-
-Package Tag {
-Class Tag
-}
+Class ExpenseList
 }
 
 Class HiddenOutside #FFFFFF
@@ -36,21 +31,20 @@ ExpenseBook .up.|> ReadOnlyExpenseBook
 
 ExpenseModelManager .up.|> Model
 Model .right.> ObservableList
-ExpenseModelManager o--> "1" AddressBook
+ExpenseModelManager o--> "1" ExpenseBook
 ExpenseModelManager o-left-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-ExpenseBook *--> "1" UniqueExpenseList
-UniqueExpenseList o--> "*" Expense
-Expense *--> Name
-Expense *--> Phone
-Expense *--> Email
-Expense *--> Address
-Expense *--> "*" Tag
+ExpenseBook *--> "1" ExpenseList
+ExpenseList o--> "*" Expense
+Expense *--> Amount
+Expense *--> Date
+Expense *--> Category
+Expense *--> Description
 
 Amount -[hidden]right-> Category
 Category -[hidden]right-> Date
 Date -[hidden]right-> Description
 
-ExpenseModelManager -->"1" Expense : filtered list
+ExpenseModelManager -->"1" Expense : manage
 @enduml
