@@ -11,7 +11,7 @@ Interface ObservableList <<Interface>>
 Class ExpenseBook
 Class ReadOnlyExpenseBook
 Class Model
-Class ModelManager
+Class ExpenseModelManager
 Class UserPrefs
 Class ReadOnlyUserPrefs
 
@@ -21,12 +21,7 @@ Class Amount
 Class Category
 Class Date
 Class Description
-Class UniqueExpenseList
-}
-
-Package Tag {
-Class Tag
-}
+Class ExpenseList
 }
 
 Class HiddenOutside #FFFFFF
@@ -40,8 +35,8 @@ ExpenseModelManager o--> "1" ExpenseBook
 ExpenseModelManager o-left-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-ExpenseBook *--> "1" UniqueExpenseList
-UniqueExpenseList o--> "*" Expense
+ExpenseBook *--> "1" ExpenseList
+ExpenseList o--> "*" Expense
 Expense *--> Amount
 Expense *--> Date
 Expense *--> Category
@@ -51,5 +46,5 @@ Amount -[hidden]right-> Category
 Category -[hidden]right-> Date
 Date -[hidden]right-> Description
 
-ExpenseModelManager -->"1" Expense : filtered list
+ExpenseModelManager -->"1" Expense : manage
 @enduml
