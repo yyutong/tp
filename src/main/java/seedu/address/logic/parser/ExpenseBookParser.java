@@ -17,6 +17,8 @@ import seedu.address.logic.commands.ListExpenseCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.commands.ShowBudgetCommand;
 import seedu.address.logic.commands.ShowStatisticCommand;
+import seedu.address.logic.commands.SortByAmountCommand;
+import seedu.address.logic.commands.SortByTimeCommand;
 import seedu.address.logic.commands.ViewCategoryCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -69,6 +71,10 @@ public class ExpenseBookParser {
             return new ShowStatisticCommandParser().parse(arguments);
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
+        case SortByAmountCommand.COMMAND_WORD:
+            return new SortByAmountCommandParser().parse(arguments);
+        case SortByTimeCommand.COMMAND_WORD:
+            return new SortByTimeCommandParser().parse(arguments);
         case HelpCommand.COMMAND_WORD:
             return new HelpCommandParser().parse();
         default:

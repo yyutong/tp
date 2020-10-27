@@ -148,5 +148,21 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
+    public void sortByDescendingAmount() {
+        expenses.sortByDescendingAmount();
+    }
+
+    public void sortByAscendingAmount() {
+        expenses.sortByAscendingAmount();
+    }
+
+    public void sortByDescendingTime() {
+        expenses.sortByDescendingTime();
+    }
+
+    public void sortByAscendingTime() {
+        expenses.sortByAscendingTime();
+    }
+
 
 }

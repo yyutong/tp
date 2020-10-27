@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -86,6 +87,7 @@ public class ExpenseList implements Iterable<Expense> {
 
     /**
      * Add up the amount in the {@code expenses}.
+     *
      * @return total spending of the expense list.
      */
     public double totalSpending() {
@@ -107,6 +109,7 @@ public class ExpenseList implements Iterable<Expense> {
         }
         return categories;
     }
+
     public int getExpenseSumByCategory(String categoryName) {
         int counter = 0;
         for (int i = 0; i < internalList.size(); i = i + 1) {
@@ -147,6 +150,83 @@ public class ExpenseList implements Iterable<Expense> {
     @Override
     public int hashCode() {
         return internalList.hashCode();
+    }
+
+    /**
+     * Sorts the expense list by ascending amount.
+     */
+    public void sortByAscendingAmount() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if (expense.getAmount().value > other.getAmount().value) {
+                    return 1;
+                } else if (expense.getAmount().value < other.getAmount().value) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
+    }
+
+    /**
+     * Sorts the expense list by descending amount.
+     */
+    public void sortByDescendingAmount() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if (expense.getAmount().value > other.getAmount().value) {
+                    return -1;
+                } else if (expense.getAmount().value < other.getAmount().value) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    /**
+     * Sorts the expense list by descending timr.
+     */
+    public void sortByDescendingTime() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if (expense.getDate().getLocalDate()
+                        .isBefore(other.getDate().getLocalDate())) {
+                    return 1;
+                } else if (expense.getDate().getLocalDate()
+                        .isBefore(other.getDate().getLocalDate())) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    /**
+     * Sorts the expense list by ascending time.
+     */
+    public void sortByAscendingTime() {
+        internalList.sort(new Comparator<Expense>() {
+            @Override
+            public int compare(Expense expense, Expense other) {
+                if (expense.getDate().getLocalDate()
+                        .isAfter(other.getDate().getLocalDate())) {
+                    return 1;
+                } else if (expense.getDate().getLocalDate()
+                        .isAfter(other.getDate().getLocalDate())) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
 
 }
