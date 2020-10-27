@@ -248,7 +248,9 @@ Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `showBudget` to check the current budget.
+Step 3. User set a budget.
+
+Step 4. The user executes `showBudget` to check the current budget.
 UI shows the message of current budget and remaining budget.
 
 The sequence diagram below shows the high-level abstraction of how Unisave processes user request
@@ -259,14 +261,16 @@ High Level Sequence Diagram for the Execution of `showBudget`.
 
 #### Design Considerations
 
-##### Aspect: How to manage empty description, as description is optional.
+##### Aspect: How to handle the case when the remaining budget is negative (i.e. current spending exceed the budget).
 
-* Alternative 1 (current choice): Use empty string to create description, if description is empty.
-** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
-* Alternative 2: Use an `Optional` for descriptions.
-** Pros: More intuitive.
-** Cons: Harder to manage and prone to error.
+* Alternative 1 (current choice): Show the remaining budget at negative value, and ask the user to set a new budget.
+    ** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+    ** Cons: Is not supposed to happen in real life, not intuitive.
+
+* Alternative 2: Show alerts when the user is overspending, and does not allow the user to spend more before set a new budget.
+
+** Pros: No more negative budget, more intuitive.
+** Cons: Much more complicated implementation.
 
 ### \[Proposed\] Undo/redo feature
 
