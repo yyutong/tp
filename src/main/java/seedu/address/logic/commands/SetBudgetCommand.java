@@ -6,7 +6,7 @@ import seedu.address.model.Model;
 
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "setBudget";
-    public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now S$ %.2f.\n";
+    public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %.2f %s.\n";
     public static final String MESSAGE_SET_BUDGET_FAIL = "Set Budget failed, please enter a valid budget.\n";
 
     private final double budget;
@@ -21,9 +21,8 @@ public class SetBudgetCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
-
         model.setExpenseBookBudget(budget);
-        String msg = String.format(MESSAGE_SET_BUDGET_SUCCESS, budget);
+        String msg = String.format(MESSAGE_SET_BUDGET_SUCCESS, budget, model.getExpenseBookCurrency());
         return new CommandResult(msg);
     }
 }

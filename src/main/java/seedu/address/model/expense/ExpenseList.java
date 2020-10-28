@@ -98,6 +98,19 @@ public class ExpenseList implements Iterable<Expense> {
         return spending;
     }
 
+    /**
+     * Exchange the {@code expenses} to the input currency.
+     * @param dollarSign of the new currency.
+     * @param exchangeRate from the current currency.
+     */
+    public void exchange(String dollarSign, double exchangeRate) {
+        List<Expense> exchangedExpenses = new ArrayList<>();
+        for (int i = 0; i < internalList.size(); i++) {
+            exchangedExpenses.add(internalList.get(i).exchange(dollarSign, exchangeRate));
+        }
+        setExpenses(exchangedExpenses);
+    }
+
     public List<Category> getCategoryLabels() {
         List<Category> categories = new ArrayList<>();
         for (int i = 0; i < internalList.size(); i++) {
