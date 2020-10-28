@@ -8,10 +8,12 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddDescriptionCommand;
 import seedu.address.logic.commands.AddExpenseCommand;
+import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
 import seedu.address.logic.commands.ExchangeCommand;
+import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.ListExpenseByDateCommand;
@@ -86,6 +88,10 @@ public class ExpenseBookParser {
             return new HelpCommandParser().parse(arguments);
         case ExchangeCommand.COMMAND_WORD:
             return new ExchangeCommandParser().parse(arguments);
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommandParser().parse(arguments);
+        case ClearCommand.COMMAND_WORD:
+            return new ClearCommandParser().parse(arguments);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
