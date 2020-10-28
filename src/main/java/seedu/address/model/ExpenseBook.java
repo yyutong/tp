@@ -21,10 +21,12 @@ import seedu.address.model.expense.ExpenseList;
  * Duplicates are not allowed (by .isSameExpense comparison)
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
+    private static Currency currency = new Currency();
+
     private static final Logger logger = LogsCenter.getLogger(ExpenseBook.class);
     private final ExpenseList expenses;
     private Budget budget = new Budget();
-    private Currency currency = new Currency();
+
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -53,6 +55,9 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         resetData(toBeCopied);
     }
 
+    public static Currency currency() {
+        return ExpenseBook.currency;
+    }
     //// list overwrite operations
 
     /**
@@ -80,6 +85,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * @param exchangeRate from the current currency.
      */
     public void exchange(ExchangeRate exchangeRate) {
+        this.budget = this.budget.exchange(exchangeRate);
         this.expenses.exchange(this.currency, exchangeRate);
     }
 
@@ -117,7 +123,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);
-
         expenses.setExpense(target, editedExpense);
     }
 
