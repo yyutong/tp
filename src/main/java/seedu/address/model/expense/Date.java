@@ -9,8 +9,9 @@ import java.time.LocalDate;
 public class Date {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Date should only contain numbers, and it should be at least 1 digits long";
+            "Date should only contain numbers, and it should be at least 1 digits long, strictly no negative number";
     public static final String VALIDATION_REGEX = "\\d{1,}";
+
     public final String date;
     public final String howManyDaysAgo;
     private LocalDate localDate;
@@ -21,12 +22,13 @@ public class Date {
      */
     public Date(String inputDay) {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
-        this.howManyDaysAgo = inputDay;
         assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
+
         LocalDate localdate = LocalDate.now();
         int convertedDay = Integer.parseInt(inputDay);
         LocalDate dayBefore = localdate.minusDays(convertedDay);
-        localDate = dayBefore;
+        this.localDate = dayBefore;
+        this.howManyDaysAgo = inputDay;
         this.date = dayBefore.toString();
     }
     /**
