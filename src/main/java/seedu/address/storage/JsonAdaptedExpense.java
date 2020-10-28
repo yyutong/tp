@@ -70,7 +70,8 @@ class JsonAdaptedExpense {
         final Amount modelAmount = new Amount(amount);
 
         if (currency == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Currency.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Currency.class.getSimpleName()));
         }
         final Currency modelCurrency = new Currency(currency);
 
