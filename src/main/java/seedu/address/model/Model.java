@@ -1,13 +1,12 @@
 package seedu.address.model;
 
+import javafx.collections.ObservableList;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.expense.*;
+
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Predicate;
-
-import javafx.collections.ObservableList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Expense;
 
 /**
  * The API of the Model component.
@@ -91,17 +90,17 @@ public interface Model {
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
 
-    double getExpenseBookBudget();
+    Budget getExpenseBookBudget();
 
-    double getExpenseBookRemaining();
+    Budget getExpenseBookRemaining();
 
-    void expenseBookExchange(double exchangeRate);
+    void expenseBookExchange(ExchangeRate exchangeRate);
 
-    void setExpenseBookBudget(double budget);
+    void setExpenseBookBudget(Budget budget);
 
-    String getExpenseBookCurrency();
+    Currency getExpenseBookCurrency();
 
-    void setExpenseBookCurrency(String dollarSign);
+    void setExpenseBookCurrency(Currency dollarSign);
 
     List<Category> getCategoryLabels();
     int getExpenseSumByCategory(String categoryName);

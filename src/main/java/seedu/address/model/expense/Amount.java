@@ -7,10 +7,6 @@ public class Amount {
 
     public final Double value;
 
-    /**
-     * Default currency is Singapore Dollar.
-     * @param value of the amount.
-     */
     public Amount(Double value) {
         this.value = value;
     }

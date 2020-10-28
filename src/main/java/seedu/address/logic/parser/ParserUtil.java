@@ -1,15 +1,12 @@
 package seedu.address.logic.parser;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Date;
-import seedu.address.model.expense.Description;
+import seedu.address.model.expense.*;
+
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 
 /**
@@ -93,9 +90,9 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static String parseCurrency(String currency) throws ParseException {
+    public static Currency parseCurrency(String currency) throws ParseException {
         requireNonNull(currency);
-        return currency.trim();
+        return new Currency(currency.trim());
     }
 
     /**
@@ -104,13 +101,12 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static double parseExchangeRate(String rate) throws ParseException {
+    public static ExchangeRate parseExchangeRate(String rate) throws ParseException {
         requireNonNull(rate);
         try {
-            return Double.parseDouble(rate.trim());
+            return new ExchangeRate(Double.parseDouble(rate.trim()));
         } catch (Exception pe) {
-            throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT), pe);
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT, pe);
         }
     }
 

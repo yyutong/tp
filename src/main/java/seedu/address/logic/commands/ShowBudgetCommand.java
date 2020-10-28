@@ -1,22 +1,24 @@
 package seedu.address.logic.commands;
 
 import seedu.address.model.Model;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Currency;
 
 public class ShowBudgetCommand extends Command {
 
     public static final String COMMAND_WORD = "showBudget";
-    public static final String MESSAGE_BUDGET = "Current budget is: %.2f %s\n";
-    public static final String MESSAGE_REMAINING = "Remaining budget is: %.2f %s\n";
-    public static final String MESSAGE_SETNEW = "Your remaining budget is %.2f %s,"
+    public static final String MESSAGE_BUDGET = "Current budget is: %s %s\n";
+    public static final String MESSAGE_REMAINING = "Remaining budget is: %s %s\n";
+    public static final String MESSAGE_SETNEW = "Your remaining budget is %s %s,"
             + "seems like you're broke.\n"
             + "Please set a new budget with command: setBudget AMOUNT\n";
 
     @Override
     public CommandResult execute(Model model) {
-        double budget = model.getExpenseBookBudget();
-        double remaining = model.getExpenseBookRemaining();
-        String currency = model.getExpenseBookCurrency();
-        if (model.getExpenseBookRemaining() <= 0) {
+        Budget budget = model.getExpenseBookBudget();
+        Budget remaining = model.getExpenseBookRemaining();
+        Currency currency = model.getExpenseBookCurrency();
+        if (model.getExpenseBookBudget().isEmpty()) {
             String setNew = String.format(MESSAGE_SETNEW, remaining, currency);
             return new CommandResult(setNew);
         } else {
