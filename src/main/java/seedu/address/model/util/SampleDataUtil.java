@@ -17,11 +17,11 @@ public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {
         return new Expense[]{
             new Expense(new Amount(11.2), new Date("2"), new Category("entertainment"),
-                    EMPTY_DESCRIPTION),
-            new Expense(new Amount(1.2), new Date("1"), new Category("entertainment"),
-                    EMPTY_DESCRIPTION),
-            new Expense(new Amount(5.2), new Date("5"), new Category("entertainment"),
-                    EMPTY_DESCRIPTION),
+                    new Description("movie")),
+            new Expense(new Amount(1.2), new Date("1"), new Category("foodbeverage"),
+                    new Description("macdonald")),
+            new Expense(new Amount(5.2), new Date("5"), new Category("transportation"),
+                    new Description("bus")),
             new Expense(new Amount(6.2), new Date("7"), new Category("entertainment"),
                     EMPTY_DESCRIPTION),
             new Expense(new Amount(7.2), new Date("6"), new Category("entertainment"),
