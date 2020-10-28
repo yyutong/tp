@@ -36,7 +36,7 @@ public class ExpenseCard extends UiPart<Region> {
         super(FXML);
         this.expense = expense;
         id.setText(displayedIndex + ". ");
-        amount.setText(String.format("S$ %.2f", expense.getAmount().value));
+        amount.setText(String.format("%s %s", expense.getAmount(), expense.getCurrency()));
         date.setText(expense.getDate().date);
         category.setText("Category: " + expense.getCategory().categoryName);
         description.setText("Description: " + expense.getDescription().value);

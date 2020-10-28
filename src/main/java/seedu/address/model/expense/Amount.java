@@ -13,7 +13,7 @@ public class Amount {
 
     @Override
     public String toString() {
-        return String.format("%.2f ", this.value);
+        return String.format("%.2f", this.value);
     }
 
     @Override

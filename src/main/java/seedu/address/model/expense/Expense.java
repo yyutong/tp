@@ -52,6 +52,10 @@ public class Expense {
         return this.description;
     }
 
+    public Currency getCurrency() {
+        return this.dollarSign;
+    }
+
     public Expense exchange(Currency dollarSign, ExchangeRate exchangeRate) {
         return new Expense(new Amount(amount.getValue() * exchangeRate.getRate()), dollarSign, date, category, description);
     }
