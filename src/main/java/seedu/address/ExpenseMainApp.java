@@ -78,9 +78,7 @@ public class ExpenseMainApp extends Application {
         Optional<ReadOnlyExpenseBook> expenseBookOptional;
         ReadOnlyExpenseBook initialData;
         try {
-            logger.info("Trying to get data file.");
             expenseBookOptional = storage.readExpenseBook();
-            logger.info("storage.readExpenseBook() is " + storage.readExpenseBook().toString());
             if (!expenseBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample ExpenseBook");
             }
