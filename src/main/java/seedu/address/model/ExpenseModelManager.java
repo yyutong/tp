@@ -258,4 +258,5 @@ public class ExpenseModelManager implements Model {
         expenseBook.sortByAscendingTime();
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
+
 }

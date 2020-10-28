@@ -124,7 +124,7 @@ Examples:
 
 ![add](images/addExpenseCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Listing all expenses : `list`
 
@@ -135,7 +135,7 @@ Format: `list`
 Examples:
 * `list`: list all the expenses in all the categories.
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -148,7 +148,7 @@ Format: `listbycategory CATEGORY`
 Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -169,7 +169,7 @@ Examples:
 
 ![delete](images/deleteExpenseCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -192,7 +192,7 @@ Examples:
 
 ![view](images/viewCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 #### 3.6 View Category Labels : `viewCategory`
@@ -215,7 +215,7 @@ Format: `addDes INDEX d/DESCRIPTION`
 Examples:
 `addDes 3 d/movies` Add the description field `movies` to the 3rd expense.
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -234,7 +234,7 @@ Examples:
 
 ![deleteDes](images/deleteDesCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 #### 3.9 Set Budget : `setBudget`
 
@@ -248,7 +248,7 @@ Example:
 ![setBudget](images/setBudgetCommand.png)
 
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -261,7 +261,7 @@ Format: `showBudget`
 ![showBudget](images/showBudgetCommand.png)
 
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 
@@ -272,7 +272,7 @@ Clears the data in the program.
 Format: `clear`
 
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 #### 3.12 Exiting the program : `exit`
@@ -282,7 +282,7 @@ Exits the program.
 Format: `exit`
 
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 #### 3.13 Saving the data
@@ -290,7 +290,7 @@ Navigate back to the feature list: [3. Features](#3-features)
 UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 #### 3.14 show the statistic of the expenses: `showStatistic`
 
@@ -304,7 +304,7 @@ Examples: `showStatistic`
 
 ![showStatistic](images/showStatisticCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 #### 3.15 Use Help Command to help you find all the commands: `help`
 
@@ -317,7 +317,7 @@ Examples: `help`
 
 ![Help](images/helpCommand.png)
 
-Navigate back to the feature list: [3. Features](#3-features)
+Navigate back to the feature list: [Features](#3-features)
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -325,7 +325,7 @@ Navigate back to the feature list: [3. Features](#3-features)
 ## 4. FAQ(Frequently Asked Question)
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder. <br>
 **Q**: What should I do if I forget what are the command available?<br>
 **A**: You can use `help` command to help you to see the brief summary of the commands available.
 --------------------------------------------------------------------------------------------------------------------

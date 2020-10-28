@@ -124,4 +124,5 @@ public interface Model {
     HashMap<String, Double> getExpenseSumCategory();
     HashMap<String, Double> getExpensePercentageCategory();
     double getExpenseSumOfCategory(String categoryName);
+
 }

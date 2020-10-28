@@ -18,6 +18,7 @@ public class ListExpenseByDateCommand extends Command {
             + "the specified keywords (case-sensitive) and displays them as a list with index numbers.\n"
             + "Parameters: YYYY-MM-DD \n"
             + "Example: " + COMMAND_WORD + "2020-12-25";
+    public static final String MESSAGE_SUCCESS = "Listed all expenses by Date";
 
     private final DateContainsKeywordsPredicate predicate;
 

@@ -1,11 +1,8 @@
 package seedu.address.storage;
 
-import java.util.logging.Logger;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
@@ -21,9 +18,8 @@ import seedu.address.model.expense.Expense;
 class JsonAdaptedExpense {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Expense's %s field is missing!";
-
-    private static final Logger logger = LogsCenter.getLogger(JsonAdaptedExpense.class);
-    private final Double amount;
+    // private final Double amount;
+    private final String amount;
     private final String currency;
     private final String date;
     private final String category;
@@ -37,7 +33,7 @@ class JsonAdaptedExpense {
                               @JsonProperty("date") String date,
                              @JsonProperty("category") String category,
                              @JsonProperty("description") String description) {
-        this.amount = Double.valueOf(amount);
+        this.amount = amount;
         this.currency = currency;
         this.date = date;
         this.category = category;
@@ -48,10 +44,10 @@ class JsonAdaptedExpense {
      * Converts a given {@code Expense} into this class for Jackson use.
      */
     public JsonAdaptedExpense(Expense source) {
-        //amount = String.format("S$ %.2f", source.getAmount().value);
-        amount = source.getAmount().value;
+        amount = String.format("%.2f", source.getAmount().value);
+        // amount = source.getAmount().value;
         currency = source.getCurrency().dollarSign;
-        date = source.getDate().howManyDaysAgo;
+        date = source.getDate().date;
         category = source.getCategory().categoryName;
         description = source.getDescription().value;
     }
@@ -62,12 +58,11 @@ class JsonAdaptedExpense {
      * @throws IllegalValueException if there were any data constraints violated in the adapted expense.
      */
     public Expense toModelType() throws IllegalValueException {
-        logger.info("jsonAdaptedExpense in toModelType ");
 
         if (amount == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Amount.class.getSimpleName()));
         }
-        final Amount modelAmount = new Amount(amount);
+        final Amount modelAmount = new Amount(Double.valueOf(amount));
 
         if (currency == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,

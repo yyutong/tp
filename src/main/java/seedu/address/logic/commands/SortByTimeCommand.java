@@ -17,16 +17,32 @@ public class SortByTimeCommand extends Command {
 
     public static final String MESSAGE_SUCCESS_ASCENDING = "Expenses sorted by ascending time!";
 
-
+    /**
+     * Constructs SortByTime object.
+     * @param order The sorting order of this command object.
+     */
     private String order;
 
     public SortByTimeCommand(String order) {
         this.order = order;
     }
+
+    /**
+     * Gets the order of this command object.
+     *
+     * @return The order of the command object.
+     */
     public String getOrder() {
         return order;
     }
 
+    /**
+     * Executes the sort by amount command.
+     *
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the message will be shown to users.
+     * @throws CommandException Throws exception if the order is not "descending" or "ascending".
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -44,6 +60,12 @@ public class SortByTimeCommand extends Command {
         }
     }
 
+    /**
+     * Checks if a command objects are equal.
+     *
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
