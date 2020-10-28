@@ -13,7 +13,7 @@ public class SetBudgetCommand extends Command {
     private final Budget budget;
 
     /**
-     * Construct a SetBudget object.
+     * Construct a SetBudgetCommand object.
      */
     public SetBudgetCommand(Budget budget) {
         requireAllNonNull(budget);
