@@ -10,8 +10,10 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ExpenseBook;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
@@ -37,10 +39,11 @@ public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
         }
 
         Amount amount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
+        Currency currency = ExpenseBook.currency();
         Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get());
         Category category = ParserUtil.parseCategory(argMultimap.getValue(PREFIX_CATEGORY).get());
         Description description = ParserUtil.parseExpenseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
-        Expense expense = new Expense(amount, date, category, description);
+        Expense expense = new Expense(amount, currency, date, category, description);
         return new AddExpenseCommand(expense);
     }
 

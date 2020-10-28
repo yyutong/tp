@@ -45,12 +45,6 @@ public class AddExpenseCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-
-        if (model.hasExpense(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        }
-
-        assert toAdd.getAmount().getValue() >= 0 : "Invalid Expense Amount being Added";
         model.addExpense(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

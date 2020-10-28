@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -212,6 +213,26 @@ public class ExpenseModelManager implements Model {
     @Override
     public int getTotalExpense() {
         return expenseBook.getTotalExpense();
+    }
+
+    @Override
+    public double getExpenseSum() {
+        return expenseBook.getExpenseSum();
+    }
+
+    @Override
+    public HashMap<String, Double> getExpenseSumCategory() {
+        return expenseBook.getExpenseSumCategory();
+    }
+
+    @Override
+    public HashMap<String, Double> getExpensePercentageCategory() {
+        return expenseBook.getExpensePercentageCategory();
+    }
+
+    @Override
+    public double getExpenseSumOfCategory(String categoryName) {
+        return expenseBook.getExpenseSumOfCategory(categoryName);
     }
 
     @Override
