@@ -9,6 +9,11 @@ public class Amount {
 
     public final Double value;
 
+    /**
+     * Constructs an amount object.
+     *
+     * @param value Value should be double.
+     */
     public Amount(Double value) {
         checkArgument(isValidAmount(value), MESSAGE_CONSTRAINTS);
         this.value = value;
