@@ -246,7 +246,7 @@ Action | Format, Examples
 **View existing category labels** | `viewCategory`
 **Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
-**Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`
+**Set Budget** | `setBudget AMOUNT`<br> e.g., `setBudget 1000`
 **Show Budget** | `showBudget`
 **Help** | `help`
 **Clear** | `clear`
