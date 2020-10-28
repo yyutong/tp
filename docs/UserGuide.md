@@ -49,18 +49,20 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
 1. Double-click the file to start the app. In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+1. Type the command in the command box and press Enter to execute it. If you are not sure what are the command available,
+you can type **`help`** You will be able to see a guide to briefly show you how to use the various commands
+
    Some example commands you can try:
 
    * **`list`** : Lists all expenses.
 
-   * **`add`**`add a/50 c/ENTERTAINMENT d/2020-09-11 D/yayymovie!` : Adds an expense 50$ categorised as `ENTERTAINMENT` on 11 Sept, 2020 with `yayymovie!` description.
+   * **`add`**`add a/50 c/ENTERTAINMENT D/1 d/yayymovie!` : Adds an expense 50$ categorised as `ENTERTAINMENT` that you spent yesterday with `yayymovie!` description.
 
    * **`delete`**`1` : Deletes the first expense shown in the expense list.
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+1. Refer to the [3. Features](#3-features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -88,7 +90,7 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
   e.g. in `add a/AMOUNT`, `AMOUNT` is a parameter which can be used as `add a/100`.
 
 * Items in square brackets are optional.<br>
-  e.g `add a/AMOUNT [D/DESCRIPTION]` can be used as `add a/100 D/movie!!` or as `add a/100`.
+  e.g `add a/AMOUNT [d/DESCRIPTION]` can be used as `add a/100 d/movie!!` or as `add a/100`.
 
 </div>
 
@@ -101,7 +103,7 @@ Adds an expense to a category.  Must specify category when adding the expense.
 Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be a single integer
+A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
