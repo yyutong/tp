@@ -3,7 +3,7 @@ package seedu.address.model.expense;
 public class Currency {
     private static final String singaporeDollar = "SGD";
 
-    private final String dollarSign;
+    public final String dollarSign;
 
     public Currency() {
         this.dollarSign = singaporeDollar;

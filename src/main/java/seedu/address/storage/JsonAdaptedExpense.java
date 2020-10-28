@@ -9,6 +9,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
@@ -23,6 +24,7 @@ class JsonAdaptedExpense {
 
     private static final Logger logger = LogsCenter.getLogger(JsonAdaptedExpense.class);
     private final Double amount;
+    private final String currency;
     private final String date;
     private final String category;
     private final String description;
@@ -31,10 +33,12 @@ class JsonAdaptedExpense {
      * Constructs a {@code JsonAdaptedExpense} with the given expense details.
      */
     @JsonCreator
-    public JsonAdaptedExpense(@JsonProperty("amount") String amount, @JsonProperty("date") String date,
+    public JsonAdaptedExpense(@JsonProperty("amount") String amount, @JsonProperty("currency") String currency,
+                              @JsonProperty("date") String date,
                              @JsonProperty("category") String category,
                              @JsonProperty("description") String description) {
         this.amount = Double.valueOf(amount);
+        this.currency = currency;
         this.date = date;
         this.category = category;
         this.description = description;
@@ -46,6 +50,7 @@ class JsonAdaptedExpense {
     public JsonAdaptedExpense(Expense source) {
         //amount = String.format("S$ %.2f", source.getAmount().value);
         amount = source.getAmount().value;
+        currency = source.getCurrency().dollarSign;
         date = source.getDate().howManyDaysAgo;
         category = source.getCategory().categoryName;
         description = source.getDescription().value;
@@ -58,36 +63,36 @@ class JsonAdaptedExpense {
      */
     public Expense toModelType() throws IllegalValueException {
         logger.info("jsonAdaptedExpense in toModelType ");
-        logger.info("amount " + amount);
-
 
         if (amount == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Amount.class.getSimpleName()));
         }
         final Amount modelAmount = new Amount(amount);
-        logger.info("model amount " + amount);
+
+        if (currency == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Currency.class.getSimpleName()));
+        }
+        final Currency modelCurrency = new Currency(currency);
 
         if (date == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName()));
         }
         final Date modelDate = new Date(date);
-        logger.info("model date " + date);
 
         if (category == null) {
             throw new IllegalValueException(
                     String.format(MISSING_FIELD_MESSAGE_FORMAT, Category.class.getSimpleName()));
         }
         final Category modelCategory = new Category(category);
-        logger.info("model category " + category);
 
         if (description == null) {
             throw new IllegalValueException(
                     String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
         final Description modelDescription = new Description(description);
-        logger.info("model description " + description);
-        logger.info("converting expense");
-        return new Expense(modelAmount, modelDate, modelCategory, modelDescription);
+
+        return new Expense(modelAmount, modelCurrency, modelDate, modelCategory, modelDescription);
     }
 
 }
