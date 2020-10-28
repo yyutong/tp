@@ -8,7 +8,7 @@ If you can type fast, UniSave can get your financial management tasks done faste
 Choose a section from the table of contents below and start using UniSave.
 
 * Table of Contents
-    * [Overview](#overview)
+    * [Overview](#1-Overview)
     * [Quick start](#quickstart)
     * [Features](#features)
         * [Commands](#commands)
