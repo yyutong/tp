@@ -19,6 +19,8 @@ public class ListExpenseByCategoryCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " entertainment";
 
+    public static final String MESSAGE_SUCCESS = "Listed all expenses by Category";
+
     private final CategoryContainsKeywordsPredicate predicate;
 
     public ListExpenseByCategoryCommand(CategoryContainsKeywordsPredicate predicate) {
