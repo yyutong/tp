@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javafx.scene.chart.PieChart;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Statistics;
 
 public class ShowStatisticCommand extends Command {
 
@@ -58,7 +60,12 @@ public class ShowStatisticCommand extends Command {
             message = message + category + fixedLengthString(" ", howManyMoreSpaceNeeded) + numberOfExpense
                     + fixedLengthString(" ", SPACE) + formattedPercentage
                     + fixedLengthString(" ", SPACE) + formattedAmount + "\n";
+
         }
-        return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message);
+
+        model.setStatistics(new Statistics(hashMap4));
+
+        return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message,
+                false, false, true);
     }
 }

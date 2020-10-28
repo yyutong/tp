@@ -7,11 +7,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.expense.Budget;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Currency;
-import seedu.address.model.expense.ExchangeRate;
-import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.*;
 
 /**
  * The API of the Model component.
@@ -124,4 +120,8 @@ public interface Model {
     HashMap<String, Double> getExpenseSumCategory();
     HashMap<String, Double> getExpensePercentageCategory();
     double getExpenseSumOfCategory(String categoryName);
+
+    Statistics getStatistics();
+
+    void setStatistics(Statistics statistics);
 }
