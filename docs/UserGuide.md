@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, UniSave can get your financial management tasks done faster than traditional GUI apps.
 Choose a section from the table of contents below and start using UniSave.
 
@@ -19,12 +19,9 @@ Choose a section from the table of contents below and start using UniSave.
 
 --------------------------------------------------------------------------------------------------------------------
 ## Overview <a name="overview"></a>
-UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your 
-spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave 
-allows tracking expenses in different currencies.
+UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave allows tracking expenses in different currencies.
 
-UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, 
-housing fees, transport and so on. University students are also more familiar with desktop applications and typing.
+UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. University students are also more familiar with desktop applications and typing.
 UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 
@@ -234,12 +231,9 @@ _{explain the feature here}_
 
 ## Glossary <a name="glossary"></a>
 **UniSave** | UniSave efers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category
-that you classify this spending into, and an optional description you might want to add so that you can recall the details 
-when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and an optional description you might want to add so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
-**GUI** | The graphical user interface is a form of user interface that allows users to interact with a
-computer program through graphical icons instead of text-based user interfaces or text navigation.
+**GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
 --------------------------------------------------------------------------------------------------------------------
 
