@@ -4,10 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
@@ -22,8 +20,6 @@ import seedu.address.model.expense.ExpenseList;
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
     private static Currency currency = new Currency();
-
-    private static final Logger logger = LogsCenter.getLogger(ExpenseBook.class);
     private final ExpenseList expenses;
     private Budget budget = new Budget();
 
@@ -145,12 +141,10 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     @Override
     public void setBudget(Budget budget) {
         this.budget = budget;
-        logger.info("budget successfully set to " + this.budget);
     }
 
     @Override
     public Budget getBudget() {
-        logger.info("printing this budget from get budget " + this.budget);
         return this.budget;
     }
 

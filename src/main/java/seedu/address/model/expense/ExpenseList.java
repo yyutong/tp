@@ -20,6 +20,8 @@ import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
  */
 public class ExpenseList implements Iterable<Expense> {
 
+    private Statistics statistics;
+
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
@@ -265,4 +267,11 @@ public class ExpenseList implements Iterable<Expense> {
         });
     }
 
+    public Statistics getStatistics() {
+        return this.statistics;
+    }
+
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
 }

@@ -46,6 +46,9 @@ public class ParserUtil {
         requireNonNull(amount);
         String trimmedAmount = amount.trim();
         Double convertedAmount = Double.parseDouble(trimmedAmount);
+        if (!Amount.isValidAmount(convertedAmount)) {
+            throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+        }
         return new Amount(convertedAmount);
     }
 
@@ -74,7 +77,7 @@ public class ParserUtil {
         requireNonNull(date);
         String trimmedDate = date.trim();
         if (!Date.isValidDate(trimmedDate)) {
-            throw new ParseException(Category.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
         return new Date(trimmedDate);
     }

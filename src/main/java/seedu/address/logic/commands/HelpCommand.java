@@ -48,10 +48,14 @@ public class HelpCommand extends Command {
     public static final String EXITCOMMOND = "use EXIT to exit from the application" + "\n"
             + "Format: exit, Eg: exit" + "\n" + "\n";
 
+    public static final String SHOWSTATISTICCOMMAND = "use SHOWSTATISTIC to show an overview of your expenses" + "\n"
+            + "Format: showStatistic, Eg: showStatistic" + "\n" + "\n";
+
     @Override
     public CommandResult execute(Model model) {
         String message = ADDEXPENSECOMMAND + LISTCOMMOND + LISTBYCATEGORYCOMMOND + VIEWCOMMOND + VIEWCATEGORYCOMMOND
-                + ADDDESCOMMOND + DELETECOMMOND + DELETEDESCOMMOND + SETBUDGETCOMMOND + SHOWBUDGETCOMMOND + EXITCOMMOND;
+                + ADDDESCOMMOND + DELETECOMMOND + DELETEDESCOMMOND + SETBUDGETCOMMOND + SHOWBUDGETCOMMOND
+                + SHOWSTATISTICCOMMAND + EXITCOMMOND;
         return new CommandResult(message, true, false);
     }
 }
