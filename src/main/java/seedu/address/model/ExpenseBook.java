@@ -2,6 +2,7 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javafx.collections.ObservableList;
@@ -156,6 +157,22 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
 
     public int getTotalExpense() {
         return expenses.getTotalExpense();
+    }
+
+    public double getExpenseSum() {
+        return expenses.getExpenseSum();
+    }
+
+    public HashMap<String, Double> getExpenseSumCategory() {
+        return expenses.getExpenseSumCategory();
+    }
+
+    public HashMap<String, Double> getExpensePercentageCategory() {
+        return expenses.getExpensePercentageCategory();
+    }
+
+    public double getExpenseSumOfCategory(String categoryName) {
+        return expenses.getExpenseSumOfCategory(categoryName);
     }
 
     public void sortByDescendingAmount() {
