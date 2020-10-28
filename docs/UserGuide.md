@@ -24,6 +24,8 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.11 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
         * [3.12 Exiting the program : `exit`](#312-exiting-the-program--exit)
         * [3.13 Saving the data](#313-saving-the-data)
+        * [3.14 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.15 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -81,6 +83,8 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.11 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
  * [3.12 Exiting the program : `exit`](#312-exiting-the-program--exit)
  * [3.13 Saving the data](#313-saving-the-data)
+ * [3.14 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
+ * [3.15 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
 
@@ -288,6 +292,33 @@ UniSave data are saved in the hard disk automatically after any command that cha
 
 Navigate back to the feature list: [3. Features](#3-features)
 
+#### 3.14 show the statistic of the expenses: `showStatistic`
+
+Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
+
+There are arranging in descending order in which the category that you spent the most will on the first row.
+
+Format: `showStatistic`
+
+Examples: `showStatistic`
+
+![showStatistic](images/showStatisticCommand.png)
+
+Navigate back to the feature list: [3. Features](#3-features)
+
+#### 3.15 Use Help Command to help you find all the commands: `help`
+
+Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
+features provided by the application.
+
+Format: `help`
+
+Examples: `help`
+
+![Help](images/helpCommand.png)
+
+Navigate back to the feature list: [3. Features](#3-features)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -295,7 +326,8 @@ Navigate back to the feature list: [3. Features](#3-features)
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder.
-
+**Q**: What should I do if I forget what are the command available?<br>
+**A**: You can use `help` command to help you to see the brief summary of the commands available.
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. Glossary 
@@ -319,10 +351,11 @@ Action | Format, Examples
 **Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
 **Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`
-**Show Budget** | `showBudget`
-**Help** | `help`
-**Clear** | `clear`
-**Exit** | `exit`
+**Show Budget** | `showBudget` <br> e.g., `showBudget`
+**Show Statistic** | `showStatistic`<br> e.g., `showStatistic`
+**Help** | `help` <br> e.g., `help`
+**Clear** | `clear` <br> e.g., `clear`
+**Exit** | `exit` <br> e.g., `exit`
 
 
 
