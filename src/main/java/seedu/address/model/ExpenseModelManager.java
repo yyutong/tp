@@ -13,7 +13,11 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.expense.*;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
+import seedu.address.model.expense.Expense;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -255,13 +259,4 @@ public class ExpenseModelManager implements Model {
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 
-    @Override
-    public Statistics getStatistics() {
-        return expenseBook.getStatistics();
-    }
-
-    @Override
-    public void setStatistics(Statistics statistics) {
-        expenseBook.setStatistics(statistics);
-    }
 }
