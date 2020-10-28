@@ -9,7 +9,7 @@ import seedu.address.model.expense.ExchangeRate;
 
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
-    public static final String MESSAGE_SUCCESS = "Your expenses is now exchanged from %s to %s "
+    public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s.\n";
     public static final String MESSAGE_USAGE = "exchange s/CNY xr/5.01";
 
