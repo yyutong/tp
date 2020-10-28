@@ -12,6 +12,7 @@ import static seedu.address.logic.commands.HelpCommand.LISTCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.SETBUDGETCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.SHOWBUDGETCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.SHOWING_HELP_MESSAGE;
+import static seedu.address.logic.commands.HelpCommand.SHOWSTATISTICCOMMAND;
 import static seedu.address.logic.commands.HelpCommand.VIEWCATEGORYCOMMOND;
 import static seedu.address.logic.commands.HelpCommand.VIEWCOMMOND;
 
@@ -28,8 +29,8 @@ public class HelpCommandTest {
     public void execute_help_success() {
         CommandResult expectedCommandResult = new CommandResult(ADDEXPENSECOMMAND + LISTCOMMOND
                 + LISTBYCATEGORYCOMMOND + VIEWCOMMOND + VIEWCATEGORYCOMMOND
-                + ADDDESCOMMOND + DELETECOMMOND + DELETEDESCOMMOND + SETBUDGETCOMMOND
-                + SHOWBUDGETCOMMOND + EXITCOMMOND, true, false);
+                + ADDDESCOMMOND + DELETECOMMOND + DELETEDESCOMMOND + SETBUDGETCOMMOND + SHOWBUDGETCOMMOND
+                + SHOWSTATISTICCOMMAND + EXITCOMMOND, true, false);
         assertCommandSuccess(new HelpCommand(), model, expectedCommandResult, expectedModel);
     }
 
