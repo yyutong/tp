@@ -19,6 +19,8 @@ public class ListExpenseByDescCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " movies";
 
+    public static final String MESSAGE_SUCCESS = "Listed all expenses by Description";
+
     private final DescContainsKeywordsPredicate predicate;
 
     public ListExpenseByDescCommand(DescContainsKeywordsPredicate predicate) {
