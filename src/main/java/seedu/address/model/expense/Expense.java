@@ -5,14 +5,12 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Objects;
 
 public class Expense {
-
-    private static final String DEFAULT_CURRENCY = "SGD";
     // Identity fields
     private final Amount amount;
     private final Date date;
     private final Category category;
     private final Description description;
-    private final String dollarSign;
+    private final Currency dollarSign;
 
     /**
      * Every field must be present and not null.
@@ -23,13 +21,13 @@ public class Expense {
         this.date = date;
         this.category = category;
         this.description = description;
-        this.dollarSign = DEFAULT_CURRENCY;
+        this.dollarSign = new Currency();
     }
 
     /**
      * Every field must be present and not null.
      */
-    public Expense(Amount amount, String dollarSign, Date date, Category category, Description description) {
+    public Expense(Amount amount, Currency dollarSign, Date date, Category category, Description description) {
         requireAllNonNull(amount, date, category);
         this.amount = amount;
         this.date = date;
@@ -54,8 +52,19 @@ public class Expense {
         return this.description;
     }
 
-    public Expense exchange(String dollarSign, double exchangeRate) {
-        return new Expense(new Amount(amount.getValue() * exchangeRate), dollarSign, date, category, description);
+    public Currency getCurrency() {
+        return this.dollarSign;
+    }
+
+    /**
+     * Exchange the expense to input currency.
+     * @param dollarSign Currency of the input.
+     * @param exchangeRate from current currency to input Currency.
+     * @return a new expense in the new Currency.
+     */
+    public Expense exchange(Currency dollarSign, ExchangeRate exchangeRate) {
+        return new Expense(
+            new Amount(amount.getValue() * exchangeRate.getRate()), dollarSign, date, category, description);
     }
 
     /**

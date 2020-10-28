@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
+
+
 
 public class ExchangeCommandParser implements Parser<ExchangeCommand> {
 
@@ -20,8 +24,8 @@ public class ExchangeCommandParser implements Parser<ExchangeCommand> {
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_USAGE));
         }
-        String dollarSign = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
-        double exchangeRate = ParserUtil.parseExchangeRate(argMultimap.getValue(PREFIX_RATE).get());
+        Currency dollarSign = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
+        ExchangeRate exchangeRate = ParserUtil.parseExchangeRate(argMultimap.getValue(PREFIX_RATE).get());
         return new ExchangeCommand(dollarSign, exchangeRate);
     }
 

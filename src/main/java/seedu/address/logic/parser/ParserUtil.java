@@ -5,11 +5,15 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
+import seedu.address.model.expense.ExchangeRate;
 
 
 /**
@@ -93,9 +97,9 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static String parseCurrency(String currency) throws ParseException {
+    public static Currency parseCurrency(String currency) throws ParseException {
         requireNonNull(currency);
-        return currency.trim();
+        return new Currency(currency.trim());
     }
 
     /**
@@ -104,14 +108,32 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static double parseExchangeRate(String rate) throws ParseException {
+    public static ExchangeRate parseExchangeRate(String rate) throws ParseException {
         requireNonNull(rate);
         try {
-            return Double.parseDouble(rate.trim());
+            return new ExchangeRate(Double.parseDouble(rate.trim()));
         } catch (Exception pe) {
-            throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT), pe);
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT, pe);
         }
     }
 
+    /**
+     * Parses a {@code String name} into a {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static Budget parseBudget(String budget) throws ParseException {
+        try {
+            double value = Double.parseDouble(budget.trim());
+            if (value <= 0) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL));
+            }
+            return new Budget(value);
+        } catch (Exception pe) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL), pe);
+        }
+    }
 }

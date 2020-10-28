@@ -3,18 +3,19 @@ package seedu.address.logic.commands;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import seedu.address.model.Model;
+import seedu.address.model.expense.Budget;
 
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "setBudget";
-    public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %.2f %s.\n";
+    public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %s %s.\n";
     public static final String MESSAGE_SET_BUDGET_FAIL = "Set Budget failed, please enter a valid budget.\n";
 
-    private final double budget;
+    private final Budget budget;
 
     /**
-     * Construct a SetBudget object.
+     * Construct a SetBudgetCommand object.
      */
-    public SetBudgetCommand(double budget) {
+    public SetBudgetCommand(Budget budget) {
         requireAllNonNull(budget);
         this.budget = budget;
     }

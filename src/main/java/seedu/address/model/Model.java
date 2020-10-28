@@ -6,7 +6,10 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -91,17 +94,17 @@ public interface Model {
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
 
-    double getExpenseBookBudget();
+    Budget getExpenseBookBudget();
 
-    double getExpenseBookRemaining();
+    Budget getExpenseBookRemaining();
 
-    void expenseBookExchange(double exchangeRate);
+    void expenseBookExchange(ExchangeRate exchangeRate);
 
-    void setExpenseBookBudget(double budget);
+    void setExpenseBookBudget(Budget budget);
 
-    String getExpenseBookCurrency();
+    Currency getExpenseBookCurrency();
 
-    void setExpenseBookCurrency(String dollarSign);
+    void setExpenseBookCurrency(Currency dollarSign);
 
     List<Category> getCategoryLabels();
     int getExpenseSumByCategory(String categoryName);

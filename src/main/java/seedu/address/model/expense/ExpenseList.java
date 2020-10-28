@@ -92,8 +92,8 @@ public class ExpenseList implements Iterable<Expense> {
      */
     public double totalSpending() {
         double spending = 0;
-        for (int i = 0; i < internalList.size(); i++) {
-            spending += internalList.get(i).getAmount().getValue();
+        for (Expense expense : internalList) {
+            spending += expense.getAmount().getValue();
         }
         return spending;
     }
@@ -103,18 +103,17 @@ public class ExpenseList implements Iterable<Expense> {
      * @param dollarSign of the new currency.
      * @param exchangeRate from the current currency.
      */
-    public void exchange(String dollarSign, double exchangeRate) {
+    public void exchange(Currency dollarSign, ExchangeRate exchangeRate) {
         List<Expense> exchangedExpenses = new ArrayList<>();
-        for (int i = 0; i < internalList.size(); i++) {
-            exchangedExpenses.add(internalList.get(i).exchange(dollarSign, exchangeRate));
+        for (Expense expense : internalList) {
+            exchangedExpenses.add(expense.exchange(dollarSign, exchangeRate));
         }
         setExpenses(exchangedExpenses);
     }
 
     public List<Category> getCategoryLabels() {
         List<Category> categories = new ArrayList<>();
-        for (int i = 0; i < internalList.size(); i++) {
-            Expense current = internalList.get(i);
+        for (Expense current : internalList) {
             Category currentCategory = current.getCategory();
             if (!categories.contains(currentCategory)) {
                 categories.add(currentCategory);
@@ -125,8 +124,7 @@ public class ExpenseList implements Iterable<Expense> {
 
     public int getExpenseSumByCategory(String categoryName) {
         int counter = 0;
-        for (int i = 0; i < internalList.size(); i = i + 1) {
-            Expense current = internalList.get(i);
+        for (Expense current : internalList) {
             Category currentCategory = current.getCategory();
             String currentCategoryName = currentCategory.categoryName;
             if (currentCategoryName.equals(categoryName)) {
@@ -169,18 +167,7 @@ public class ExpenseList implements Iterable<Expense> {
      * Sorts the expense list by ascending amount.
      */
     public void sortByAscendingAmount() {
-        internalList.sort(new Comparator<Expense>() {
-            @Override
-            public int compare(Expense expense, Expense other) {
-                if (expense.getAmount().value > other.getAmount().value) {
-                    return 1;
-                } else if (expense.getAmount().value < other.getAmount().value) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
-        });
+        internalList.sort(Comparator.comparing(expense -> expense.getAmount().value));
 
     }
 
@@ -188,36 +175,22 @@ public class ExpenseList implements Iterable<Expense> {
      * Sorts the expense list by descending amount.
      */
     public void sortByDescendingAmount() {
-        internalList.sort(new Comparator<Expense>() {
-            @Override
-            public int compare(Expense expense, Expense other) {
-                if (expense.getAmount().value > other.getAmount().value) {
-                    return -1;
-                } else if (expense.getAmount().value < other.getAmount().value) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-        });
+        internalList.sort((expense, other) -> other.getAmount().value.compareTo(expense.getAmount().value));
     }
 
     /**
      * Sorts the expense list by descending timr.
      */
     public void sortByDescendingTime() {
-        internalList.sort(new Comparator<Expense>() {
-            @Override
-            public int compare(Expense expense, Expense other) {
-                if (expense.getDate().getLocalDate()
-                        .isBefore(other.getDate().getLocalDate())) {
-                    return 1;
-                } else if (expense.getDate().getLocalDate()
-                        .isBefore(other.getDate().getLocalDate())) {
-                    return -1;
-                } else {
-                    return 0;
-                }
+        internalList.sort((expense, other) -> {
+            if (expense.getDate().getLocalDate()
+                    .isBefore(other.getDate().getLocalDate())) {
+                return 1;
+            } else if (expense.getDate().getLocalDate()
+                    .isBefore(other.getDate().getLocalDate())) {
+                return -1;
+            } else {
+                return 0;
             }
         });
     }
@@ -226,18 +199,15 @@ public class ExpenseList implements Iterable<Expense> {
      * Sorts the expense list by ascending time.
      */
     public void sortByAscendingTime() {
-        internalList.sort(new Comparator<Expense>() {
-            @Override
-            public int compare(Expense expense, Expense other) {
-                if (expense.getDate().getLocalDate()
-                        .isAfter(other.getDate().getLocalDate())) {
-                    return 1;
-                } else if (expense.getDate().getLocalDate()
-                        .isAfter(other.getDate().getLocalDate())) {
-                    return -1;
-                } else {
-                    return 0;
-                }
+        internalList.sort((expense, other) -> {
+            if (expense.getDate().getLocalDate()
+                    .isAfter(other.getDate().getLocalDate())) {
+                return 1;
+            } else if (expense.getDate().getLocalDate()
+                    .isAfter(other.getDate().getLocalDate())) {
+                return -1;
+            } else {
+                return 0;
             }
         });
     }

@@ -6,7 +6,10 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseList;
 
@@ -15,12 +18,9 @@ import seedu.address.model.expense.ExpenseList;
  * Duplicates are not allowed (by .isSameExpense comparison)
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
-
-    private static final String singaporeDollar = "SGD";
-
     private final ExpenseList expenses;
-    private double budget = 0;
-    private String dollarSign = singaporeDollar;
+    private Budget budget;
+    private Currency currency;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -33,7 +33,13 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         expenses = new ExpenseList();
     }
 
-    public ExpenseBook() {}
+    /**
+     * The new ExpenseBook with budget 0 and default Currency SGD.
+     */
+    public ExpenseBook() {
+        this.budget = new Budget();
+        this.currency = new Currency();
+    }
 
     /**
      * Creates an ExpenseBook using the Expenses in the {@code toBeCopied}
@@ -56,20 +62,20 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * Set the currency of this {@code ExpenseBook}.
      * @param dollarSign of the currency, recommend in the format of three capital letters (e.g. CNY).
      */
-    public void setCurrency(String dollarSign) {
-        this.dollarSign = dollarSign;
+    public void setCurrency(Currency dollarSign) {
+        this.currency = dollarSign;
     }
 
-    public String getCurrency() {
-        return this.dollarSign;
+    public Currency getCurrency() {
+        return this.currency;
     }
 
     /**
      * Exchange the {@code expenses} to the input currency.
      * @param exchangeRate from the current currency.
      */
-    public void exchange(double exchangeRate) {
-        this.expenses.exchange(this.dollarSign, exchangeRate);
+    public void exchange(ExchangeRate exchangeRate) {
+        this.expenses.exchange(this.currency, exchangeRate);
     }
 
     /**
@@ -124,11 +130,11 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * Set the budget of this {@code ExpenseBook} to the input amount.
      * @param budget Total budget.
      */
-    public void setBudget(double budget) {
+    public void setBudget(Budget budget) {
         this.budget = budget;
     }
 
-    public double getBudget() {
+    public Budget getBudget() {
         return this.budget;
     }
 
@@ -136,8 +142,8 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * Subtracting total spending from budget.
      * @return the remaining budget in this {@code ExpenseBook}.
      */
-    public double getRemainingBudget() {
-        return this.budget - expenses.totalSpending();
+    public Budget getRemainingBudget() {
+        return this.budget.remaining(expenses.totalSpending());
     }
 
     public List<Category> getCategoryLabels() {

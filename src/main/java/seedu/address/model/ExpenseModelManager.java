@@ -12,7 +12,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -167,32 +170,32 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
-    public double getExpenseBookBudget() {
+    public Budget getExpenseBookBudget() {
         return expenseBook.getBudget();
     }
 
     @Override
-    public double getExpenseBookRemaining() {
+    public Budget getExpenseBookRemaining() {
         return expenseBook.getRemainingBudget();
     }
 
     @Override
-    public void setExpenseBookBudget(double budget) {
+    public void setExpenseBookBudget(Budget budget) {
         expenseBook.setBudget(budget);
     }
 
     @Override
-    public void setExpenseBookCurrency(String dollarSign) {
+    public void setExpenseBookCurrency(Currency dollarSign) {
         expenseBook.setCurrency(dollarSign);
     }
 
     @Override
-    public void expenseBookExchange(double exchangeRate) {
+    public void expenseBookExchange(ExchangeRate exchangeRate) {
         expenseBook.exchange(exchangeRate);
     }
 
     @Override
-    public String getExpenseBookCurrency() {
+    public Currency getExpenseBookCurrency() {
         return expenseBook.getCurrency();
     }
 

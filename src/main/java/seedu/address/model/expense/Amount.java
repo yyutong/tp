@@ -7,17 +7,13 @@ public class Amount {
 
     public final Double value;
 
-    /**
-     * Default currency is Singapore Dollar.
-     * @param value of the amount.
-     */
     public Amount(Double value) {
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return String.format("%.2f ", this.value);
+        return String.format("%.2f", this.value);
     }
 
     @Override

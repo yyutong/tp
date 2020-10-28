@@ -1,24 +1,16 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.expense.Budget;
 
 public class SetBudgetCommandParser implements Parser<SetBudgetCommand> {
     @Override
     public SetBudgetCommand parse(String userInput) throws ParseException {
-        try {
-            //needs oop later
-            double budget = Double.parseDouble(userInput.split(" ")[1]);
-            if (budget <= 0) {
-                throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL));
-            }
-            return new SetBudgetCommand(budget);
-        } catch (Exception pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL), pe);
-        }
+        requireNonNull(userInput);
+        Budget budget = ParserUtil.parseBudget(userInput);
+        return new SetBudgetCommand(budget);
     }
 }
