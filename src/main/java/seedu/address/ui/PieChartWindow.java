@@ -1,5 +1,9 @@
 package seedu.address.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,9 +18,6 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Expense;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class PieChartWindow extends UiPart<Stage> {
 
@@ -25,11 +26,11 @@ public class PieChartWindow extends UiPart<Stage> {
     private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
     private static final String FXML = "PieChartWindow.fxml";
 
-    public boolean hasStats = false;
+    public static boolean hasStats = false;
 
-    public Logic logic;
+    public static Logic logic;
 
-    public ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
+    public static ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 
 
     @javafx.fxml.FXML
@@ -57,7 +58,11 @@ public class PieChartWindow extends UiPart<Stage> {
         this(new Stage());
     }
 
-
+    /**
+     * Constructs a pie chart window object.
+     *
+     * @param logic Takes in a logic object.
+     */
     public PieChartWindow(Logic logic) {
         this(new Stage());
         this.logic = logic;
