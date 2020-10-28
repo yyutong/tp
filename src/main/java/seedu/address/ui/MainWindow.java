@@ -64,7 +64,7 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
         helpWindow = new HelpWindow();
-//        pieChartWindow = new PieChartWindow();
+        pieChartWindow = new PieChartWindow(logic);
     }
 
     public Stage getPrimaryStage() {
@@ -193,10 +193,10 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
-//
-//            if (commandResult.isShowStatistics()) {
-//                handleStatistics();
-//            }
+
+            if (commandResult.isShowStatistics()) {
+                handleStatistics();
+            }
 
             if (commandResult.isExit()) {
                 handleExit();

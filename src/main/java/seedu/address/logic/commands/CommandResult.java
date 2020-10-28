@@ -56,7 +56,7 @@ public class CommandResult {
     }
 
     public boolean isShowStatistics() {
-        return isShowStatistics();
+        return showStatistics;
     }
 
     public boolean isExit() {
