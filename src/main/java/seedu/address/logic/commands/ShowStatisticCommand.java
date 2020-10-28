@@ -17,7 +17,7 @@ public class ShowStatisticCommand extends Command {
     public static final String MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS = "Here are the expenses summaries: \n";
     public static final String MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS = "Here are the break down of expenses: \n";
     public static final String HORIZONTAL_LINE = "------------------------------------ \n";
-    public static final String HEADING = "Category           Total Expense           Percentage(%)      Total Amount\n";
+    public static final String HEADING = "Category           Total Expense           Percentage(%)      Total Spending";
     public static final int STRINGSPACE = 38;
     public static final int SPACE = 28;
 
@@ -29,8 +29,11 @@ public class ShowStatisticCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         String message = "";
         int sumOfExpenses = model.getTotalExpense();
-        message = message + "You have a total of " + sumOfExpenses + "expenses." + "\n \n";
-        message = message + MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS + HORIZONTAL_LINE + HEADING;
+        double totalExpenseSum = model.getExpenseSum();
+        String formattedTotalSum = String.format("%.2f", totalExpenseSum);
+        message = message + "You have a total of " + sumOfExpenses + " expenses "
+                + "and a total spending of " + formattedTotalSum + ". " + "\n \n";
+        message = message + MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS + HORIZONTAL_LINE + HEADING + "\n";
         HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
         List<Category> categories = model.getCategoryLabels();
         for (int i = 0; i < categories.size(); i = i + 1) {
