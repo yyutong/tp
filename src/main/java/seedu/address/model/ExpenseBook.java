@@ -3,8 +3,10 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
@@ -18,9 +20,10 @@ import seedu.address.model.expense.ExpenseList;
  * Duplicates are not allowed (by .isSameExpense comparison)
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
+    private static final Logger logger = LogsCenter.getLogger(ExpenseBook.class);
     private final ExpenseList expenses;
-    private Budget budget;
-    private Currency currency;
+    private Budget budget = new Budget();
+    private Currency currency = new Currency();
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -37,8 +40,8 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * The new ExpenseBook with budget 0 and default Currency SGD.
      */
     public ExpenseBook() {
-        this.budget = new Budget();
-        this.currency = new Currency();
+        //this.budget = new Budget();
+        //this.currency = new Currency();
     }
 
     /**
@@ -66,6 +69,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         this.currency = dollarSign;
     }
 
+    @Override
     public Currency getCurrency() {
         return this.currency;
     }
@@ -85,6 +89,8 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
+        setBudget(newData.getBudget());
+        setCurrency(newData.getCurrency());
     }
     //// expense-level operations
 
@@ -130,11 +136,15 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * Set the budget of this {@code ExpenseBook} to the input amount.
      * @param budget Total budget.
      */
+    @Override
     public void setBudget(Budget budget) {
         this.budget = budget;
+        logger.info("budget successfully set to " + this.budget);
     }
 
+    @Override
     public Budget getBudget() {
+        logger.info("printing this budget from get budget " + this.budget);
         return this.budget;
     }
 
