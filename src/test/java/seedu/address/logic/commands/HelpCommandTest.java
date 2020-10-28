@@ -27,7 +27,8 @@ public class HelpCommandTest {
 
     @Test
     public void execute_help_success() {
-        CommandResult expectedCommandResult = new CommandResult(ADDEXPENSECOMMAND + LISTCOMMOND + LISTBYCATEGORYCOMMOND + VIEWCOMMOND + VIEWCATEGORYCOMMOND
+        CommandResult expectedCommandResult = new CommandResult(ADDEXPENSECOMMAND + LISTCOMMOND
+                + LISTBYCATEGORYCOMMOND + VIEWCOMMOND + VIEWCATEGORYCOMMOND
                 + ADDDESCOMMOND + DELETECOMMOND + DELETEDESCOMMOND + SETBUDGETCOMMOND + SHOWBUDGETCOMMOND
                 + SHOWSTATISTICCOMMAND + EXITCOMMOND, true, false);
         assertCommandSuccess(new HelpCommand(), model, expectedCommandResult, expectedModel);
