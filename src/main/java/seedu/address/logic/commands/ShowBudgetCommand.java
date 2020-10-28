@@ -18,11 +18,11 @@ public class ShowBudgetCommand extends Command {
         Budget budget = model.getExpenseBookBudget();
         Budget remaining = model.getExpenseBookRemaining();
         Currency currency = model.getExpenseBookCurrency();
-        if (model.getExpenseBookBudget().isEmpty()) {
+        String budgetMsg = String.format(MESSAGE_BUDGET, budget, currency);
+        if (model.getExpenseBookRemaining().isEmpty()) {
             String setNew = String.format(MESSAGE_SETNEW, remaining, currency);
-            return new CommandResult(setNew);
+            return new CommandResult(budgetMsg + setNew);
         } else {
-            String budgetMsg = String.format(MESSAGE_BUDGET, budget, currency);
             String remainingMsg = String.format(MESSAGE_REMAINING, model.getExpenseBookRemaining(), currency);
             return new CommandResult(budgetMsg + remainingMsg);
         }
