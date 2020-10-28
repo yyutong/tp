@@ -32,7 +32,7 @@ public class ExpenseModelManager implements Model {
 
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given expenseBook and userPrefs.
      */
     public ExpenseModelManager(ReadOnlyExpenseBook expenseBook, ReadOnlyUserPrefs userPrefs) {
         super();

@@ -13,6 +13,8 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.ExpenseBook;
 import seedu.address.model.ReadOnlyExpenseBook;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -23,22 +25,31 @@ class JsonSerializableExpenseBook {
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expense list contains duplicate expense(s).";
     private static final Logger logger = LogsCenter.getLogger(JsonExpenseBookStorage.class);
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
+    private final Double budget;
+    private final String dollarSign;
 
     /**
      * Constructs a {@code JsonSerializableExpenseBook} with the given expenses.
      */
     @JsonCreator
-    public JsonSerializableExpenseBook(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {
+    public JsonSerializableExpenseBook(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses,
+                                       @JsonProperty("budget") String budget,
+                                       @JsonProperty("dollarSign") String dollarSign) {
         this.expenses.addAll(expenses);
+        this.budget = Double.valueOf(budget);
+        this.dollarSign = dollarSign;
     }
 
     /**
-     * Converts a given {@code ReadOnlyExpenseBook} into this class for Jackson use.
+     * Converts a given {@code ReadOnlyExpenseBook} into this class for Json use.
      *
      * @param source future changes to this will not affect the created {@code JsonSerializableExpenseBook}.
      */
     public JsonSerializableExpenseBook(ReadOnlyExpenseBook source) {
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
+        budget = source.getBudget().getValue();
+        logger.info("budget obtained at source.getBudget().getValue() is " + budget);
+        dollarSign = source.getCurrency().dollarSign;
     }
 
     /**
@@ -49,6 +60,8 @@ class JsonSerializableExpenseBook {
     public ExpenseBook toModelType() throws IllegalValueException {
         logger.info("converting json adapted expense to model type");
         ExpenseBook expenseBook = new ExpenseBook();
+        // expenseBook.setCurrency(new Currency(dollarSign));
+        // expenseBook.setBudget(new Budget(budget));
         for (JsonAdaptedExpense jsonAdaptedExpense : expenses) {
             logger.info("jsonAdaptedExpense： " + jsonAdaptedExpense);
             Expense expense = jsonAdaptedExpense.toModelType();
@@ -57,7 +70,10 @@ class JsonSerializableExpenseBook {
             }
             expenseBook.addExpense(expense);
         }
-        logger.info("finished converting json adapted expense to model type");
+        expenseBook.setCurrency(new Currency(dollarSign));
+        expenseBook.setBudget(new Budget(budget));
+        logger.info("budget set to @ storage" + budget);
+        //logger.info("finished converting json adapted expense to model type");
         return expenseBook;
     }
 

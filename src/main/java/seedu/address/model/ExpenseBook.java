@@ -4,8 +4,10 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
@@ -19,9 +21,12 @@ import seedu.address.model.expense.ExpenseList;
  * Duplicates are not allowed (by .isSameExpense comparison)
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
+    private static Currency currency = new Currency();
+
+    private static final Logger logger = LogsCenter.getLogger(ExpenseBook.class);
     private final ExpenseList expenses;
-    private Budget budget;
-    private Currency currency;
+    private Budget budget = new Budget();
+
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -38,8 +43,8 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * The new ExpenseBook with budget 0 and default Currency SGD.
      */
     public ExpenseBook() {
-        this.budget = new Budget();
-        this.currency = new Currency();
+        //this.budget = new Budget();
+        //this.currency = new Currency();
     }
 
     /**
@@ -50,6 +55,9 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         resetData(toBeCopied);
     }
 
+    public static Currency currency() {
+        return ExpenseBook.currency;
+    }
     //// list overwrite operations
 
     /**
@@ -67,6 +75,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         this.currency = dollarSign;
     }
 
+    @Override
     public Currency getCurrency() {
         return this.currency;
     }
@@ -76,6 +85,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * @param exchangeRate from the current currency.
      */
     public void exchange(ExchangeRate exchangeRate) {
+        this.budget = this.budget.exchange(exchangeRate);
         this.expenses.exchange(this.currency, exchangeRate);
     }
 
@@ -86,6 +96,8 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
+        setBudget(newData.getBudget());
+        setCurrency(newData.getCurrency());
     }
     //// expense-level operations
 
@@ -111,7 +123,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);
-
         expenses.setExpense(target, editedExpense);
     }
 
@@ -131,11 +142,15 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
      * Set the budget of this {@code ExpenseBook} to the input amount.
      * @param budget Total budget.
      */
+    @Override
     public void setBudget(Budget budget) {
         this.budget = budget;
+        logger.info("budget successfully set to " + this.budget);
     }
 
+    @Override
     public Budget getBudget() {
+        logger.info("printing this budget from get budget " + this.budget);
         return this.budget;
     }
 
