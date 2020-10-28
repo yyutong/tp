@@ -46,6 +46,11 @@ public class Date {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Gets the localDate of the Date.
+     *
+     * @return The localDate of the date.
+     */
     public LocalDate getLocalDate() {
         return this.localDate;
     }

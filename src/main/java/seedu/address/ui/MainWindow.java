@@ -34,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private ExpenseListPanel expenseListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private PieChartWindow pieChartWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -63,6 +64,7 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
         helpWindow = new HelpWindow();
+        pieChartWindow = new PieChartWindow(logic);
     }
 
     public Stage getPrimaryStage() {
@@ -145,6 +147,18 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Opens the Pie chart window or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleStatistics() {
+        if (!pieChartWindow.isShowing()) {
+            pieChartWindow.show();
+        } else {
+            pieChartWindow.focus();
+        }
+    }
+
     void show() {
         primaryStage.show();
     }
@@ -178,6 +192,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowStatistics()) {
+                handleStatistics();
             }
 
             if (commandResult.isExit()) {
