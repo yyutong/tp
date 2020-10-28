@@ -62,8 +62,6 @@ public class ShowStatisticCommand extends Command {
 
         }
 
-        model.setStatistics(new Statistics(hashMap4));
-
         return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message,
                 false, false, true);
     }
