@@ -7,7 +7,6 @@ import java.util.Map;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Statistics;
 
 public class ShowStatisticCommand extends Command {
 
