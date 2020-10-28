@@ -3,16 +3,31 @@ layout: page
 title: User Guide
 ---
 
-UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, UniSave can get your financial management tasks done faster than traditional GUI apps.
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
+If you can type fast, UniSave can get your financial management tasks done faster than traditional GUI apps.
+Choose a section from the table of contents below and start using UniSave.
 
 * Table of Contents
+    * [Overview](#overview)
     * [Quick start](#quickstart)
     * [Features](#features)
         * [Commands](#commands)
+    * [FAQ](#faq)
+    * [Glossary](#glossary)
     * [Command summary](#command-summary)
 
 
 --------------------------------------------------------------------------------------------------------------------
+## Overview <a name="overview"></a>
+UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your 
+spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave 
+allows tracking expenses in different currencies.
+
+UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, 
+housing fees, transport and so on. University students are also more familiar with desktop applications and typing.
+UniSave is available for the Linux, Windows and Mac OS operating systems.
+
+
 
 ## Quick start <a name="quickstart"></a>
 
@@ -22,7 +37,7 @@ UniSave is a **desktop app for managing expenses, optimized for use via a Comman
 
 1. Copy the file to the folder you want to use as the _home folder_ for your UniSave.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+1. Double-click the file to start the app. In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -188,13 +203,19 @@ Format: `showBudget`
 
 ![showBudget](images/showBudgetCommand.png)
 
+#### Clear data in UniSave : `clear`
+
+Clears the data in the program.
+
+Format: `clear`
+
 #### Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
-#### Saving the data `[Coming soon]`
+#### Saving the data
 
 UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -204,10 +225,21 @@ _{explain the feature here}_
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## FAQ <a name="faq"></a>
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Glossary <a name="glossary"></a>
+**UniSave** | UniSave efers to the name of the application.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category
+that you classify this spending into, and an optional description you might want to add so that you can recall the details 
+when you view this spending again later.
+**CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
+**GUI** | The graphical user interface is a form of user interface that allows users to interact with a
+computer program through graphical icons instead of text-based user interfaces or text navigation.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -226,3 +258,10 @@ Action | Format, Examples
 **Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`
 **Show Budget** | `showBudget`
 **Help** | `help`
+**Clear** | `clear`
+**Exit** | `exit`
+
+
+
+
+
