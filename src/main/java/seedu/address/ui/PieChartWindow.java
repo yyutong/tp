@@ -22,15 +22,15 @@ import seedu.address.model.expense.Expense;
 public class PieChartWindow extends UiPart<Stage> {
 
     public static final String MESSAGE = "Statistics is shown on the left";
-    public static PieChart PIE_CHART = new PieChart();
+    private static PieChart PIECHART = new PieChart();
     private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
     private static final String FXML = "PieChartWindow.fxml";
 
-    public static boolean hasStats = false;
+    private static boolean hasStats = false;
 
-    public static Logic logic;
+    private Logic logic;
 
-    public static ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
+    private ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 
 
     @javafx.fxml.FXML
@@ -48,7 +48,7 @@ public class PieChartWindow extends UiPart<Stage> {
         super(FXML, root);
         statistics.setText(MESSAGE);
         statistics.setGraphicTextGap(20.0);
-        statistics.setGraphic(PIE_CHART);
+        statistics.setGraphic(PIECHART);
     }
 
     /**
@@ -103,10 +103,10 @@ public class PieChartWindow extends UiPart<Stage> {
                 this.list.add(new PieChart.Data(categoryName, percentage));
             }
 
-            PIE_CHART.setData(list);
-            PIE_CHART.setLegendSide(Side.LEFT);
-            PIE_CHART.setTitle("Statistics of Expense Book");
-            PIE_CHART.setClockwise(false);
+            PIECHART.setData(list);
+            PIECHART.setLegendSide(Side.LEFT);
+            PIECHART.setTitle("Statistics of Expense Book");
+            PIECHART.setClockwise(false);
         }
 
 
