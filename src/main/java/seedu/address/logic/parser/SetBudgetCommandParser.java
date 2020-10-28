@@ -1,10 +1,10 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Budget;
-
-import static java.util.Objects.requireNonNull;
 
 public class SetBudgetCommandParser implements Parser<SetBudgetCommand> {
     @Override

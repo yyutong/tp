@@ -11,6 +11,10 @@ public class Budget {
         this.budget = new Amount(budget);
     }
 
+    /**
+     * @param spending of an amount.
+     * @return the remaining budget.
+     */
     public Budget remaining(double spending) {
         double remaining = this.getValue() - spending;
         return new Budget(remaining);

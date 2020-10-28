@@ -1,12 +1,16 @@
 package seedu.address.model;
 
-import javafx.collections.ObservableList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.expense.*;
-
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Predicate;
+
+import javafx.collections.ObservableList;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
+import seedu.address.model.expense.Expense;
 
 /**
  * The API of the Model component.

@@ -1,19 +1,23 @@
 package seedu.address.model;
 
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.expense.*;
-import seedu.address.model.util.SampleDataUtil;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.ExchangeRate;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.util.SampleDataUtil;
 
 /**
  * Represents the in-memory model of the address book data.

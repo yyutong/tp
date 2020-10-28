@@ -1,11 +1,11 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 import seedu.address.model.Model;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";

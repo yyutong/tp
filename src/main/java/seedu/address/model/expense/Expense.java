@@ -1,8 +1,8 @@
 package seedu.address.model.expense;
 
-import java.util.Objects;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.Objects;
 
 public class Expense {
     // Identity fields
@@ -56,8 +56,15 @@ public class Expense {
         return this.dollarSign;
     }
 
+    /**
+     * Exchange the expense to input currency.
+     * @param dollarSign Currency of the input.
+     * @param exchangeRate from current currency to input Currency.
+     * @return a new expense in the new Currency.
+     */
     public Expense exchange(Currency dollarSign, ExchangeRate exchangeRate) {
-        return new Expense(new Amount(amount.getValue() * exchangeRate.getRate()), dollarSign, date, category, description);
+        return new Expense(
+            new Amount(amount.getValue() * exchangeRate.getRate()), dollarSign, date, category, description);
     }
 
     /**
