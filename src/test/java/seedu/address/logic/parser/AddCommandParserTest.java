@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.model.expense.Category;
-//import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBuilder;
 
@@ -114,11 +114,11 @@ public class AddCommandParserTest {
         //remember to change later
         String userInput1 = AMOUNT_DESC_BOOKS + CATEGORY_DESC_MOVIE
                 + " D/" + INVALID_DATE_1 + DESCRIPTION_DESC_BOOKS;
-        assertParseFailure(parser, userInput1, Category.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, userInput1, Date.MESSAGE_CONSTRAINTS);
 
         String userInput2 = AMOUNT_DESC_BOOKS + CATEGORY_DESC_BOOKS
                 + " D/" + INVALID_DATE_2 + DESCRIPTION_DESC_BOOKS;
-        assertParseFailure(parser, userInput2, Category.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, userInput2, Date.MESSAGE_CONSTRAINTS);
 
         //String userInput3 = " a/" + VALID_AMOUNT_BOOKS + " c/" + VALID_CATEGORY_BOOKS
         //+ " D/" + INVALID_DATE_3 + " d/" + VALID_DESCRIPTION_BOOKS;
