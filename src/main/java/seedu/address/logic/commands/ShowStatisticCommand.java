@@ -1,10 +1,6 @@
 package seedu.address.logic.commands;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,32 +16,13 @@ public class ShowStatisticCommand extends Command {
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS = "Here are the expenses summaries: \n";
     public static final String MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS = "Here are the break down of expenses: \n";
-    public static final String HORIZONTAL_LINE = "---------------------------------- \n";
+    public static final String HORIZONTAL_LINE = "------------------------------------ \n";
+    public static final String HEADING = "Category           Total Expense           Percentage(%)      Total Amount\n";
+    public static final int STRINGSPACE = 38;
+    public static final int SPACE = 28;
 
-    /**
-     * Sort the HashMap by values.
-     *
-     */
-    // function to sort hashmap by values
-    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
-        // Create a list from elements of HashMap
-        List<Map.Entry<String, Integer> > list =
-                new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
-
-        // Sort the list
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
-            public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2) {
-                return (o1.getValue()).compareTo(o2.getValue());
-            }
-        });
-
-        // put data from sorted list to hashmap
-        HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
-        for (Map.Entry<String, Integer> aa : list) {
-            temp.put(aa.getKey(), aa.getValue());
-        }
-        return temp;
+    public static String fixedLengthString(String string, int length) {
+        return String.format("%1$" + length + "s", string);
     }
 
     @Override
@@ -53,7 +30,7 @@ public class ShowStatisticCommand extends Command {
         String message = "";
         int sumOfExpenses = model.getTotalExpense();
         message = message + "You have a total of " + sumOfExpenses + "expenses." + "\n \n";
-        message = message + MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS + HORIZONTAL_LINE;
+        message = message + MESSAGE_SHOW_STATISTIC_HEADING_SUCCESS + HORIZONTAL_LINE + HEADING;
         HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
         List<Category> categories = model.getCategoryLabels();
         for (int i = 0; i < categories.size(); i = i + 1) {
@@ -61,10 +38,23 @@ public class ShowStatisticCommand extends Command {
             int sum = model.getExpenseSumByCategory(currentCategoryName);
             hashMap.put(currentCategoryName, sum);
         }
-        Map<String, Integer> hashmap1 = sortByValue(hashMap);
-
-        for (Map.Entry<String, Integer> hashMap2 : hashmap1.entrySet()) {
-            message = message + hashMap2.getKey() + " : " + hashMap2.getValue() + " expenses" + "\n";
+        HashMap<String, Double> hashMap3 = model.getExpenseSumCategory();
+        HashMap<String, Double> hashMap4 = model.getExpensePercentageCategory();
+        Map<String, Integer> hashMap1 = SortShowStatisticCommand.sortByNumberOfExpense(hashMap);
+        Map<String, Double> hashMap5 = SortShowStatisticCommand.sortByTotalExpense(hashMap3);
+        for (Map.Entry<String, Double> hashMap2 : hashMap5.entrySet()) {
+            System.out.println(hashMap2.getKey());
+            int categoryLength = (hashMap2.getKey().length()) * 2;
+            int howManyMoreSpaceNeeded = STRINGSPACE - categoryLength;
+            String category = hashMap2.getKey();
+            int numberOfExpense = hashMap.get(category);
+            double totalAmount = hashMap3.get(category);
+            double percentage = hashMap4.get(category);
+            String formattedAmount = String.format("%.2f", totalAmount);
+            String formattedPercentage = String.format("%.2f", percentage);
+            message = message + category + fixedLengthString(" ", howManyMoreSpaceNeeded) + numberOfExpense
+                    + fixedLengthString(" ", SPACE) + formattedPercentage
+                    + fixedLengthString(" ", SPACE) + formattedAmount + "\n";
         }
         return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message);
     }

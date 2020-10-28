@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -118,4 +119,9 @@ public interface Model {
     void sortByDescendingTime();
 
     void sortByAscendingTime();
+
+    double getExpenseSum();
+    HashMap<String, Double> getExpenseSumCategory();
+    HashMap<String, Double> getExpensePercentageCategory();
+    double getExpenseSumOfCategory(String categoryName);
 }

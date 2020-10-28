@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -136,6 +137,58 @@ public class ExpenseList implements Iterable<Expense> {
 
     public int getTotalExpense() {
         int sum = internalList.size();
+        return sum;
+    }
+
+    public double getExpenseSum() {
+        double sum = 0;
+        for (Expense current : internalList) {
+            Amount currentAmount = current.getAmount();
+            double currentAmountValue = currentAmount.getValue();
+            sum = sum + currentAmountValue;
+        }
+        return sum;
+    }
+
+    public HashMap<String, Double> getExpenseSumCategory() {
+        double sum = 0;
+        List<Category> categories = getCategoryLabels();
+        HashMap<String, Double> hashMap = new HashMap<String, Double>();
+        for (int i = 0; i < categories.size(); i = i + 1) {
+            String currentCategory = categories.get(i).categoryName;
+            double categorySum = getExpenseSumOfCategory(currentCategory);
+            hashMap.put(currentCategory, categorySum);
+        }
+        return hashMap;
+    }
+
+    public HashMap<String, Double> getExpensePercentageCategory() {
+        double sum = 0;
+        List<Category> categories = getCategoryLabels();
+        HashMap<String, Double> hashMap = new HashMap<String, Double>();
+        double totalSum = getExpenseSum();
+        for (int i = 0; i < categories.size(); i = i + 1) {
+            String currentCategory = categories.get(i).categoryName;
+            double categorySum = getExpenseSumOfCategory(currentCategory);
+            double percentage = categorySum / totalSum * 100;
+            hashMap.put(currentCategory, percentage);
+        }
+        return hashMap;
+    }
+
+    public double getExpenseSumOfCategory(String categoryName) {
+        double sum = 0;
+        List<Category> categories = getCategoryLabels();
+        HashMap<String, Double> hashMap = new HashMap<String, Double>();
+        for (Expense current : internalList) {
+            Category currentCategory = current.getCategory();
+            String currentCategoryName = currentCategory.categoryName;
+            if (categoryName.equals(currentCategoryName)) {
+                Amount currentAmount = current.getAmount();
+                double currentAmountValue = currentAmount.getValue();
+                sum = sum + currentAmountValue;
+            }
+        }
         return sum;
     }
 
