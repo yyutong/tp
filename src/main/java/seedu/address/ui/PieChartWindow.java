@@ -22,6 +22,8 @@ public class PieChartWindow extends UiPart<Stage> {
 
     public static final String MESSAGE = "Statistics is shown on the left";
     public static PieChart PIE_CHART = new PieChart();
+    private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
+    private static final String FXML = "PieChartWindow.fxml";
 
     public boolean hasStats = false;
 
@@ -29,8 +31,6 @@ public class PieChartWindow extends UiPart<Stage> {
 
     public ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 
-    private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
-    private static final String FXML = "PieChartWindow.fxml";
 
     @javafx.fxml.FXML
     private Button copyButton;
@@ -66,7 +66,7 @@ public class PieChartWindow extends UiPart<Stage> {
     }
 
     public void setStats() {
-        if(hasStats) {
+        if (hasStats) {
 
             List<Category> categories = new ArrayList<>();
             double sum = 0;
