@@ -2,13 +2,14 @@ package seedu.address.logic.parser;
 
 import seedu.address.logic.commands.HelpCommand;
 
-
-public class HelpCommandParser {
+public class HelpCommandParser implements Parser<HelpCommand> {
 
     /**
      * @return a List of Command Instruction for users.
-     */
-    public HelpCommand parse() {
+     * */
+    @Override
+    public HelpCommand parse(String userInput) {
         return new HelpCommand();
     }
+
 }

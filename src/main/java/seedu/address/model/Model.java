@@ -85,7 +85,6 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered Expense list */
     ObservableList<Expense> getFilteredExpenseList();
 
-
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
@@ -96,7 +95,13 @@ public interface Model {
 
     double getExpenseBookRemaining();
 
+    void expenseBookExchange(double exchangeRate);
+
     void setExpenseBookBudget(double budget);
+
+    String getExpenseBookCurrency();
+
+    void setExpenseBookCurrency(String dollarSign);
 
     List<Category> getCategoryLabels();
     int getExpenseSumByCategory(String categoryName);

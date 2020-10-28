@@ -16,8 +16,11 @@ import seedu.address.model.expense.ExpenseList;
  */
 public class ExpenseBook implements ReadOnlyExpenseBook {
 
+    private static final String singaporeDollar = "SGD";
+
     private final ExpenseList expenses;
     private double budget = 0;
+    private String dollarSign = singaporeDollar;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -43,25 +46,44 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the expense list with {@code expenses}.
      */
     public void setExpenses(List<Expense> expenses) {
         this.expenses.setExpenses(expenses);
     }
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Set the currency of this {@code ExpenseBook}.
+     * @param dollarSign of the currency, recommend in the format of three capital letters (e.g. CNY).
+     */
+    public void setCurrency(String dollarSign) {
+        this.dollarSign = dollarSign;
+    }
+
+    public String getCurrency() {
+        return this.dollarSign;
+    }
+
+    /**
+     * Exchange the {@code expenses} to the input currency.
+     * @param exchangeRate from the current currency.
+     */
+    public void exchange(double exchangeRate) {
+        this.expenses.exchange(this.dollarSign, exchangeRate);
+    }
+
+    /**
+     * Resets the existing data of this {@code ExpenseBook} with {@code newData}.
      */
     public void resetData(ReadOnlyExpenseBook newData) {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
     }
-    //// person-level operations
+    //// expense-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a expense with the same identity as {@code expense} exists in the expense book.
      */
     public boolean hasExpense(Expense expense) {
         requireNonNull(expense);
@@ -69,17 +91,16 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a expense to the expense book.
+     * The expense must not already exist in the expense book.
      */
     public void addExpense(Expense p) {
         expenses.add(p);
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * Replaces the given expense {@code target} in the list with {@code editedExpense}.
+     * {@code target} must exist in the expense book.
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);
@@ -92,13 +113,17 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
+     * Removes {@code key} from this {@code ExpenseBook}.
+     * {@code key} must exist in the expense book.
      */
     public void removeExpense(Expense key) {
         expenses.remove(key);
     }
 
+    /**
+     * Set the budget of this {@code ExpenseBook} to the input amount.
+     * @param budget Total budget.
+     */
     public void setBudget(double budget) {
         this.budget = budget;
     }
@@ -107,6 +132,10 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return this.budget;
     }
 
+    /**
+     * Subtracting total spending from budget.
+     * @return the remaining budget in this {@code ExpenseBook}.
+     */
     public double getRemainingBudget() {
         return this.budget - expenses.totalSpending();
     }
@@ -121,6 +150,22 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
 
     public int getTotalExpense() {
         return expenses.getTotalExpense();
+    }
+
+    public void sortByDescendingAmount() {
+        expenses.sortByDescendingAmount();
+    }
+
+    public void sortByAscendingAmount() {
+        expenses.sortByAscendingAmount();
+    }
+
+    public void sortByDescendingTime() {
+        expenses.sortByDescendingTime();
+    }
+
+    public void sortByAscendingTime() {
+        expenses.sortByAscendingTime();
     }
 
     //// util methods
@@ -147,22 +192,5 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     public int hashCode() {
         return expenses.hashCode();
     }
-
-    public void sortByDescendingAmount() {
-        expenses.sortByDescendingAmount();
-    }
-
-    public void sortByAscendingAmount() {
-        expenses.sortByAscendingAmount();
-    }
-
-    public void sortByDescendingTime() {
-        expenses.sortByDescendingTime();
-    }
-
-    public void sortByAscendingTime() {
-        expenses.sortByAscendingTime();
-    }
-
 
 }

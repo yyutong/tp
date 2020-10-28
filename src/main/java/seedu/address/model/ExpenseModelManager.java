@@ -124,8 +124,6 @@ public class ExpenseModelManager implements Model {
         expenseBook.setExpense(target, editedExpense);
     }
 
-
-
     //=========== Filtered Expense List Accessors =============================================================
 
     /**
@@ -181,6 +179,21 @@ public class ExpenseModelManager implements Model {
     @Override
     public void setExpenseBookBudget(double budget) {
         expenseBook.setBudget(budget);
+    }
+
+    @Override
+    public void setExpenseBookCurrency(String dollarSign) {
+        expenseBook.setCurrency(dollarSign);
+    }
+
+    @Override
+    public void expenseBookExchange(double exchangeRate) {
+        expenseBook.exchange(exchangeRate);
+    }
+
+    @Override
+    public String getExpenseBookCurrency() {
+        return expenseBook.getCurrency();
     }
 
     @Override

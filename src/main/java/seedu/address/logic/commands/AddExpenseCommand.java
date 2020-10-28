@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CATEGORY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -24,14 +23,11 @@ public class AddExpenseCommand extends Command {
             + PREFIX_CATEGORY + "CATEGORY "
             + PREFIX_DATE + "DATE "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
-            + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_AMOUNT + "$100 "
             + PREFIX_CATEGORY + "FOODBEVERAGE "
             + PREFIX_DATE + "2 "
-            + PREFIX_DESCRIPTION + "yayymovie! "
-            + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_DESCRIPTION + "yayymovie! ";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This expense already exists in the address book";
