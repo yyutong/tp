@@ -60,8 +60,6 @@ class JsonSerializableExpenseBook {
     public ExpenseBook toModelType() throws IllegalValueException {
         logger.info("converting json adapted expense to model type");
         ExpenseBook expenseBook = new ExpenseBook();
-        // expenseBook.setCurrency(new Currency(dollarSign));
-        // expenseBook.setBudget(new Budget(budget));
         for (JsonAdaptedExpense jsonAdaptedExpense : expenses) {
             logger.info("jsonAdaptedExpense： " + jsonAdaptedExpense);
             Expense expense = jsonAdaptedExpense.toModelType();
@@ -72,8 +70,6 @@ class JsonSerializableExpenseBook {
         }
         expenseBook.setCurrency(new Currency(dollarSign));
         expenseBook.setBudget(new Budget(budget));
-        logger.info("budget set to @ storage" + budget);
-        //logger.info("finished converting json adapted expense to model type");
         return expenseBook;
     }
 

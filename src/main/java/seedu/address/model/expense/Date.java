@@ -3,14 +3,21 @@ package seedu.address.model.expense;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
-
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 
 public class Date {
 
+    //public static final String MESSAGE_CONSTRAINTS =
+    // "Date should only contain numbers, and it should be at least 1 digits long";
+    // public static final String VALIDATION_REGEX = "\\d{1,}";
     public static final String MESSAGE_CONSTRAINTS =
-            "Date should only contain numbers, and it should be at least 1 digits long";
-    public static final String VALIDATION_REGEX = "\\d{1,}";
+            "Date can be entered in one of these two ways: \n"
+                   + "i) As number of days before today. Then it should only contain numbers, "
+        + "and it should be at least 1 digits long.\n"
+            + "ii) As the actual date, that is YYYY-MM-DD.";
+    public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String date;
     public final String howManyDaysAgo;
     private LocalDate localDate;
@@ -21,13 +28,21 @@ public class Date {
      */
     public Date(String inputDay) {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
-        this.howManyDaysAgo = inputDay;
-        assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
-        LocalDate localdate = LocalDate.now();
-        int convertedDay = Integer.parseInt(inputDay);
-        LocalDate dayBefore = localdate.minusDays(convertedDay);
-        localDate = dayBefore;
-        this.date = dayBefore.toString();
+        if (!inputDay.contains("-")) {
+            checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
+            this.howManyDaysAgo = inputDay;
+            assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
+            LocalDate localdate = LocalDate.now();
+            int convertedDay = Integer.parseInt(inputDay);
+            LocalDate dayBefore = localdate.minusDays(convertedDay);
+            localDate = dayBefore;
+            this.date = dayBefore.toString();
+        } else {
+            this.howManyDaysAgo = "undefined";
+            // LocalDate date = LocalDate.parse(inputDay);
+            // this.date = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+            this.date = inputDay;
+        }
     }
     /**
      * Constructor for Date.
@@ -43,7 +58,23 @@ public class Date {
      * Returns true if a given string is a valid Day.
      */
     public static boolean isValidDate(String test) {
-        return test.matches(VALIDATION_REGEX);
+        //return test.matches(VALIDATION_REGEX);
+        if (test.contains("-")) {
+            try {
+                LocalDate date = LocalDate.parse(test);
+                String dateString = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+                return true;
+            } catch (DateTimeParseException e) {
+                return false;
+            }
+        } else {
+            try {
+                int dayBefore = Integer.parseInt(test);
+                return dayBefore >= 0;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
     }
 
     /**
