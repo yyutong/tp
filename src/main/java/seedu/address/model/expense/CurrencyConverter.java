@@ -28,7 +28,7 @@ public class CurrencyConverter {
     }
 
     /**
-     * Added by Zhang Yuanxing on 2020-10-30. Exchange Rate from currencylayer website.
+     * Added by Zhang Yuanxing on 2020-10-30. Exchange Rates are get from currencylayer website.
      */
     private void loadExchangeRates() {
         usdToExchangeRates.put(new Currency("AED"), new ExchangeRate(3.673005));
