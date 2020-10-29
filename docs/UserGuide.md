@@ -21,11 +21,11 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.8 Delete description of an expense: `deleteDes`](#38-delete-description-of-an-expense-deletedes)
         * [3.9 Set Budget : `setBudget`](#39-set-budget--setbudget)
         * [3.10 Show budget : `showBudget`](#310-show-budget--showbudget)
-        * [3.11 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
-        * [3.12 Exiting the program : `exit`](#312-exiting-the-program--exit)
-        * [3.13 Saving the data](#313-saving-the-data)
-        * [3.14 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.15 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.11 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.12 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.13 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
+        * [3.14 Exiting the program : `exit`](#312-exiting-the-program--exit)
+        * [3.15 Saving the data](#313-saving-the-data)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -35,7 +35,7 @@ Choose a section from the table of contents below and start using UniSave.
 ## 1. Overview
 UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave allows tracking expenses in different currencies.
 
-UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. University students are also more familiar with desktop applications and typing.
+UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. University students who are familiar with desktop applications and used to typing will find this app easy to use.
 UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 
@@ -107,7 +107,7 @@ Adds an expense to a category.  Must specify category when adding the expense.
 Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
+A date should be a single integer. The date correspond to how many days ago. E.g: 1 refer to you made the expenses one day ago 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -115,7 +115,7 @@ Description for the expense is optional.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be added individually.
+The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. Category of expenses can be added manually.
 </div>
 
 Examples:
@@ -128,31 +128,71 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Listing all expenses : `list`
 
-Shows a list of all expenses.
+You can list out all the expenses stored in UniSave.
 
 Format: `list`
 
 Examples:
 * `list`: list all the expenses in all the categories.
 
-Navigate back to the feature list: [Features](#3-features)
+![list](images/listCommand.png)
 
+Navigate back to the feature list: [Features](#3-features)
 
 
 #### 3.3 Listing all expenses in a category : `listbycategory`
 
-Shows a list of all expenses belongs to the category.
+You can specify a category and then list all the expenses that belong to that category.
 
 Format: `listbycategory CATEGORY`
 
 Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
 
+![listbycategory](images/listByCategoryCommand.png)
+
 Navigate back to the feature list: [Features](#3-features)
 
 
+#### 3.4 Listing all expenses by date : `listbydate`
 
-![list](images/listCommand.png)
+You can find all the expenses that are saved on a specific date and list them out.
+
+Format: `listbydate YYYY-MM-DD`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The date format `YYYY-MM-DD` is sensitive and only this format is recognisable for this command.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Multiple date input is allowed.
+</div>
+
+Examples:
+* `listbydate 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+
+![listbydate](images/listByDateCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.5 Listing all expenses by description : `listbydesc`
+
+You can search for keywords in description and list all the expenses which description matches the keywords.
+
+Format: `listbydesc DESCRIPTION`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Multiple description input is allowed.
+</div>
+
+Examples:
+* `listbydesc movies`: list all the expenses which description has the keyword 'movies'.
+
+![listbydesc](images/listByDescCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
 
 #### 3.4 Deleting an expense: `delete`
 
@@ -218,7 +258,6 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-
 #### 3.8 Delete description of an expense: `deleteDes`
 
 Delete the description field of an existing expense.
@@ -265,6 +304,35 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
+
+#### 3.14 show the statistic of the expenses: `showStatistic`
+
+Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
+
+There are arranging in descending order in which the category that you spent the most will on the first row.
+
+Format: `showStatistic`
+
+Examples: `showStatistic`
+
+![showStatistic](images/showStatisticCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.15 Use Help Command to help you find all the commands: `help`
+
+Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
+features provided by the application.
+
+Format: `help`
+
+Examples: `help`
+
+![Help](images/helpCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
 #### 3.11 Clear data in UniSave : `clear`
 
 Clears the data in the program.
@@ -292,32 +360,6 @@ UniSave data are saved in the hard disk automatically after any command that cha
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.14 show the statistic of the expenses: `showStatistic`
-
-Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
-
-There are arranging in descending order in which the category that you spent the most will on the first row.
-
-Format: `showStatistic`
-
-Examples: `showStatistic`
-
-![showStatistic](images/showStatisticCommand.png)
-
-Navigate back to the feature list: [Features](#3-features)
-
-#### 3.15 Use Help Command to help you find all the commands: `help`
-
-Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
-features provided by the application.
-
-Format: `help`
-
-Examples: `help`
-
-![Help](images/helpCommand.png)
-
-Navigate back to the feature list: [Features](#3-features)
 
 
 --------------------------------------------------------------------------------------------------------------------
