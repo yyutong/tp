@@ -7,7 +7,7 @@ import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Expense objects.
  */
 public class ExpenseBuilder {
 
@@ -21,7 +21,7 @@ public class ExpenseBuilder {
     private Description description;
 
     /**
-     * Creates a {@code PersonBuilder} with the default details.
+     * Creates a {@code ExpenseBuilder} with the default details.
      */
     public ExpenseBuilder() {
         amount = new Amount(DEFAULT_AMOUNT);
@@ -31,7 +31,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the ExpenseBuilder with the data of {@code ExpenseToCopy}.
      */
     public ExpenseBuilder(Expense expenseToCopy) {
         amount = expenseToCopy.getAmount();
@@ -41,7 +41,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Amount} of the {@code Expense} that we are building.
      */
     public ExpenseBuilder withAmount(Double amount) {
         this.amount = new Amount(amount);
@@ -49,7 +49,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code Person} that we are building.
+     * Sets the {@code Date} of the {@code Expense} that we are building.
      */
     public ExpenseBuilder withDate(String date) {
         this.date = new Date(date);
@@ -57,7 +57,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Person} that we are building.
+     * Sets the {@code Category} of the {@code Expense} that we are building.
      */
     public ExpenseBuilder withCategory(String category) {
         this.category = new Category(category);
@@ -65,7 +65,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Person} that we are building.
+     * Sets the {@code Description} of the {@code Expense} that we are building.
      */
     public ExpenseBuilder withDescription(String description) {
         this.description = new Description(description);

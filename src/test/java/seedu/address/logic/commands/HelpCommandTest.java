@@ -21,6 +21,9 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 
+/**
+ * Contains integration tests (interaction with the Model) for {@code HelpCommand}.
+ */
 public class HelpCommandTest {
     private Model model = new ExpenseModelManager();
     private Model expectedModel = new ExpenseModelManager();
