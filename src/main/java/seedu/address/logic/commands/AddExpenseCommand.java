@@ -29,13 +29,9 @@ public class AddExpenseCommand extends Command {
             + PREFIX_DATE + "2 "
             + PREFIX_DESCRIPTION + "yayymovie! ";
 
-<<<<<<< HEAD
-    public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This expense already exists in the expense list";
-=======
+
     public static final String MESSAGE_SUCCESS = "New expense added: \n%1$s";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the address book";
->>>>>>> master
+    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the expense list";
 
     private final Expense toAdd;
 
