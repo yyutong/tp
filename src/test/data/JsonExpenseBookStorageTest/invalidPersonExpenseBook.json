@@ -1,8 +1,0 @@
-{
-  "expenses": [ {
-    "amount": 11,
-    "date": "2020-10-01",
-    "category": "entertainment",
-    "description": "movie time"
-  } ]
-}

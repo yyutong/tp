@@ -124,10 +124,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         expenses.setExpense(target, editedExpense);
     }
 
-    public void viewExpense(Index index) {
-        expenses.view(index);
-    }
-
     /**
      * Removes {@code key} from this {@code ExpenseBook}.
      * {@code key} must exist in the expense book.
