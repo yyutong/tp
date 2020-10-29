@@ -1,14 +1,14 @@
 package seedu.address.model.expense;
 
 public class Budget {
-    private final Amount budget;
+    private final double budget;
 
     public Budget() {
-        this.budget = new Amount((double) 0);
+        this.budget = 0;
     }
 
     public Budget(double budget) {
-        this.budget = new Amount(budget);
+        this.budget = budget;
     }
 
     /**
@@ -26,21 +26,21 @@ public class Budget {
      * @return new Amount at the given exchangeRate.
      */
     public Budget exchange(ExchangeRate exchangeRate) {
-        double value = this.budget.getValue() * exchangeRate.getRate();
+        double value = this.budget * exchangeRate.getRate();
         return new Budget(value);
     }
 
     public boolean isEmpty() {
-        return budget.getValue() <= 0;
+        return budget <= 0;
     }
 
     @Override
     public String toString() {
-        return budget.toString();
+        return String.format("%.2f", budget);
     }
 
     public double getValue() {
-        return budget.getValue();
+        return budget;
     }
 
 }
