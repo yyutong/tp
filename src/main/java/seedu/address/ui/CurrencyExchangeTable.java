@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,8 +15,6 @@ import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.CurrencyExchangeRate;
-
-import java.util.logging.Logger;
 
 public class CurrencyExchangeTable extends UiPart<Stage> {
     public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
@@ -81,22 +81,22 @@ public class CurrencyExchangeTable extends UiPart<Stage> {
     }
 
     /**
-     * Shows the help window.
-     *
-     * @throws IllegalStateException <ul>
-     *                                   <li>
-     *                                       if this method is called on a thread other than the JavaFX Application Thread.
-     *                                   </li>
-     *                                   <li>
-     *                                       if this method is called during animation or layout processing.
-     *                                   </li>
-     *                                   <li>
-     *                                       if this method is called on the primary stage.
-     *                                   </li>
-     *                                   <li>
-     *                                       if {@code dialogStage} is already showing.
-     *                                   </li>
-     *                               </ul>
+     * Shows the currency exchange rate table window.
+     * @throws IllegalStateException
+     * <ul>
+     *     <li>
+     *         if this method is called on a thread other than the JavaFX Application Thread.
+     *     </li>
+     *     <li>
+     *         if this method is called during animation or layout processing.
+     *     </li>
+     *     <li>
+     *         if this method is called on the primary stage.
+     *     </li>
+     *     <li>
+     *         if {@code dialogStage} is already showing.
+     *     </li>
+     * </ul>
      */
     public void show() {
         constructTable();
