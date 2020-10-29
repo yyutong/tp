@@ -65,7 +65,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [3. Features](#3-features) below for details of each command.
+1. Refer to the [Features](#3-features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -95,34 +95,38 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add a/AMOUNT`, `AMOUNT` is a parameter which can be used as `add a/100`.
 
-* Items in square brackets are optional.<br>
-  e.g `add a/AMOUNT [d/DESCRIPTION]` can be used as `add a/100 d/movie!!` or as `add a/100`.
-
 </div>
 
 ### Commands  <a name="commands"></a>
 
 #### 3.1 Adding an expense: `add`
 
-Adds an expense to a category.  Must specify category when adding the expense.
+Adds an expense, including fields amount, category, date, description, to your expense book. You must specify all fields when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
-</div>
+Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Description for the expense is optional.
+A date can be given in one of these two forms:
+i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
+ii) A date is given as the exact date in YYYY-MM-DD format.E.g: 2020-10-28 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be added individually.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description must not begin with a blank space. E.g: Putting "d/ " and "d/ xx" for the description field would result in invalid format.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You may enter each field in a different order. That means `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card` gives the 
+same result as `add D/1 d/milk tea membership card c/FOODBEVERAGE a/100`.
+</div>
+
 Examples:
-* `add a/100 c/FOODBEVERAGE d/1`
-* `add a/50 c/ENTERTAINMENT d/0 D/yayymovie!`
+* `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card`
+* `add a/50 c/ENTERTAINMENT D/2020-09-28 d/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -209,6 +213,10 @@ Format: `viewCategory`
 
 Add a description to an existing expense in the finance book.
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The newly added description will override the existing description of the specified expense.
+</div>
+
 Format: `addDes INDEX d/DESCRIPTION`
 
 * Add description field to the expense at the specified `INDEX`. The `INDEX` refers to the index number shown in the displayed expense list. The index **must be a positive integer** 1, 2, 3, …​
@@ -226,6 +234,11 @@ Navigate back to the feature list: [Features](#3-features)
 Delete the description field of an existing expense.
 
 Format: `deleteDes INDEX`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description field of the specified expense will still exist, just that it will be empty.
+</div>
+
 
 * Deletes the description of the expense at the specified INDEX.
 * The `INDEX` refers to the index number shown in the expense list.
@@ -353,7 +366,7 @@ Navigate back to the feature list: [Features](#3-features)
 Term | Explanation
 --------|------------------
 **UniSave** | UniSave refers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and an optional description you might want to add so that you can recall the details when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and a description so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
 **GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
