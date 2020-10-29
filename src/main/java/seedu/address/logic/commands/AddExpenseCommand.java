@@ -24,13 +24,14 @@ public class AddExpenseCommand extends Command {
             + PREFIX_DATE + "DATE "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_AMOUNT + "$100 "
+            + PREFIX_AMOUNT + "100 "
             + PREFIX_CATEGORY + "FOODBEVERAGE "
             + PREFIX_DATE + "2 "
             + PREFIX_DESCRIPTION + "yayymovie! ";
 
+
     public static final String MESSAGE_SUCCESS = "New expense added: \n%1$s";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the expense list";
 
     private final Expense toAdd;
 
