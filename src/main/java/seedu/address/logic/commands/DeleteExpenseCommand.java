@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes an expense identified using it's displayed index from the address book.
  */
 public class DeleteExpenseCommand extends Command {
 
@@ -26,6 +26,10 @@ public class DeleteExpenseCommand extends Command {
 
     private final Index targetIndex;
 
+    /**
+     * Creates an DeleteExpenseCommand to delete an expense.
+     * @param targetIndex of the expense to be deleted.
+     */
     public DeleteExpenseCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }

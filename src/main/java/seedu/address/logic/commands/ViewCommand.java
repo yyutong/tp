@@ -8,6 +8,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
+/**
+ * View the expenses in the expense book by the specific index number.
+ */
 public class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
 
@@ -20,6 +23,10 @@ public class ViewCommand extends Command {
 
     private final Index targetIndex;
 
+    /**
+     * Creates an ViewCommand to view the expenses.
+     * @param targetIndex of the expense to be viewed.
+     */
     public ViewCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }

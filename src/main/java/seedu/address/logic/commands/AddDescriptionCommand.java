@@ -13,7 +13,7 @@ import seedu.address.model.expense.Expense;
 
 
 /**
- * Changes the description of an existing expense in the address book.
+ * Add the description of an existing expenses in the expense book.
  */
 public class AddDescriptionCommand extends Command {
 
