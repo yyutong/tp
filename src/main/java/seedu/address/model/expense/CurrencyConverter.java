@@ -12,7 +12,7 @@ public class CurrencyConverter {
      */
     public CurrencyConverter() {
         usdToExchangeRates = new HashMap<>();
-        loadExchangeRate();
+        loadExchangeRates();
     }
 
     /**
@@ -30,7 +30,7 @@ public class CurrencyConverter {
     /**
      * Added by Zhang Yuanxing on 2020-10-30. Exchange Rate from currencylayer website.
      */
-    private void loadExchangeRate() {
+    private void loadExchangeRates() {
         usdToExchangeRates.put(new Currency("AED"), new ExchangeRate(3.673005));
         usdToExchangeRates.put(new Currency("AFN"), new ExchangeRate(76.897058));
         usdToExchangeRates.put(new Currency("ALL"), new ExchangeRate(106.399855));
