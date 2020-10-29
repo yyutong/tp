@@ -27,8 +27,10 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
         * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
         * [3.16 Saving the data](#316-saving-the-data)
-        * [3.17 show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.18 Use Help Command to help you find all the commands: `help`](#318-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+        * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+        * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -78,19 +80,21 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.3 Listing all expenses in a category : `listbycategory`](#33-listing-all-expenses-in-a-category--listbycategory)
  * [3.4 Listing all expenses by date : `listbydate`](#34-listing-all-expenses-by-date--listbydate)
  * [3.5 Listing all expenses by description : `listbydesc`](#35-listing-all-expenses-by-description--listbydesc)
- * [3.4 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
- * [3.5 View an expense : `view`](#37-view-an-expense--view)
- * [3.6 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
- * [3.7 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
- * [3.8 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
- * [3.9 Set Budget : `setBudget`](#311-set-budget--setbudget)
- * [3.11 Show budget : `showBudget`](#312-show-budget--showbudget)
- * [3.10 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
- * [3.12 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
- * [3.13 Exiting the program : `exit`](#315-exiting-the-program--exit)
- * [3.14 Saving the data](#316-saving-the-data)
- * [3.15 show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
- * [3.16 Use Help Command to help you find all the commands: `help`](#318-use-help-command-to-help-you-find-all-the-commands-help)
+ * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
+ * [3.7 View an expense : `view`](#37-view-an-expense--view)
+ * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
+ * [3.9 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
+ * [3.10 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
+ * [3.11 Set Budget : `setBudget`](#311-set-budget--setbudget)
+ * [3.12 Show budget : `showBudget`](#312-show-budget--showbudget)
+ * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
+ * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
+ * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
+ * [3.16 Saving the data](#316-saving-the-data)
+ * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+ * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+ * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+ * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
 
@@ -367,7 +371,7 @@ UniSave data are saved in the hard disk automatically after any command that cha
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.17 show the statistic of the expenses: `showStatistic`
+#### 3.17 Show the statistic of the expenses: `showStatistic`
 
 Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
 
@@ -381,7 +385,35 @@ Examples: `showStatistic`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.18 Use Help Command to help you find all the commands: `help`
+#### 3.18 Sort existing expenses by the amount of expense: `sortByAmount`
+
+Show all existing expenses which sre sorted by amount of expense in either descending or ascending order.
+Format: `sortByAmount descending`
+        `sortByAmount ascending`
+
+Examples: `sortByAmount ascending`
+
+![sort by amount in descending order](images/sortByAmount%20descending.png)
+
+![sort by amount in ascending order](images/sortByAmount%20ascending.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.19 Sort existing expenses by the date of expense: `sortByTime`
+
+Show all existing expenses which sre sorted by date of expense in either descending or ascending order.
+Format: `sortByTime descending`
+        `sortByTime ascending`
+
+Examples: `sortByTime descending`
+
+![sort by time in descending order](images/sortByTime%20descending.png)
+
+![sort by time in ascending order](images/sortByTime%20ascending.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.20 Use Help Command to help you find all the commands: `help`
 
 Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
 features provided by the application.
