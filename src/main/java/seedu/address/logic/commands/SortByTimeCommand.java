@@ -24,6 +24,8 @@ public class SortByTimeCommand extends Command {
     private String order;
 
     public SortByTimeCommand(String order) {
+        assert order.equals(" descending") || order.equals(" ascending"): "Please enter a valid order"
+                + "(descending or ascending)!";
         this.order = order;
     }
 
