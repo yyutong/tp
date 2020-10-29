@@ -1,5 +1,9 @@
 package seedu.address.model.expense;
 
+/**
+ * Represents a Expense's budget in the expense book.
+ * Guarantees: the budget is non-negative; is valid as declared in {@link #isValidBudget(Amount)}
+ */
 public class Budget {
     private final Amount budget;
 
@@ -41,6 +45,13 @@ public class Budget {
 
     public double getValue() {
         return budget.getValue();
+    }
+
+    /**
+     * Returns true if a given amount is a valid amount.
+     */
+    public static boolean isValidBudget(Amount budget) {
+        return budget.value >= 0;
     }
 
 }

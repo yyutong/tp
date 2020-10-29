@@ -1,5 +1,8 @@
 package seedu.address.model.expense;
 
+/**
+ * Represents a Expense's currency in the expense book.
+ */
 public class Currency {
     private static final String singaporeDollar = "SGD";
 

@@ -27,6 +27,7 @@ public class ExpenseList implements Iterable<Expense> {
             FXCollections.unmodifiableObservableList(internalList);
 
     /**
+     * @param toCheck the expenses to be checked.
      * Returns true if the list contains an equivalent expense as the given argument.
      */
     public boolean contains(Expense toCheck) {
@@ -36,6 +37,7 @@ public class ExpenseList implements Iterable<Expense> {
 
     /**
      * Adds a expense to the list.
+     * @param toAdd the expenses to be added.
      * The expense must not already exist in the list.
      */
     public void add(Expense toAdd) {
@@ -45,7 +47,6 @@ public class ExpenseList implements Iterable<Expense> {
 
     /**
      * View the detals of a certain expense.
-     *
      * @param index The index of the expense to be viewed in the ExpenseBook.
      */
     public void view(Index index) {
@@ -71,6 +72,7 @@ public class ExpenseList implements Iterable<Expense> {
     /**
      * Removes the equivalent expense from the list.
      * The expense must exist in the list.
+     * @param toRemove the expenses to be removed.
      */
     public void remove(Expense toRemove) {
         requireNonNull(toRemove);
@@ -82,6 +84,7 @@ public class ExpenseList implements Iterable<Expense> {
     /**
      * Replaces the contents of this list with {@code expenses}.
      * {@code expenses} must not be nulls.
+     * @param expenses the expenses to be set.
      */
     public void setExpenses(List<Expense> expenses) {
         requireAllNonNull(expenses);
@@ -90,7 +93,6 @@ public class ExpenseList implements Iterable<Expense> {
 
     /**
      * Add up the amount in the {@code expenses}.
-     *
      * @return total spending of the expense list.
      */
     public double totalSpending() {
@@ -114,6 +116,10 @@ public class ExpenseList implements Iterable<Expense> {
         setExpenses(exchangedExpenses);
     }
 
+    /**
+     * Get all the categories in the {@code expenses}.
+     * @return a list contains all the categories.
+     */
     public List<Category> getCategoryLabels() {
         List<Category> categories = new ArrayList<>();
         for (Expense current : internalList) {
@@ -125,6 +131,11 @@ public class ExpenseList implements Iterable<Expense> {
         return categories;
     }
 
+    /**
+     * Get the total spending of the specific category.
+     * @param categoryName the total spending of the specific category.
+     * @return the total spending of that specific category.
+     */
     public int getExpenseSumByCategory(String categoryName) {
         int counter = 0;
         for (Expense current : internalList) {
@@ -137,11 +148,17 @@ public class ExpenseList implements Iterable<Expense> {
         return counter;
     }
 
+    /**
+     * Get the total number of expenses in the expense book.
+     */
     public int getTotalExpense() {
         int sum = internalList.size();
         return sum;
     }
 
+    /**
+     * Get the total spending of the expenses in the expense book.
+     */
     public double getExpenseSum() {
         double sum = 0;
         for (Expense current : internalList) {
@@ -152,6 +169,10 @@ public class ExpenseList implements Iterable<Expense> {
         return sum;
     }
 
+    /**
+     * Get the total spending of all the categories.
+     * @return a hashmap that contains the total spending of all all categories.
+     */
     public HashMap<String, Double> getExpenseSumCategory() {
         double sum = 0;
         List<Category> categories = getCategoryLabels();
@@ -164,6 +185,10 @@ public class ExpenseList implements Iterable<Expense> {
         return hashMap;
     }
 
+    /**
+     * Get the percentage of different categories' spending.
+     * @return a hashmap that contains the percentage of different categories' spending.
+     */
     public HashMap<String, Double> getExpensePercentageCategory() {
         double sum = 0;
         List<Category> categories = getCategoryLabels();
@@ -178,6 +203,11 @@ public class ExpenseList implements Iterable<Expense> {
         return hashMap;
     }
 
+    /**
+     * Get the total number of expenses of the specific category.
+     * @param categoryName the total number of expenses of the specific category.
+     * @return the total number of expenses of that specific category.
+     */
     public double getExpenseSumOfCategory(String categoryName) {
         double sum = 0;
         List<Category> categories = getCategoryLabels();

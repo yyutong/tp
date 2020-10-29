@@ -6,7 +6,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-
+/**
+ * Represents a Expense's date in the expense book.
+ * Guarantees: the date is non-negative; is valid as declared in {@link #isValidDate(String)}
+ */
 public class Date {
 
     //public static final String MESSAGE_CONSTRAINTS =
