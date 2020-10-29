@@ -101,21 +101,32 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
 #### 3.1 Adding an expense: `add`
 
-Adds an expense to a category.  Must specify category when adding the expense.
+Adds an expense, including fields amount, category, date, description, to your expense book. You must specify all fields when adding the expense.
 
 Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
+A date can be given in one of these two forms:
+i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
+ii) A date is given as the exact date in YYYY-MM-DD format.E.g: 2020-10-28 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be added individually.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description must not begin with a blank space. E.g: Putting "d/ " and "d/ xx" for the description field would result in invalid format.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You may enter each field in a different order. That means `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card` gives the 
+same result as `add D/1 d/milk tea membership card c/FOODBEVERAGE a/100`.
+</div>
+
 Examples:
-* `add a/100 c/FOODBEVERAGE d/1`
-* `add a/50 c/ENTERTAINMENT d/0 D/yayymovie!`
+* `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card`
+* `add a/50 c/ENTERTAINMENT D/2020-09-28 d/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -202,6 +213,10 @@ Format: `viewCategory`
 
 Add a description to an existing expense in the finance book.
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The newly added description will override the existing description of the specified expense.
+</div>
+
 Format: `addDes INDEX d/DESCRIPTION`
 
 * Add description field to the expense at the specified `INDEX`. The `INDEX` refers to the index number shown in the displayed expense list. The index **must be a positive integer** 1, 2, 3, …​
@@ -219,6 +234,11 @@ Navigate back to the feature list: [Features](#3-features)
 Delete the description field of an existing expense.
 
 Format: `deleteDes INDEX`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description field of the specified expense will still exist, just that it will be empty.
+</div>
+
 
 * Deletes the description of the expense at the specified INDEX.
 * The `INDEX` refers to the index number shown in the expense list.
