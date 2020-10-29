@@ -3,7 +3,6 @@ package seedu.address.storage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalExpenses.BOOKS;
 import static seedu.address.testutil.TypicalExpenses.CLOTHES;
 import static seedu.address.testutil.TypicalExpenses.SNACKS;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseBook;
@@ -93,10 +92,10 @@ class JsonExpenseBookStorageTest {
     /**
      * Saves {@code ExpenseBook} at the specified {@code filePath}.
      */
-    private void saveExpenseBook(ReadOnlyExpenseBook ExpenseBook, String filePath) {
+    private void saveExpenseBook(ReadOnlyExpenseBook expenseBook, String filePath) {
         try {
             new JsonExpenseBookStorage(Paths.get(filePath))
-                    .saveExpenseBook(ExpenseBook, addToTestDataPathIfNotNull(filePath));
+                    .saveExpenseBook(expenseBook, addToTestDataPathIfNotNull(filePath));
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);
         }
