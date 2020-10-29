@@ -7,8 +7,10 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.CLOTHES;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseBook;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +19,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.Statistics;
 
 class ExpenseBookTest {
     private final ExpenseBook expenseBook = new ExpenseBook();
@@ -82,6 +85,13 @@ class ExpenseBookTest {
         @Override
         public Budget getBudget() {
             return new Budget(1000);
+        }
+        @Override
+        public Statistics getStatistics() {
+            return new Statistics(new HashMap<>(), new ArrayList<>());
+        }
+        @Override
+        public void updateStatistics() {
         }
     }
 }
