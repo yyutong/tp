@@ -2,6 +2,10 @@ package seedu.address.model.expense;
 
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Person's address in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
+ */
 public class Amount {
     public static final String MESSAGE_CONSTRAINTS =
             "Amount should only positive numbers";
