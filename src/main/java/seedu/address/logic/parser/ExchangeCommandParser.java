@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_RATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SIGN;
 
 import java.util.stream.Stream;
@@ -9,24 +8,28 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Currency;
-import seedu.address.model.expense.ExchangeRate;
-
-
+import seedu.address.model.expense.CurrencyConverter;
 
 public class ExchangeCommandParser implements Parser<ExchangeCommand> {
 
     @Override
     public ExchangeCommand parse(String userInput) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(userInput, PREFIX_SIGN, PREFIX_RATE);
+                ArgumentTokenizer.tokenize(userInput, PREFIX_SIGN);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_SIGN, PREFIX_RATE)
+        CurrencyConverter converter = new CurrencyConverter();
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_SIGN)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_USAGE));
         }
-        Currency dollarSign = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
-        ExchangeRate exchangeRate = ParserUtil.parseExchangeRate(argMultimap.getValue(PREFIX_RATE).get());
-        return new ExchangeCommand(dollarSign, exchangeRate);
+        Currency currencyCode = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
+        if (!converter.isValidCurrency(currencyCode)) {
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_INVALID_CURRENCY));
+        }
+        return new ExchangeCommand(currencyCode);
+
     }
 
     /**

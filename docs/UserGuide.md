@@ -334,9 +334,9 @@ Navigate back to the feature list: [Features](#3-features)
 
 Convert the currency of UniSave from current currency to the input currency, along with the exchange rate.
 
-Format: `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE`
+Format: `exchange s/CURRENCY_CODE`
 
-Example: `exchange s/CNY xr/5`
+Example: `exchange s/CNY`
 
 Before Exchange: 
 
