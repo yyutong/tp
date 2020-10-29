@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 
 public class CurrencyConverter {
-    public static final String FILE_NOT_FOUND = "Exchange Rate file not found, "
-        + "please download 'ExchangeRate-2020-10-28.txt', "
+    public static final String FILE_NOT_FOUND = "Exchange Rate file not found, \n"
+        + "please download 'ExchangeRate-2020-10-28.txt', \n"
         + "and put it in the same folder with UniSave.Jar file.";
     private HashMap<Currency, ExchangeRate> usdToExchangeRates;
 
