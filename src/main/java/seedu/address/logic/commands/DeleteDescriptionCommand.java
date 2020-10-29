@@ -29,8 +29,8 @@ public class DeleteDescriptionCommand extends Command {
 
     public static final String MESSAGE_NOT_IMPLEMENTED_YET = "Description command not implemented yet";
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Description: %2$s";
-    public static final String MESSAGE_ADD_DESCRIPTION_SUCCESS = "Added description to Expense: %1$s \n";
-    public static final String MESSAGE_DELETE_DESCRIPTION_SUCCESS = "Removed description from Expense: %1$s \n";
+    public static final String MESSAGE_ADD_DESCRIPTION_SUCCESS = "Added description to Expense: \n%1$s";
+    public static final String MESSAGE_DELETE_DESCRIPTION_SUCCESS = "Removed description from Expense: \n%1$s";
     private static final Description EMPTY_DESCRIPTION = new Description("");
     private final Index index;
 
