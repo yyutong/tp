@@ -79,6 +79,7 @@ public class PieChartWindow extends UiPart<Stage> {
             PIECHART.setTitle("Statistics of Expense Book");
             PIECHART.setClockwise(false);
             PIECHART.setLabelsVisible(true);
+
         }
 
     }
