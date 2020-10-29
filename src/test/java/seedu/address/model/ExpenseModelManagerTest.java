@@ -81,13 +81,13 @@ class ExpenseModelManagerTest {
     }
 
     @Test
-    public void hasPerson_expenseInExpenseBook_returnsTrue() {
+    public void hasExpense_expenseInExpenseBook_returnsTrue() {
         modelManager.addExpense(CLOTHES);
         assertTrue(modelManager.hasExpense(CLOTHES));
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredExpenseList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredExpenseList().remove(0));
     }
 

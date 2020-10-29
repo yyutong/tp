@@ -29,7 +29,6 @@ public class Date {
     public Date(String inputDay) {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
         if (!inputDay.contains("-")) {
-            checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
             this.howManyDaysAgo = inputDay;
             assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
             LocalDate localdate = LocalDate.now();
@@ -45,8 +44,7 @@ public class Date {
         }
     }
     /**
-     * Constructor for Date.
-     * when the date is not entered, localdate will be used for the date of expeense
+     * Constructor for Date. When the date is not entered, localdate will be used for the date of expense。
      */
     public Date () {
         LocalDate localdate = LocalDate.now();

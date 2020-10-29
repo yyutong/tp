@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import javafx.collections.ObservableList;
-import seedu.address.commons.core.index.Index;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Currency;
@@ -122,10 +121,6 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);
         expenses.setExpense(target, editedExpense);
-    }
-
-    public void viewExpense(Index index) {
-        expenses.view(index);
     }
 
     /**

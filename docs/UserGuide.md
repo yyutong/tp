@@ -111,7 +111,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
 Adds an expense, including fields amount, category, date, description, to your expense book. You must specify all fields when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
+Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date can be given in one of these two forms:
@@ -263,6 +263,10 @@ Add a description to an existing expense in the finance book.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The newly added description will override the existing description of the specified expense.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+If you use `addDes INDEX` or `addDes INDEX d/` without specifying the description field, the existing description will be removed.
 </div>
 
 Format: `addDes INDEX d/DESCRIPTION`
