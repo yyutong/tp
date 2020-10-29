@@ -154,6 +154,7 @@ public class MainWindow extends UiPart<Stage> {
     public void handleStatistics() {
         if (!pieChartWindow.isShowing()) {
             pieChartWindow.show();
+
         } else {
             pieChartWindow.focus();
         }

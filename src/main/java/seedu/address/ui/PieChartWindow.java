@@ -1,7 +1,5 @@
 package seedu.address.ui;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
@@ -12,11 +10,10 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.Statistics;
 
 
 public class PieChartWindow extends UiPart<Stage> {
@@ -38,6 +35,8 @@ public class PieChartWindow extends UiPart<Stage> {
 
     @FXML
     private Label statistics;
+
+    private Label caption = new Label("");;
 
     /**
      * Creates a new StatisticsWindow.
@@ -67,49 +66,21 @@ public class PieChartWindow extends UiPart<Stage> {
         this(new Stage());
         this.logic = logic;
         hasStats = true;
-        this.setStats();
     }
 
     public void setStats() {
         if (hasStats) {
 
-            List<Category> categories = new ArrayList<>();
-            double sum = 0;
+            Statistics data = logic.getExpenseBook().getStatistics();
 
-            for (Expense current : logic.getExpenseBook().getExpenseList()) {
-                Category currentCategory = current.getCategory();
-                if (!categories.contains(currentCategory)) {
-                    categories.add(currentCategory);
-                }
-                Amount currentAmount = current.getAmount();
-                double currentAmountValue = currentAmount.getValue();
-                sum = sum + currentAmountValue;
-            }
-
-            for (int i = 0; i < categories.size(); i = i + 1) {
-                String categoryName = categories.get(i).categoryName;
-
-                double categorySum = 0.0;
-                for (Expense current : logic.getExpenseBook().getExpenseList()) {
-                    Category currentCategory = current.getCategory();
-                    String currentCategoryName = currentCategory.categoryName;
-                    if (categoryName.equals(currentCategoryName)) {
-                        Amount currentAmount = current.getAmount();
-                        double currentAmountValue = currentAmount.getValue();
-                        categorySum = categorySum + currentAmountValue;
-                    }
-                }
-                double percentage = categorySum / sum * 100;
-                this.list.add(new PieChart.Data(categoryName, percentage));
-            }
+            list = data.getCategoryAmountPercenatgePieCharStatistics();
 
             PIECHART.setData(list);
             PIECHART.setLegendSide(Side.LEFT);
             PIECHART.setTitle("Statistics of Expense Book");
             PIECHART.setClockwise(false);
+            PIECHART.setLabelsVisible(true);
         }
-
-
 
     }
 
@@ -132,6 +103,7 @@ public class PieChartWindow extends UiPart<Stage> {
      * </ul>
      */
     public void show() {
+        this.setStats();
         logger.fine("Showing statistics page about the application.");
         getRoot().show();
         getRoot().centerOnScreen();

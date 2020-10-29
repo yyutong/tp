@@ -7,12 +7,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.expense.Budget;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Currency;
-import seedu.address.model.expense.ExchangeRate;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseList;
+import seedu.address.model.expense.*;
 
 /**
  * Wraps all data at the UniSave level
@@ -225,4 +220,12 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
+    public Statistics getStatistics(){
+        return expenses.getStatistics();
+    }
+
+    @Override
+    public void updateStatistics() {
+        expenses.updateStatistics();
+    }
 }

@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.Statistics;
 
 /**
  * Unmodifiable view of an expense book
@@ -17,18 +18,27 @@ public interface ReadOnlyExpenseBook {
     ObservableList<Expense> getExpenseList();
 
     /**
-     * Get the currency of this {@code ExpenseBook}.
+     * Gets the currency of this {@code ExpenseBook}.
      */
     Currency getCurrency();
 
     /**
-     * Set the budget of this {@code ExpenseBook} to the input amount.
+     * Sets the budget of this {@code ExpenseBook} to the input amount.
      */
     void setBudget(Budget budget);
 
     /**
-     * Get the budget of this {@code ExpenseBook}.
+     * Gets the budget of this {@code ExpenseBook}.
      */
     Budget getBudget();
+
+    /**
+     * Gets statistics of the expense book
+     */
+    Statistics getStatistics();
+    /**
+     * Updates statistic of the expense book.
+     */
+    void updateStatistics();
 
 }
