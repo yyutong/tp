@@ -349,6 +349,10 @@ Format: `sortByAmount descending`
 
 Examples: `sortByAmount ascending`
 
+![sort by amount in descending order](images/sortByAmount%20descending.png)
+
+![sort by amount in ascending order](images/sortByAmount%20ascending.png)
+
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.17 sort existing expenses by the date of expense: `sortByTime`
@@ -358,6 +362,10 @@ Format: `sortByTime descending`
         `sortByTime ascending`
 
 Examples: `sortByTime descending`
+
+![sort by time in descending order](images/sortByTime%20descending.png)
+
+![sort by time in ascending order](images/sortByTime%20ascending.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
