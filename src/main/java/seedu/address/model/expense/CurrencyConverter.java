@@ -35,7 +35,7 @@ public class CurrencyConverter {
 
     private void readExchangeRate() throws FileNotFoundException {
         try {
-            File dataFile = new File("./ExchangeRate-2020-10-28.txt");
+            File dataFile = new File("./ExchangeRatesFromUSD-2020-10-28.txt");
             Scanner sc = new Scanner(dataFile);
             while (sc.hasNextLine()) {
                 String input = sc.nextLine();
