@@ -39,6 +39,9 @@ public class CurrencyConverter {
             Scanner sc = new Scanner(dataFile);
             while (sc.hasNextLine()) {
                 String input = sc.nextLine();
+                if (input.isEmpty()) {
+                    continue;
+                }
                 Currency currency = new Currency(input.substring(0, 3));
                 double xr = Double.parseDouble(input.substring(4));
                 ExchangeRate exchangeRate = new ExchangeRate(xr);
