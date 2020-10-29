@@ -116,7 +116,7 @@ Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date can be given in one of these two forms:
 i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
-ii) A date is given as the exact date in YYYY-MM-DD format.E.g: 2020-10-28 
+ii) A date is given as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -333,6 +333,8 @@ Navigate back to the feature list: [Features](#3-features)
 #### 3.13 Exchange Currency : `exchange`
 
 Convert the currency of UniSave from current currency to the input currency, along with the exchange rate.
+
+* Important Note: To support this function, you must download the [exchange rate file](ExchangeRate-2020-10-28.txt) along with the Jar file, and put them in the same directory.
 
 Format: `exchange s/CURRENCY_CODE`
 

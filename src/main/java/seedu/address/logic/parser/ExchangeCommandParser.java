@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SIGN;
 
+import java.io.FileNotFoundException;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.ExchangeCommand;
@@ -17,19 +18,22 @@ public class ExchangeCommandParser implements Parser<ExchangeCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(userInput, PREFIX_SIGN);
 
-        CurrencyConverter converter = new CurrencyConverter();
+        try {
+            CurrencyConverter converter = new CurrencyConverter();
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_SIGN)
+            if (!arePrefixesPresent(argMultimap, PREFIX_SIGN)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_USAGE));
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_USAGE));
+            }
+            Currency currencyCode = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
+            if (!converter.isValidCurrency(currencyCode)) {
+                throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_INVALID_CURRENCY));
+            }
+            return new ExchangeCommand(currencyCode);
+        } catch (FileNotFoundException e) {
+            throw new ParseException(CurrencyConverter.FILE_NOT_FOUND);
         }
-        Currency currencyCode = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
-        if (!converter.isValidCurrency(currencyCode)) {
-            throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_INVALID_CURRENCY));
-        }
-        return new ExchangeCommand(currencyCode);
-
     }
 
     /**

@@ -1,7 +1,5 @@
 package seedu.address.model.expense;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -9,14 +7,16 @@ import java.util.Scanner;
 
 
 public class CurrencyConverter {
-    public static final String FILE_NOT_FOUND = "Exchange Rate file not found!";
+    public static final String FILE_NOT_FOUND = "Exchange Rate file not found, "
+        + "please download 'ExchangeRate-2020-10-28.txt', "
+        + "and put it in the same folder with UniSave.Jar file.";
     private HashMap<Currency, ExchangeRate> usdToExchangeRates;
 
     /**
      * Construct a CurrencyConverter with a HashMap to store all the exchange rates from USD.
      * The data are read from txt file in doc folder, which can be update manually.
      */
-    public CurrencyConverter() {
+    public CurrencyConverter() throws FileNotFoundException {
         usdToExchangeRates = new HashMap<>();
         readExchangeRate();
     }
@@ -33,9 +33,9 @@ public class CurrencyConverter {
         return new ExchangeRate(usdToTo.getRate() / usdToFrom.getRate());
     }
 
-    private void readExchangeRate() {
+    private void readExchangeRate() throws FileNotFoundException {
         try {
-            File dataFile = new File("./docs/ExchangeRate-2020-10-28.txt");
+            File dataFile = new File("./ExchangeRate-2020-10-28.txt");
             Scanner sc = new Scanner(dataFile);
             while (sc.hasNextLine()) {
                 String input = sc.nextLine();
@@ -46,7 +46,7 @@ public class CurrencyConverter {
             }
             sc.close();
         } catch (FileNotFoundException e) {
-            System.out.println(String.format(MESSAGE_INVALID_COMMAND_FORMAT, CurrencyConverter.FILE_NOT_FOUND));
+            throw e;
         }
     }
 
