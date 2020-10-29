@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
@@ -16,6 +17,11 @@ public class ShowBudgetCommand extends Command {
             + "seems like you're broke.\n"
             + "Please set a new budget with command: setBudget AMOUNT\n";
 
+    /**
+     * Executes the show budget command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the budget of the expense book shown.
+     */
     @Override
     public CommandResult execute(Model model) {
         Budget budget = model.getExpenseBookBudget();

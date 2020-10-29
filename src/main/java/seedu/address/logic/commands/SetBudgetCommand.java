@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Budget;
 
@@ -23,6 +24,11 @@ public class SetBudgetCommand extends Command {
         this.budget = budget;
     }
 
+    /**
+     * Executes the se budget command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the budget for the expense book being set.
+     */
     @Override
     public CommandResult execute(Model model) {
         model.setExpenseBookBudget(budget);

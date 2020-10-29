@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.DescContainsKeywordsPredicate;
 
@@ -31,6 +32,11 @@ public class ListExpenseByDescCommand extends Command {
         this.predicate = predicate;
     }
 
+    /**
+     * Executes the list expense by description command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the expenses being listed by the description.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
@@ -39,6 +45,11 @@ public class ListExpenseByDescCommand extends Command {
                 String.format(Messages.MESSAGE_EXPENSES_LISTED_OVERVIEW, model.getFilteredExpenseList().size()));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

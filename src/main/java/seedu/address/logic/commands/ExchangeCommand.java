@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
@@ -29,6 +30,11 @@ public class ExchangeCommand extends Command {
         this.exchangeRate = exchangeRate;
     }
 
+    /**
+     * Executes the exchange command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the expenses being converted to the currency stated by the user.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

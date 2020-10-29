@@ -34,6 +34,11 @@ public class ShowStatisticCommand extends Command {
         return String.format("%1$" + length + "s", string);
     }
 
+    /**
+     * Executes the show statistic command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the statistic and brief summary of the expenses shown.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         String message = "";
