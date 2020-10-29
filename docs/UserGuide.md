@@ -334,7 +334,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 Convert the currency of UniSave from current currency to the input currency, along with the exchange rate.
 
-* Important Note: To support this function, you must download the [exchange rate file](ExchangeRatesFromUSD-2020-10-28.txt) along with the Jar file, and put them in the same directory.
+* Important Note: To support this function, you must download the [ExchangeRatesFromUSD-2020-10-28.txt](ExchangeRatesFromUSD-2020-10-28.txt) along with the Jar file, and put them in the same directory.
 
 Format: `exchange s/CURRENCY_CODE`
 
