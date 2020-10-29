@@ -25,8 +25,10 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.12 Clear data in UniSave : `clear`](#312-clear-data-in-unisave--clear)
         * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
         * [3.14 Saving the data](#314-saving-the-data)
-        * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.15 Show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.16 Sort expenses by the amount of each expense: `sortByAmount`](#316-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+        * [3.17 Sort expenses by the date of each expense: `sortByTime`](#317-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+        * [3.18 Use Help Command to help you find all the commands: `help`](#318-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -86,7 +88,9 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
  * [3.14 Saving the data](#314-saving-the-data)
  * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
- * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
+ * [3.16 Sort expenses by the amount of each expense: `sortByAmount`](#316-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+ * [3.17 Sort expenses by the date of each expense: `sortByTime`](#317-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+ * [3.18 Use Help Command to help you find all the commands: `help`](#318-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
 
@@ -337,7 +341,27 @@ Examples: `showStatistic`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.16 Use Help Command to help you find all the commands: `help`
+#### 3.16 sort existing expenses by the amount of expense: `sortByAmount`
+
+Show all existing expenses which sre sorted by amount of expense in either descending or ascending order.
+Format: `sortByAmount descending`
+        `sortByAmount ascending`
+
+Examples: `sortByAmount ascending`
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.17 sort existing expenses by the date of expense: `sortByTime`
+
+Show all existing expenses which sre sorted by date of expense in either descending or ascending order.
+Format: `sortByTime descending`
+        `sortByTime ascending`
+
+Examples: `sortByTime descending`
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.18 Use Help Command to help you find all the commands: `help`
 
 Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
 features provided by the application.
