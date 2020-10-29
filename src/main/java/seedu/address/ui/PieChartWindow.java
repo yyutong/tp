@@ -35,8 +35,6 @@ public class PieChartWindow extends UiPart<Stage> {
     @FXML
     private Label statistics;
 
-    private Label caption = new Label("");
-
     /**
      * Creates a new StatisticsWindow.
      *
@@ -50,7 +48,7 @@ public class PieChartWindow extends UiPart<Stage> {
     }
 
     /**
-     * Creates a new HelpWindow.
+     * Creates a new PieChartWindow.
      */
     public PieChartWindow() {
         this(new Stage());

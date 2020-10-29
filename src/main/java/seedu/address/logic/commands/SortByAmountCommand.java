@@ -24,6 +24,9 @@ public class SortByAmountCommand extends Command {
      * @param order The sorting order of this command object.
      */
     public SortByAmountCommand(String order) {
+        assert order.equals(" descending") || order.equals(" ascending") : "Please enter a valid order"
+                + "(descending or ascending)!";
+
         this.order = order;
     }
 
