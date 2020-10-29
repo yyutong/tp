@@ -14,19 +14,23 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
         * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
         * [3.3 Listing all expenses in a category : `listbycategory`](#33-listing-all-expenses-in-a-category--listbycategory)
-        * [3.4 Deleting an expense: `delete`](#34-deleting-an-expense-delete)
-        * [3.5 View an expense : `view`](#35-view-an-expense--view)
-        * [3.6 View Category Labels : `viewCategory`](#36-view-category-labels--viewcategory)
-        * [3.7 Add a description to an expense : `addDes`](#37-add-a-description-to-an-expense--adddes)
-        * [3.8 Delete description of an expense: `deleteDes`](#38-delete-description-of-an-expense-deletedes)
-        * [3.9 Set Budget : `setBudget`](#39-set-budget--setbudget)
-        * [3.11 Show budget : `showBudget`](#310-show-budget--showbudget)
-        * [3.10 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
-        * [3.12 Clear data in UniSave : `clear`](#312-clear-data-in-unisave--clear)
-        * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
-        * [3.14 Saving the data](#314-saving-the-data)
-        * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.4 Listing all expenses by date : `listbydate`](#34-listing-all-expenses-by-date--listbydate)
+        * [3.5 Listing all expenses by description : `listbydesc`](#35-listing-all-expenses-by-description--listbydesc)
+        * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
+        * [3.7 View an expense : `view`](#37-view-an-expense--view)
+        * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
+        * [3.9 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
+        * [3.10 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
+        * [3.11 Set Budget : `setBudget`](#311-set-budget--setbudget)
+        * [3.12 Show budget : `showBudget`](#312-show-budget--showbudget)
+        * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
+        * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
+        * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
+        * [3.16 Saving the data](#316-saving-the-data)
+        * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+        * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+        * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -65,7 +69,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [3. Features](#3-features) below for details of each command.
+1. Refer to the [Features](#3-features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -74,19 +78,23 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
  * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
  * [3.3 Listing all expenses in a category : `listbycategory`](#33-listing-all-expenses-in-a-category--listbycategory)
- * [3.4 Deleting an expense: `delete`](#34-deleting-an-expense-delete)
- * [3.5 View an expense : `view`](#35-view-an-expense--view)
- * [3.6 View Category Labels : `viewCategory`](#36-view-category-labels--viewcategory)
- * [3.7 Add a description to an expense : `addDes`](#37-add-a-description-to-an-expense--adddes)
- * [3.8 Delete description of an expense: `deleteDes`](#38-delete-description-of-an-expense-deletedes)
- * [3.9 Set Budget : `setBudget`](#39-set-budget--setbudget)
- * [3.11 Show budget : `showBudget`](#310-show-budget--showbudget)
- * [3.10 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
- * [3.12 Clear data in UniSave : `clear`](#312-clear-data-in-unisave--clear)
- * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
- * [3.14 Saving the data](#314-saving-the-data)
- * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
- * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
+ * [3.4 Listing all expenses by date : `listbydate`](#34-listing-all-expenses-by-date--listbydate)
+ * [3.5 Listing all expenses by description : `listbydesc`](#35-listing-all-expenses-by-description--listbydesc)
+ * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
+ * [3.7 View an expense : `view`](#37-view-an-expense--view)
+ * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
+ * [3.9 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
+ * [3.10 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
+ * [3.11 Set Budget : `setBudget`](#311-set-budget--setbudget)
+ * [3.12 Show budget : `showBudget`](#312-show-budget--showbudget)
+ * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
+ * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
+ * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
+ * [3.16 Saving the data](#316-saving-the-data)
+ * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+ * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
+ * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+ * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
 
@@ -95,34 +103,38 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add a/AMOUNT`, `AMOUNT` is a parameter which can be used as `add a/100`.
 
-* Items in square brackets are optional.<br>
-  e.g `add a/AMOUNT [d/DESCRIPTION]` can be used as `add a/100 d/movie!!` or as `add a/100`.
-
 </div>
 
 ### Commands  <a name="commands"></a>
 
 #### 3.1 Adding an expense: `add`
 
-Adds an expense to a category.  Must specify category when adding the expense.
+Adds an expense, including fields amount, category, date, description, to your expense book. You must specify all fields when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
-</div>
+Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Description for the expense is optional.
+A date can be given in one of these two forms:
+i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
+ii) A date is given as the exact date in YYYY-MM-DD format.E.g: 2020-10-28 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be added individually.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description must not begin with a blank space. E.g: Putting "d/ " and "d/ xx" for the description field would result in invalid format.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You may enter each field in a different order. That means `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card` gives the 
+same result as `add D/1 d/milk tea membership card c/FOODBEVERAGE a/100`.
+</div>
+
 Examples:
-* `add a/100 c/FOODBEVERAGE d/1`
-* `add a/50 c/ENTERTAINMENT d/0 D/yayymovie!`
+* `add a/100 c/FOODBEVERAGE D/1 d/milk tea membership card`
+* `add a/50 c/ENTERTAINMENT D/2020-09-28 d/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -130,33 +142,73 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Listing all expenses : `list`
 
-Shows a list of all expenses.
+You can list out all the expenses stored in UniSave.
 
 Format: `list`
 
 Examples:
 * `list`: list all the expenses in all the categories.
 
-Navigate back to the feature list: [Features](#3-features)
+![list](images/listCommand.png)
 
+Navigate back to the feature list: [Features](#3-features)
 
 
 #### 3.3 Listing all expenses in a category : `listbycategory`
 
-Shows a list of all expenses belongs to the category.
+You can specify a category and then list all the expenses that belong to that category.
 
 Format: `listbycategory CATEGORY`
 
 Examples:
 * `listbycategory entertainment`: list all the expenses in entertainment.
 
+![listbycategory](images/listByCategoryCommand.png)
+
 Navigate back to the feature list: [Features](#3-features)
 
 
+#### 3.4 Listing all expenses by date : `listbydate`
 
-![list](images/listCommand.png)
+You can find all the expenses that are saved on a specific date and list them out.
 
-#### 3.4 Deleting an expense: `delete`
+Format: `listbydate YYYY-MM-DD`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The date format `YYYY-MM-DD` is sensitive and only this format is recognisable for this command.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Multiple date input is allowed.
+</div>
+
+Examples:
+* `listbydate 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+
+![listbydate](images/listByDateCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.5 Listing all expenses by description : `listbydesc`
+
+You can search for keywords in description and list all the expenses which description matches the keywords.
+
+Format: `listbydesc DESCRIPTION`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Multiple description input is allowed.
+</div>
+
+Examples:
+* `listbydesc movies`: list all the expenses which description has the keyword 'movies'.
+
+![listbydesc](images/listByDescCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.6 Deleting an expense: `delete`
 
 Deletes the specified expense from the expense list.
 
@@ -175,7 +227,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
-#### 3.5 View an expense : `view`
+#### 3.7 View an expense : `view`
 
 View an expense in the expense list.
 
@@ -197,7 +249,7 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.6 View Category Labels : `viewCategory`
+#### 3.8 View Category Labels : `viewCategory`
 
 Show all the category lables used in the UniSave.
 
@@ -205,9 +257,13 @@ Format: `viewCategory`
 
 ![viewCategory](images/viewCategoryCommand.png)
 
-#### 3.7 Add a description to an expense : `addDes`
+#### 3.9 Add a description to an expense : `addDes`
 
 Add a description to an existing expense in the finance book.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The newly added description will override the existing description of the specified expense.
+</div>
 
 Format: `addDes INDEX d/DESCRIPTION`
 
@@ -221,11 +277,16 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
-#### 3.8 Delete description of an expense: `deleteDes`
+#### 3.10 Delete description of an expense: `deleteDes`
 
 Delete the description field of an existing expense.
 
 Format: `deleteDes INDEX`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The description field of the specified expense will still exist, just that it will be empty.
+</div>
+
 
 * Deletes the description of the expense at the specified INDEX.
 * The `INDEX` refers to the index number shown in the expense list.
@@ -238,7 +299,7 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.9 Set Budget : `setBudget`
+#### 3.11 Set Budget : `setBudget`
 
 Set the budget for UniSave. Default budget is 0 SGD.
 
@@ -254,7 +315,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
-#### 3.10 Show budget : `showBudget`
+#### 3.12 Show budget : `showBudget`
 
 Show the budget last set and the remaining budget in the UniSave.
 
@@ -265,7 +326,7 @@ Format: `showBudget`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.11 Exchange Currency : `exchange`
+#### 3.13 Exchange Currency : `exchange`
 
 Convert the currency of UniSave from current currency to the input currency, along with the exchange rate.
 
@@ -283,7 +344,7 @@ After Exchange:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.12 Clear data in UniSave : `clear`
+#### 3.14 Clear data in UniSave : `clear`
 
 Clears the data in the program.
 
@@ -293,7 +354,7 @@ Format: `clear`
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.13 Exiting the program : `exit`
+#### 3.15 Exiting the program : `exit`
 
 Exits the program.
 
@@ -303,14 +364,14 @@ Format: `exit`
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.14 Saving the data
+#### 3.16 Saving the data
 
 UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.15 show the statistic of the expenses: `showStatistic`
+#### 3.17 Show the statistic of the expenses: `showStatistic`
 
 Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
 
@@ -324,7 +385,35 @@ Examples: `showStatistic`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.16 Use Help Command to help you find all the commands: `help`
+#### 3.18 Sort existing expenses by the amount of expense: `sortByAmount`
+
+Show all existing expenses which sre sorted by amount of expense in either descending or ascending order.
+Format: `sortByAmount descending`
+        `sortByAmount ascending`
+
+Examples: `sortByAmount ascending`
+
+![sort by amount in descending order](images/sortByAmount%20descending.png)
+
+![sort by amount in ascending order](images/sortByAmount%20ascending.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.19 Sort existing expenses by the date of expense: `sortByTime`
+
+Show all existing expenses which sre sorted by date of expense in either descending or ascending order.
+Format: `sortByTime descending`
+        `sortByTime ascending`
+
+Examples: `sortByTime descending`
+
+![sort by time in descending order](images/sortByTime%20descending.png)
+
+![sort by time in ascending order](images/sortByTime%20ascending.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.20 Use Help Command to help you find all the commands: `help`
 
 Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
 features provided by the application.
@@ -353,7 +442,7 @@ Navigate back to the feature list: [Features](#3-features)
 Term | Explanation
 --------|------------------
 **UniSave** | UniSave refers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and an optional description you might want to add so that you can recall the details when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and a description so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
 **GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
@@ -366,6 +455,8 @@ Action | Format, Examples
 **Add** | `add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE D/1`
 **List** | `list`
 **List by category** | `listbycategory CATEGORY` <br> e.g., `listbycategory food`
+**List by date** | `listbydate YYYY-MM-DD` <br> e.g., `listbydate 2020-02-20`
+**List by description** | `listbydesc DESCRIPTION` <br> e.g., `listbydesc movies`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
 **View existing category labels** | `viewCategory`
@@ -378,7 +469,6 @@ Action | Format, Examples
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
 **Exit** | `exit` <br> e.g., `exit`
-
 
 
 

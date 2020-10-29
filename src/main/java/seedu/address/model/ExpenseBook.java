@@ -13,6 +13,8 @@ import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseList;
+import seedu.address.model.expense.Statistics;
+
 
 /**
  * Wraps all data at the UniSave level
@@ -225,4 +227,12 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
+    public Statistics getStatistics() {
+        return expenses.getStatistics();
+    }
+
+    @Override
+    public void updateStatistics() {
+        expenses.updateStatistics();
+    }
 }
