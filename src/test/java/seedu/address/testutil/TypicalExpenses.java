@@ -8,6 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_MOVIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOVIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMPTY_DESCRIPTION_BOOKS;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +39,10 @@ public class TypicalExpenses {
     public static final Expense BOOKS = new ExpenseBuilder().withAmount(VALID_AMOUNT_BOOKS)
             .withDate(VALID_DATE_BOOKS).withCategory(VALID_CATEGORY_BOOKS)
             .withDescription(VALID_DESCRIPTION_BOOKS)
+            .build();
+    public static final Expense BOOKSWITHOUTDES = new ExpenseBuilder().withAmount(VALID_AMOUNT_BOOKS)
+            .withDate(VALID_DATE_BOOKS).withCategory(VALID_CATEGORY_BOOKS)
+            .withDescription(VALID_EMPTY_DESCRIPTION_BOOKS)
             .build();
     public static final Expense MOVIE = new ExpenseBuilder().withAmount(VALID_AMOUNT_MOVIE)
             .withDate(VALID_DATE_MOVIE).withCategory(VALID_CATEGORY_MOVIE)

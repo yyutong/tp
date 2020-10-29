@@ -20,6 +20,8 @@ import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
  */
 public class ExpenseList implements Iterable<Expense> {
 
+    private Statistics statistics;
+
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
@@ -265,4 +267,26 @@ public class ExpenseList implements Iterable<Expense> {
         });
     }
 
+    /**
+     * Gets the statistics of this expense book.
+     *
+     * @return The statistics of this expense book.
+     */
+    public Statistics getStatistics() {
+        updateStatistics();
+        return this.statistics;
+    }
+
+    /**
+     * Update the statistics of this expense book.
+     */
+    public void updateStatistics() {
+        HashMap<String, Double> expensePercentageCategoryData = getExpensePercentageCategory();
+        ArrayList<String> categories = new ArrayList<>();
+        for (Category category: getCategoryLabels()) {
+            categories.add(category.categoryName);
+        }
+
+        this.statistics = new Statistics(expensePercentageCategoryData, categories);
+    }
 }

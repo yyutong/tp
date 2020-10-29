@@ -58,7 +58,10 @@ public class ShowStatisticCommand extends Command {
             message = message + category + fixedLengthString(" ", howManyMoreSpaceNeeded) + numberOfExpense
                     + fixedLengthString(" ", SPACE) + formattedPercentage
                     + fixedLengthString(" ", SPACE) + formattedAmount + "\n";
+
         }
-        return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message);
+
+        return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message,
+                false, false, true);
     }
 }

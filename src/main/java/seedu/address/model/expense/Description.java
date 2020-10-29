@@ -1,6 +1,7 @@
 package seedu.address.model.expense;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents an expense's description in the finance manager.
@@ -24,11 +25,19 @@ public class Description {
      */
     public Description(String description) {
         requireNonNull(description);
+        checkArgument(isValidDescription(description), MESSAGE_CONSTRAINTS);
         value = description;
     }
 
     public boolean isEmpty() {
         return value.equals("");
+    }
+
+    /**
+     * Returns true if a given description is a valid description.
+     */
+    public static boolean isValidDescription(String value) {
+        return !value.equals(" ");
     }
 
 
