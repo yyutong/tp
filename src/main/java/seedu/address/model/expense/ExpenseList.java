@@ -267,11 +267,19 @@ public class ExpenseList implements Iterable<Expense> {
         });
     }
 
+    /**
+     * Gets the statistics of this expense book.
+     *
+     * @return The statistics of this expense book.
+     */
     public Statistics getStatistics() {
         updateStatistics();
         return this.statistics;
     }
 
+    /**
+     * Update the statistics of this expense book.
+     */
     public void updateStatistics() {
         HashMap<String, Double> expensePercentageCategoryData = getExpensePercentageCategory();
         ArrayList<String> categories = new ArrayList<>();

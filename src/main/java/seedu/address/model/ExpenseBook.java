@@ -220,7 +220,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.hashCode();
     }
 
-    public Statistics getStatistics(){
+    public Statistics getStatistics() {
         return expenses.getStatistics();
     }
 

@@ -10,7 +10,6 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.model.expense.Statistics;
@@ -36,7 +35,7 @@ public class PieChartWindow extends UiPart<Stage> {
     @FXML
     private Label statistics;
 
-    private Label caption = new Label("");;
+    private Label caption = new Label("");
 
     /**
      * Creates a new StatisticsWindow.
