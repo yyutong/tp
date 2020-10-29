@@ -17,6 +17,7 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** Statistic information should be shown to the user. */
     private boolean showStatistics;
 
     /**
@@ -47,18 +48,33 @@ public class CommandResult {
         this(feedbackToUser, false, false, false);
     }
 
+    /**
+     * Return the feedback to the user
+     */
     public String getFeedbackToUser() {
         return feedbackToUser;
     }
 
+    /**
+     * To check whether there is a need to show the help window.
+     * Return true if the user requests for the help window and false otherwise.
+     */
     public boolean isShowHelp() {
         return showHelp;
     }
 
+    /**
+     * To check whether there is a need to show the statistic window.
+     * Return true if the user requests for the statistic window and false otherwise.
+     */
     public boolean isShowStatistics() {
         return showStatistics;
     }
 
+    /**
+     * To check whether user want to exit the application.
+     * Return true if the user wants to exit the application and false otherwise.
+     */
     public boolean isExit() {
         return exit;
     }

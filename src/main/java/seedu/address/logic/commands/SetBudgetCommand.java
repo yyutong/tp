@@ -5,6 +5,9 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Budget;
 
+/**
+ * Set the budget in the expense book.
+ */
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "setBudget";
     public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %s %s.\n";
@@ -13,7 +16,7 @@ public class SetBudgetCommand extends Command {
     private final Budget budget;
 
     /**
-     * Construct a SetBudgetCommand object.
+     * Creates an SetBudgetCommand to set the Budget {@code budget}
      */
     public SetBudgetCommand(Budget budget) {
         requireAllNonNull(budget);

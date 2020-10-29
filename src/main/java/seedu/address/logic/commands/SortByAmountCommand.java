@@ -5,6 +5,9 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
+/**
+ * Sort the expenses by their amount.
+ */
 public class SortByAmountCommand extends Command {
     public static final String COMMAND_WORD = "sortByAmount";
 
@@ -32,7 +35,6 @@ public class SortByAmountCommand extends Command {
 
     /**
      * Gets the order of this command object.
-     *
      * @return The order of the command object.
      */
     public String getOrder() {
@@ -41,7 +43,6 @@ public class SortByAmountCommand extends Command {
 
     /**
      * Executes the sort by amount command.
-     *
      * @param model {@code Model} which the command should operate on.
      * @return A command result in which the message will be shown to users.
      * @throws CommandException Throws exception if the order is not "descending" or "ascending".
@@ -65,7 +66,6 @@ public class SortByAmountCommand extends Command {
 
     /**
      * Checks if a command objects are equal.
-     *
      * @param other Another object.
      * @return Whether the 2 command objects are equal or not.
      */

@@ -23,6 +23,10 @@ public class ListExpenseByCategoryCommand extends Command {
 
     private final CategoryContainsKeywordsPredicate predicate;
 
+    /**
+     * Creates an ListExpenseByCategoryCommand to list the expenses by the categories.
+     * @param predicate to list the expenses.
+     */
     public ListExpenseByCategoryCommand(CategoryContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }

@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Adds a person to the address book.
+ * Adds an expense to the expense book.
  */
 public class AddExpenseCommand extends Command {
 

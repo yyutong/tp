@@ -4,6 +4,9 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 
+/**
+ * Show the current available budget.
+ */
 public class ShowBudgetCommand extends Command {
 
     public static final String COMMAND_WORD = "showBudget";

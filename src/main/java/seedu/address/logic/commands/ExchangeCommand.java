@@ -7,6 +7,9 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
 
+/**
+ * Exchange the currency for the user.
+ */
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "

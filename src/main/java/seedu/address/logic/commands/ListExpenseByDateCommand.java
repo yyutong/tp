@@ -22,6 +22,10 @@ public class ListExpenseByDateCommand extends Command {
 
     private final DateContainsKeywordsPredicate predicate;
 
+    /**
+     * Creates an ListExpenseByCategoryCommand to list the expenses by the date.
+     * @param predicate to list the expenses.
+     */
     public ListExpenseByDateCommand(DateContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }

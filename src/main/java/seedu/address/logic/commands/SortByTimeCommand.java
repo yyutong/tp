@@ -5,6 +5,9 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
+/**
+ * Sort the expenses by their the of spending.
+ */
 public class SortByTimeCommand extends Command {
     public static final String COMMAND_WORD = "sortByTime";
 

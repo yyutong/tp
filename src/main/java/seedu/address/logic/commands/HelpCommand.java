@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 /**
- * Format full help instructions for every command for display.
+ * Format full help instructions for all the command for display.
  */
 public class HelpCommand extends Command {
 
