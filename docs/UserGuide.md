@@ -20,12 +20,13 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.7 Add a description to an expense : `addDes`](#37-add-a-description-to-an-expense--adddes)
         * [3.8 Delete description of an expense: `deleteDes`](#38-delete-description-of-an-expense-deletedes)
         * [3.9 Set Budget : `setBudget`](#39-set-budget--setbudget)
-        * [3.10 Show budget : `showBudget`](#310-show-budget--showbudget)
-        * [3.11 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
-        * [3.12 Exiting the program : `exit`](#312-exiting-the-program--exit)
-        * [3.13 Saving the data](#313-saving-the-data)
-        * [3.14 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.15 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.11 Show budget : `showBudget`](#310-show-budget--showbudget)
+        * [3.10 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
+        * [3.12 Clear data in UniSave : `clear`](#312-clear-data-in-unisave--clear)
+        * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
+        * [3.14 Saving the data](#314-saving-the-data)
+        * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -79,12 +80,13 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.7 Add a description to an expense : `addDes`](#37-add-a-description-to-an-expense--adddes)
  * [3.8 Delete description of an expense: `deleteDes`](#38-delete-description-of-an-expense-deletedes)
  * [3.9 Set Budget : `setBudget`](#39-set-budget--setbudget)
- * [3.10 Show budget : `showBudget`](#310-show-budget--showbudget)
- * [3.11 Clear data in UniSave : `clear`](#311-clear-data-in-unisave--clear)
- * [3.12 Exiting the program : `exit`](#312-exiting-the-program--exit)
- * [3.13 Saving the data](#313-saving-the-data)
- * [3.14 show the statistic of the expenses: `showStatistic`](#314-show-the-statistic-of-the-expenses-showstatistic)
- * [3.15 Use Help Command to help you find all the commands: `help`](#315-use-help-command-to-help-you-find-all-the-commands-help)
+ * [3.11 Show budget : `showBudget`](#310-show-budget--showbudget)
+ * [3.10 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
+ * [3.12 Clear data in UniSave : `clear`](#312-clear-data-in-unisave--clear)
+ * [3.13 Exiting the program : `exit`](#313-exiting-the-program--exit)
+ * [3.14 Saving the data](#314-saving-the-data)
+ * [3.15 show the statistic of the expenses: `showStatistic`](#315-show-the-statistic-of-the-expenses-showstatistic)
+ * [3.16 Use Help Command to help you find all the commands: `help`](#316-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
 
@@ -238,7 +240,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.9 Set Budget : `setBudget`
 
-Set the budget for UniSave. Default zero budget. Pop up for input when first launched.
+Set the budget for UniSave. Default budget is 0 SGD.
 
 Format: `setBudget AMOUNT`
 
@@ -263,9 +265,25 @@ Format: `showBudget`
 
 Navigate back to the feature list: [Features](#3-features)
 
+#### 3.11 Exchange Currency : `exchange`
 
+Convert the currency of UniSave from current currency to the input currency, along with the exchange rate.
 
-#### 3.11 Clear data in UniSave : `clear`
+Format: `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE`
+
+Example: `exchange s/CNY xr/5`
+
+Before Exchange: 
+
+![exchange_before](images/ExchangeCommand-before.png)
+
+After Exchange: 
+
+![exchange_after](images/ExchangeCommand-after.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+#### 3.12 Clear data in UniSave : `clear`
 
 Clears the data in the program.
 
@@ -275,7 +293,7 @@ Format: `clear`
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.12 Exiting the program : `exit`
+#### 3.13 Exiting the program : `exit`
 
 Exits the program.
 
@@ -285,14 +303,14 @@ Format: `exit`
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.13 Saving the data
+#### 3.14 Saving the data
 
 UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.14 show the statistic of the expenses: `showStatistic`
+#### 3.15 show the statistic of the expenses: `showStatistic`
 
 Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
 
@@ -306,7 +324,7 @@ Examples: `showStatistic`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.15 Use Help Command to help you find all the commands: `help`
+#### 3.16 Use Help Command to help you find all the commands: `help`
 
 Help Command serve as a brief guide for you to refer to when you forget certain command or want to check what are the new
 features provided by the application.
@@ -353,8 +371,9 @@ Action | Format, Examples
 **View existing category labels** | `viewCategory`
 **Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
-**Set Budget** | `setBudget a/AMOUNT`<br> e.g., `setBudget a/1000`
+**Set Budget** | `setBudget AMOUNT`<br> e.g., `setBudget 1000`
 **Show Budget** | `showBudget` <br> e.g., `showBudget`
+**Exchange Currency** | `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE` <br> e.g., `exchange s/CNY xr/5`
 **Show Statistic** | `showStatistic`<br> e.g., `showStatistic`
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
