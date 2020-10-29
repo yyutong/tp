@@ -29,7 +29,7 @@ import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
- * Parses user input.
+ * Parses user input arguments.
  */
 public class ExpenseBookParser {
     /**
