@@ -35,7 +35,7 @@ public class TypicalExpenses {
             .withDescription("bought logitech keyboard")
             .build();
 
-    // Manually added - Person's details found in {@code CommandTestUtil}
+    // Manually added - Expense's details found in {@code CommandTestUtil}
     public static final Expense BOOKS = new ExpenseBuilder().withAmount(VALID_AMOUNT_BOOKS)
             .withDate(VALID_DATE_BOOKS).withCategory(VALID_CATEGORY_BOOKS)
             .withDescription(VALID_DESCRIPTION_BOOKS)
@@ -65,6 +65,6 @@ public class TypicalExpenses {
     }
 
     public static List<Expense> getTypicalExpenses() {
-        return new ArrayList<>(Arrays.asList(CLOTHES, KEYBOARD, MOVIE, BOOKS, SNACKS));
+        return new ArrayList<>(Arrays.asList(CLOTHES, SNACKS, KEYBOARD));
     }
 }

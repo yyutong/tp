@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 
+
 public class DeleteDescriptionCommandParserTest {
 
     private DeleteDescriptionCommandParser parser = new DeleteDescriptionCommandParser();
@@ -19,7 +20,7 @@ public class DeleteDescriptionCommandParserTest {
     }
 
     @Test
-    public void parse_invalidArgs_throwsParseException() {
+    public void parse_invalidValue_failure() {
         assertParseFailure(parser, "a", String.format(
                 MESSAGE_INVALID_COMMAND_FORMAT, DeleteDescriptionCommand.MESSAGE_USAGE));
     }

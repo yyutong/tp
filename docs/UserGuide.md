@@ -29,7 +29,7 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.16 Saving the data](#316-saving-the-data)
         * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
         * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
-        * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+        * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-date-of-expense-sortbytime)
         * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
@@ -93,7 +93,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.16 Saving the data](#316-saving-the-data)
  * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
  * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
- * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-amount-of-expense-sortbytime)
+ * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-date-of-expense-sortbytime)
  * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
@@ -111,7 +111,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
 Adds an expense, including fields amount, category, date, description, to your expense book. You must specify all fields when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
+Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date can be given in one of these two forms:
@@ -120,7 +120,7 @@ ii) A date is given as the exact date in YYYY-MM-DD format.E.g: 2020-10-28
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. They can be added individually.
+The sample categories are FOODBEVERAGE, SHOPPING, ENTERTAINMENT. Category can be added manually.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -263,6 +263,10 @@ Add a description to an existing expense in the finance book.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The newly added description will override the existing description of the specified expense.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+If you use `addDes INDEX` or `addDes INDEX d/` without specifying the description field, the existing description will be removed.
 </div>
 
 Format: `addDes INDEX d/DESCRIPTION`

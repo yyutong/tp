@@ -119,9 +119,6 @@ public class ExpenseModelManager implements Model {
         expenseBook.addExpense(expense);
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
-
-
-    //edited
     @Override
     public void setExpense(Expense target, Expense editedExpense) {
         requireAllNonNull(target, editedExpense);
