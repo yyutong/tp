@@ -1,5 +1,8 @@
 package seedu.address.ui;
 
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.expense.CurrencyExchangeRate;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,20 +14,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
-import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.expense.CurrencyExchangeRate;
 
 import java.util.logging.Logger;
 
-public class CurrencyExchangeTable extends UiPart<Stage>{
-    public final String MESSAGE = "You can find some useful currency exchange rates here!\n"
+public class CurrencyExchangeTable extends UiPart<Stage> {
+    public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
+    public static final String MESSAGE = "You can find some useful currency exchange rates here!\n"
             + "Please refer to this online website for more accurate and in-time exchange rates.\n"
             + "\n" + URL;
-    public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
+    private static final String FXML = "CurrencyExchangeTable.fxml";
 
     private TableView<CurrencyExchangeRate> tableView = new TableView<>();
     private final Logger logger = LogsCenter.getLogger(CurrencyExchangeTable.class);
-    private static final String FXML = "CurrencyExchangeTable.fxml";
 
     private TableColumn currency = new TableColumn("Currency");
     private TableColumn exchangeRate = new TableColumn("Exchange rate(1.00 SGD)");
@@ -56,7 +57,10 @@ public class CurrencyExchangeTable extends UiPart<Stage>{
         this(new Stage());
     }
 
-    public void constructTable(){
+    /**
+     * Constructs the exchange rate table.
+     */
+    public void constructTable() {
         currency.setCellValueFactory(new PropertyValueFactory<>("currency"));
         exchangeRate.setCellValueFactory(new PropertyValueFactory<>("exchangeRate"));
         list.addAll(new CurrencyExchangeRate("USD", "0.73227"),
@@ -72,7 +76,7 @@ public class CurrencyExchangeTable extends UiPart<Stage>{
                 new CurrencyExchangeRate("HKD", "5.67357"),
                 new CurrencyExchangeRate("CHF", "0.66938"),
                 new CurrencyExchangeRate("RUB", "58.00029"),
-                new CurrencyExchangeRate("MXN", "15.66673") );
+                new CurrencyExchangeRate("MXN", "15.66673"));
         tableView.setItems(list);
         tableView.getColumns().addAll(currency, exchangeRate);
     }
