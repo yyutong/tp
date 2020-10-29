@@ -65,7 +65,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [3. Features](#3-features) below for details of each command.
+1. Refer to the [Features](#3-features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -95,9 +95,6 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add a/AMOUNT`, `AMOUNT` is a parameter which can be used as `add a/100`.
 
-* Items in square brackets are optional.<br>
-  e.g `add a/AMOUNT [d/DESCRIPTION]` can be used as `add a/100 d/movie!!` or as `add a/100`.
-
 </div>
 
 ### Commands  <a name="commands"></a>
@@ -106,14 +103,10 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
 Adds an expense to a category.  Must specify category when adding the expense.
 
-Format: ` add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]`
+Format: ` add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date should be a single integer. The date correspond to how many days ago.E.g: 1 refer to you made the expenses one day ago 
-</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Description for the expense is optional.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -353,7 +346,7 @@ Navigate back to the feature list: [Features](#3-features)
 Term | Explanation
 --------|------------------
 **UniSave** | UniSave refers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and an optional description you might want to add so that you can recall the details when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and a description so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
 **GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
