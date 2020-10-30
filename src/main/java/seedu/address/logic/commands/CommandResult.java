@@ -20,6 +20,8 @@ public class CommandResult {
     /** Statistic information should be shown to the user. */
     private boolean showStatistics;
 
+    private boolean showStatisticTable;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
@@ -28,6 +30,7 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.showStatistics = false;
+        this.showStatisticTable = false;
     }
 
     /**
@@ -38,6 +41,19 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.showStatistics = showStatistics;
+        this.showStatisticTable = false;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean showStatistics, boolean showStatisticTable) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = showHelp;
+        this.exit = exit;
+        this.showStatistics = showStatistics;
+        this.showStatisticTable = showStatisticTable;
     }
 
     /**
@@ -45,7 +61,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     /**
@@ -71,6 +87,13 @@ public class CommandResult {
         return showStatistics;
     }
 
+    /**
+     * To check whether there is a need to show the statistic table.
+     * Return true if the user requests for the statistic table and false otherwise.
+     */
+    public boolean isShowStatisticTable() {
+        return showStatisticTable;
+    }
     /**
      * To check whether user want to exit the application.
      * Return true if the user wants to exit the application and false otherwise.

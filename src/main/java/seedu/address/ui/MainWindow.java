@@ -37,6 +37,7 @@ public class MainWindow extends UiPart<Stage> {
     private PieChartWindow pieChartWindow;
     private CurrencyExchangeTable currencyExchangeTable;
     private SupportedCurrencyTable supportedCurrencyTable;
+    private StatisticTable statisticTable;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -69,6 +70,7 @@ public class MainWindow extends UiPart<Stage> {
         pieChartWindow = new PieChartWindow(logic);
         currencyExchangeTable = new CurrencyExchangeTable();
         supportedCurrencyTable = new SupportedCurrencyTable();
+        statisticTable = new StatisticTable(logic);
     }
 
     public Stage getPrimaryStage() {
@@ -192,6 +194,19 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Opens the Statistic Table or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleStatisticTable() {
+        if (!statisticTable.isShowing()) {
+            statisticTable.show();
+
+        } else {
+            statisticTable.focus();
+        }
+    }
+
     void show() {
         primaryStage.show();
     }
@@ -229,6 +244,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowStatistics()) {
                 handleStatistics();
+            }
+
+            if (commandResult.isShowStatisticTable()) {
+                handleStatisticTable();
             }
 
             if (commandResult.isExit()) {
