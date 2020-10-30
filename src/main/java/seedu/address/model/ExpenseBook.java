@@ -228,4 +228,9 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     public void updateStatistics() {
         expenses.updateStatistics();
     }
+
+    @Override
+    public void updateStatisticSummary() {
+        expenses.updateStatisticSummary();
+    }
 }
