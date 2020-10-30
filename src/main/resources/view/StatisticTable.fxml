@@ -16,7 +16,7 @@
         <Scene>
             <HBox alignment="CENTER">
                 <children>
-                    <Label fx:id="statisticTable" text="StatisticTable">
+                    <Label fx:id="statisticTable">
                         <HBox.margin>
                             <Insets right="5.0" />
                         </HBox.margin>

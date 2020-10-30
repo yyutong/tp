@@ -99,8 +99,7 @@ class ExpenseBookTest {
         public void updateStatisticSummary(){}
         @Override
         public List<StatisticSummary> getStatisticTable() {
-            List<StatisticSummary> summaries = new ArrayList<StatisticSummary>();
-            return summaries;
+            return new ArrayList<StatisticSummary>();
         }
     }
 }

@@ -37,10 +37,9 @@ public class StatisticTable extends UiPart<Stage> {
 
     private ObservableList<StatisticSummary> list = FXCollections.observableArrayList();
 
-    @FXML
-    private Button copyButton;
-
     @javafx.fxml.FXML
+    private Button copyButton;
+    @FXML
     private Label statisticTable;
 
     /**
@@ -50,7 +49,6 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public StatisticTable (Stage root) {
         super(FXML, root);
-        statisticTable.setText(MESSAGE);
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
     }
@@ -111,7 +109,7 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public void show() {
         constructTable();
-        logger.fine("Showing command currency exchange rates!");
+        logger.fine("Showing brief summary of the spending!");
         getRoot().show();
         getRoot().centerOnScreen();
     }
