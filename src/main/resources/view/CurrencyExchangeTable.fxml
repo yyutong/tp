@@ -8,7 +8,7 @@
 <?import javafx.stage.Stage?>
 
 <?import javafx.scene.control.Button?>
-<fx:root resizable="false" title="Currency Exchange Rate Table" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root resizable="false" title="Exchange Rates" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/exchangeRateIcon.png" />
     </icons>
