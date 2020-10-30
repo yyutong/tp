@@ -36,6 +36,7 @@ public class MainWindow extends UiPart<Stage> {
     private HelpWindow helpWindow;
     private PieChartWindow pieChartWindow;
     private CurrencyExchangeTable currencyExchangeTable;
+    private SupportedCurrencyTable supportedCurrencyTable;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -67,6 +68,7 @@ public class MainWindow extends UiPart<Stage> {
         helpWindow = new HelpWindow();
         pieChartWindow = new PieChartWindow(logic);
         currencyExchangeTable = new CurrencyExchangeTable();
+        supportedCurrencyTable = new SupportedCurrencyTable();
     }
 
     public Stage getPrimaryStage() {
@@ -160,6 +162,20 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             currencyExchangeTable = new CurrencyExchangeTable();
             currencyExchangeTable.focus();
+        }
+    }
+
+    /**
+     * Opens the Supported Currency Table or focuses on it if it's already opened.
+     */
+    @FXML
+    public void showSupportedCurrencyTable() {
+        if (!supportedCurrencyTable.isShowing()) {
+            supportedCurrencyTable = new SupportedCurrencyTable();
+            supportedCurrencyTable.show();
+        } else {
+            supportedCurrencyTable = new SupportedCurrencyTable();
+            supportedCurrencyTable.focus();
         }
     }
 
