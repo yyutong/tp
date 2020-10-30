@@ -2,6 +2,9 @@ package seedu.address.logic.parser;
 
 import seedu.address.logic.commands.ExitCommand;
 
+/**
+ * Parses input arguments and creates a new ExitCommand object
+ */
 public class ExitCommandParser implements Parser<ExitCommand> {
 
     /**

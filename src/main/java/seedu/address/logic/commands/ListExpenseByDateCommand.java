@@ -22,10 +22,19 @@ public class ListExpenseByDateCommand extends Command {
 
     private final DateContainsKeywordsPredicate predicate;
 
+    /**
+     * Creates an ListExpenseByCategoryCommand to list the expenses by the date.
+     * @param predicate to list the expenses.
+     */
     public ListExpenseByDateCommand(DateContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
+    /**
+     * Executes the list expense by date command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the expenses being listed by the date.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
@@ -34,6 +43,11 @@ public class ListExpenseByDateCommand extends Command {
                 String.format(Messages.MESSAGE_EXPENSES_LISTED_OVERVIEW, model.getFilteredExpenseList().size()));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

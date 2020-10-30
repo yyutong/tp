@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBuilder;
 
+/**
+ * Contains integration tests (interaction with the Model) for {@code AddExpenseCommand}.
+ */
 public class AddExpenseCommandTest {
 
     @Test

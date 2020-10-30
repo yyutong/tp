@@ -9,6 +9,9 @@ import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.CurrencyConverter;
 import seedu.address.model.expense.ExchangeRate;
 
+/**
+ * Exchange the currency for the user.
+ */
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
@@ -26,6 +29,11 @@ public class ExchangeCommand extends Command {
         this.toCurrency = toCurrency;
     }
 
+    /**
+     * Executes the exchange command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the expenses being converted to the currency stated by the user.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

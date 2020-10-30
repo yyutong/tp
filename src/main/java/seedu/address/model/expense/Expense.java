@@ -4,6 +4,10 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
+/**
+ * Represents an Expense in the expense book.
+ * Guarantees: details are present and not null, field values are validated, immutable.
+ */
 public class Expense {
     // Identity fields
     private final Amount amount;

@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes an expense identified using it's displayed index from the address book.
  */
 public class DeleteExpenseCommand extends Command {
 
@@ -26,10 +26,20 @@ public class DeleteExpenseCommand extends Command {
 
     private final Index targetIndex;
 
+    /**
+     * Creates an DeleteExpenseCommand to delete an expense.
+     * @param targetIndex of the expense to be deleted.
+     */
     public DeleteExpenseCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Executes the delete expense command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in an expense deleted.
+     * @throws CommandException Throws exception if the index is invalid.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -44,6 +54,11 @@ public class DeleteExpenseCommand extends Command {
         return new CommandResult(String.format(MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

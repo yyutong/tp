@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 /**
- * Format full help instructions for every command for display.
+ * Format full help instructions for all the command for display.
  */
 public class HelpCommand extends Command {
 
@@ -51,6 +51,11 @@ public class HelpCommand extends Command {
     public static final String SHOWSTATISTICCOMMAND = "use SHOWSTATISTIC to show an overview of your expenses" + "\n"
             + "Format: showStatistic, Eg: showStatistic" + "\n" + "\n";
 
+    /**
+     * Executes the help command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in the help message to be shown to the user.
+     */
     @Override
     public CommandResult execute(Model model) {
         String message = ADDEXPENSECOMMAND + LISTCOMMOND + LISTBYCATEGORYCOMMOND + VIEWCOMMOND + VIEWCATEGORYCOMMOND

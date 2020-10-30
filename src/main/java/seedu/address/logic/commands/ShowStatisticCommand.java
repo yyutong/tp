@@ -8,6 +8,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Category;
 
+/**
+ * Show the statistic and brief summary of the user's expenses.
+ */
 public class ShowStatisticCommand extends Command {
 
     public static final String COMMAND_WORD = "showStatistic";
@@ -21,10 +24,21 @@ public class ShowStatisticCommand extends Command {
     public static final int STRINGSPACE = 38;
     public static final int SPACE = 28;
 
+    /**
+     * Create a fixed length of String.
+     * Here we use this command mainly to create a fixed length of empty space to simulate a table.
+     * @param string the string to be created.
+     * @param length the length of the String created.
+     */
     public static String fixedLengthString(String string, int length) {
         return String.format("%1$" + length + "s", string);
     }
 
+    /**
+     * Executes the show statistic command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the statistic and brief summary of the expenses shown.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         String message = "";

@@ -8,8 +8,13 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Currency;
+
 import seedu.address.model.expense.CurrencyConverter;
 
+
+/**
+ * Parses input arguments and creates a new ExchangeCommand object
+ */
 public class ExchangeCommandParser implements Parser<ExchangeCommand> {
 
     @Override

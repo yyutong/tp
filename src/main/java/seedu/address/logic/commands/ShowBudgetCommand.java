@@ -4,6 +4,9 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 
+/**
+ * Show the current available budget.
+ */
 public class ShowBudgetCommand extends Command {
 
     public static final String COMMAND_WORD = "showBudget";
@@ -13,6 +16,11 @@ public class ShowBudgetCommand extends Command {
             + "seems like you're broke.\n"
             + "Please set a new budget with command: setBudget AMOUNT\n";
 
+    /**
+     * Executes the show budget command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the budget of the expense book shown.
+     */
     @Override
     public CommandResult execute(Model model) {
         Budget budget = model.getExpenseBookBudget();

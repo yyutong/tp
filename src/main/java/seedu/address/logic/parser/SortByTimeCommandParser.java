@@ -6,6 +6,9 @@ import seedu.address.logic.commands.SortByAmountCommand;
 import seedu.address.logic.commands.SortByTimeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new SortByTimeCommand object
+ */
 public class SortByTimeCommandParser implements Parser<SortByTimeCommand> {
 
     /**

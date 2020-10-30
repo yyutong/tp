@@ -14,7 +14,7 @@ import seedu.address.model.expense.Expense;
 
 
 /**
- * Changes the description of an existing expense in the address book.
+ * Delete the description of an existing expenses in the address book.
  */
 public class DeleteDescriptionCommand extends Command {
 
@@ -43,6 +43,12 @@ public class DeleteDescriptionCommand extends Command {
         this.index = index;
     }
 
+    /**
+     * Executes the delete description command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in the description of the expenses deleted.
+     * @throws CommandException Throws exception if the index is invalid.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         List<Expense> lastShownList = model.getFilteredExpenseList();
@@ -64,6 +70,11 @@ public class DeleteDescriptionCommand extends Command {
         return new CommandResult(generateSuccessMessage(editedExpense));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
     @Override
     public boolean equals(Object other) {
         // short circuit if same object

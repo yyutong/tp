@@ -18,6 +18,9 @@ import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBookBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 
+/**
+ * Contains integration tests (interaction with the Model) for {@code CommandTestUtil}.
+ */
 public class CommandTestUtil {
     public static final String INVALID_CATEGORY_1 = "";
     public static final String INVALID_CATEGORY_2 = " ";

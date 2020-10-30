@@ -14,6 +14,11 @@ public class ListExpenseCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Listed all expenses";
 
+    /**
+     * Executes the list expense command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which all the expenses being listed.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

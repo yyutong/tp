@@ -1,5 +1,8 @@
 package seedu.address.model.expense;
 
+/**
+ * Represents a Expense's exchange rate in the expense book.
+ */
 public class ExchangeRate {
     private final double exchangeRate;
 

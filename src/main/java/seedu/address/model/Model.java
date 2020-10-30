@@ -107,22 +107,62 @@ public interface Model {
 
     void setExpenseBookCurrency(Currency dollarSign);
 
+    /**
+     * Get the total spending of all the categories.
+     * @return a hashmap that contains the total spending of all all categories.
+     */
     List<Category> getCategoryLabels();
+    /**
+     * Get the total spending of the specific category.
+     * @param categoryName the total spending of the specific category.
+     * @return the total spending of that specific category.
+     */
     int getExpenseSumByCategory(String categoryName);
 
+    /**
+     * Get the total number of expenses in the expense book.
+     */
     int getTotalExpense();
 
+    /**
+     * Sorts the expense list by descending amount.
+     */
     void sortByDescendingAmount();
 
+    /**
+     * Sorts the expense list by ascending amount.
+     */
     void sortByAscendingAmount();
 
+    /**
+     * Sorts the expense list by descending timr.
+     */
     void sortByDescendingTime();
 
+    /**
+     * Sorts the expense list by ascending time.
+     */
     void sortByAscendingTime();
 
+    /**
+     * Get the total spending of the expenses in the expense book.
+     */
     double getExpenseSum();
+    /**
+     * Get the total spending of all the categories.
+     * @return a hashmap that contains the total spending of all all categories.
+     */
     HashMap<String, Double> getExpenseSumCategory();
+    /**
+     * Get the percentage of different categories' spending.
+     * @return a hashmap that contains the percentage of different categories' spending.
+     */
     HashMap<String, Double> getExpensePercentageCategory();
+    /**
+     * Get the total number of expenses of the specific category.
+     * @param categoryName the total number of expenses of the specific category.
+     * @return the total number of expenses of that specific category.
+     */
     double getExpenseSumOfCategory(String categoryName);
 
 }
