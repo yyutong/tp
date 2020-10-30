@@ -6,13 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.expense.Budget;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Currency;
-import seedu.address.model.expense.ExchangeRate;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseList;
-import seedu.address.model.expense.Statistics;
+import seedu.address.model.expense.*;
 
 
 /**
@@ -224,6 +218,10 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
 
     public Statistics getStatistics() {
         return expenses.getStatistics();
+    }
+
+    public List<StatisticSummary> getStatisticTable() {
+        return expenses.getStatisticTable();
     }
 
     @Override

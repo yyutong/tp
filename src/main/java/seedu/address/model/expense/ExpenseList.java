@@ -8,10 +8,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.SortShowStatisticCommand;
 import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 
 /**
@@ -21,6 +23,7 @@ import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 public class ExpenseList implements Iterable<Expense> {
 
     private Statistics statistics;
+    private List<StatisticSummary> statisticSummary;
 
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
     private final ObservableList<Expense> internalUnmodifiableList =
@@ -305,6 +308,47 @@ public class ExpenseList implements Iterable<Expense> {
     public Statistics getStatistics() {
         updateStatistics();
         return this.statistics;
+    }
+
+    /**
+     * Gets the statistic table of this expense book.
+     *
+     * @return The statistic table of this expense book.
+     */
+    public List<StatisticSummary> getStatisticTable() {
+        updateStatisticSummary();
+        return this.statisticSummary;
+    }
+
+    /**
+     * Update the statistics of this expense book.
+     */
+    public void updateStatisticSummary() {
+
+        HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+        List<Category> categories = getCategoryLabels();
+        for (int i = 0; i < categories.size(); i = i + 1) {
+            String currentCategoryName = categories.get(i).categoryName;
+            int sum = getExpenseSumByCategory(currentCategoryName);
+            hashMap.put(currentCategoryName, sum);
+        }
+        HashMap<String, Double> hashMap3 = getExpenseSumCategory();
+        HashMap<String, Double> hashMap4 = getExpensePercentageCategory();
+        HashMap<String, Double> expensePercentageCategoryData = getExpensePercentageCategory();
+        Map<String, Double> hashMap5 = SortShowStatisticCommand.sortByTotalExpense(hashMap3);
+        List<StatisticSummary> statisticSummaries = new ArrayList<>();
+        for (Map.Entry<String, Double> hashMap2 : hashMap5.entrySet()) {
+            String category = hashMap2.getKey();
+            int numberOfExpense = hashMap.get(category);
+            double totalAmount = hashMap3.get(category);
+            double percentage = hashMap4.get(category);
+            String formattedAmount = String.format("%.2f", totalAmount);
+            String formattedPercentage = String.format("%.2f", percentage);
+            StatisticSummary statistic = new StatisticSummary(category, numberOfExpense,
+                    formattedPercentage, formattedAmount);
+            statisticSummaries.add(statistic);
+        }
+        this.statisticSummary = statisticSummaries;
     }
 
     /**
