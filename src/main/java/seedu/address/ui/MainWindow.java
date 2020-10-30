@@ -200,9 +200,11 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     public void handleStatisticTable() {
         if (!statisticTable.isShowing()) {
+            statisticTable = new StatisticTable(logic);
             statisticTable.show();
 
         } else {
+            statisticTable = new StatisticTable(logic);
             statisticTable.focus();
         }
     }

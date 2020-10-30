@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
@@ -9,9 +10,13 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
+import seedu.address.model.expense.StatisticSummary;
 import seedu.address.model.expense.Statistics;
 
 
@@ -27,6 +32,12 @@ public class PieChartWindow extends UiPart<Stage> {
     private Logic logic;
 
     private ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
+    private TableView<StatisticSummary> tableView = new TableView<>();
+    private TableColumn category = new TableColumn("Category");
+    private TableColumn numberOfExpense = new TableColumn("Number of Expenses");
+    private TableColumn percentage = new TableColumn("Percentage");
+    private TableColumn totalSpending = new TableColumn("Total Spending");
+    private ObservableList<StatisticSummary> list1 = FXCollections.observableArrayList();
 
 
     @javafx.fxml.FXML
@@ -44,6 +55,7 @@ public class PieChartWindow extends UiPart<Stage> {
         super(FXML, root);
         statistics.setGraphicTextGap(20.0);
         statistics.setGraphic(PIECHART);
+        //statistics.setGraphic(tableView);
     }
 
     /**
@@ -81,6 +93,25 @@ public class PieChartWindow extends UiPart<Stage> {
 
     }
 
+
+    /**
+     * Constructs the exchange rate table.
+     */
+    public void constructTable() {
+        if (hasStats) {
+            category.setCellValueFactory(new PropertyValueFactory<>("category"));
+            numberOfExpense.setCellValueFactory(new PropertyValueFactory<>("numberOfExpense"));
+            percentage.setCellValueFactory(new PropertyValueFactory<>("percentage"));
+            totalSpending.setCellValueFactory(new PropertyValueFactory<>("totalSpending"));
+            List<StatisticSummary> statisticSummaryList = logic.getExpenseBook().getStatisticTable();
+            for (int i = 0; i < statisticSummaryList.size(); i = i + 1) {
+                list1.add(statisticSummaryList.get(i));
+            }
+            tableView.setItems(list1);
+            tableView.getColumns().addAll(category, numberOfExpense, percentage, totalSpending);
+        }
+    }
+
     /**
      * Shows the help window.
      * @throws IllegalStateException
@@ -101,6 +132,7 @@ public class PieChartWindow extends UiPart<Stage> {
      */
     public void show() {
         this.setStats();
+        this.constructTable();
         logger.fine("Showing statistics page about the application.");
         getRoot().show();
         getRoot().centerOnScreen();
