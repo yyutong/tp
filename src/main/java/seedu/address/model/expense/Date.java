@@ -44,6 +44,7 @@ public class Date {
             // LocalDate date = LocalDate.parse(inputDay);
             // this.date = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
             this.date = inputDay;
+            localDate = LocalDate.parse(date);
         }
     }
     /**

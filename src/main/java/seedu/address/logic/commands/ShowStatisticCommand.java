@@ -76,6 +76,6 @@ public class ShowStatisticCommand extends Command {
         }
 
         return new CommandResult(MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS + message,
-                false, false, true);
+                false, false, true, true);
     }
 }

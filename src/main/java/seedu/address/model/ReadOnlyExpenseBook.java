@@ -1,9 +1,12 @@
 package seedu.address.model;
 
+import java.util.List;
+
 import javafx.collections.ObservableList;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.StatisticSummary;
 import seedu.address.model.expense.Statistics;
 
 /**
@@ -40,5 +43,10 @@ public interface ReadOnlyExpenseBook {
      * Updates statistic of the expense book.
      */
     void updateStatistics();
+    /**
+     * Updates statistic summary of the expense book.
+     */
+    void updateStatisticSummary();
+    List<StatisticSummary> getStatisticTable();
 
 }

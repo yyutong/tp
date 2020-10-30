@@ -28,7 +28,7 @@ public class HelpCommand extends Command {
             + "Format: delete INDEX, Eg: delete 2" + "\n" + "\n";
 
     public static final String VIEWCOMMOND = "use VIEW to view an expense" + "\n"
-            + "Format: view INDEX, Eg: add view 2" + "\n" + "\n";
+            + "Format: view INDEX, Eg: view 2" + "\n" + "\n";
 
     public static final String VIEWCATEGORYCOMMOND = "use VIEWCATEGORY to view all the category" + "\n"
             + "Format: viewCategory, Eg: viewCategory" + "\n" + "\n";

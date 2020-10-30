@@ -6,63 +6,51 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.model.expense.StatisticSummary;
-import seedu.address.model.expense.Statistics;
 
+public class StatisticTable extends UiPart<Stage> {
 
-public class PieChartWindow extends UiPart<Stage> {
-
-    public static final String MESSAGE = "Statistics is shown on the left";
-    private static final PieChart PIECHART = new PieChart();
-    private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
-    private static final String FXML = "PieChartWindow.fxml";
-
+    public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
+    public static final String MESSAGE = "Here are the brief summary of your expenses \n";
+    private static final String FXML = "StatisticTable.fxml";
     private static boolean hasStats = false;
+
+    private TableView<StatisticSummary> tableView = new TableView<>();
+    private final Logger logger = LogsCenter.getLogger(StatisticTable.class);
 
     private Logic logic;
 
-    private ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
-    private TableView<StatisticSummary> tableView = new TableView<>();
     private TableColumn category = new TableColumn("Category");
     private TableColumn numberOfExpense = new TableColumn("Number of Expenses");
     private TableColumn percentage = new TableColumn("Percentage");
     private TableColumn totalSpending = new TableColumn("Total Spending");
-    private ObservableList<StatisticSummary> list1 = FXCollections.observableArrayList();
 
+    private ObservableList<StatisticSummary> list = FXCollections.observableArrayList();
 
     @javafx.fxml.FXML
     private Button copyButton;
-
     @FXML
-    private Label statistics;
+    private Label statisticTable;
 
     /**
-     * Creates a new StatisticsWindow.
+     * Creates a new CurrencyExchangeTable.
      *
      * @param root Stage to use as the root of the StatisticsWindow.
      */
-    public PieChartWindow(Stage root) {
+    public StatisticTable (Stage root) {
         super(FXML, root);
-        statistics.setGraphicTextGap(20.0);
-        statistics.setGraphic(PIECHART);
-        //statistics.setGraphic(tableView);
-    }
-
-    /**
-     * Creates a new PieChartWindow.
-     */
-    public PieChartWindow() {
-        this(new Stage());
+        statisticTable.setGraphicTextGap(20.0);
+        statisticTable.setGraphic(tableView);
     }
 
     /**
@@ -70,29 +58,18 @@ public class PieChartWindow extends UiPart<Stage> {
      *
      * @param logic Takes in a logic object.
      */
-    public PieChartWindow(Logic logic) {
+    public StatisticTable(Logic logic) {
         this(new Stage());
         this.logic = logic;
         hasStats = true;
     }
 
-    public void setStats() {
-        if (hasStats) {
-
-            Statistics data = logic.getExpenseBook().getStatistics();
-
-            list = data.getCategoryAmountPercenatgePieCharStatistics();
-
-            PIECHART.setData(list);
-            PIECHART.setLegendSide(Side.LEFT);
-            PIECHART.setTitle("Statistics of Expense Book");
-            PIECHART.setClockwise(false);
-            PIECHART.setLabelsVisible(true);
-
-        }
-
+    /**
+     * Creates a new HelpWindow.
+     */
+    public StatisticTable() {
+        this(new Stage());
     }
-
 
     /**
      * Constructs the exchange rate table.
@@ -105,15 +82,15 @@ public class PieChartWindow extends UiPart<Stage> {
             totalSpending.setCellValueFactory(new PropertyValueFactory<>("totalSpending"));
             List<StatisticSummary> statisticSummaryList = logic.getExpenseBook().getStatisticTable();
             for (int i = 0; i < statisticSummaryList.size(); i = i + 1) {
-                list1.add(statisticSummaryList.get(i));
+                list.add(statisticSummaryList.get(i));
             }
-            tableView.setItems(list1);
+            tableView.setItems(list);
             tableView.getColumns().addAll(category, numberOfExpense, percentage, totalSpending);
         }
     }
 
     /**
-     * Shows the help window.
+     * Shows the currency exchange rate table window.
      * @throws IllegalStateException
      * <ul>
      *     <li>
@@ -131,9 +108,8 @@ public class PieChartWindow extends UiPart<Stage> {
      * </ul>
      */
     public void show() {
-        this.setStats();
-        this.constructTable();
-        logger.fine("Showing statistics page about the application.");
+        constructTable();
+        logger.fine("Showing brief summary of the spending!");
         getRoot().show();
         getRoot().centerOnScreen();
     }
@@ -157,6 +133,17 @@ public class PieChartWindow extends UiPart<Stage> {
      */
     public void focus() {
         getRoot().requestFocus();
+    }
+
+    /**
+     * Copies the URL to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyUrl() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(URL);
+        clipboard.setContent(url);
     }
 
 }

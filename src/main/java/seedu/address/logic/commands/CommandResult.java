@@ -14,11 +14,16 @@ public class CommandResult {
     /** Help information should be shown to the user. */
     private final boolean showHelp;
 
+    /** Help information should be shown to the user. */
+    private final boolean showHelpCommandWindow;
+
     /** The application should exit. */
     private final boolean exit;
 
     /** Statistic information should be shown to the user. */
     private boolean showStatistics;
+
+    private boolean showStatisticTable;
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
@@ -28,6 +33,8 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.showStatistics = false;
+        this.showStatisticTable = false;
+        this.showHelpCommandWindow = true;
     }
 
     /**
@@ -38,6 +45,21 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.showStatistics = showStatistics;
+        this.showStatisticTable = false;
+        this.showHelpCommandWindow = showHelp;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean showStatistics, boolean showStatisticTable) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = showHelp;
+        this.exit = exit;
+        this.showStatistics = showStatistics;
+        this.showStatisticTable = showStatisticTable;
+        this.showHelpCommandWindow = showHelp;
     }
 
     /**
@@ -45,7 +67,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     /**
@@ -64,6 +86,14 @@ public class CommandResult {
     }
 
     /**
+     * To check whether there is a need to show the help window.
+     * Return true if the user requests for the help window and false otherwise.
+     */
+    public boolean isShowHelpCommandWindow() {
+        return showHelpCommandWindow;
+    }
+
+    /**
      * To check whether there is a need to show the statistic window.
      * Return true if the user requests for the statistic window and false otherwise.
      */
@@ -71,6 +101,13 @@ public class CommandResult {
         return showStatistics;
     }
 
+    /**
+     * To check whether there is a need to show the statistic table.
+     * Return true if the user requests for the statistic table and false otherwise.
+     */
+    public boolean isShowStatisticTable() {
+        return showStatisticTable;
+    }
     /**
      * To check whether user want to exit the application.
      * Return true if the user wants to exit the application and false otherwise.

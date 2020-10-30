@@ -37,6 +37,8 @@ public class MainWindow extends UiPart<Stage> {
     private PieChartWindow pieChartWindow;
     private CurrencyExchangeTable currencyExchangeTable;
     private SupportedCurrencyTable supportedCurrencyTable;
+    private StatisticTable statisticTable;
+    private HelpCommandWindow helpCommandWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -69,6 +71,8 @@ public class MainWindow extends UiPart<Stage> {
         pieChartWindow = new PieChartWindow(logic);
         currencyExchangeTable = new CurrencyExchangeTable();
         supportedCurrencyTable = new SupportedCurrencyTable();
+        statisticTable = new StatisticTable(logic);
+        helpCommandWindow = new HelpCommandWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -155,6 +159,20 @@ public class MainWindow extends UiPart<Stage> {
      * Opens the help window or focuses on it if it's already opened.
      */
     @FXML
+    public void handleHelpCommandWindow() {
+        if (!helpCommandWindow.isShowing()) {
+            helpCommandWindow = new HelpCommandWindow();
+            helpCommandWindow.show();
+        } else {
+            helpCommandWindow = new HelpCommandWindow();
+            helpCommandWindow.focus();
+        }
+    }
+
+    /**
+     * Opens the help window or focuses on it if it's already opened.
+     */
+    @FXML
     public void showCurrencyExchangeRateTable() {
         if (!currencyExchangeTable.isShowing()) {
             currencyExchangeTable = new CurrencyExchangeTable();
@@ -189,6 +207,21 @@ public class MainWindow extends UiPart<Stage> {
 
         } else {
             pieChartWindow.focus();
+        }
+    }
+
+    /**
+     * Opens the Statistic Table or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleStatisticTable() {
+        if (!statisticTable.isShowing()) {
+            statisticTable = new StatisticTable(logic);
+            statisticTable.show();
+
+        } else {
+            statisticTable = new StatisticTable(logic);
+            statisticTable.focus();
         }
     }
 
@@ -227,8 +260,17 @@ public class MainWindow extends UiPart<Stage> {
                 handleHelp();
             }
 
+            if (commandResult.isShowHelpCommandWindow()) {
+                handleHelpCommandWindow();
+            }
+
             if (commandResult.isShowStatistics()) {
                 handleStatistics();
+            }
+
+            if (commandResult.isShowStatisticTable()) {
+                System.out.println("show");
+                handleStatisticTable();
             }
 
             if (commandResult.isExit()) {

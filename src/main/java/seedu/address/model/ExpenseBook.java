@@ -12,6 +12,7 @@ import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseList;
+import seedu.address.model.expense.StatisticSummary;
 import seedu.address.model.expense.Statistics;
 
 
@@ -226,8 +227,17 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return expenses.getStatistics();
     }
 
+    public List<StatisticSummary> getStatisticTable() {
+        return expenses.getStatisticTable();
+    }
+
     @Override
     public void updateStatistics() {
         expenses.updateStatistics();
+    }
+
+    @Override
+    public void updateStatisticSummary() {
+        expenses.updateStatisticSummary();
     }
 }

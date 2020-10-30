@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.StatisticSummary;
 import seedu.address.model.expense.Statistics;
 
 class ExpenseBookTest {
@@ -92,6 +94,12 @@ class ExpenseBookTest {
         }
         @Override
         public void updateStatistics() {
+        }
+        @Override
+        public void updateStatisticSummary(){}
+        @Override
+        public List<StatisticSummary> getStatisticTable() {
+            return new ArrayList<StatisticSummary>();
         }
     }
 }
