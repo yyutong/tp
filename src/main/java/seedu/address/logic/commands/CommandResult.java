@@ -14,6 +14,9 @@ public class CommandResult {
     /** Help information should be shown to the user. */
     private final boolean showHelp;
 
+    /** Help information should be shown to the user. */
+    private final boolean showHelpCommandWindow;
+
     /** The application should exit. */
     private final boolean exit;
 
@@ -31,6 +34,7 @@ public class CommandResult {
         this.exit = exit;
         this.showStatistics = false;
         this.showStatisticTable = false;
+        this.showHelpCommandWindow = true;
     }
 
     /**
@@ -42,6 +46,7 @@ public class CommandResult {
         this.exit = exit;
         this.showStatistics = showStatistics;
         this.showStatisticTable = false;
+        this.showHelpCommandWindow = showHelp;
     }
 
     /**
@@ -54,6 +59,7 @@ public class CommandResult {
         this.exit = exit;
         this.showStatistics = showStatistics;
         this.showStatisticTable = showStatisticTable;
+        this.showHelpCommandWindow = showHelp;
     }
 
     /**
@@ -77,6 +83,14 @@ public class CommandResult {
      */
     public boolean isShowHelp() {
         return showHelp;
+    }
+
+    /**
+     * To check whether there is a need to show the help window.
+     * Return true if the user requests for the help window and false otherwise.
+     */
+    public boolean isShowHelpCommandWindow() {
+        return showHelpCommandWindow;
     }
 
     /**
