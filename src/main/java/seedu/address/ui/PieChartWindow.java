@@ -42,7 +42,6 @@ public class PieChartWindow extends UiPart<Stage> {
      */
     public PieChartWindow(Stage root) {
         super(FXML, root);
-        statistics.setText(MESSAGE);
         statistics.setGraphicTextGap(20.0);
         statistics.setGraphic(PIECHART);
     }
