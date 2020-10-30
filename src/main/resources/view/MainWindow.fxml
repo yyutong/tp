@@ -32,6 +32,7 @@
             <MenuItem mnemonicParsing="false" onAction="#handleStatistics" text="Statistics" />
             <MenuItem mnemonicParsing="false" onAction="#showSupportedCurrencyTable" text="Supported Currencies" />
             <MenuItem mnemonicParsing="false" onAction="#handleStatisticTable" text="Brief Summary of Spending" />
+            <MenuItem mnemonicParsing="false" onAction="#showCurrencyExchangeRateTable" text="Exchange Rates"/>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />

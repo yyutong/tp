@@ -22,7 +22,7 @@ public class Statistics {
      * Constructs a Statistics object.
      *
      * @param categoryAmountPercentage A hashmap of categories and corresponding percentages.
-     * @param categories An arraylist of all existing categories.
+     * @param categories An arraylist of all existing categories.v
      */
     public Statistics(HashMap<String, Double>categoryAmountPercentage, ArrayList<String> categories) {
         this.categoryAmountPercentage = categoryAmountPercentage;
