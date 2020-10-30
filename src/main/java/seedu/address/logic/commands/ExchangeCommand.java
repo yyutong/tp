@@ -17,8 +17,8 @@ public class ExchangeCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s.\n";
     public static final String MESSAGE_USAGE = "exchange s/CNY";
-    public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency,\n" +
-            " check the supported currencies by clicking 'View' -> 'Supported Currencies'";
+    public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency,\n"
+            + " check the supported currencies by clicking 'View' -> 'Supported Currencies'";
 
     private final Currency toCurrency;
 
