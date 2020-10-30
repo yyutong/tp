@@ -49,7 +49,7 @@ class JsonSerializableExpenseBook {
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
         budget = source.getBudget().getValue();
         logger.info("budget obtained at source.getBudget().getValue() is " + budget);
-        dollarSign = source.getCurrency().dollarSign;
+        dollarSign = source.getCurrency().currencyCode;
     }
 
     /**

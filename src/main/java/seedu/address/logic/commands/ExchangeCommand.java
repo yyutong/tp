@@ -3,8 +3,10 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.CurrencyConverter;
 import seedu.address.model.expense.ExchangeRate;
 
 /**
@@ -14,19 +16,17 @@ public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s.\n";
-    public static final String MESSAGE_USAGE = "exchange s/CNY xr/5.01";
+    public static final String MESSAGE_USAGE = "exchange s/CNY";
+    public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency!";
 
-    private final Currency dollarSign;
-    private final ExchangeRate exchangeRate;
+    private final Currency toCurrency;
 
     /**
-     * @param dollarSign of the new currency.
-     * @param exchangeRate from the current currency to new currency.
+     * @param toCurrency of the new currency.
      */
-    public ExchangeCommand(Currency dollarSign, ExchangeRate exchangeRate) {
-        requireAllNonNull(dollarSign, exchangeRate);
-        this.dollarSign = dollarSign;
-        this.exchangeRate = exchangeRate;
+    public ExchangeCommand(Currency toCurrency) {
+        requireAllNonNull(toCurrency);
+        this.toCurrency = toCurrency;
     }
 
     /**
@@ -35,12 +35,14 @@ public class ExchangeCommand extends Command {
      * @return A command result in which the expenses being converted to the currency stated by the user.
      */
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         Currency curr = model.getExpenseBookCurrency();
-        model.setExpenseBookCurrency(dollarSign);
+        CurrencyConverter converter = new CurrencyConverter();
+        ExchangeRate exchangeRate = converter.convert(curr, toCurrency);
+        model.setExpenseBookCurrency(toCurrency);
         model.expenseBookExchange(exchangeRate);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, curr, dollarSign, exchangeRate));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, curr, toCurrency, exchangeRate));
     }
 
 

@@ -46,7 +46,7 @@ class JsonAdaptedExpense {
     public JsonAdaptedExpense(Expense source) {
         amount = String.format("%.2f", source.getAmount().value);
         // amount = source.getAmount().value;
-        currency = source.getCurrency().dollarSign;
+        currency = source.getCurrency().currencyCode;
         date = source.getDate().date;
         category = source.getCategory().categoryName;
         description = source.getDescription().value;
