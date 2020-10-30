@@ -12,7 +12,7 @@ public class ExchangeRate {
 
     @Override
     public String toString() {
-        return String.valueOf(this.exchangeRate);
+        return String.format("%.8f", this.exchangeRate);
     }
 
     public double getRate() {
