@@ -44,7 +44,7 @@ public interface ReadOnlyExpenseBook {
      */
     void updateStatistics();
     /**
-     * Updates statistic of the expense book.
+     * Updates statistic summary of the expense book.
      */
     void updateStatisticSummary();
     List<StatisticSummary> getStatisticTable();
