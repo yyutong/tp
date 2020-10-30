@@ -247,6 +247,7 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             if (commandResult.isShowStatisticTable()) {
+                System.out.println("show");
                 handleStatisticTable();
             }
 
