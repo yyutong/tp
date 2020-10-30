@@ -30,7 +30,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="View">
             <MenuItem mnemonicParsing="false" onAction="#handleStatistics" text="Statistics" />
-            <MenuItem mnemonicParsing="false" onAction="#showCurrencyExchangeRateTable" text="Currency Exchange Table" />
+            <MenuItem mnemonicParsing="false" onAction="#showSupportedCurrencyTable" text="Supported Currencies" />
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />

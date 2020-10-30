@@ -18,7 +18,7 @@ import seedu.address.model.expense.Statistics;
 public class PieChartWindow extends UiPart<Stage> {
 
     public static final String MESSAGE = "Statistics is shown on the left";
-    private static PieChart PIECHART = new PieChart();
+    private static final PieChart PIECHART = new PieChart();
     private static final Logger logger = LogsCenter.getLogger(PieChartWindow.class);
     private static final String FXML = "PieChartWindow.fxml";
 
