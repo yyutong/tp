@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -30,9 +29,6 @@ public class SupportedCurrencyTable extends UiPart<Stage> {
 
     private ObservableList<CurrencyFullName> list = FXCollections.observableArrayList();
 
-    @FXML
-    private Button copyButton;
-
     @javafx.fxml.FXML
     private Label label;
 
@@ -47,7 +43,7 @@ public class SupportedCurrencyTable extends UiPart<Stage> {
     }
 
     /**
-     * Creates a new HelpWindow.
+     * Creates a new SupportedCurrencyTable.
      */
     public SupportedCurrencyTable() {
         this(new Stage());
