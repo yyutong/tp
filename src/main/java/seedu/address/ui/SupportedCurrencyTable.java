@@ -40,6 +40,7 @@ public class SupportedCurrencyTable extends UiPart<Stage> {
     public SupportedCurrencyTable(Stage root) {
         super(FXML, root);
         label.setGraphic(tableView);
+        label.setMinWidth(350);
     }
 
     /**
