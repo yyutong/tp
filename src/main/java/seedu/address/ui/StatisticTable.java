@@ -41,7 +41,7 @@ public class StatisticTable extends UiPart<Stage> {
     private Button copyButton;
 
     @javafx.fxml.FXML
-    private Label StatisticTable;
+    private Label statisticTable;
 
     /**
      * Creates a new CurrencyExchangeTable.
@@ -50,9 +50,9 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public StatisticTable (Stage root) {
         super(FXML, root);
-        StatisticTable.setText(MESSAGE);
-        StatisticTable.setGraphicTextGap(20.0);
-        StatisticTable.setGraphic(tableView);
+        statisticTable.setText(MESSAGE);
+        statisticTable.setGraphicTextGap(20.0);
+        statisticTable.setGraphic(tableView);
     }
 
     /**
