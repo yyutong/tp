@@ -11,8 +11,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.ExchangeRate;
 
-
-
+/**
+ * Parses input arguments and creates a new ExchangeCommand object
+ */
 public class ExchangeCommandParser implements Parser<ExchangeCommand> {
 
     @Override

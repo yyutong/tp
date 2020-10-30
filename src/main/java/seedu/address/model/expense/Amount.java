@@ -2,6 +2,10 @@ package seedu.address.model.expense;
 
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Expense's amount in the expense book.
+ * Guarantees: the amount is non-negative; is valid as declared in {@link #isValidAmount(Double)}
+ */
 public class Amount {
     public static final String MESSAGE_CONSTRAINTS =
             "Amount should only positive numbers";

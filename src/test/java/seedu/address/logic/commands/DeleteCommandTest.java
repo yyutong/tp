@@ -13,6 +13,9 @@ import seedu.address.model.UserPrefs;
 import seedu.address.testutil.TypicalExpenses;
 import seedu.address.testutil.TypicalIndexes;
 
+/**
+ * Contains integration tests (interaction with the Model) for {@code DeleteCommand}.
+ */
 public class DeleteCommandTest {
 
     @Test

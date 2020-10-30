@@ -5,9 +5,9 @@ import seedu.address.model.expense.Expense;
 
 
 /**
- * A utility class to help with building Addressbook objects.
+ * A utility class to help with building Expensebook objects.
  * Example usage: <br>
- *     {@code AddressBook ab = new AddressBookBuilder().withPerson("John", "Doe").build();}
+ *     {@code Expense ab = new ExpenseBookBuilder().withAmount(100).build();}
  */
 public class ExpenseBookBuilder {
 
@@ -22,7 +22,7 @@ public class ExpenseBookBuilder {
     }
 
     /**
-     * Adds a new {@code Person} to the {@code AddressBook} that we are building.
+     * Adds a new {@code Expense} to the {@code ExpenseBook} that we are building.
      */
     public ExpenseBookBuilder withExpense(Expense expense) {
         expenseBook.addExpense(expense);

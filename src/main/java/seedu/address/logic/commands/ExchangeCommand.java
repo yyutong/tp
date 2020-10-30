@@ -29,6 +29,11 @@ public class ExchangeCommand extends Command {
         this.exchangeRate = exchangeRate;
     }
 
+    /**
+     * Executes the exchange command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in which the expenses being converted to the currency stated by the user.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

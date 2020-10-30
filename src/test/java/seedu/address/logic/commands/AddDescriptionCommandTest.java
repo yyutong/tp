@@ -14,7 +14,9 @@ import seedu.address.model.expense.Description;
 import seedu.address.testutil.TypicalExpenses;
 import seedu.address.testutil.TypicalIndexes;
 
-
+/**
+ * Contains integration tests (interaction with the Model) for {@code AddDescriptionCommand}.
+ */
 class AddDescriptionCommandTest {
 
     @Test

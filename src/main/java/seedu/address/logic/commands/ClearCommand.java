@@ -14,6 +14,11 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Expense book has been cleared!";
 
 
+    /**
+     * Executes the clear command.
+     * @param model {@code Model} which the command should operate on.
+     * @return A command result in the expenses cleared.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

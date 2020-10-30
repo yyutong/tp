@@ -54,7 +54,7 @@ public class TypicalExpenses {
     private TypicalExpenses() {} // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical persons.
+     * Returns an {@code expenseBook} with all the typical expense.
      */
     public static ExpenseBook getTypicalExpenseBook() {
         ExpenseBook expenseBook = new ExpenseBook();
