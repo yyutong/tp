@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Currency;
-
 import seedu.address.model.expense.CurrencyConverter;
 
 

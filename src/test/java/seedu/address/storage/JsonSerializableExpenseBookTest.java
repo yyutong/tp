@@ -16,7 +16,7 @@ import seedu.address.commons.util.JsonUtil;
 public class JsonSerializableExpenseBookTest {
 
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSerializableExpenseBookTest");
-    private static final Path TYPICAL_EXPENSES_FILE = TEST_DATA_FOLDER.resolve("typicalExpenseExpenseBook.json");
+    //private static final Path TYPICAL_EXPENSES_FILE = TEST_DATA_FOLDER.resolve("typicalExpenseExpenseBook.json");
     private static final Path INVALID_EXPENSES_FILE = TEST_DATA_FOLDER.resolve("invalidExpenseExpenseBook.json");
 
     //    @Test
