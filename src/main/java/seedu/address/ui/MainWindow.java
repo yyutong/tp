@@ -38,6 +38,7 @@ public class MainWindow extends UiPart<Stage> {
     private CurrencyExchangeTable currencyExchangeTable;
     private SupportedCurrencyTable supportedCurrencyTable;
     private StatisticTable statisticTable;
+    private HelpCommandWindow helpCommandWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -71,6 +72,7 @@ public class MainWindow extends UiPart<Stage> {
         currencyExchangeTable = new CurrencyExchangeTable();
         supportedCurrencyTable = new SupportedCurrencyTable();
         statisticTable = new StatisticTable(logic);
+        helpCommandWindow = new HelpCommandWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -150,6 +152,20 @@ public class MainWindow extends UiPart<Stage> {
             helpWindow.show();
         } else {
             helpWindow.focus();
+        }
+    }
+
+    /**
+     * Opens the help window or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleHelpCommandWindow() {
+        if (!helpCommandWindow.isShowing()) {
+            helpCommandWindow = new HelpCommandWindow();
+            helpCommandWindow.show();
+        } else {
+            helpCommandWindow = new HelpCommandWindow();
+            helpCommandWindow.focus();
         }
     }
 
@@ -242,6 +258,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowHelpCommandWindow()) {
+                handleHelpCommandWindow();
             }
 
             if (commandResult.isShowStatistics()) {
