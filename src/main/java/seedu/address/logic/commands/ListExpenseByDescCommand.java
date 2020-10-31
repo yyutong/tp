@@ -12,7 +12,7 @@ import seedu.address.model.expense.DescContainsKeywordsPredicate;
  */
 public class ListExpenseByDescCommand extends Command {
 
-    public static final String COMMAND_WORD = "listbydesc";
+    public static final String COMMAND_WORD = "listByDesc";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose description contains any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
