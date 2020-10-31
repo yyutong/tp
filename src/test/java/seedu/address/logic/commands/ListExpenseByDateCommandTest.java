@@ -18,47 +18,48 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.expense.CategoryContainsKeywordsPredicate;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.DateContainsKeywordsPredicate;
 
 /**
- * Contains integration tests (interaction with the Model) for {@code ListExpenseByCategoryCommand}.
+ * Contains integration tests (interaction with the Model) for {@code ListExpenseByDateCommand}.
  */
-public class ListExpenseByCategoryCommandTest {
+public class ListExpenseByDateCommandTest {
     private Model model = new ExpenseModelManager(getTypicalExpenseBook(), new UserPrefs());
     private Model expectedModel = new ExpenseModelManager(getTypicalExpenseBook(), new UserPrefs());
 
     @Test
     public void equals() {
-        CategoryContainsKeywordsPredicate firstPredicate =
-                new CategoryContainsKeywordsPredicate(Collections.singletonList("first"));
-        CategoryContainsKeywordsPredicate secondPredicate =
-                new CategoryContainsKeywordsPredicate(Collections.singletonList("second"));
+        DateContainsKeywordsPredicate firstPredicate =
+                new DateContainsKeywordsPredicate(Collections.singletonList("first"));
+        DateContainsKeywordsPredicate secondPredicate =
+                new DateContainsKeywordsPredicate(Collections.singletonList("second"));
 
-        ListExpenseByCategoryCommand listCategoryFirstCommand = new ListExpenseByCategoryCommand(firstPredicate);
-        ListExpenseByCategoryCommand listCategorySecondCommand = new ListExpenseByCategoryCommand(secondPredicate);
+        ListExpenseByDateCommand listDateFirstCommand = new ListExpenseByDateCommand(firstPredicate);
+        ListExpenseByDateCommand listDateSecondCommand = new ListExpenseByDateCommand(secondPredicate);
 
         // same object -> returns true
-        assertTrue(listCategoryFirstCommand.equals(listCategoryFirstCommand));
+        assertTrue(listDateFirstCommand.equals(listDateFirstCommand));
 
         // same values -> returns true
-        ListExpenseByCategoryCommand listCategoryFirstCommandCopy = new ListExpenseByCategoryCommand(firstPredicate);
-        assertTrue(listCategoryFirstCommand.equals(listCategoryFirstCommandCopy));
+        ListExpenseByDateCommand listDateFirstCommandCopy = new ListExpenseByDateCommand(firstPredicate);
+        assertTrue(listDateFirstCommand.equals(listDateFirstCommandCopy));
 
         // different types -> returns false
-        assertFalse(listCategoryFirstCommand.equals(1));
+        assertFalse(listDateFirstCommand.equals(1));
 
         // null -> returns false
-        assertFalse(listCategoryFirstCommand.equals(null));
+        assertFalse(listDateFirstCommand.equals(null));
 
         // different person -> returns false
-        assertFalse(listCategoryFirstCommand.equals(listCategorySecondCommand));
+        assertFalse(listDateFirstCommand.equals(listDateSecondCommand));
     }
 
     @Test
     public void execute_zeroKeywords_noExpenseFound() {
         String expectedMessage = String.format(MESSAGE_EXPENSES_LISTED_OVERVIEW, 0);
-        CategoryContainsKeywordsPredicate predicate = preparePredicate(" ");
-        ListExpenseByCategoryCommand command = new ListExpenseByCategoryCommand(predicate);
+        DateContainsKeywordsPredicate predicate = preparePredicate(" ");
+        ListExpenseByDateCommand command = new ListExpenseByDateCommand(predicate);
         expectedModel.updateFilteredExpenseList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.emptyList(), model.getFilteredExpenseList());
@@ -66,18 +67,22 @@ public class ListExpenseByCategoryCommandTest {
 
     @Test
     public void execute_multipleKeywords_multipleExpensesFound() {
+        Date firstDate = new Date("1");
+        Date secondDate = new Date("0");
+        String userInput = firstDate.getDate() + " " + secondDate.getDate();
+        DateContainsKeywordsPredicate predicate = preparePredicate(userInput);
+        ListExpenseByDateCommand command = new ListExpenseByDateCommand(predicate);
+
         String expectedMessage = String.format(MESSAGE_EXPENSES_LISTED_OVERVIEW, 3);
-        CategoryContainsKeywordsPredicate predicate = preparePredicate("CLOTHES snacks digital devices");
-        ListExpenseByCategoryCommand command = new ListExpenseByCategoryCommand(predicate);
         expectedModel.updateFilteredExpenseList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(CLOTHES, SNACKS, KEYBOARD), model.getFilteredExpenseList());
     }
 
     /**
-     * Parses {@code userInput} into a {@code CategoryContainsKeywordsPredicate}.
+     * Parses {@code userInput} into a {@code DateContainsKeywordsPredicate}.
      */
-    private CategoryContainsKeywordsPredicate preparePredicate(String userInput) {
-        return new CategoryContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
+    private DateContainsKeywordsPredicate preparePredicate(String userInput) {
+        return new DateContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
     }
 }
