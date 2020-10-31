@@ -111,7 +111,7 @@ public class CommandList {
                 SHOW_STATISTIC_FORMAT, SHOW_STATISTIC_EXAMPLE);
         CommandList sortByAmountCommand = new CommandList(SORT_BY_AMOUNT, SORT_BY_AMOUNT_USAGE,
                 SORT_BY_AMOUNT_FORMAT, SORT_BY_AMOUNT_EXAMPLE);
-        CommandList sortByTimeCommand =  new CommandList(SORT_BY_TIME, SORT_BY_TIME_USAGE,
+        CommandList sortByTimeCommand = new CommandList(SORT_BY_TIME, SORT_BY_TIME_USAGE,
                 SORT_BY_TIME_FORMAT, SORT_BY_TIME_EXAMPLE);
         list.add(addCommand);
         list.add(listCommand);
