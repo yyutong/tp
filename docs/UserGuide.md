@@ -426,7 +426,7 @@ Format: `help`
 
 Examples: `help`
 
-![Help](images/helpCommand.png)
+![Help](images/helpCommandWindow.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
