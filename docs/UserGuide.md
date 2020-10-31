@@ -40,7 +40,7 @@ Choose a section from the table of contents below and start using UniSave.
 ## 1. Overview
 UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave allows tracking expenses in different currencies.
 
-UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. University students are also more familiar with desktop applications and typing.
+UniSave targets international students in university who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. It is catered especially for university students who are more familiar with desktop applications and type fast.
 UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 
