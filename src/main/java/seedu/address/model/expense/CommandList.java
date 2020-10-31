@@ -1,7 +1,5 @@
 package seedu.address.model.expense;
 
-import seedu.address.logic.commands.Command;
-
 import java.util.ArrayList;
 import java.util.List;
 
