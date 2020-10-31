@@ -13,7 +13,6 @@ public class ShowStatisticCommand extends Command {
             + ": Show number of expenses by categories in ascending order. \n"
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS = "Here is your expenses summary! \n";
-    
     /**
      * Create a fixed length of String.
      * Here we use this command mainly to create a fixed length of empty space to simulate a table.
