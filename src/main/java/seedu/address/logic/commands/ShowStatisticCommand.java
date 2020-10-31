@@ -1,12 +1,7 @@
 package seedu.address.logic.commands;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.expense.Category;
 
 /**
  * Show the statistic and brief summary of the user's expenses.
