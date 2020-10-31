@@ -12,6 +12,9 @@ public class HelpCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows program usage instructions.\n"
             + "Example: " + COMMAND_WORD;
 
+    public static final String SUCCESSFUL_MESSAGE = "Please refer to the command summary"
+            + " or the User Guide if you need any help!";
+
     /**
      * Executes the help command.
      * @param model {@code Model} which the command should operate on.
@@ -19,7 +22,6 @@ public class HelpCommand extends Command {
      */
     @Override
     public CommandResult execute(Model model) {
-        String message = "Please refer to the command summary or the User Guide if you need any help!";
-        return new CommandResult(message, true, false);
+        return new CommandResult(SUCCESSFUL_MESSAGE, true, false);
     }
 }
