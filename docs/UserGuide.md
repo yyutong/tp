@@ -439,7 +439,7 @@ Navigate back to the feature list: [Features](#3-features)
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder. <br>
 **Q**: What should I do if I forget what are the command available?<br>
-**A**: You can use `help` command to help you to see the brief summary of the commands available.
+**A**: You can use `help` command to help you to see the brief summary of the commands available or use the summary table below.
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. Glossary 
