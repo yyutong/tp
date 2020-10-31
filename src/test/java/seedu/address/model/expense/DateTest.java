@@ -29,7 +29,7 @@ public class DateTest {
         assertFalse(Date.isValidDate("2020-12")); // not in YYYY-MM-DD format
         assertFalse(Date.isValidDate("124293842")); // Date too large
 
-        // valid phone numbers
+        // valid Date
         assertTrue(Date.isValidDate("1")); // exactly 1 numbers
         assertTrue(Date.isValidDate("2020-09-30")); // in YYYY-MM-DD format
         assertTrue(Date.isValidDate("3650")); // boundary value
