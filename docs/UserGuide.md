@@ -154,25 +154,25 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.3 Listing all expenses in a category : `listbycategory`
+#### 3.3 Listing all expenses in a category : `listByCategory`
 
 You can specify a category and then list all the expenses that belong to that category.
 
-Format: `listbycategory CATEGORY`
+Format: `listByCategory CATEGORY`
 
 Examples:
-* `listbycategory entertainment`: list all the expenses in entertainment.
+* `listByCategory entertainment`: list all the expenses in entertainment.
 
 ![listbycategory](images/listByCategoryCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.4 Listing all expenses by date : `listbydate`
+#### 3.4 Listing all expenses by date : `listByDate`
 
 You can find all the expenses that are saved on a specific date and list them out.
 
-Format: `listbydate YYYY-MM-DD`
+Format: `listByDate YYYY-MM-DD`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The date format `YYYY-MM-DD` is sensitive and only this format is recognisable for this command.
@@ -183,25 +183,25 @@ Multiple date input is allowed.
 </div>
 
 Examples:
-* `listbydate 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+* `listByDate 2020-05-22`: list all the expenses that are saved on 2020-05-22.
 
 ![listbydate](images/listByDateCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.5 Listing all expenses by description : `listbydesc`
+#### 3.5 Listing all expenses by description : `listByDesc`
 
 You can search for keywords in description and list all the expenses which description matches the keywords.
 
-Format: `listbydesc DESCRIPTION`
+Format: `listByDesc DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Multiple description input is allowed.
 </div>
 
 Examples:
-* `listbydesc movies`: list all the expenses which description has the keyword 'movies'.
+* `listByDesc movies`: list all the expenses which description has the keyword 'movies'.
 
 ![listbydesc](images/listByDescCommand.png)
 
@@ -458,9 +458,9 @@ Action | Format, Examples
 --------|------------------
 **Add** | `add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE D/1`
 **List** | `list`
-**List by category** | `listbycategory CATEGORY` <br> e.g., `listbycategory food`
-**List by date** | `listbydate YYYY-MM-DD` <br> e.g., `listbydate 2020-02-20`
-**List by description** | `listbydesc DESCRIPTION` <br> e.g., `listbydesc movies`
+**List by category** | `listByCategory CATEGORY` <br> e.g., `listByCategory food`
+**List by date** | `listByDate YYYY-MM-DD` <br> e.g., `listByDate 2020-02-20`
+**List by description** | `listByDesc DESCRIPTION` <br> e.g., `listByDesc movies`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
 **View existing category labels** | `viewCategory`
