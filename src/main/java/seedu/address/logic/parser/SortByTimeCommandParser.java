@@ -21,7 +21,7 @@ public class SortByTimeCommandParser implements Parser<SortByTimeCommand> {
         String trimmedArgs = args.trim();
         if (args.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortByAmountCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortByTimeCommand.MESSAGE_USAGE));
         }
         assert !trimmedArgs.isEmpty();
 
