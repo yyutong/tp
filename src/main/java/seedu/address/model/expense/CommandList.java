@@ -1,5 +1,7 @@
 package seedu.address.model.expense;
 
+import seedu.address.logic.commands.Command;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,8 +53,16 @@ public class CommandList {
     public static final String EXIT_EXAMPLE = "exit";
     public static final String SHOW_STATISTIC = "SHOW STATISTIC";
     public static final String SHOW_STATISTIC_USAGE = "show an overview of your expenses";
-    public static final String SHOW_STATISTIC_FORMAT = "showStatistic";
-    public static final String SHOW_STATISTIC_EXAMPLE = "showStatistic";
+    public static final String SHOW_STATISTIC_FORMAT = "showstatistics";
+    public static final String SHOW_STATISTIC_EXAMPLE = "showstatistics";
+    public static final String SORT_BY_AMOUNT = "SORT BY AMOUNT";
+    public static final String SORT_BY_TIME = "SORT BY TIME";
+    public static final String SORT_BY_AMOUNT_USAGE = "sort expenses by amount in ascending/descending order";
+    public static final String SORT_BY_TIME_USAGE = "sort expenses by time in ascending/descending order";
+    public static final String SORT_BY_AMOUNT_FORMAT = "sortbyamount ORDER";
+    public static final String SORT_BY_TIME_FORMAT = "sortbytime ORDER";
+    public static final String SORT_BY_AMOUNT_EXAMPLE = "sortbyamount ascending";
+    public static final String SORT_BY_TIME_EXAMPLE = "sortbytime descending";
     private final String command;
     private final String usage;
     private final String format;
@@ -101,6 +111,10 @@ public class CommandList {
                 EXIT_FORMAT, EXIT_EXAMPLE);
         CommandList showStatisticCommand = new CommandList(SHOW_STATISTIC, SHOW_STATISTIC_USAGE,
                 SHOW_STATISTIC_FORMAT, SHOW_STATISTIC_EXAMPLE);
+        CommandList sortByAmountCommand = new CommandList(SORT_BY_AMOUNT, SORT_BY_AMOUNT_USAGE,
+                SORT_BY_AMOUNT_FORMAT, SORT_BY_AMOUNT_EXAMPLE);
+        CommandList sortByTimeCommand =  new CommandList(SORT_BY_TIME, SORT_BY_TIME_USAGE,
+                SORT_BY_TIME_FORMAT, SORT_BY_TIME_EXAMPLE);
         list.add(addCommand);
         list.add(listCommand);
         list.add(listByCategoryCommand);
@@ -113,6 +127,8 @@ public class CommandList {
         list.add(showBudgeCommand);
         list.add(exitCommand);
         list.add(showStatisticCommand);
+        list.add(sortByAmountCommand);
+        list.add(sortByTimeCommand);
         return list;
     }
 }
