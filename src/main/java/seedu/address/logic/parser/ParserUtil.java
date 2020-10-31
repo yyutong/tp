@@ -44,12 +44,15 @@ public class ParserUtil {
      */
     public static Amount parseAmount(String amount) throws ParseException {
         requireNonNull(amount);
-        String trimmedAmount = amount.trim();
-        Double convertedAmount = Double.parseDouble(trimmedAmount);
-        if (!Amount.isValidAmount(convertedAmount)) {
+        try {
+            double entered =  Double.parseDouble(amount.trim());
+            if (!Amount.isValidAmount(entered)) {
+                throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+            }
+            return new Amount(entered);
+        } catch (Exception pe) {
             throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
         }
-        return new Amount(convertedAmount);
     }
 
     /**
