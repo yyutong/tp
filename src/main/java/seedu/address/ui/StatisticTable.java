@@ -32,8 +32,8 @@ public class StatisticTable extends UiPart<Stage> {
 
     private TableColumn category = new TableColumn("Category");
     private TableColumn numberOfExpense = new TableColumn("Number of Expenses");
-    private TableColumn percentage = new TableColumn("Percentage");
-    private TableColumn totalSpending = new TableColumn("Total Spending");
+    private TableColumn percentage = new TableColumn("Percentage(%)");
+    private TableColumn totalSpending = new TableColumn("Total Spending($)");
 
     private ObservableList<StatisticSummary> list = FXCollections.observableArrayList();
 
@@ -51,6 +51,7 @@ public class StatisticTable extends UiPart<Stage> {
         super(FXML, root);
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
+        statisticTable.setMinWidth(450);
     }
 
     /**
