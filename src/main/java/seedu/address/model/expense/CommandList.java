@@ -15,8 +15,8 @@ public class CommandList {
     public static final String LIST_EXPENSE_EXAMPLE = "list";
     public static final String LIST_BY_CATEGORY = "LIST BY CATEGORY";
     public static final String LIST_BY_CATEGORY_USAGE = "LIST expenses of a category";
-    public static final String LIST_BY_CATEGORY_FORMAT = "listbycategory CATEGORY";
-    public static final String LIST_BY_CATEGORY_EXAMPLE = "listbycategory entertainment";
+    public static final String LIST_BY_CATEGORY_FORMAT = "listByCategory CATEGORY";
+    public static final String LIST_BY_CATEGORY_EXAMPLE = "listByCategory entertainment";
     public static final String DELETE = "DELETE";
     public static final String DELETE_USAGE = "delete a specified expense";
     public static final String DELETE_FORMAT = "delete INDEX";
