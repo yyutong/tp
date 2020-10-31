@@ -20,8 +20,6 @@ import seedu.address.model.expense.StatisticSummary;
 
 public class StatisticTable extends UiPart<Stage> {
 
-    public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
-    public static final String MESSAGE = "Here are the brief summary of your expenses \n";
     private static final String FXML = "StatisticTable.fxml";
     private static boolean hasStats = false;
 
@@ -134,17 +132,6 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public void focus() {
         getRoot().requestFocus();
-    }
-
-    /**
-     * Copies the URL to the user guide to the clipboard.
-     */
-    @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        url.putString(URL);
-        clipboard.setContent(url);
     }
 
 }
