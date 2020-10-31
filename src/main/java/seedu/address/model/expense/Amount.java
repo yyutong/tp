@@ -27,7 +27,7 @@ public class Amount {
      * Returns true if a given amount is a valid amount.
      */
     public static boolean isValidAmount(Double value) {
-        return value >= 0;
+        return value > 0;
     }
 
     @Override
