@@ -10,7 +10,7 @@ public class ShowStatisticCommand extends Command {
 
     public static final String COMMAND_WORD = "showstatistics";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": show number of expenses by categories in ascending order. \n"
+            + ": Show number of expenses by categories in ascending order. \n"
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_SHOW_STATISTIC_LABELS_SUCCESS = "Here is your expenses summary! \n";
     
