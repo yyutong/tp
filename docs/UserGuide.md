@@ -13,9 +13,9 @@ Choose a section from the table of contents below and start using UniSave.
     * [3. Features](#3-features)
         * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
         * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
-        * [3.3 Listing all expenses in a category : `listbycategory`](#33-listing-all-expenses-in-a-category--listbycategory)
-        * [3.4 Listing all expenses by date : `listbydate`](#34-listing-all-expenses-by-date--listbydate)
-        * [3.5 Listing all expenses by description : `listbydesc`](#35-listing-all-expenses-by-description--listbydesc)
+        * [3.3 Listing all expenses in a category : `listByCategory`](#33-listing-all-expenses-in-a-category--listbycategory)
+        * [3.4 Listing all expenses by date : `listByDate`](#34-listing-all-expenses-by-date--listbydate)
+        * [3.5 Listing all expenses by description : `listByDesc`](#35-listing-all-expenses-by-description--listbydesc)
         * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
         * [3.7 View an expense : `view`](#37-view-an-expense--view)
         * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
@@ -77,9 +77,9 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
  * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
  * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
- * [3.3 Listing all expenses in a category : `listbycategory`](#33-listing-all-expenses-in-a-category--listbycategory)
- * [3.4 Listing all expenses by date : `listbydate`](#34-listing-all-expenses-by-date--listbydate)
- * [3.5 Listing all expenses by description : `listbydesc`](#35-listing-all-expenses-by-description--listbydesc)
+ * [3.3 Listing all expenses in a category : `listByCategory`](#33-listing-all-expenses-in-a-category--listbycategory)
+ * [3.4 Listing all expenses by date : `listByDate`](#34-listing-all-expenses-by-date--listbydate)
+ * [3.5 Listing all expenses by description : `listByDesc`](#35-listing-all-expenses-by-description--listbydesc)
  * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
  * [3.7 View an expense : `view`](#37-view-an-expense--view)
  * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
@@ -116,6 +116,7 @@ Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date can be given in one of these two forms:
 i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
+ii) Note that when date is given as a single integer, it should not be less than 0 or greater than 3650
 ii) A date is given as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
 </div>
 
