@@ -377,9 +377,9 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.17 Show the statistic of the expenses: `showStatistic`
 
-Show the overview of the expenses, such as the total number of expenses as welll as the total spending.
+Show the overview of the expenses, such as the total number of expenses as well as the total spending.
 
-There are arranging in descending order in which the category that you spent the most will on the first row.
+There are arranging in descending order in which the category that you spent the most will be on the first row.
 
 Format: `showStatistic`
 
