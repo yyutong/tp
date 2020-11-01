@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Category {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Category Names should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Category names should only contain alphanumeric characters and spaces, and it should not be blank";
 
     /*
      * The first character of the category name must not be a whitespace,
