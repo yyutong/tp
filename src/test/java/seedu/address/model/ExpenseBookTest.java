@@ -101,5 +101,9 @@ class ExpenseBookTest {
         public List<StatisticSummary> getStatisticTable() {
             return new ArrayList<StatisticSummary>();
         }
+        @Override
+        public Budget getRemainingBudget() {
+            return new Budget(10.0);
+        }
     }
 }
