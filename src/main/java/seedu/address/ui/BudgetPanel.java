@@ -34,21 +34,25 @@ public class BudgetPanel extends UiPart<Region> {
 
         this.budget = logic.getExpenseBook().getBudget();
 
-        budgetAmount.setText(String.format("Current budget: %.2f", budget.getValue()));
+        budgetAmount.setText(String.format("Current budget: %.2f, %s", budget.getValue(),
+                logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %.2f",
-                logic.getExpenseBook().getRemainingBudget().getValue()));
+        budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
+                logic.getExpenseBook().getRemainingBudget().getValue(),
+                logic.getExpenseBook().getCurrency()));
     }
 
     /**
      * Update the budget statistics shown in the GUI.
      */
     public void update() {
-        budgetAmount.setText(String.format("Current budget: %.2f",
-                logic.getExpenseBook().getBudget().getValue()));
+        budgetAmount.setText(String.format("Current budget: %.2f %s",
+                logic.getExpenseBook().getBudget().getValue(),
+                logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %.2f",
-                logic.getExpenseBook().getRemainingBudget().getValue()));
+        budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
+                logic.getExpenseBook().getRemainingBudget().getValue(),
+                logic.getExpenseBook().getCurrency()));
     }
 
 }
