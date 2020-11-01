@@ -8,7 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Amount {
     public static final String MESSAGE_CONSTRAINTS =
-            "Amount should only positive numbers";
+            "Amount should only positive numbers.";
 
 
     public final Double value;
@@ -27,7 +27,7 @@ public class Amount {
      * Returns true if a given amount is a valid amount.
      */
     public static boolean isValidAmount(Double value) {
-        return value >= 0;
+        return value > 0;
     }
 
     @Override
