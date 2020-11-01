@@ -39,6 +39,7 @@ public class MainWindow extends UiPart<Stage> {
     private SupportedCurrencyTable supportedCurrencyTable;
     private StatisticTable statisticTable;
     private HelpCommandWindow helpCommandWindow;
+    private BudgetPanel budgetPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -54,6 +55,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private StackPane budgetPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -115,6 +119,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         expenseListPanel = new ExpenseListPanel(logic.getFilteredExpenseList());
+
         expenseListPanelPlaceholder
                 .getChildren()
                 .add(
@@ -129,6 +134,9 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        budgetPanel = new BudgetPanel(logic);
+        budgetPlaceholder.getChildren().add(budgetPanel.getRoot());
     }
 
     /**
@@ -245,6 +253,10 @@ public class MainWindow extends UiPart<Stage> {
         return expenseListPanel;
     }
 
+    public BudgetPanel getBudgetPanel() {
+        return budgetPanel;
+    }
+
     /**
      * Executes the command and returns the result.
      *
@@ -255,6 +267,7 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+            budgetPanel.update();
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
