@@ -9,7 +9,7 @@ import seedu.address.model.Model;
  * Sort the expenses by their amount.
  */
 public class SortByAmountCommand extends Command {
-    public static final String COMMAND_WORD = "sortbyamount";
+    public static final String COMMAND_WORD = "sort-a";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all existing expenses by descending  "
             + "or ascending amount.\n"

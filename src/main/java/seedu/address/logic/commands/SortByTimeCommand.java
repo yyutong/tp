@@ -9,7 +9,7 @@ import seedu.address.model.Model;
  * Sort the expenses by their the of spending.
  */
 public class SortByTimeCommand extends Command {
-    public static final String COMMAND_WORD = "sortbytime";
+    public static final String COMMAND_WORD = "sort-t";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all existing expenses by descending  "
             + "or ascending time.\n"
