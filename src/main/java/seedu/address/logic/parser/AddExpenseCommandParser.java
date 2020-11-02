@@ -33,13 +33,10 @@ public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_AMOUNT, PREFIX_CATEGORY, PREFIX_DATE, PREFIX_DESCRIPTION);
 
-        System.out.println("hey");
         if (!arePrefixesPresent(argMultimap, PREFIX_AMOUNT, PREFIX_CATEGORY)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddExpenseCommand.MESSAGE_USAGE));
         }
-
-        System.out.println("hey1");
         Amount amount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
         Currency currency = ExpenseBook.currency();
         Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).orElse(""));

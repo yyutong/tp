@@ -12,6 +12,7 @@ import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
+import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
@@ -66,6 +67,8 @@ public class ExpenseBookParser {
             return new ViewCategoryCommandParser().parse(arguments);
         case AddDescriptionCommand.COMMAND_WORD:
             return new AddDescriptionCommandParser().parse(arguments);
+        case EditCommand.COMMAND_WORD:
+            return new EditCommandParser().parse(arguments);
         case DeleteDescriptionCommand.COMMAND_WORD:
             return new DeleteDescriptionCommandParser().parse(arguments);
         case ListExpenseByCategoryCommand.COMMAND_WORD:
