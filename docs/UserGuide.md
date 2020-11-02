@@ -31,6 +31,7 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
         * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
         * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
+        * [3.21 Edit an expense : `edit`](#321-edit-an-expense--edit)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -95,6 +96,7 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
  * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
  * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
+ * [3.21 Edit an expense : `edit`](#321-edit-an-expense--edit)
 
 <div markdown="block" class="alert alert-info">
 
@@ -270,13 +272,13 @@ The newly added description will override the existing description of the specif
 If you use `addDes INDEX` or `addDes INDEX d/` without specifying the description field, the existing description will be removed.
 </div>
 
-Format: `addDes INDEX d/DESCRIPTION`
+Format: `add-d INDEX d/DESCRIPTION`
 
 * Add description field to the expense at the specified `INDEX`. The `INDEX` refers to the index number shown in the displayed expense list. The index **must be a positive integer** 1, 2, 3, …​
 * Existing description will be overwrote to the new description.
 
 Examples:
-`addDes 3 d/movies` Add the description field `movies` to the 3rd expense.
+`add-d 3 d/movies` Add the description field `movies` to the 3rd expense.
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -286,7 +288,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 Delete the description field of an existing expense.
 
-Format: `deleteDes INDEX`
+Format: `delete-d INDEX`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The description field of the specified expense will still exist, just that it will be empty.
@@ -298,7 +300,7 @@ The description field of the specified expense will still exist, just that it wi
 * The `INDEX` **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-`deleteDes 6` Deletes the description field of the 1st expense.
+`delete-d 6` Deletes the description field of the 1st expense.
 
 ![deleteDes](images/deleteDesCommand.png)
 
@@ -308,10 +310,10 @@ Navigate back to the feature list: [Features](#3-features)
 
 Set the budget for UniSave. Default budget is 0 SGD.
 
-Format: `setBudget AMOUNT`
+Format: `setbudget AMOUNT`
 
 Example:
-`setBudget 500.0`: Set the budget to 500.
+`setbudget 500.0`: Set the budget to 500.
 
 ![setBudget](images/setBudgetCommand.png)
 
@@ -324,7 +326,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 Show the budget last set and the remaining budget in the UniSave.
 
-Format: `showBudget`
+Format: `showbudget`
 
 ![showBudget](images/showBudgetCommand.png)
 
@@ -382,9 +384,9 @@ Show the overview of the expenses, such as the total number of expenses as well 
 
 There are arranging in descending order in which the category that you spent the most will be on the first row.
 
-Format: `showStatistic`
+Format: `showstatistics`
 
-Examples: `showStatistic`
+Examples: `showstatistics`
 
 ![showStatistic](images/showStatisticCommand.png)
 
@@ -431,6 +433,27 @@ Examples: `help`
 
 Navigate back to the feature list: [Features](#3-features)
 
+#### 3.21 Edit an expense : `edit`
+
+Edit an existing expense in the expense book.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The newly added information will override the existing information of the specified expense.
+</div>
+
+Format: `edit INDEX [filed to be edited with the correct prefix]`
+
+* Edit a field to the expense at the specified `INDEX`. The `INDEX` refers to the index number shown in the displayed expense list. The index **must be a positive integer** 1, 2, 3, …​
+* Existing expense information will be overwrote to the new information.
+* prefix for `Amount`: `a/` ; prefix for `Category`: `c/` ; prefix for `Date`: `D/` ; prefix for `Description`: `d/`
+
+Examples:
+if you want to change the amount
+`edit 1 a/10.2` Change the amount field to 10.2.
+![Edit](images/EditCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -474,6 +497,7 @@ Action | Format, Examples
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
 **Exit** | `exit` <br> e.g., `exit`
+**Edit** | `edit INDEX [field to be edited with the correct prefix]` <br> e.g., `edit 1 a/10.2`
 
 
 
