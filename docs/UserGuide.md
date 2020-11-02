@@ -18,16 +18,16 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.5 Listing all expenses by description : `filter-d`](#35-listing-all-expenses-by-description--filter-d)
         * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
         * [3.7 View an expense : `view`](#37-view-an-expense--view)
-        * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
-        * [3.9 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
-        * [3.10 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
-        * [3.11 Set Budget : `setBudget`](#311-set-budget--setbudget)
-        * [3.12 Show budget : `showBudget`](#312-show-budget--showbudget)
+        * [3.8 View Category Labels : `viewcategories`](#38-view-category-labels--viewcategories)
+        * [3.9 Add a description to an expense : `add-d`](#39-add-a-description-to-an-expense--add-d)
+        * [3.10 Delete description of an expense: `delete-d`](#310-delete-description-of-an-expense-delete-d)
+        * [3.11 Set Budget : `setbudget`](#311-set-budget--setbudget)
+        * [3.12 Show budget : `showbudget`](#312-show-budget--showbudget)
         * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
         * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
         * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
         * [3.16 Saving the data](#316-saving-the-data)
-        * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+        * [3.17 Show the statistic of the expenses: `showstatistics`](#317-show-the-statistic-of-the-expenses-showstatistics)
         * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
         * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
         * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
@@ -82,16 +82,16 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.5 Listing all expenses by description : `filter-d`](#35-listing-all-expenses-by-description--filter-d)
  * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
  * [3.7 View an expense : `view`](#37-view-an-expense--view)
- * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
- * [3.9 Add a description to an expense : `addDes`](#39-add-a-description-to-an-expense--adddes)
- * [3.10 Delete description of an expense: `deleteDes`](#310-delete-description-of-an-expense-deletedes)
- * [3.11 Set Budget : `setBudget`](#311-set-budget--setbudget)
- * [3.12 Show budget : `showBudget`](#312-show-budget--showbudget)
+ * [3.8 View Category Labels : `viewcategories`](#38-view-category-labels--viewcategories)
+ * [3.9 Add a description to an expense : `add-d`](#39-add-a-description-to-an-expense--add-d)
+ * [3.10 Delete description of an expense: `delete-d`](#310-delete-description-of-an-expense-delete-d)
+ * [3.11 Set Budget : `setbudget`](#311-set-budget--setbudget)
+ * [3.12 Show budget : `showbudget`](#312-show-budget--showbudget)
  * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
  * [3.14 Clear data in UniSave : `clear`](#314-clear-data-in-unisave--clear)
  * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
  * [3.16 Saving the data](#316-saving-the-data)
- * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
+ * [3.17 Show the statistic of the expenses: `showstatistics`](#317-show-the-statistic-of-the-expenses-showstatistics)
  * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
  * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
  * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
@@ -250,7 +250,7 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.8 View Category Labels : `viewCategory`
+#### 3.8 View Category Labels : `viewcategories`
 
 Show all the category lables used in the UniSave.
 
@@ -258,7 +258,7 @@ Format: `viewCategory`
 
 ![viewCategory](images/viewCategoryCommand.png)
 
-#### 3.9 Add a description to an expense : `addDes`
+#### 3.9 Add a description to an expense : `add-d`
 
 Add a description to an existing expense in the finance book.
 
@@ -282,7 +282,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
-#### 3.10 Delete description of an expense: `deleteDes`
+#### 3.10 Delete description of an expense: `delete-d`
 
 Delete the description field of an existing expense.
 
@@ -304,7 +304,7 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.11 Set Budget : `setBudget`
+#### 3.11 Set Budget : `setbudget`
 
 Set the budget for UniSave. Default budget is 0 SGD.
 
@@ -320,7 +320,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 
 
-#### 3.12 Show budget : `showBudget`
+#### 3.12 Show budget : `showbudget`
 
 Show the budget last set and the remaining budget in the UniSave.
 
@@ -376,7 +376,7 @@ UniSave data are saved in the hard disk automatically after any command that cha
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.17 Show the statistic of the expenses: `showStatistic`
+#### 3.17 Show the statistic of the expenses: `showstatistics`
 
 Show the overview of the expenses, such as the total number of expenses as well as the total spending.
 
@@ -465,12 +465,12 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
 **View existing category labels** | `viewCategory`
-**Add Description** | `addDes INDEX d/DESCRIPTION`<br> e.g., `addDes 2 d/ENTERTAINMENT`
-**Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
-**Set Budget** | `setBudget AMOUNT`<br> e.g., `setBudget 1000`
-**Show Budget** | `showBudget` <br> e.g., `showBudget`
+**Add Description** | `add-d INDEX d/DESCRIPTION`<br> e.g., `add-d 2 d/ENTERTAINMENT`
+**Delete Description** | `delete-d INDEX`<br> e.g., `delete-d 2`
+**Set Budget** | `setbudget AMOUNT`<br> e.g., `setbudget 1000`
+**Show Budget** | `showbudget` <br> e.g., `showbudget`
 **Exchange Currency** | `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE` <br> e.g., `exchange s/CNY xr/5`
-**Show Statistic** | `showStatistic`<br> e.g., `showStatistic`
+**Show Statistic** | `showstatistics`<br> e.g., `showstatistics`
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
 **Exit** | `exit` <br> e.g., `exit`
