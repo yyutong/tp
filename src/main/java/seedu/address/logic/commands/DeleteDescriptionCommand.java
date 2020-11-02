@@ -14,7 +14,7 @@ import seedu.address.model.expense.Expense;
 
 
 /**
- * Delete the description of an existing expenses in the address book.
+ * Delete the description of an existing expenses in the expense book.
  */
 public class DeleteDescriptionCommand extends Command {
 

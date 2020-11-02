@@ -24,7 +24,7 @@ public class SetBudgetCommand extends Command {
     }
 
     /**
-     * Executes the se budget command.
+     * Executes the set budget command.
      * @param model {@code Model} which the command should operate on.
      * @return A command result in which the budget for the expense book being set.
      */

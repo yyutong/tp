@@ -13,9 +13,9 @@ Choose a section from the table of contents below and start using UniSave.
     * [3. Features](#3-features)
         * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
         * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
-        * [3.3 Listing all expenses in a category : `listByCategory`](#33-listing-all-expenses-in-a-category--listbycategory)
-        * [3.4 Listing all expenses by date : `listByDate`](#34-listing-all-expenses-by-date--listbydate)
-        * [3.5 Listing all expenses by description : `listByDesc`](#35-listing-all-expenses-by-description--listbydesc)
+        * [3.3 Listing all expenses in a category : `filter-c`](#33-listing-all-expenses-in-a-category--filter-c)
+        * [3.4 Listing all expenses by date : `filter-t`](#34-listing-all-expenses-by-date--filter-t)
+        * [3.5 Listing all expenses by description : `filter-d`](#35-listing-all-expenses-by-description--filter-d)
         * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
         * [3.7 View an expense : `view`](#37-view-an-expense--view)
         * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
@@ -28,8 +28,8 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
         * [3.16 Saving the data](#316-saving-the-data)
         * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
-        * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
-        * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-date-of-expense-sortbytime)
+        * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
+        * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
         * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
@@ -77,9 +77,9 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
 
  * [3.1 Adding an expense: `add`](#31-adding-an-expense-add)
  * [3.2 Listing all expenses : `list`](#32-listing-all-expenses--list)
- * [3.3 Listing all expenses in a category : `listByCategory`](#33-listing-all-expenses-in-a-category--listbycategory)
- * [3.4 Listing all expenses by date : `listByDate`](#34-listing-all-expenses-by-date--listbydate)
- * [3.5 Listing all expenses by description : `listByDesc`](#35-listing-all-expenses-by-description--listbydesc)
+ * [3.3 Listing all expenses in a category : `filter-c`](#33-listing-all-expenses-in-a-category--filter-c)
+ * [3.4 Listing all expenses by date : `filter-t`](#34-listing-all-expenses-by-date--filter-t)
+ * [3.5 Listing all expenses by description : `filter-d`](#35-listing-all-expenses-by-description--filter-d)
  * [3.6 Deleting an expense: `delete`](#36-deleting-an-expense-delete)
  * [3.7 View an expense : `view`](#37-view-an-expense--view)
  * [3.8 View Category Labels : `viewCategory`](#38-view-category-labels--viewcategory)
@@ -92,8 +92,8 @@ you can type **`help`** You will be able to see a guide to briefly show you how 
  * [3.15 Exiting the program : `exit`](#315-exiting-the-program--exit)
  * [3.16 Saving the data](#316-saving-the-data)
  * [3.17 Show the statistic of the expenses: `showStatistic`](#317-show-the-statistic-of-the-expenses-showstatistic)
- * [3.18 Sort expenses by the amount of each expense: `sortByAmount`](#318-sort-existing-expenses-by-the-amount-of-expense-sortbyamount)
- * [3.19 Sort expenses by the date of each expense: `sortByTime`](#319-sort-existing-expenses-by-the-date-of-expense-sortbytime)
+ * [3.18 Sort expenses by the amount of each expense: `sort-a`](#318-sort-existing-expenses-by-the-amount-of-expense-sort-a)
+ * [3.19 Sort expenses by the date of each expense: `sort-t`](#319-sort-existing-expenses-by-the-date-of-expense-sort-t)
  * [3.20 Use Help Command to help you find all the commands: `help`](#320-use-help-command-to-help-you-find-all-the-commands-help)
 
 <div markdown="block" class="alert alert-info">
@@ -155,25 +155,25 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.3 Listing all expenses in a category : `listByCategory`
+#### 3.3 Listing all expenses in a category : `filter-c`
 
 You can specify a category and then list all the expenses that belong to that category.
 
-Format: `listByCategory CATEGORY`
+Format: `filter-c CATEGORY`
 
 Examples:
-* `listByCategory entertainment`: list all the expenses in entertainment.
+* `filter-c entertainment`: list all the expenses in entertainment.
 
-![listbycategory](images/listByCategoryCommand.png)
+![filter-c](images/listByCategoryCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.4 Listing all expenses by date : `listByDate`
+#### 3.4 Listing all expenses by date : `filter-t`
 
 You can find all the expenses that are saved on a specific date and list them out.
 
-Format: `listByDate YYYY-MM-DD`
+Format: `filter-t YYYY-MM-DD`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The date format `YYYY-MM-DD` is sensitive and only this format is recognisable for this command.
@@ -184,27 +184,27 @@ Multiple date input is allowed.
 </div>
 
 Examples:
-* `listByDate 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+* `filter-t 2020-05-22`: list all the expenses that are saved on 2020-05-22.
 
-![listbydate](images/listByDateCommand.png)
+![filter-t](images/listByDateCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
 
-#### 3.5 Listing all expenses by description : `listByDesc`
+#### 3.5 Listing all expenses by description : `filter-d`
 
 You can search for keywords in description and list all the expenses which description matches the keywords.
 
-Format: `listByDesc DESCRIPTION`
+Format: `filter-d DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Multiple description input is allowed.
 </div>
 
 Examples:
-* `listByDesc movies`: list all the expenses which description has the keyword 'movies'.
+* `filter-d movies`: list all the expenses which description has the keyword 'movies'.
 
-![listbydesc](images/listByDescCommand.png)
+![filter-d](images/listByDescCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -390,13 +390,13 @@ Examples: `showStatistic`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.18 Sort existing expenses by the amount of expense: `sortByAmount`
+#### 3.18 Sort existing expenses by the amount of expense: `sort-a`
 
 Show all existing expenses which sre sorted by amount of expense in either descending or ascending order.
-Format: `sortByAmount descending`
-        `sortByAmount ascending`
+Format: `sort-a descending`
+        `sort-a ascending`
 
-Examples: `sortByAmount ascending`
+Examples: `sort-a ascending`
 
 ![sort by amount in descending order](images/sortByAmount%20descending.png)
 
@@ -404,13 +404,13 @@ Examples: `sortByAmount ascending`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.19 Sort existing expenses by the date of expense: `sortByTime`
+#### 3.19 Sort existing expenses by the date of expense: `sort-t`
 
 Show all existing expenses which sre sorted by date of expense in either descending or ascending order.
-Format: `sortByTime descending`
-        `sortByTime ascending`
+Format: `sort-t descending`
+        `sort-t ascending`
 
-Examples: `sortByTime descending`
+Examples: `sort-t descending`
 
 ![sort by time in descending order](images/sortByTime%20descending.png)
 
@@ -459,9 +459,9 @@ Action | Format, Examples
 --------|------------------
 **Add** | `add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]` <br> e.g., `add a/100 c/FOODBEVERAGE D/1`
 **List** | `list`
-**List by category** | `listByCategory CATEGORY` <br> e.g., `listByCategory food`
-**List by date** | `listByDate YYYY-MM-DD` <br> e.g., `listByDate 2020-02-20`
-**List by description** | `listByDesc DESCRIPTION` <br> e.g., `listByDesc movies`
+**List by category** | `filter-c CATEGORY` <br> e.g., `filter-c food`
+**List by date** | `filter-t YYYY-MM-DD` <br> e.g., `filter-t 2020-02-20`
+**List by description** | `filter-d DESCRIPTION` <br> e.g., `filter-d movies`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **View** | `view INDEX`<br> e.g., `view 5`
 **View existing category labels** | `viewCategory`

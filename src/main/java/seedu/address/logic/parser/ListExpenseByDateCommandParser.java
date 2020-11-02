@@ -33,6 +33,13 @@ public class ListExpenseByDateCommandParser implements Parser<ListExpenseByDateC
     }
 
     // for each input date, check dashes
+
+    /**
+     * Loop through all the inputDate in {@code inputDates} and check the date is valid.
+     * The validity of date is based on format YYYY-MM-DD. This method is checking for 2 dashes appear in the date.
+     * @param inputDates
+     * @throws ParseException
+     */
     private void checkValidDate(String[] inputDates) throws ParseException {
         // create a new array for dates to not modifying original array
         String[] copyDates = new String[inputDates.length];

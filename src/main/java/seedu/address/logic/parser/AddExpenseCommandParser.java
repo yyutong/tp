@@ -20,7 +20,7 @@ import seedu.address.model.expense.Expense;
 
 
 /**
- * Parses input arguments and creates a new AddCommand object
+ * Parses input arguments and creates a new AddExpenseCommand object
  */
 public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
 
