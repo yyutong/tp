@@ -21,6 +21,8 @@ public class BudgetPanel extends UiPart<Region> {
     private Label budgetAmount;
     @FXML
     private Label budgetRemaining;
+    @FXML
+    private Label totalSpending;
 
     /**
      * Constructs a BudgetPanel object.
@@ -40,6 +42,10 @@ public class BudgetPanel extends UiPart<Region> {
         budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
                 logic.getExpenseBook().getRemainingBudget().getValue(),
                 logic.getExpenseBook().getCurrency()));
+        totalSpending.setText(String.format("Total spending: %.2f %s",
+                logic.getExpenseBook().getBudget().getValue()
+                - logic.getExpenseBook().getRemainingBudget().getValue(),
+                logic.getExpenseBook().getCurrency()));
     }
 
     /**
@@ -52,6 +58,11 @@ public class BudgetPanel extends UiPart<Region> {
 
         budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
                 logic.getExpenseBook().getRemainingBudget().getValue(),
+                logic.getExpenseBook().getCurrency()));
+
+        totalSpending.setText(String.format("Total spending: %.2f %s",
+                logic.getExpenseBook().getBudget().getValue()
+                        - logic.getExpenseBook().getRemainingBudget().getValue(),
                 logic.getExpenseBook().getCurrency()));
     }
 

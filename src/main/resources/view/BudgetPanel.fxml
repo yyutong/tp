@@ -21,6 +21,9 @@
                 <Label fx:id="budgetAmount" styleClass="cell_big_label" text="\$budgetAmount" />
             </HBox>
             <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label fx:id="totalSpending" styleClass="cell_big_label" text="\$totalSpending" />
+            </HBox>
+            <HBox spacing="5" alignment="CENTER_LEFT">
                 <Label fx:id="budgetRemaining" styleClass="cell_big_label" text="\$budgetRemaining" />
             </HBox>
         </VBox>
