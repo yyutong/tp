@@ -9,12 +9,12 @@ import seedu.address.model.expense.Currency;
  */
 public class ShowBudgetCommand extends Command {
 
-    public static final String COMMAND_WORD = "showBudget";
+    public static final String COMMAND_WORD = "showbudget";
     public static final String MESSAGE_BUDGET = "Current budget is: %s %s\n";
     public static final String MESSAGE_REMAINING = "Remaining budget is: %s %s\n";
     public static final String MESSAGE_SETNEW = "Your remaining budget is %s %s, "
             + "seems like you're broke.\n"
-            + "Please set a new budget with command: setBudget AMOUNT\n";
+            + "Please set a new budget with command: setbudget AMOUNT\n";
 
     /**
      * Executes the show budget command.
