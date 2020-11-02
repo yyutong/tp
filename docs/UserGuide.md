@@ -116,6 +116,10 @@ Adds an expense, including fields amount, category, date, description, to your e
 Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Amount and Category are compulsory field while Date and Description are optional
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A date can be given in one of these two forms:
 i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
 ii) Note that when date is given as a single integer, it should not be less than 0 or greater than 3650
@@ -256,7 +260,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 Show all the category lables used in the UniSave.
 
-Format: `viewCategory`
+Format: `viewcategories`
 
 ![viewCategory](images/viewCategoryCommand.png)
 
