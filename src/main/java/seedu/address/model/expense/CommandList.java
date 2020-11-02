@@ -25,15 +25,15 @@ public class CommandList {
     public static final String VIEW_USAGE = "view a specified expense";
     public static final String VIEW_FORMAT = "view INDEX";
     public static final String VIEW_EXAMPLE = "view 2";
-    public static final String VIEW_CATEGORY = "VIEW";
+    public static final String VIEW_CATEGORY = "VIEW CATEGORIES";
     public static final String VIEW_CATEGORY_USAGE = "view all the categories";
     public static final String VIEW_CATEGORY_FORMAT = "viewcategories";
     public static final String VIEW_CATEGORY_EXAMPLE = "viewcategories";
-    public static final String ADD_DESCRIPTION = "VIEW";
+    public static final String ADD_DESCRIPTION = "ADD DESCRIPTION";
     public static final String ADD_DESCRIPTION_USAGE = "add a description to an expense";
     public static final String ADD_DESCRIPTION_FORMAT = "add-d INDEX D/DESCRIPTION";
     public static final String ADD_DESCRIPTION_EXAMPLE = "add-d 3 d/movies";
-    public static final String DELETE_DESCRIPTION = "VIEW";
+    public static final String DELETE_DESCRIPTION = "DELETE DESCRIPTION";
     public static final String DELETE_DESCRIPTION_USAGE = "delete a description of an expense";
     public static final String DELETE_DESCRIPTION_FORMAT = "delete-d INDEX";
     public static final String DELETE_DESCRIPTION_EXAMPLE = "delete-d 6";
@@ -69,6 +69,10 @@ public class CommandList {
     public static final String FILTER_BY_DATE_USAGE = "filter the expenses by date";
     public static final String FILTER_BY_DATE_FORMAT = "filter-t YYYY-MM-DD";
     public static final String FILTER_BY_DATE_EXAMPLE = "filter-t 2020-11-02";
+    public static final String HELP = "HELP";
+    public static final String HELP_USAGE = "look for help when using the app";
+    public static final String HELP_FORMAT = "help";
+    public static final String HELP_EXAMPLE = "help";
     private final String command;
     private final String usage;
     private final String format;
@@ -125,22 +129,25 @@ public class CommandList {
                 FILTER_BY_DATE_FORMAT, FILTER_BY_DATE_EXAMPLE);
         CommandList filterByDescriptionCommand = new CommandList(FILTER_BY_DESCRIPTION, FILTER_BY_DESCRIPTION_USAGE,
                 FILTER_BY_DESCRIPTION_FORMAT, FILTER_BY_DESCRIPTION_EXAMPLE);
+        CommandList helpCommand = new CommandList(HELP, HELP_USAGE,
+                HELP_FORMAT, HELP_EXAMPLE);
         list.add(addCommand);
+        list.add(deleteCommand);
         list.add(listCommand);
         list.add(listByCategoryCommand);
         list.add(filterByDescriptionCommand);
         list.add(filterByTimeCommand);
-        list.add(deleteCommand);
-        list.add(viewCommand);
-        list.add(viewCategoryCommand);
+        list.add(sortByAmountCommand);
+        list.add(sortByTimeCommand);
         list.add(addDesCommand);
         list.add(deleteDesCommand);
         list.add(setBudgeCommand);
         list.add(showBudgeCommand);
-        list.add(exitCommand);
         list.add(showStatisticCommand);
-        list.add(sortByAmountCommand);
-        list.add(sortByTimeCommand);
+        list.add(viewCommand);
+        list.add(viewCategoryCommand);
+        list.add(helpCommand);
+        list.add(exitCommand);
         return list;
     }
 }
