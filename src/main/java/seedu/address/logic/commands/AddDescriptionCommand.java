@@ -17,7 +17,7 @@ import seedu.address.model.expense.Expense;
  */
 public class AddDescriptionCommand extends Command {
 
-    public static final String COMMAND_WORD = "addDes";
+    public static final String COMMAND_WORD = "add-d";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the description of the expense identified "
             + "by the index number used in the last expense listing. "

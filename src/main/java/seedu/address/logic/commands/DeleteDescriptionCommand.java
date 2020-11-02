@@ -18,7 +18,7 @@ import seedu.address.model.expense.Expense;
  */
 public class DeleteDescriptionCommand extends Command {
 
-    public static final String COMMAND_WORD = "deleteDes";
+    public static final String COMMAND_WORD = "delete-d";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes the description of the expense identified "
             + "by the index number used in the last expense listing. "
