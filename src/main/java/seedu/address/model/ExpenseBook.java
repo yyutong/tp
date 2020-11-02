@@ -146,10 +146,7 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
         return this.budget;
     }
 
-    /**
-     * Subtracting total spending from budget.
-     * @return the remaining budget in this {@code ExpenseBook}.
-     */
+    @Override
     public Budget getRemainingBudget() {
         return this.budget.remaining(expenses.totalSpending());
     }
@@ -240,4 +237,5 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     public void updateStatisticSummary() {
         expenses.updateStatisticSummary();
     }
+
 }
