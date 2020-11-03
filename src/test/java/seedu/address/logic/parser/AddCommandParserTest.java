@@ -70,7 +70,6 @@ public class AddCommandParserTest {
     public void parse_optionalFieldsMissing_success() throws ParseException {
         Expense expectedExpense1 = new ExpenseBuilder(BOOKSWITHOUTDES).build();
 
-
         String userInput1 = AMOUNT_DESC_BOOKS + CATEGORY_DESC_BOOKS
                 + DATE_DESC_BOOKS + " d/";
         // whitespace only preamble
@@ -84,19 +83,18 @@ public class AddCommandParserTest {
         String userInput1 = CATEGORY_DESC_BOOKS
                 + DATE_DESC_BOOKS + DESCRIPTION_DESC_BOOKS;
 
-        // missing name prefix
+        // missing Amount prefix
         assertParseFailure(parser, userInput1, expectedMessage);
 
         String userInput2 = AMOUNT_DESC_MOVIE + DATE_DESC_MOVIE
                 + DESCRIPTION_DESC_MOVIE;
 
-        // missing phone prefix
+        // missing Category prefix
         assertParseFailure(parser, userInput2, expectedMessage);
 
-        String userInput3 = AMOUNT_DESC_MOVIE + CATEGORY_DESC_BOOKS
-                + DESCRIPTION_DESC_BOOKS;
+        String userInput3 = DESCRIPTION_DESC_BOOKS;
 
-        // missing email prefix
+        // missing Both Category and Amount prefix
         assertParseFailure(parser, userInput3,
                 expectedMessage);
     }

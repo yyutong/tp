@@ -56,6 +56,29 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String amount} into a {@code Amount}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code amount} is invalid.
+     */
+    public static Amount parseEditAmount(String amount) throws ParseException {
+        requireNonNull(amount);
+        if (amount.isEmpty()) {
+            return new Amount();
+        } else {
+            try {
+                double entered = Double.parseDouble(amount.trim());
+                if (!Amount.isValidAmount(entered)) {
+                    throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+                }
+                return new Amount(entered);
+            } catch (Exception pe) {
+                throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+            }
+        }
+    }
+
+    /**
      * Parses a {@code String category} into a {@code Category}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -71,6 +94,25 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String category} into a {@code Category}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code category} is invalid.
+     */
+    public static Category parseEditCategory(String category) throws ParseException {
+        if (category.isEmpty()) {
+            return new Category();
+        } else {
+            requireNonNull(category);
+            String trimmedCategory = category.trim();
+            if (!Category.isValidCategory(trimmedCategory)) {
+                throw new ParseException(Category.MESSAGE_CONSTRAINTS);
+            }
+            return new Category(trimmedCategory);
+        }
+    }
+
+    /**
      * Parses a {@code String date} into a {@code Date}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -79,6 +121,9 @@ public class ParserUtil {
     public static Date parseDate(String date) throws ParseException {
         requireNonNull(date);
         String trimmedDate = date.trim();
+        if (trimmedDate.isEmpty()) {
+            return new Date();
+        }
         if (!Date.isValidDate(trimmedDate)) {
             throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }

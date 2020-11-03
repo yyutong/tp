@@ -31,6 +31,16 @@ public class Category {
         checkArgument(isValidCategory(category), MESSAGE_CONSTRAINTS);
         categoryName = category;
     }
+    /**
+     * Constructs a {@code Category}.
+     *
+     */
+    public Category() {
+        categoryName = "";
+    }
+    public boolean isEmpty() {
+        return categoryName.equals("");
+    }
 
     /**
      * Returns true if a given string is a valid category.
