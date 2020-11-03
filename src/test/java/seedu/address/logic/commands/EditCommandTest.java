@@ -1,11 +1,14 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BOOKS;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CATEGORY_BOOKS;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand.EditExpenseDescriptor;
 import seedu.address.model.ExpenseBook;
 import seedu.address.model.ExpenseModelManager;
@@ -29,6 +32,26 @@ public class EditCommandTest {
 
         Model expectedModel = new ExpenseModelManager(new ExpenseBook(model.getExpenseBook()), new UserPrefs());
         expectedModel.setExpense(model.getFilteredExpenseList().get(0), editedExpense);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_someFieldsSpecifiedUnfilteredList_success() {
+        Index indexLastExpense = Index.fromOneBased(model.getFilteredExpenseList().size());
+        Expense lastExpense = model.getFilteredExpenseList().get(indexLastExpense.getZeroBased());
+
+        ExpenseBuilder expenseInList = new ExpenseBuilder(lastExpense);
+        Expense editedExpense = expenseInList.withAmount(VALID_AMOUNT_BOOKS).withCategory(VALID_CATEGORY_BOOKS).build();
+
+        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder().withAmount(VALID_AMOUNT_BOOKS)
+                .withCategory(VALID_CATEGORY_BOOKS).build();
+        EditCommand editCommand = new EditCommand(indexLastExpense, descriptor);
+
+        String expectedMessage = String.format(EditCommand.SUCCESSFUL_MESSAGE, editedExpense);
+
+        Model expectedModel = new ExpenseModelManager(new ExpenseBook(model.getExpenseBook()), new UserPrefs());
+        expectedModel.setExpense(lastExpense, editedExpense);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
