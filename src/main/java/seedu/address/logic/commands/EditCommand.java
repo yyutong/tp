@@ -1,10 +1,13 @@
 package seedu.address.logic.commands;
+import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 
 import java.util.List;
+import java.util.Optional;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Amount;
@@ -20,60 +23,141 @@ public class EditCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
     public static final String SUCCESSFUL_MESSAGE = "Expense edited successfully";
+    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
+    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the expense book.";
 
     private final Index index;
-    private final Description description;
-    private final Amount amount;
-    private final Category category;
-    private final Date date;
+    private final EditExpenseDescriptor editExpenseDescriptor;
+
     /**
-     * Constructor for a EditCommand.
+     * @param index of the expense in the filtered expense list to edit
+     * @param editExpenseDescriptor details to edit the expense with
      */
-    public EditCommand (Index index, Amount amount, Category category, Date date, Description description) {
+    public EditCommand(Index index, EditExpenseDescriptor editExpenseDescriptor) {
+        requireNonNull(index);
+        requireNonNull(editExpenseDescriptor);
+
         this.index = index;
-        this.amount = amount;
-        this.category = category;
-        this.date = date;
-        this.description = description;
+        this.editExpenseDescriptor = new EditExpenseDescriptor(editExpenseDescriptor);
     }
 
-    /**
-     * Executes the view command.
-     * @param model {@code Model} which the command should operate on.
-     * @return A command result in which the specific expense requested by the user is shown.
-     * @throws CommandException Throws exception if the index is invalid.
-     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        List<Expense> last = model.getFilteredExpenseList();
+        requireNonNull(model);
+        List<Expense> lastShownList = model.getFilteredExpenseList();
 
-        if (index.getZeroBased() >= last.size()) {
+        if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
         }
 
-        Expense expenseToEdit = last.get(index.getZeroBased());
-        Amount previousAmount = expenseToEdit.getAmount();
-        Category previousCategory = expenseToEdit.getCategory();
-        Date previousDate = expenseToEdit.getDate();
-        Description previousDescription = expenseToEdit.getDescription();
-        if (!this.date.getDate().isEmpty()) {
-            previousDate = this.date;
+        Expense expenseToEdit = lastShownList.get(index.getZeroBased());
+        Expense editedExpense = createEditedExpense(expenseToEdit, editExpenseDescriptor);
+
+        if (!expenseToEdit.isSameExpense(editedExpense) && model.hasExpense(editedExpense)) {
+            throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
         }
-        if (!this.description.isEmpty()) {
-            previousDescription = this.description;
-        }
-        if (!this.category.isEmpty()) {
-            previousCategory = this.category;
-        }
-        if (!this.amount.isEmpty()) {
-            previousAmount = amount;
-        }
-        Expense editedExpense = new Expense(
-                previousAmount, previousDate, previousCategory,
-                previousDescription);
 
         model.setExpense(expenseToEdit, editedExpense);
         model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
-        return new CommandResult(SUCCESSFUL_MESSAGE);
+        return new CommandResult(String.format(SUCCESSFUL_MESSAGE, editedExpense));
+    }
+
+    /**
+     * Creates and returns a {@code Person} with the details of {@code personToEdit}
+     * edited with {@code editPersonDescriptor}.
+     */
+    private static Expense createEditedExpense(Expense expenseToEdit, EditExpenseDescriptor editExpenseDescriptor) {
+        assert expenseToEdit != null;
+
+        Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
+        Category updatedCategory = editExpenseDescriptor.getCategory().orElse(expenseToEdit.getCategory());
+        Date updatedDate = editExpenseDescriptor.getDate().orElse(expenseToEdit.getDate());
+        Description updatedDescription = editExpenseDescriptor.getDescription().orElse(expenseToEdit.getDescription());
+
+        return new Expense(updatedAmount, updatedDate, updatedCategory, updatedDescription);
+    }
+
+    /**
+     * Stores the details to edit the person with. Each non-empty field value will replace the
+     * corresponding field value of the person.
+     */
+    public static class EditExpenseDescriptor {
+        private Amount amount;
+        private Category category;
+        private Date date;
+        private Description description;
+
+        public EditExpenseDescriptor() {}
+
+        /**
+         * Copy constructor.
+         * A defensive copy of {@code tags} is used internally.
+         */
+        public EditExpenseDescriptor(EditExpenseDescriptor toCopy) {
+            setAmount(toCopy.amount);
+            setCategory(toCopy.category);
+            setDate(toCopy.date);
+            setDescription(toCopy.description);
+        }
+
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isAnyFieldEdited() {
+            return CollectionUtil.isAnyNonNull(amount, category, date, description);
+        }
+
+        public void setAmount(Amount amount) {
+            this.amount = amount;
+        }
+
+        public Optional<Amount> getAmount() {
+            return Optional.ofNullable(amount);
+        }
+
+        public void setCategory(Category category) {
+            this.category = category;
+        }
+
+        public Optional<Category> getCategory() {
+            return Optional.ofNullable(category);
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public Optional<Date> getDate() {
+            return Optional.ofNullable(date);
+        }
+
+        public void setDescription(Description description) {
+            this.description = description;
+        }
+
+        public Optional<Description> getDescription() {
+            return Optional.ofNullable(description);
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            // short circuit if same object
+            if (other == this) {
+                return true;
+            }
+
+            // instanceof handles nulls
+            if (!(other instanceof EditExpenseDescriptor)) {
+                return false;
+            }
+
+            // state check
+            EditExpenseDescriptor e = (EditExpenseDescriptor) other;
+
+            return getAmount().equals(e.getAmount())
+                    && getCategory().equals(e.getCategory())
+                    && getDate().equals(e.getDate())
+                    && getDescription().equals(e.getDescription());
+        }
     }
 }

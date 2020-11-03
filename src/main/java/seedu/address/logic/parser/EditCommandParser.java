@@ -10,6 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditCommand.EditExpenseDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Category;
@@ -38,6 +39,26 @@ public class EditCommandParser implements Parser<EditCommand> {
         Category category = ParserUtil.parseEditCategory(argMultimap.getValue(PREFIX_CATEGORY).orElse(""));
         Description description = ParserUtil.parseExpenseDescription(
                 argMultimap.getValue(PREFIX_DESCRIPTION).orElse(""));
-        return new EditCommand(index, amount, category, date, description);
+
+        EditExpenseDescriptor editExpenseDescriptor = new EditExpenseDescriptor();
+        if (argMultimap.getValue(PREFIX_AMOUNT).isPresent()) {
+            editExpenseDescriptor.setAmount(ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get()));
+        }
+        if (argMultimap.getValue(PREFIX_CATEGORY).isPresent()) {
+            editExpenseDescriptor.setCategory(ParserUtil.parseCategory(argMultimap.getValue(PREFIX_CATEGORY).get()));
+        }
+        if (argMultimap.getValue(PREFIX_DATE).isPresent()) {
+            editExpenseDescriptor.setDate(ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get()));
+        }
+        if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
+            editExpenseDescriptor.setDescription(ParserUtil.parseExpenseDescription
+                    (argMultimap.getValue(PREFIX_DESCRIPTION).get()));
+        }
+        if (!editExpenseDescriptor.isAnyFieldEdited()) {
+            throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
+        }
+
+        return new EditCommand(index, editExpenseDescriptor);
+        //return new EditCommand(index, amount, category, date, description);
     }
 }
