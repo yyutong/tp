@@ -56,4 +56,16 @@ public class EditCommandTest {
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
+    @Test
+    public void execute_noFieldSpecifiedUnfilteredList_success() {
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_EXPENSE, new EditExpenseDescriptor());
+        Expense editedExpense = model.getFilteredExpenseList().get(INDEX_FIRST_EXPENSE.getZeroBased());
+
+        String expectedMessage = String.format(EditCommand.SUCCESSFUL_MESSAGE, editedExpense);
+
+        Model expectedModel = new ExpenseModelManager(new ExpenseBook(model.getExpenseBook()), new UserPrefs());
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
 }
