@@ -388,7 +388,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.15 : View help: `help`
 
-Opens a window with a link that directs you to our user guide.
+Opens a window with a link that directs you to our user guide, and a table shows all the commands of UniSave.
 
 Format: `help`
 
@@ -404,7 +404,8 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.17 Saving the data
 
-UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+UniSave data are saved in the hard disk automatically after any command that changes the data. 
+There is no need to save manually.
 
 Navigate back to the feature list: [Features](#3-features)
 
