@@ -14,7 +14,7 @@ public class ListExpenseByCategoryCommand extends Command {
 
     public static final String COMMAND_WORD = "filter-c";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose category contains any of "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filter all expenses whose category contains any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " entertainment";
