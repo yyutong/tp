@@ -11,7 +11,8 @@ import seedu.address.model.expense.Budget;
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "set-b";
     public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %s %s.\n";
-    public static final String MESSAGE_SET_BUDGET_FAIL = "Set Budget failed, please enter a valid budget with value greater than 0.\n";
+    public static final String MESSAGE_SET_BUDGET_FAIL = "Set Budget failed, "
+            + "please enter a valid budget with value greater than 0.\n";
 
     private final Budget budget;
 
