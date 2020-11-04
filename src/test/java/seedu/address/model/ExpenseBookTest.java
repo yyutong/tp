@@ -88,6 +88,12 @@ class ExpenseBookTest {
         public Budget getBudget() {
             return new Budget(1000);
         }
+
+        @Override
+        public double totalSpending() {
+            return 0;
+        }
+
         @Override
         public Statistics getStatistics() {
             return new Statistics(new HashMap<>(), new ArrayList<>());
@@ -99,7 +105,7 @@ class ExpenseBookTest {
         public void updateStatisticSummary(){}
         @Override
         public List<StatisticSummary> getStatisticTable() {
-            return new ArrayList<StatisticSummary>();
+            return new ArrayList<>();
         }
         @Override
         public Budget getRemainingBudget() {
