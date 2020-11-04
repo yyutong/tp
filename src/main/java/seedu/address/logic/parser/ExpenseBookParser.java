@@ -10,6 +10,7 @@ import seedu.address.logic.commands.AddDescriptionCommand;
 import seedu.address.logic.commands.AddExpenseCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.CurrenciesCommand;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
 import seedu.address.logic.commands.EditCommand;
@@ -20,6 +21,7 @@ import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.ListExpenseByDateCommand;
 import seedu.address.logic.commands.ListExpenseByDescCommand;
 import seedu.address.logic.commands.ListExpenseCommand;
+import seedu.address.logic.commands.RatesCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.commands.ShowBudgetCommand;
 import seedu.address.logic.commands.ShowStatisticCommand;
@@ -95,6 +97,10 @@ public class ExpenseBookParser {
             return new ExitCommandParser().parse(arguments);
         case ClearCommand.COMMAND_WORD:
             return new ClearCommandParser().parse(arguments);
+        case RatesCommand.COMMAND_WORD:
+            return new RatesCommandParser().parse(arguments);
+        case CurrenciesCommand.COMMAND_WORD:
+            return new CurrenciesCommandParser().parse(arguments);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

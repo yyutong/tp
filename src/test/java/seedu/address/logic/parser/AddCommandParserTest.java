@@ -105,11 +105,11 @@ public class AddCommandParserTest {
         //change to category.message_constraints to pass checkstyle
         //remember to change later
         String userInput1 = AMOUNT_DESC_BOOKS + CATEGORY_DESC_MOVIE
-                + " D/" + INVALID_DATE_1 + DESCRIPTION_DESC_BOOKS;
+                + " t/" + INVALID_DATE_1 + DESCRIPTION_DESC_BOOKS;
         assertParseFailure(parser, userInput1, Date.MESSAGE_CONSTRAINTS);
 
         String userInput2 = AMOUNT_DESC_BOOKS + CATEGORY_DESC_BOOKS
-                + " D/" + INVALID_DATE_2 + DESCRIPTION_DESC_BOOKS;
+                + " t/" + INVALID_DATE_2 + DESCRIPTION_DESC_BOOKS;
         assertParseFailure(parser, userInput2, Date.MESSAGE_CONSTRAINTS);
 
         //String userInput3 = " a/" + VALID_AMOUNT_BOOKS + " c/" + VALID_CATEGORY_BOOKS
@@ -117,11 +117,11 @@ public class AddCommandParserTest {
         //assertParseFailure(parser, userInput3, Category.MESSAGE_CONSTRAINTS);
 
         String userInput4 = AMOUNT_DESC_BOOKS + " c/" + INVALID_CATEGORY_1
-                + " D/" + VALID_DATE_BOOKS + DESCRIPTION_DESC_BOOKS;
+                + " t/" + VALID_DATE_BOOKS + DESCRIPTION_DESC_BOOKS;
         assertParseFailure(parser, userInput4, Category.MESSAGE_CONSTRAINTS);
 
         String userInput5 = AMOUNT_DESC_BOOKS + " c/" + INVALID_CATEGORY_2
-                + " D/" + VALID_DATE_BOOKS + DESCRIPTION_DESC_BOOKS;
+                + " t/" + VALID_DATE_BOOKS + DESCRIPTION_DESC_BOOKS;
         assertParseFailure(parser, userInput5, Category.MESSAGE_CONSTRAINTS);
     }
 }

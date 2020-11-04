@@ -29,8 +29,7 @@ public class ExchangeCommandParser implements Parser<ExchangeCommand> {
         }
         Currency currencyCode = ParserUtil.parseCurrency(argMultimap.getValue(PREFIX_SIGN).get());
         if (!converter.isValidCurrency(currencyCode)) {
-            throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExchangeCommand.MESSAGE_INVALID_CURRENCY));
+            throw new ParseException(ExchangeCommand.MESSAGE_INVALID_CURRENCY);
         }
         return new ExchangeCommand(currencyCode);
 

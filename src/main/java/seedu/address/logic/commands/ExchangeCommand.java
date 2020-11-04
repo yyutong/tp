@@ -15,10 +15,12 @@ import seedu.address.model.expense.ExchangeRate;
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
-            + "at exchange rate %s.\n";
-    public static final String MESSAGE_USAGE = "exchange s/CNY";
-    public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency,\n"
-            + " check the supported currencies by clicking 'View' -> 'Supported Currencies'";
+            + "at exchange rate %s. \n"
+            + "To see a full list of exchange rates adapted by UniSave, use command 'rates'.\n";
+    public static final String MESSAGE_USAGE = "exchange c/CNY";
+    public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency code!\n"
+            + "To see a full list of supported currencies with their currency codes, "
+            + "type in command 'code'.";
 
     private final Currency toCurrency;
 

@@ -22,9 +22,9 @@ public class EditCommand extends Command {
             + ": Edits the expense identified by the index number.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
-    public static final String SUCCESSFUL_MESSAGE = "Expense edited successfully";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the expense book.";
+    public static final String SUCCESSFUL_MESSAGE = "Expense edited successfully.";
 
     private final Index index;
     private final EditExpenseDescriptor editExpenseDescriptor;

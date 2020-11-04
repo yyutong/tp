@@ -13,7 +13,6 @@ public class SortByAmountCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all existing expenses by descending  "
             + "or ascending amount.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " ascending";
 
     public static final String MESSAGE_SUCCESS_DESCENDING = "Expenses sorted by descending amount!";
