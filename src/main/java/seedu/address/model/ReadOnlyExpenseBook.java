@@ -36,6 +36,11 @@ public interface ReadOnlyExpenseBook {
     Budget getBudget();
 
     /**
+     * Get the total spending of this {@code ExpenseBook}.
+     */
+    double totalSpending();
+
+    /**
      * Gets the remaining budget of this {@code ExpenseBook}.
      */
     Budget getRemainingBudget();

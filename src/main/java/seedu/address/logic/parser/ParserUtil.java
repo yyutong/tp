@@ -13,7 +13,6 @@ import seedu.address.model.expense.Category;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
-import seedu.address.model.expense.ExchangeRate;
 
 
 /**
@@ -150,22 +149,7 @@ public class ParserUtil {
      */
     public static Currency parseCurrency(String currency) throws ParseException {
         requireNonNull(currency);
-        return new Currency(currency.trim());
-    }
-
-    /**
-     * Parses a {@code String rate} into a {@code ExchangeRate}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code rate} is invalid.
-     */
-    public static ExchangeRate parseExchangeRate(String rate) throws ParseException {
-        requireNonNull(rate);
-        try {
-            return new ExchangeRate(Double.parseDouble(rate.trim()));
-        } catch (Exception pe) {
-            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT, pe);
-        }
+        return new Currency(currency.trim().toUpperCase());
     }
 
     /**

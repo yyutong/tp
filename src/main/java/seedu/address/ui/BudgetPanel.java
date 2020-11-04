@@ -36,15 +36,15 @@ public class BudgetPanel extends UiPart<Region> {
 
         this.budget = logic.getExpenseBook().getBudget();
 
-        budgetAmount.setText(String.format("Current budget: %.2f, %s", budget.getValue(),
+        budgetAmount.setText(String.format("Current budget: %s %s",
+                logic.getExpenseBook().getBudget(),
                 logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
-                logic.getExpenseBook().getRemainingBudget().getValue(),
+        budgetRemaining.setText(String.format("Remaining budget: %s %s",
+                logic.getExpenseBook().getRemainingBudget(),
                 logic.getExpenseBook().getCurrency()));
-        totalSpending.setText(String.format("Total spending: %.2f %s",
-                logic.getExpenseBook().getBudget().getValue()
-                - logic.getExpenseBook().getRemainingBudget().getValue(),
+        totalSpending.setText(String.format("Total spending: %s %s",
+                logic.getExpenseBook().totalSpending(),
                 logic.getExpenseBook().getCurrency()));
     }
 
@@ -52,17 +52,16 @@ public class BudgetPanel extends UiPart<Region> {
      * Update the budget statistics shown in the GUI.
      */
     public void update() {
-        budgetAmount.setText(String.format("Current budget: %.2f %s",
-                logic.getExpenseBook().getBudget().getValue(),
+        budgetAmount.setText(String.format("Current budget: %s %s",
+                logic.getExpenseBook().getBudget(),
                 logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %.2f %s",
-                logic.getExpenseBook().getRemainingBudget().getValue(),
+        budgetRemaining.setText(String.format("Remaining budget: %s %s",
+                logic.getExpenseBook().getRemainingBudget(),
                 logic.getExpenseBook().getCurrency()));
 
         totalSpending.setText(String.format("Total spending: %.2f %s",
-                logic.getExpenseBook().getBudget().getValue()
-                        - logic.getExpenseBook().getRemainingBudget().getValue(),
+                logic.getExpenseBook().totalSpending(),
                 logic.getExpenseBook().getCurrency()));
     }
 
