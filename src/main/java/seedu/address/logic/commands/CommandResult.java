@@ -41,7 +41,7 @@ public class CommandResult {
         this.exit = exit;
         this.showStatistics = false;
         this.showStatisticTable = false;
-        this.showHelpCommandWindow = true;
+        this.showHelpCommandWindow = false;
         this.showCurrencies = false;
         this.showRates = false;
     }
@@ -55,7 +55,7 @@ public class CommandResult {
         this.exit = exit;
         this.showStatistics = showStatistics;
         this.showStatisticTable = false;
-        this.showHelpCommandWindow = showHelp;
+        this.showHelpCommandWindow = false;
         this.showCurrencies = false;
         this.showRates = false;
     }
