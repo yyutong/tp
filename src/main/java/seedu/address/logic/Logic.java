@@ -11,8 +11,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseBook;
 import seedu.address.model.expense.Expense;
 
-
-
 /**
  * API of the Logic components
  */

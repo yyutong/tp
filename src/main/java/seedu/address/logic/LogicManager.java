@@ -38,7 +38,6 @@ public class LogicManager implements Logic {
         expenseBookParser = new ExpenseBookParser();
     }
 
-
     @Override
     public ObservableList<Expense> getFilteredExpenseList() {
         return model.getFilteredExpenseList();
@@ -61,6 +60,7 @@ public class LogicManager implements Logic {
         return commandResult;
     }
 
+    @Override
     public ReadOnlyExpenseBook getExpenseBook() {
         return model.getExpenseBook();
     }

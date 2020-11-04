@@ -9,7 +9,7 @@ import seedu.address.model.expense.Budget;
  * Set the budget in the expense book.
  */
 public class SetBudgetCommand extends Command {
-    public static final String COMMAND_WORD = "setBudget";
+    public static final String COMMAND_WORD = "setbudget";
     public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %s %s.\n";
     public static final String MESSAGE_SET_BUDGET_FAIL = "Set Budget failed, please enter a valid budget.\n";
 
@@ -24,7 +24,7 @@ public class SetBudgetCommand extends Command {
     }
 
     /**
-     * Executes the se budget command.
+     * Executes the set budget command.
      * @param model {@code Model} which the command should operate on.
      * @return A command result in which the budget for the expense book being set.
      */

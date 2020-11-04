@@ -12,7 +12,7 @@ import seedu.address.model.expense.DateContainsKeywordsPredicate;
  */
 public class ListExpenseByDateCommand extends Command {
 
-    public static final String COMMAND_WORD = "listbydate";
+    public static final String COMMAND_WORD = "filter-t";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose date matches "
             + "the specified keywords (case-sensitive) and displays them as a list with index numbers.\n"
@@ -23,7 +23,7 @@ public class ListExpenseByDateCommand extends Command {
     private final DateContainsKeywordsPredicate predicate;
 
     /**
-     * Creates an ListExpenseByCategoryCommand to list the expenses by the date.
+     * Creates an ListExpenseByDateCommand to list the expenses by the date.
      * @param predicate to list the expenses.
      */
     public ListExpenseByDateCommand(DateContainsKeywordsPredicate predicate) {

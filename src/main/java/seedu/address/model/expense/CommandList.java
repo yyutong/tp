@@ -15,8 +15,8 @@ public class CommandList {
     public static final String LIST_EXPENSE_EXAMPLE = "list";
     public static final String LIST_BY_CATEGORY = "LIST BY CATEGORY";
     public static final String LIST_BY_CATEGORY_USAGE = "LIST expenses of a category";
-    public static final String LIST_BY_CATEGORY_FORMAT = "listbycategory CATEGORY";
-    public static final String LIST_BY_CATEGORY_EXAMPLE = "listbycategory entertainment";
+    public static final String LIST_BY_CATEGORY_FORMAT = "filter-c CATEGORY";
+    public static final String LIST_BY_CATEGORY_EXAMPLE = "filter-c entertainment";
     public static final String DELETE = "DELETE";
     public static final String DELETE_USAGE = "delete a specified expense";
     public static final String DELETE_FORMAT = "delete INDEX";
@@ -25,34 +25,54 @@ public class CommandList {
     public static final String VIEW_USAGE = "view a specified expense";
     public static final String VIEW_FORMAT = "view INDEX";
     public static final String VIEW_EXAMPLE = "view 2";
-    public static final String VIEW_CATEGORY = "VIEW";
+    public static final String VIEW_CATEGORY = "VIEW CATEGORIES";
     public static final String VIEW_CATEGORY_USAGE = "view all the categories";
-    public static final String VIEW_CATEGORY_FORMAT = "viewCategory";
-    public static final String VIEW_CATEGORY_EXAMPLE = "viewCategory";
-    public static final String ADD_DESCRIPTION = "VIEW";
+    public static final String VIEW_CATEGORY_FORMAT = "viewcategories";
+    public static final String VIEW_CATEGORY_EXAMPLE = "viewcategories";
+    public static final String ADD_DESCRIPTION = "ADD DESCRIPTION";
     public static final String ADD_DESCRIPTION_USAGE = "add a description to an expense";
-    public static final String ADD_DESCRIPTION_FORMAT = "addDes INDEX D/DESCRIPTION";
-    public static final String ADD_DESCRIPTION_EXAMPLE = "addDes 3 d/movies";
-    public static final String DELETE_DESCRIPTION = "VIEW";
+    public static final String ADD_DESCRIPTION_FORMAT = "add-d INDEX D/DESCRIPTION";
+    public static final String ADD_DESCRIPTION_EXAMPLE = "add-d 3 d/movies";
+    public static final String DELETE_DESCRIPTION = "DELETE DESCRIPTION";
     public static final String DELETE_DESCRIPTION_USAGE = "delete a description of an expense";
-    public static final String DELETE_DESCRIPTION_FORMAT = "deleteDes INDEX";
-    public static final String DELETE_DESCRIPTION_EXAMPLE = "deleteDes 6";
+    public static final String DELETE_DESCRIPTION_FORMAT = "delete-d INDEX";
+    public static final String DELETE_DESCRIPTION_EXAMPLE = "delete-d 6";
     public static final String SET_BUDGET = "SET BUDGET";
     public static final String SET_BUDGET_USAGE = "set the budget";
-    public static final String SET_BUDGET_FORMAT = "setBudget AMOUNT";
-    public static final String SET_BUDGET_EXAMPLE = "setBudget 500.0";
+    public static final String SET_BUDGET_FORMAT = "setbudget AMOUNT";
+    public static final String SET_BUDGET_EXAMPLE = "setbudget 500.0";
     public static final String SHOW_BUDGET = "SHOW BUDGET";
     public static final String SHOW_BUDGET_USAGE = "show the budget";
-    public static final String SHOW_BUDGET_FORMAT = "setBudget AMOUNT";
-    public static final String SHOW_BUDGET_EXAMPLE = "setBudget 500.0";
+    public static final String SHOW_BUDGET_FORMAT = "setbudget AMOUNT";
+    public static final String SHOW_BUDGET_EXAMPLE = "setbudget 500.0";
     public static final String EXIT = "EXIT";
     public static final String EXIT_USAGE = "exit from the application";
     public static final String EXIT_FORMAT = "exit";
     public static final String EXIT_EXAMPLE = "exit";
     public static final String SHOW_STATISTIC = "SHOW STATISTIC";
     public static final String SHOW_STATISTIC_USAGE = "show an overview of your expenses";
-    public static final String SHOW_STATISTIC_FORMAT = "showStatistic";
-    public static final String SHOW_STATISTIC_EXAMPLE = "showStatistic";
+    public static final String SHOW_STATISTIC_FORMAT = "showstatistics";
+    public static final String SHOW_STATISTIC_EXAMPLE = "showstatistics";
+    public static final String SORT_BY_AMOUNT = "SORT BY AMOUNT";
+    public static final String SORT_BY_TIME = "SORT BY TIME";
+    public static final String SORT_BY_AMOUNT_USAGE = "sort expenses by amount in ascending/descending order";
+    public static final String SORT_BY_TIME_USAGE = "sort expenses by time in ascending/descending order";
+    public static final String SORT_BY_AMOUNT_FORMAT = "sort-a ORDER";
+    public static final String SORT_BY_TIME_FORMAT = "sort-t ORDER";
+    public static final String SORT_BY_AMOUNT_EXAMPLE = "sort-a ascending";
+    public static final String SORT_BY_TIME_EXAMPLE = "sort-t descending";
+    public static final String FILTER_BY_DESCRIPTION = "FILTER BY DESCRIPTION";
+    public static final String FILTER_BY_DESCRIPTION_USAGE = "filter the expenses by keywords in description";
+    public static final String FILTER_BY_DESCRIPTION_FORMAT = "filter-d KEYWORD";
+    public static final String FILTER_BY_DESCRIPTION_EXAMPLE = "filter-d movie";
+    public static final String FILTER_BY_DATE = "FILTER BY DATE";
+    public static final String FILTER_BY_DATE_USAGE = "filter the expenses by date";
+    public static final String FILTER_BY_DATE_FORMAT = "filter-t YYYY-MM-DD";
+    public static final String FILTER_BY_DATE_EXAMPLE = "filter-t 2020-11-02";
+    public static final String HELP = "HELP";
+    public static final String HELP_USAGE = "look for help when using the app";
+    public static final String HELP_FORMAT = "help";
+    public static final String HELP_EXAMPLE = "help";
     private final String command;
     private final String usage;
     private final String format;
@@ -101,18 +121,33 @@ public class CommandList {
                 EXIT_FORMAT, EXIT_EXAMPLE);
         CommandList showStatisticCommand = new CommandList(SHOW_STATISTIC, SHOW_STATISTIC_USAGE,
                 SHOW_STATISTIC_FORMAT, SHOW_STATISTIC_EXAMPLE);
+        CommandList sortByAmountCommand = new CommandList(SORT_BY_AMOUNT, SORT_BY_AMOUNT_USAGE,
+                SORT_BY_AMOUNT_FORMAT, SORT_BY_AMOUNT_EXAMPLE);
+        CommandList sortByTimeCommand = new CommandList(SORT_BY_TIME, SORT_BY_TIME_USAGE,
+                SORT_BY_TIME_FORMAT, SORT_BY_TIME_EXAMPLE);
+        CommandList filterByTimeCommand = new CommandList(FILTER_BY_DATE, FILTER_BY_DATE_USAGE,
+                FILTER_BY_DATE_FORMAT, FILTER_BY_DATE_EXAMPLE);
+        CommandList filterByDescriptionCommand = new CommandList(FILTER_BY_DESCRIPTION, FILTER_BY_DESCRIPTION_USAGE,
+                FILTER_BY_DESCRIPTION_FORMAT, FILTER_BY_DESCRIPTION_EXAMPLE);
+        CommandList helpCommand = new CommandList(HELP, HELP_USAGE,
+                HELP_FORMAT, HELP_EXAMPLE);
         list.add(addCommand);
+        list.add(deleteCommand);
         list.add(listCommand);
         list.add(listByCategoryCommand);
-        list.add(deleteCommand);
-        list.add(viewCommand);
-        list.add(viewCategoryCommand);
+        list.add(filterByDescriptionCommand);
+        list.add(filterByTimeCommand);
+        list.add(sortByAmountCommand);
+        list.add(sortByTimeCommand);
         list.add(addDesCommand);
         list.add(deleteDesCommand);
         list.add(setBudgeCommand);
         list.add(showBudgeCommand);
-        list.add(exitCommand);
         list.add(showStatisticCommand);
+        list.add(viewCommand);
+        list.add(viewCategoryCommand);
+        list.add(helpCommand);
+        list.add(exitCommand);
         return list;
     }
 }
