@@ -187,7 +187,6 @@ public class ExpenseList implements Iterable<Expense> {
         }
         return hashMap;
     }
-
     /**
      * Get the percentage of different categories' spending.
      * @return a hashmap that contains the percentage of different categories' spending.
