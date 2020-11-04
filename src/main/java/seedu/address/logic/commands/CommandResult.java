@@ -21,9 +21,16 @@ public class CommandResult {
     private final boolean exit;
 
     /** Statistic information should be shown to the user. */
-    private boolean showStatistics;
+    private final boolean showStatistics;
 
-    private boolean showStatisticTable;
+    private final boolean showStatisticTable;
+
+    /** Supported currencies should be shown to the user. */
+    private final boolean showCurrencies;
+
+    /** Reference exchange rates should be shown to the user. */
+    private final boolean showRates;
+
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
@@ -35,6 +42,8 @@ public class CommandResult {
         this.showStatistics = false;
         this.showStatisticTable = false;
         this.showHelpCommandWindow = true;
+        this.showCurrencies = false;
+        this.showRates = false;
     }
 
     /**
@@ -47,6 +56,8 @@ public class CommandResult {
         this.showStatistics = showStatistics;
         this.showStatisticTable = false;
         this.showHelpCommandWindow = showHelp;
+        this.showCurrencies = false;
+        this.showRates = false;
     }
 
     /**
@@ -60,6 +71,24 @@ public class CommandResult {
         this.showStatistics = showStatistics;
         this.showStatisticTable = showStatisticTable;
         this.showHelpCommandWindow = showHelp;
+        this.showCurrencies = false;
+        this.showRates = false;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean showStatistics, boolean showStatisticTable,
+                         boolean showCurrencies, boolean showRates) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = showHelp;
+        this.exit = exit;
+        this.showStatistics = showStatistics;
+        this.showStatisticTable = showStatisticTable;
+        this.showHelpCommandWindow = showHelp;
+        this.showCurrencies = showCurrencies;
+        this.showRates = showRates;
     }
 
     /**
@@ -107,6 +136,14 @@ public class CommandResult {
      */
     public boolean isShowStatisticTable() {
         return showStatisticTable;
+    }
+
+    public boolean isShowCurrencies() {
+        return this.showCurrencies;
+    }
+
+    public boolean isShowRates() {
+        return this.showRates;
     }
     /**
      * To check whether user want to exit the application.
