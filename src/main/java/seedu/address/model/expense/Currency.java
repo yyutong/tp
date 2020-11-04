@@ -5,8 +5,11 @@ package seedu.address.model.expense;
  */
 public class Currency {
     private static final String singaporeDollar = "SGD";
+    private static final CurrencyConverter converter = new CurrencyConverter();
 
     public final String currencyCode;
+
+
 
     public Currency() {
         this.currencyCode = singaporeDollar;
@@ -14,6 +17,10 @@ public class Currency {
 
     public Currency(String currencyCode) {
         this.currencyCode = currencyCode;
+    }
+
+    public static boolean isValidCurrency(Currency currency) {
+        return converter.isValidCurrency(currency);
     }
 
     @Override

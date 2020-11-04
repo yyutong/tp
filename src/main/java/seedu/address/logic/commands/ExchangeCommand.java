@@ -17,7 +17,7 @@ public class ExchangeCommand extends Command {
     public static final String SUCCESSFUL_MESSAGE = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s. \n"
             + "To see a full list of exchange rates adapted by UniSave, use command 'rates'.\n";
-    public static final String MESSAGE_USAGE = "exchange c/CNY";
+    public static final String MESSAGE_USAGE = "The correct format is: exchange c/CNY";
     public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency code!\n"
             + "To see a full list of supported currencies with their currency codes, "
             + "type in command 'code'.";
