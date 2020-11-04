@@ -7,8 +7,8 @@ public class CommandList {
 
     public static final String ADD_EXPENSE = "ADD EXPENSE COMMAND";
     public static final String ADD_EXPENSE_USAGE = "ADD expense";
-    public static final String ADD_EXPENSE_FORMAT = "add a/AMOUNT c/CATEGORY D/DATE [d/DESCRIPTION]";
-    public static final String ADD_EXPENSE_EXAMPLE = "add a/50 c/ENTERTAINMENT D/1 d/movie";
+    public static final String ADD_EXPENSE_FORMAT = "add a/AMOUNT c/CATEGORY t/DATE [d/DESCRIPTION]";
+    public static final String ADD_EXPENSE_EXAMPLE = "add a/50 c/ENTERTAINMENT t/1 d/movie";
     public static final String LIST_EXPENSE = "LIST EXPENSE COMMAND";
     public static final String LIST_EXPENSE_USAGE = "LIST all expenses";
     public static final String LIST_EXPENSE_FORMAT = "list";
@@ -27,8 +27,8 @@ public class CommandList {
     public static final String VIEW_EXAMPLE = "view 2";
     public static final String VIEW_CATEGORY = "VIEW CATEGORIES";
     public static final String VIEW_CATEGORY_USAGE = "view all the categories";
-    public static final String VIEW_CATEGORY_FORMAT = "viewcategories";
-    public static final String VIEW_CATEGORY_EXAMPLE = "viewcategories";
+    public static final String VIEW_CATEGORY_FORMAT = "view-c";
+    public static final String VIEW_CATEGORY_EXAMPLE = "view-c";
     public static final String ADD_DESCRIPTION = "ADD DESCRIPTION";
     public static final String ADD_DESCRIPTION_USAGE = "add a description to an expense";
     public static final String ADD_DESCRIPTION_FORMAT = "add-d INDEX D/DESCRIPTION";
@@ -43,16 +43,16 @@ public class CommandList {
     public static final String SET_BUDGET_EXAMPLE = "setbudget 500.0";
     public static final String SHOW_BUDGET = "SHOW BUDGET";
     public static final String SHOW_BUDGET_USAGE = "show the budget";
-    public static final String SHOW_BUDGET_FORMAT = "setbudget AMOUNT";
-    public static final String SHOW_BUDGET_EXAMPLE = "setbudget 500.0";
+    public static final String SHOW_BUDGET_FORMAT = "showbudget AMOUNT";
+    public static final String SHOW_BUDGET_EXAMPLE = "showbudget 500.0";
     public static final String EXIT = "EXIT";
     public static final String EXIT_USAGE = "exit from the application";
     public static final String EXIT_FORMAT = "exit";
     public static final String EXIT_EXAMPLE = "exit";
     public static final String SHOW_STATISTIC = "SHOW STATISTIC";
     public static final String SHOW_STATISTIC_USAGE = "show an overview of your expenses";
-    public static final String SHOW_STATISTIC_FORMAT = "showstatistics";
-    public static final String SHOW_STATISTIC_EXAMPLE = "showstatistics";
+    public static final String SHOW_STATISTIC_FORMAT = "show-stats";
+    public static final String SHOW_STATISTIC_EXAMPLE = "show-stats";
     public static final String SORT_BY_AMOUNT = "SORT BY AMOUNT";
     public static final String SORT_BY_TIME = "SORT BY TIME";
     public static final String SORT_BY_AMOUNT_USAGE = "sort expenses by amount in ascending/descending order";

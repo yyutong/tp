@@ -69,6 +69,8 @@ public class MainWindow extends UiPart<Stage> {
         this.primaryStage = primaryStage;
         this.logic = logic;
 
+        primaryStage.setMinWidth(600);
+
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
         helpWindow = new HelpWindow();
@@ -270,11 +272,8 @@ public class MainWindow extends UiPart<Stage> {
             budgetPanel.update();
 
             if (commandResult.isShowHelp()) {
-                handleHelp();
-            }
-
-            if (commandResult.isShowHelpCommandWindow()) {
                 handleHelpCommandWindow();
+                handleHelp();
             }
 
             if (commandResult.isShowStatistics()) {

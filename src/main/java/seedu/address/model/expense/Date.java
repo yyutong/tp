@@ -55,6 +55,7 @@ public class Date {
         LocalDate localdate = LocalDate.now();
         this.howManyDaysAgo = "0";
         this.date = localdate.toString();
+        localDate = localdate;
     }
 
     /**
