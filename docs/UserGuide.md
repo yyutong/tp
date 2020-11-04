@@ -116,12 +116,13 @@ Adds an expense, including fields amount, category, date, description, to your e
 Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Amount and Category are compulsory field while Date and Description are optional. (Note that an amount of an expense should only be positive numbers.)
+</div>
 
-1. An amount of an expense must be positive.
-2. A date can be entered in one of these two forms:
-i) Enter date as a single integer, corresponding to how many days ago. E.g: 1 means you made the expenses one day ago.
-ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
-Amount and Category are compulsory field while Date and Description are optional
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A date can be entered in one of these two forms:
+i) Enter date as a single integer, corresponding to number of days ago. E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer, it should not be less than 0 or greater than 3650)
+ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -500,7 +501,3 @@ Action | Format, Examples
 **Clear** | `clear` <br> e.g., `clear`
 **Exit** | `exit` <br> e.g., `exit`
 **Edit** | `edit INDEX [field to be edited with the correct prefix]` <br> e.g., `edit 1 a/10.2`
-
-
-
-
