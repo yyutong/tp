@@ -173,12 +173,12 @@ Note that an amount of an expense should only be positive numbers.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-If you don't input a date, the default date is today.
-If you do, a date can be entered in one of these two forms:
-i) Enter date as a single integer, corresponding to number of days ago. 
-E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer, 
+If you don't input a date, the default date is today.<br>
+If you do, a date can be entered in one of these two forms:<br>
+i) Enter date as a single integer, corresponding to number of days ago. <br>
+E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
 it should not be less than 0 or greater than 3650)
-ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28
+ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
