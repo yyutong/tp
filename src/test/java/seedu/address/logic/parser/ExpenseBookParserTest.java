@@ -11,8 +11,10 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddDescriptionCommand;
+import seedu.address.logic.commands.CurrenciesCommand;
 import seedu.address.logic.commands.DeleteExpenseCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.RatesCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Description;
@@ -41,6 +43,18 @@ public class ExpenseBookParserTest {
     public void parseCommand_help() throws Exception {
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " 3") instanceof HelpCommand);
+    }
+
+    @Test
+    public void parseCommand_rates() throws Exception {
+        assertTrue(parser.parseCommand(RatesCommand.COMMAND_WORD) instanceof RatesCommand);
+        assertTrue(parser.parseCommand(RatesCommand.COMMAND_WORD + " 3") instanceof RatesCommand);
+    }
+
+    @Test
+    public void parseCommand_codes() throws Exception {
+        assertTrue(parser.parseCommand(CurrenciesCommand.COMMAND_WORD) instanceof CurrenciesCommand);
+        assertTrue(parser.parseCommand(CurrenciesCommand.COMMAND_WORD + " 3") instanceof CurrenciesCommand);
     }
 
     @Test

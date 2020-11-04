@@ -35,4 +35,16 @@ public class SetBudgetCommand extends Command {
         String msg = String.format(MESSAGE_SET_BUDGET_SUCCESS, budget, model.getExpenseBookCurrency());
         return new CommandResult(msg);
     }
+
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof SetBudgetCommand // instanceof handles nulls
+                && budget.equals(((SetBudgetCommand) other).budget));
+    }
 }

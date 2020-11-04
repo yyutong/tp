@@ -14,10 +14,10 @@ import seedu.address.model.expense.ExchangeRate;
  */
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
-    public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
+    public static final String SUCCESSFUL_MESSAGE = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s. \n"
             + "To see a full list of exchange rates adapted by UniSave, use command 'rates'.\n";
-    public static final String MESSAGE_USAGE = "exchange c/CNY";
+    public static final String MESSAGE_USAGE = "The correct format is: exchange cc/CNY";
     public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency code!\n"
             + "To see a full list of supported currencies with their currency codes, "
             + "type in command 'code'.";
@@ -45,8 +45,29 @@ public class ExchangeCommand extends Command {
         ExchangeRate exchangeRate = converter.convert(curr, toCurrency);
         model.setExpenseBookCurrency(toCurrency);
         model.expenseBookExchange(exchangeRate);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, curr, toCurrency, exchangeRate));
+        return new CommandResult(String.format(SUCCESSFUL_MESSAGE, curr, toCurrency, exchangeRate));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ExchangeCommand)) {
+            return false;
+        }
+
+        // state check
+        ExchangeCommand e = (ExchangeCommand) other;
+        return toCurrency.equals(e.toCurrency);
+    }
 
 }
