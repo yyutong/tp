@@ -1,11 +1,11 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.testutil.TypicalBudget;
-import seedu.address.testutil.TypicalCurrencyCode;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.testutil.TypicalBudget;
 
 public class SetBudgetCommandTest {
     @Test

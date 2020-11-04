@@ -1,12 +1,14 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.ExpenseModelManager;
-import seedu.address.model.Model;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.RatesCommand.SUCCESSFUL_MESSAGE;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.ExpenseModelManager;
+import seedu.address.model.Model;
 
 public class RatesCommandTest {
     private Model model = new ExpenseModelManager();
