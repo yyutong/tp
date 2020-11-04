@@ -252,7 +252,7 @@ Show all the expenses whose category match the specified category.
 Format: `filter-c CATEGORY`
 
 Examples:
-* `filter-c entertainment`: filter all the expenses under category entertainment.
+* `filter-c entertainment`: filter all the expenses under category `entertainment`.
 
 ![filter-c](images/listByCategoryCommand.png)
 
@@ -269,7 +269,7 @@ The date format `YYYY-MM-DD` is sensitive and only this format is recognizable f
 </div>
 
 Examples:
-* `filter-t 2020-10-23`: list all the expenses that are saved on 2020-10-23.
+* `filter-t 2020-10-23`: list all the expenses that are saved on `2020-10-23`.
 
 ![filter-t](images/listByDateCommand.png)
 
@@ -286,7 +286,7 @@ Multiple description input is allowed.
 </div>
 
 Examples:
-* `filter-d movie`: list all the expenses which description has the keyword 'movie'.
+* `filter-d movie`: list all the expenses which description has the keyword `movie`.
 
 ![filter-d](images/listByDescCommand.png)
 
