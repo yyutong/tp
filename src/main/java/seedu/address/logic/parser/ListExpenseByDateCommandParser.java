@@ -25,7 +25,6 @@ public class ListExpenseByDateCommandParser implements Parser<ListExpenseByDateC
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByDateCommand.MESSAGE_USAGE));
         }
-        assert !trimmedArgs.isEmpty();
         String[] dateKeywords = trimmedArgs.split("\\s+");
         checkValidDate(dateKeywords);
 
