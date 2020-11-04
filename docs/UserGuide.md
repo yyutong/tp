@@ -501,7 +501,3 @@ Action | Format, Examples
 **Clear** | `clear` <br> e.g., `clear`
 **Exit** | `exit` <br> e.g., `exit`
 **Edit** | `edit INDEX [field to be edited with the correct prefix]` <br> e.g., `edit 1 a/10.2`
-
-
-
-
