@@ -14,7 +14,7 @@ import seedu.address.model.expense.ExchangeRate;
  */
 public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
-    public static final String MESSAGE_SUCCESS = "Your expenses is now converted from %s to %s "
+    public static final String SUCCESSFUL_MESSAGE = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s. \n"
             + "To see a full list of exchange rates adapted by UniSave, use command 'rates'.\n";
     public static final String MESSAGE_USAGE = "exchange c/CNY";
@@ -45,8 +45,19 @@ public class ExchangeCommand extends Command {
         ExchangeRate exchangeRate = converter.convert(curr, toCurrency);
         model.setExpenseBookCurrency(toCurrency);
         model.expenseBookExchange(exchangeRate);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, curr, toCurrency, exchangeRate));
+        return new CommandResult(String.format(SUCCESSFUL_MESSAGE, curr, toCurrency, exchangeRate));
     }
 
+    /**
+     * Checks if a command objects are equal.
+     * @param other Another object.
+     * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
+     */
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ExchangeCommand // instanceof handles nulls
+                && toCurrency.equals(((ExchangeCommand) other).toCurrency));
+    }
 
 }
