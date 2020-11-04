@@ -20,7 +20,7 @@ public class AmountTest {
     }
 
     @Test
-    public void isValidName() {
+    public void isValidAmount() {
         // null Amount
         assertThrows(NullPointerException.class, () -> Amount.isValidAmount(null));
 

@@ -3,7 +3,8 @@ layout: page
 title: User Guide
 ---
 
-UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI) 
+while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, UniSave can get your financial management tasks done faster than traditional GUI apps.
 Choose a section from the table of contents below and start using UniSave.
 
@@ -40,9 +41,14 @@ Choose a section from the table of contents below and start using UniSave.
 
 --------------------------------------------------------------------------------------------------------------------
 ## 1. Overview
-UniSave is your desktop finance manager. It is an application that helps you manage your finance by tracking your spending, setting budget for each month, as well as viewing your expenses in various categories. Moreover, UniSave allows tracking expenses in different currencies.
+UniSave is your desktop finance manager. 
+It is an application that helps you manage your finance by tracking your spending, 
+setting budget for each month, as well as viewing your expenses in various categories. 
+Moreover, UniSave allows tracking expenses in different currencies.
 
-UniSave targets university students who tend to incur a large amount of spending, including tuition fees, housing fees, transport and so on. It is catered especially for students who are more familiar with desktop applications and type fast.
+UniSave targets university students who tend to incur a large amount of spending, 
+including tuition fees, housing fees, transport and so on. 
+It is catered especially for students who are more familiar with desktop applications and type fast.
 UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 ## 2. Quick start
@@ -53,7 +59,8 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 3. Copy the file to the folder you want to use as the _home folder_ for your UniSave.
 
-4. For Windows user, double-click the file to start the app. For MacOS user, open your terminal and set the directory to be the same as UniSave, enter `java -jar UniSave.jar`.
+4. For Windows user, double-click the file to start the app. 
+For MacOS user, open your terminal and set the directory to be the same as UniSave, enter `java -jar UniSave.jar`.
 In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -65,9 +72,12 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
    
    * **`set-b 1000`** : Set the budget of UniSave to be 1000 SGD (Singapore Dollar is the Default Currency for UniSave).
 
-   * **`add a/50 c/entertainment D/1 d/yayymovie!`** : Adds an expense of `50` SGD under category `entertainment` you spent `1` day ago (i.e. yesterday), with `yayymovie!` description.
+   * **`add a/50 c/entertainment D/1 d/yayymovie!`** : 
+   Adds an expense of `50` SGD under category `entertainment` you spent `1` day ago (i.e. yesterday), 
+   with `yayymovie!` description.
 
-   * **`exchange c/cny`** : Change the currency of the whole expense book to Chinese Yuan (CNY is the currency code for Chinese Yuan).
+   * **`exchange c/cny`** : Change the currency of the whole expense book to Chinese Yuan 
+   (CNY is the currency code for Chinese Yuan).
    
    * **`show-stats`** : Show a statistic overview of all your expenses.
    
@@ -125,7 +135,8 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
 Clear all the data in the program. 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can use this command to clear the sample data when you first launch the app, or use it whenever you want to start a new expense book.
+You can use this command to clear the sample data when you first launch the app, 
+or use it whenever you want to start a new expense book.
 </div>
 
 Format: `clear`
@@ -145,7 +156,7 @@ Example:
 ![setBudget](images/setBudgetCommand.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, 
+You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
 </div>
 
@@ -162,10 +173,12 @@ Note that an amount of an expense should only be positive numbers.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-If you don't input a date, the default date is today.
-If you do, a date can be entered in one of these two forms:
-i) Enter date as a single integer, corresponding to number of days ago. E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer, it should not be less than 0 or greater than 3650)
-ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28
+If you don't input a date, the default date is today.<br>
+If you do, a date can be entered in one of these two forms:<br>
+i) Enter date as a single integer, corresponding to number of days ago. <br>
+E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
+it should not be less than 0 or greater than 3650)
+ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -340,11 +353,12 @@ Sort the expenses according to date in ascending order (i.e. from past to presen
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.11 Exchange Currency : `exchange`
-Convert the currency of UniSave from current currency to the input currency of the currency code, note that the currency code is case-insensitive.
+Convert the currency of UniSave from current currency to the input currency of the currency code, 
+note that the currency code is case-insensitive.
 
-Format: `exchange c/CURRENCY_CODE`
+Format: `exchange cc/CURRENCY_CODE`
 
-Example: `exchange c/CNY`
+Example: `exchange cc/CNY`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
@@ -364,7 +378,9 @@ Format: `show-codes`
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.13 Show Exchange Rates: `show-rates`
-Show a full list of exchange rates adapted by UniSave. Note that the exchange rates were updated at 2020-10-31 from currency-layer website, there may be a slight inaccuracy compared to current exchange rates.
+Show a full list of exchange rates adapted by UniSave. 
+Note that the exchange rates were last updated at 2020-10-31 from currency-layer website, 
+there may be a slight inaccuracy compared to current exchange rates.
 
 Format: `show-rates`
 
@@ -373,7 +389,8 @@ Format: `show-rates`
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.14 Show Statistics: `show-stats`
-Show a statistic overview of the expenses, such as the total number of expenses as well as the total spending in each category.
+Show a statistic overview of the expenses, 
+such as the total number of expenses as well as the total spending in each category.
 
 There are arranging in descending order in which the category that you spent the most will be on the first row.
 
@@ -388,7 +405,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.15 : View help: `help`
 
-Opens a window with a link that directs you to our user guide.
+Opens a window with a link that directs you to our user guide, and a table shows all the commands of UniSave.
 
 Format: `help`
 
@@ -404,7 +421,8 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.17 Saving the data
 
-UniSave data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+UniSave data are saved in the hard disk automatically after any command that changes the data. 
+There is no need to save manually.
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -412,7 +430,8 @@ Navigate back to the feature list: [Features](#3-features)
 
 ## 4. FAQ(Frequently Asked Question)
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder. <br>
+**A**: Install the app in the other computer and overwrite the empty data file it 
+creates with the file that contains the data of your previous UniSave home folder. <br>
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. Glossary 
@@ -420,9 +439,12 @@ Navigate back to the feature list: [Features](#3-features)
 Term | Explanation
 --------|------------------
 **UniSave** | UniSave refers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and a description so that you can recall the details when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, 
+a category that you classify this spending into, 
+and a description so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
-**GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
+**GUI** | The graphical user interface is a form of user interface that allows users to 
+interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -443,7 +465,7 @@ Action | Format, Examples
 **List** | `list`
 **Sort by amount** | `sort-a ORDER` <br> e.g., `sort-a acsending`
 **Sort by date** | `sort-t ORDER` <br> e.g., `sort-t descending`
-**Exchange Currency** | `exchange c/CURRENCY_CODE` <br> e.g., `exchange c/CNY`
+**Exchange Currency** | `exchange cc/CURRENCY_CODE` <br> e.g., `exchange cc/CNY`
 **Show Currency Codes** | `show-codes`
 **Show Exchange Rates** | `show-rates`
 **Show Statistic** | `show-stats`

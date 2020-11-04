@@ -13,7 +13,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.SortShowStatisticCommand;
+import seedu.address.logic.commands.ShowStatisticCommand;
 import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 
 /**
@@ -187,7 +187,6 @@ public class ExpenseList implements Iterable<Expense> {
         }
         return hashMap;
     }
-
     /**
      * Get the percentage of different categories' spending.
      * @return a hashmap that contains the percentage of different categories' spending.
@@ -335,7 +334,7 @@ public class ExpenseList implements Iterable<Expense> {
         HashMap<String, Double> hashMap3 = getExpenseSumCategory();
         HashMap<String, Double> hashMap4 = getExpensePercentageCategory();
         HashMap<String, Double> expensePercentageCategoryData = getExpensePercentageCategory();
-        Map<String, Double> hashMap5 = SortShowStatisticCommand.sortByTotalExpense(hashMap3);
+        Map<String, Double> hashMap5 = ShowStatisticCommand.sortByTotalExpense(hashMap3);
         List<StatisticSummary> statisticSummaries = new ArrayList<>();
         for (Map.Entry<String, Double> hashMap2 : hashMap5.entrySet()) {
             String category = hashMap2.getKey();

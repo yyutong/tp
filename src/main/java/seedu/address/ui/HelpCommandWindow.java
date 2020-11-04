@@ -37,7 +37,8 @@ public class HelpCommandWindow extends UiPart<Stage> {
     public HelpCommandWindow(Stage root) {
         super(FXML, root);
         helpCommandWindow.setGraphic(tableView);
-        helpCommandWindow.setMinWidth(970);
+        helpCommandWindow.setMinWidth(1100);
+        helpCommandWindow.setMinHeight(450);
     }
 
     /**

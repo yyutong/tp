@@ -47,7 +47,7 @@ public class StatisticTable extends UiPart<Stage> {
         super(FXML, root);
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
-        statisticTable.setMinWidth(450);
+        statisticTable.setMinWidth(470);
     }
 
     /**
