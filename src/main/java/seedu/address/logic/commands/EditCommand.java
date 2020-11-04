@@ -62,6 +62,11 @@ public class EditCommand extends Command {
         return new CommandResult(String.format(SUCCESSFUL_MESSAGE, editedExpense));
     }
 
+    @Override
+    public String toString() {
+        return editExpenseDescriptor.toString();
+    }
+
     /**
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
      * edited with {@code editPersonDescriptor}.
@@ -158,6 +163,14 @@ public class EditCommand extends Command {
                     && getCategory().equals(e.getCategory())
                     && getDate().equals(e.getDate())
                     && getDescription().equals(e.getDescription());
+        }
+
+        @Override
+        public String toString() {
+            return "The amount is: " + this.amount + "\n"
+                    + "The Date is: " + this.date + "\n"
+                    + "The Category is: " + this.category + "\n"
+                    + "The Description is: " + this.description + "\n";
         }
     }
 }
