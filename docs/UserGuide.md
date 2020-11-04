@@ -171,8 +171,8 @@ same result as `add t/1 d/milk tea membership card c/food a/100`.
 </div>
 
 Examples:
-* `add a/100 c/food D/1 d/milk tea membership card`
-* `add a/50 c/entertainment D/2020-09-28 d/yayymovie!`
+* `add a/100 c/food t/1 d/milk tea membership card`
+* `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -222,7 +222,6 @@ View the expense at the specified INDEX.
 
 The index refers to the index number shown in the displayed expense list.
 
-
 * The index must be a **positive integer** 1, 2, 3, …
 
 Examples:
@@ -251,12 +250,11 @@ Show all the expenses whose category match the specified category.
 Format: `filter-c CATEGORY`
 
 Examples:
-* `filter-c entertainment`: list all the expenses under category entertainment.
+* `filter-c entertainment`: filter all the expenses under category entertainment.
 
 ![filter-c](images/listByCategoryCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 ##### 3.8.2 Filter by date : `filter-t`
 
@@ -269,12 +267,11 @@ The date format `YYYY-MM-DD` is sensitive and only this format is recognizable f
 </div>
 
 Examples:
-* `filter-t 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+* `filter-t 2020-10-23`: list all the expenses that are saved on 2020-10-23.
 
 ![filter-t](images/listByDateCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 ##### 3.8.3 Filter by description : `filter-d`
 
@@ -292,7 +289,6 @@ Examples:
 ![filter-d](images/listByDescCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 #### 3.9 List all expenses : `list`
 
@@ -341,21 +337,15 @@ Sort the expenses according to date in ascending order (i.e. from past to presen
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.11 Exchange Currency : `exchange`
-Convert the currency of UniSave from current currency to the input currency.
+Convert the currency of UniSave from current currency to the input currency of the currency code, note that the currency code is case-insensitive.
 
-Format: `exchange s/CURRENCY_CODE`
+Format: `exchange c/CURRENCY_CODE`
 
-Example: `exchange s/CNY`
+Example: `exchange c/CNY`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Use command `show-codes` to see a full list of currency codes supported by UniSave.
+Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
 </div>
-
-Before Exchange: 
-
-![exchange_before](images/ExchangeCommand-before.png)
-
-After Exchange: 
 
 ![exchange_after](images/ExchangeCommand-after.png)
 
@@ -366,12 +356,16 @@ Show a full list of currency codes with its corresponding currency full name.
 
 Format: `show-codes`
 
+![currency_codes](images/CurrencyCodes.png)
+
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.13 Show Exchange Rates: `show-rates`
 Show a full list of exchange rates adapted by UniSave. Note that the exchange rates were updated at 2020-10-31 from currency-layer website, there may be a slight inaccuracy compared to current exchange rates.
 
 Format: `show-rates`
+
+![exchange_rates](images/ExchangeRates.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -385,6 +379,7 @@ Format: `show-stats`
 Examples: `show-stats`
 
 ![showStatistic](images/showStatisticCommand.png)
+![showStatistic_table](images/showStatisticTable.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
