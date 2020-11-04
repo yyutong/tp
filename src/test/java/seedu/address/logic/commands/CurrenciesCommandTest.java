@@ -13,7 +13,7 @@ public class CurrenciesCommandTest {
     private Model expectedModel = new ExpenseModelManager();
 
     @Test
-    public void execute_help_success() {
+    public void execute_code_success() {
         CommandResult expectedCommandResult = new CommandResult(SUCCESSFUL_MESSAGE,
                 false, false,
                 false, false,
@@ -22,7 +22,7 @@ public class CurrenciesCommandTest {
     }
 
     @Test
-    public void execute_help_failure() {
+    public void execute_code_failure() {
         CommandResult expectedCommandResult = new CommandResult("WRONG MESSAGE",
                 false, false,
                 false, false,

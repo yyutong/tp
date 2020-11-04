@@ -13,7 +13,7 @@ public class RatesCommandTest {
     private Model expectedModel = new ExpenseModelManager();
 
     @Test
-    public void execute_help_success() {
+    public void execute_rates_success() {
         CommandResult expectedCommandResult = new CommandResult(SUCCESSFUL_MESSAGE,
                 false, false,
                 false, false,
@@ -22,7 +22,7 @@ public class RatesCommandTest {
     }
 
     @Test
-    public void execute_help_failure() {
+    public void execute_rates_failure() {
         CommandResult expectedCommandResult = new CommandResult("WRONG MESSAGE",
                 false, false,
                 false, false,
