@@ -163,12 +163,12 @@ public class ParserUtil {
             double value = Double.parseDouble(budget.trim());
             if (value <= 0) {
                 throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL));
+                        SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL);
             }
             return new Budget(value);
         } catch (Exception pe) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL), pe);
+                    SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL, pe);
         }
     }
 }
