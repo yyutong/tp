@@ -21,15 +21,15 @@ public class AmountTest {
 
     @Test
     public void isValidName() {
-        // null name
+        // null Amount
         assertThrows(NullPointerException.class, () -> Amount.isValidAmount(null));
 
-        // invalid name
+        // invalid Amount
         assertFalse(Amount.isValidAmount(-2.0)); // negative value
+        assertFalse(Amount.isValidAmount(0.0)); // spending cannot be zero
+        assertFalse(Amount.isValidAmount(-0.0)); // zero
 
-        // valid name
-        assertTrue(Amount.isValidAmount(0.0)); // zero
+        // valid Amount
         assertTrue(Amount.isValidAmount(123.0)); // double
-        assertTrue(Amount.isValidAmount(-0.0)); // zero
     }
 }

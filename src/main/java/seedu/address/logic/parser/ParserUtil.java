@@ -37,10 +37,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String amount} into a {@code Amount}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code amount} is invalid.
      */
     public static Amount parseAmount(String amount) throws ParseException {
         requireNonNull(amount);
@@ -56,10 +56,33 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String amount} into a {@code Amount}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code amount} is invalid.
+     */
+    public static Amount parseEditAmount(String amount) throws ParseException {
+        requireNonNull(amount);
+        if (amount.isEmpty()) {
+            return new Amount();
+        } else {
+            try {
+                double entered = Double.parseDouble(amount.trim());
+                if (!Amount.isValidAmount(entered)) {
+                    throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+                }
+                return new Amount(entered);
+            } catch (Exception pe) {
+                throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+            }
+        }
+    }
+
+    /**
+     * Parses a {@code String category} into a {@code Category}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code category} is invalid.
      */
     public static Category parseCategory(String category) throws ParseException {
         requireNonNull(category);
@@ -71,14 +94,36 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String category} into a {@code Category}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code category} is invalid.
+     */
+    public static Category parseEditCategory(String category) throws ParseException {
+        if (category.isEmpty()) {
+            return new Category();
+        } else {
+            requireNonNull(category);
+            String trimmedCategory = category.trim();
+            if (!Category.isValidCategory(trimmedCategory)) {
+                throw new ParseException(Category.MESSAGE_CONSTRAINTS);
+            }
+            return new Category(trimmedCategory);
+        }
+    }
+
+    /**
+     * Parses a {@code String date} into a {@code Date}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code date} is invalid.
      */
     public static Date parseDate(String date) throws ParseException {
         requireNonNull(date);
         String trimmedDate = date.trim();
+        if (trimmedDate.isEmpty()) {
+            return new Date();
+        }
         if (!Date.isValidDate(trimmedDate)) {
             throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
@@ -86,10 +131,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String description} into a {@code Description}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code description} is invalid.
      */
     public static Description parseExpenseDescription(String description) throws ParseException {
         requireNonNull(description);
@@ -98,10 +143,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String currency} into a {@code Currency}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code currency} is invalid.
      */
     public static Currency parseCurrency(String currency) throws ParseException {
         requireNonNull(currency);
@@ -109,10 +154,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String rate} into a {@code ExchangeRate}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code rate} is invalid.
      */
     public static ExchangeRate parseExchangeRate(String rate) throws ParseException {
         requireNonNull(rate);
@@ -124,10 +169,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String budget} into a {@code Budget}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code budget} is invalid.
      */
     public static Budget parseBudget(String budget) throws ParseException {
         try {

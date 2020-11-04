@@ -17,9 +17,10 @@ public class Date {
     // public static final String VALIDATION_REGEX = "\\d{1,}";
     public static final String MESSAGE_CONSTRAINTS =
             "Date can be entered in one of these two ways: \n"
-                   + "i) As number of days before today. Then it should only contain numbers, "
-        + "and it should be at least 1 digits long.\n"
-            + "ii) As the actual date, that is YYYY-MM-DD.";
+                   + "i) A single number to represent number of days before today."
+        + "and it should be at least 1 digits long. Eg: 1 refer to 1 day  ago \n"
+                    + "and it should be less than 3650. \n"
+            + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12";
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String date;
     public final String howManyDaysAgo;
@@ -33,7 +34,7 @@ public class Date {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
         if (!inputDay.contains("-")) {
             this.howManyDaysAgo = inputDay;
-            assert Integer.parseInt(inputDay) >= 0 : "Invalid days Being Enter";
+            assert Integer.parseInt(inputDay) >= 0 && Integer.parseInt(inputDay) <= 3650 : "Invalid days Being Enter";
             LocalDate localdate = LocalDate.now();
             int convertedDay = Integer.parseInt(inputDay);
             LocalDate dayBefore = localdate.minusDays(convertedDay);
@@ -72,7 +73,7 @@ public class Date {
         } else {
             try {
                 int dayBefore = Integer.parseInt(test);
-                return dayBefore >= 0;
+                return dayBefore >= 0 && dayBefore <= 3650;
             } catch (NumberFormatException e) {
                 return false;
             }

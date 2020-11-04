@@ -27,15 +27,17 @@
           <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
           </Menu>
-          <Menu mnemonicParsing="false" text="View">
-            <MenuItem mnemonicParsing="false" onAction="#handleStatistics" text="Statistics" />
+          <Menu mnemonicParsing="false" text="Statistics">
+            <MenuItem mnemonicParsing="false" onAction="#handleStatistics" text="Pie Chart" />
+            <MenuItem mnemonicParsing="false" onAction="#handleStatisticTable" text="Expenses Summary" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Currency">
             <MenuItem mnemonicParsing="false" onAction="#showSupportedCurrencyTable" text="Supported Currencies" />
-            <MenuItem mnemonicParsing="false" onAction="#handleStatisticTable" text="Brief Summary of Spending" />
             <MenuItem mnemonicParsing="false" onAction="#showCurrencyExchangeRateTable" text="Exchange Rates"/>
-            <MenuItem mnemonicParsing="false" onAction="#handleHelpCommandWindow" text="List Of Command Usage"/>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
-            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="User Guide" />
+            <MenuItem mnemonicParsing="false" onAction="#handleHelpCommandWindow" text="Command Usage Summary"/>
           </Menu>
         </MenuBar>
 
@@ -47,6 +49,13 @@
 
         <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
                    minHeight="150" prefHeight="150" maxHeight="200">
+          <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+          </padding>
+        </StackPane>
+
+        <StackPane VBox.vgrow="NEVER" fx:id="budgetPlaceholder" styleClass="pane-with-border"
+                   minHeight="100" prefHeight="100" maxHeight="200">
           <padding>
             <Insets top="5" right="10" bottom="5" left="10" />
           </padding>

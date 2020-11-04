@@ -12,6 +12,7 @@ public class Amount {
 
 
     public final Double value;
+    public final boolean noValue;
 
     /**
      * Constructs an amount object.
@@ -21,6 +22,16 @@ public class Amount {
     public Amount(Double value) {
         checkArgument(isValidAmount(value), MESSAGE_CONSTRAINTS);
         this.value = value;
+        this.noValue = false;
+    }
+
+    /**
+     * Constructs an amount object.
+     *
+     */
+    public Amount() {
+        this.noValue = true;
+        this.value = -1.0;
     }
 
     /**
@@ -49,6 +60,9 @@ public class Amount {
 
     public double getValue() {
         return this.value;
+    }
+    public boolean isEmpty() {
+        return this.noValue;
     }
 
 }

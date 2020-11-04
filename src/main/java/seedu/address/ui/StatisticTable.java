@@ -11,8 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
@@ -20,8 +18,6 @@ import seedu.address.model.expense.StatisticSummary;
 
 public class StatisticTable extends UiPart<Stage> {
 
-    public static final String URL = "https://www.xe.com/currency/sgd-singapore-dollar.html";
-    public static final String MESSAGE = "Here are the brief summary of your expenses \n";
     private static final String FXML = "StatisticTable.fxml";
     private static boolean hasStats = false;
 
@@ -32,8 +28,8 @@ public class StatisticTable extends UiPart<Stage> {
 
     private TableColumn category = new TableColumn("Category");
     private TableColumn numberOfExpense = new TableColumn("Number of Expenses");
-    private TableColumn percentage = new TableColumn("Percentage");
-    private TableColumn totalSpending = new TableColumn("Total Spending");
+    private TableColumn percentage = new TableColumn("Percentage(%)");
+    private TableColumn totalSpending = new TableColumn("Total Spending($)");
 
     private ObservableList<StatisticSummary> list = FXCollections.observableArrayList();
 
@@ -51,6 +47,7 @@ public class StatisticTable extends UiPart<Stage> {
         super(FXML, root);
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
+        statisticTable.setMinWidth(450);
     }
 
     /**
@@ -133,17 +130,6 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public void focus() {
         getRoot().requestFocus();
-    }
-
-    /**
-     * Copies the URL to the user guide to the clipboard.
-     */
-    @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        url.putString(URL);
-        clipboard.setContent(url);
     }
 
 }

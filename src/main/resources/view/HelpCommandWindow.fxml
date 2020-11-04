@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.stage.Stage?>
 
-<?import javafx.scene.control.Button?>
 <fx:root resizable="false" title="Help Command Window" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
-        <Image url="@/images/statistics.png" />
+        <Image url="@/images/help_icon.png" />
     </icons>
     <scene>
         <Scene>
