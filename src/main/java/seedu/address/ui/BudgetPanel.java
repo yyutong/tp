@@ -40,9 +40,18 @@ public class BudgetPanel extends UiPart<Region> {
                 logic.getExpenseBook().getBudget(),
                 logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %s %s",
-                logic.getExpenseBook().getRemainingBudget(),
-                logic.getExpenseBook().getCurrency()));
+        if (logic.getExpenseBook().getRemainingBudget().getValue() < 0) {
+            budgetRemaining.setText(String.format("Remaining budget: %s %s."
+                    + "\n"
+                    + "You are overspending your budget, please set a new budget with command 'set-b AMOUNT'.",
+                    logic.getExpenseBook().getRemainingBudget(),
+                    logic.getExpenseBook().getCurrency()));
+        } else {
+            budgetRemaining.setText(String.format("Remaining budget: %s %s",
+                    logic.getExpenseBook().getRemainingBudget(),
+                    logic.getExpenseBook().getCurrency()));
+        }
+
         totalSpending.setText(String.format("Total spending: %s %s",
                 logic.getExpenseBook().totalSpending(),
                 logic.getExpenseBook().getCurrency()));
@@ -56,9 +65,17 @@ public class BudgetPanel extends UiPart<Region> {
                 logic.getExpenseBook().getBudget(),
                 logic.getExpenseBook().getCurrency()));
 
-        budgetRemaining.setText(String.format("Remaining budget: %s %s",
-                logic.getExpenseBook().getRemainingBudget(),
-                logic.getExpenseBook().getCurrency()));
+        if (logic.getExpenseBook().getRemainingBudget().getValue() < 0) {
+            budgetRemaining.setText(String.format("Remaining budget: %s %s."
+                            + "\n"
+                            + "You are overspending your budget, please set a new budget with command 'set-b AMOUNT'.",
+                    logic.getExpenseBook().getRemainingBudget(),
+                    logic.getExpenseBook().getCurrency()));
+        } else {
+            budgetRemaining.setText(String.format("Remaining budget: %s %s",
+                    logic.getExpenseBook().getRemainingBudget(),
+                    logic.getExpenseBook().getCurrency()));
+        }
 
         totalSpending.setText(String.format("Total spending: %.2f %s",
                 logic.getExpenseBook().totalSpending(),

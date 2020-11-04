@@ -19,7 +19,7 @@ public class EditCommand extends Command {
             + ": Edits the expense identified by the index number.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
-    public static final String SUCCESSFUL_MESSAGE = "Expense edited successfully";
+    public static final String SUCCESSFUL_MESSAGE = "Expense edited successfully.";
 
     private final Index index;
     private final Description description;
