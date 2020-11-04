@@ -61,7 +61,7 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 4. For Windows user, double-click the file to start the app. 
 For MacOS user, open your terminal and set the directory to be the same as UniSave, enter `java -jar UniSave.jar`.
-In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
+In a few seconds, you should see a GUI similar to the diagram below. Note the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press `Enter` to execute it.<br>
