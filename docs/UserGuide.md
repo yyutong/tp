@@ -116,14 +116,13 @@ Adds an expense, including fields amount, category, date, description, to your e
 Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Amount and Category are compulsory field while Date and Description are optional
+Amount and Category are compulsory field while Date and Description are optional. (Note that an amount of an expense should only be positive numbers.)
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date can be given in one of these two forms:
-i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
-ii) Note that when date is given as a single integer, it should not be less than 0 or greater than 3650
-ii) A date is given as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
+A date can be entered in one of these two forms:
+i) Enter date as a single integer, corresponding to how many days ago. E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer, it should not be less than 0 or greater than 3650)
+ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -496,7 +495,7 @@ Action | Format, Examples
 **Delete Description** | `delete-d INDEX`<br> e.g., `delete-d 2`
 **Set Budget** | `setbudget AMOUNT`<br> e.g., `setbudget 1000`
 **Show Budget** | `showbudget` <br> e.g., `showbudget`
-**Exchange Currency** | `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE` <br> e.g., `exchange s/CNY xr/5`
+**Exchange Currency** | `exchange s/CURRENCY_CODE` <br> e.g., `exchange s/CNY`
 **Show Statistic** | `showstatistics`<br> e.g., `showstatistics`
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
