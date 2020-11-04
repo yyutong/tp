@@ -229,6 +229,10 @@ public class AddExpenseCommandTest {
         @Override
         public void sortByAscendingTime() {
         }
+        @Override
+        public double getExpenseBookSpending() {
+            return -1.0;
+        }
     }
 
     /**
