@@ -10,7 +10,7 @@ import seedu.address.logic.commands.ExchangeCommand;
 import seedu.address.model.expense.Currency;
 
 public class ExchangeCommandParserTest {
-    private ExchangeCommandParser parser = new ExchangeCommandParser();
+    private final ExchangeCommandParser parser = new ExchangeCommandParser();
 
     @Test
     public void parse_success() {
