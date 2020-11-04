@@ -134,18 +134,20 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Set budget : `set-b`
 
-Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). When your spending the exceed the budget, UniSave will remind you to set a new budget.
+Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). 
+When total spending exceed the budget, UniSave will remind you to set a new budget.
 
 Format: `set-b AMOUNT`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, to see a full list of currency codes for supported currencies use command <b>show-codes</b>.
-</div>
 
 Example:
 `set-b 500`: Set the budget to 500.
 
 ![setBudget](images/setBudgetCommand.png)
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, 
+to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
+</div>
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -284,7 +286,7 @@ Multiple description input is allowed.
 </div>
 
 Examples:
-* `filter-d movies`: list all the expenses which description has the keyword 'movies'.
+* `filter-d movie`: list all the expenses which description has the keyword 'movie'.
 
 ![filter-d](images/listByDescCommand.png)
 
@@ -297,7 +299,7 @@ You can list out all the expenses stored in UniSave.
 Format: `list`
 
 Examples:
-* `list`: list all the expenses in all the categories.
+* `list`: list all the expenses in UniSave.
 
 ![list](images/listCommand.png)
 
@@ -316,7 +318,7 @@ Format: `sort-a descending`
 Examples: `sort-a ascending`
 Sort the expenses according to amount in ascending order.
 
-![sort by amount in ascending order](images/sortByAmount%20ascending.png)
+![sort by amount in ascending order](images/sortByAmount.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -352,7 +354,7 @@ Use command <b>show-codes</b> to see a full list of currency codes supported by 
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.12 Show Currency Codes: `show-codes`
-Show a full list of currency codes with its corresponding currency full name.
+Show a full list of supported currencies with their corresponding currency codes.
 
 Format: `show-codes`
 
@@ -408,11 +410,8 @@ Navigate back to the feature list: [Features](#3-features)
 --------------------------------------------------------------------------------------------------------------------
 
 ## 4. FAQ(Frequently Asked Question)
-
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder. <br>
-**Q**: What should I do if I forget what are the command available?<br>
-**A**: You can use `help` command to help you to see the brief summary of the commands available or use the summary table below.
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. Glossary 
