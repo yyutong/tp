@@ -24,7 +24,6 @@ public class ListExpenseByDescCommandParser implements Parser<ListExpenseByDescC
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByDescCommand.MESSAGE_USAGE));
         }
-        assert !trimmedArgs.isEmpty();
         String[] categoryKeywords = trimmedArgs.split("\\s+");
 
         return new ListExpenseByDescCommand(new DescContainsKeywordsPredicate(Arrays.asList(categoryKeywords)));

@@ -31,10 +31,6 @@
             <MenuItem mnemonicParsing="false" onAction="#handleStatistics" text="Pie Chart" />
             <MenuItem mnemonicParsing="false" onAction="#handleStatisticTable" text="Expenses Summary" />
           </Menu>
-          <Menu mnemonicParsing="false" text="Currency">
-            <MenuItem mnemonicParsing="false" onAction="#showSupportedCurrencyTable" text="Supported Currencies" />
-            <MenuItem mnemonicParsing="false" onAction="#showCurrencyExchangeRateTable" text="Exchange Rates"/>
-          </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="User Guide" />
             <MenuItem mnemonicParsing="false" onAction="#handleHelpCommandWindow" text="Command Usage Summary"/>

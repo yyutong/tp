@@ -285,6 +285,14 @@ public class MainWindow extends UiPart<Stage> {
                 handleStatisticTable();
             }
 
+            if (commandResult.isShowCurrencies()) {
+                showSupportedCurrencyTable();
+            }
+
+            if (commandResult.isShowRates()) {
+                showCurrencyExchangeRateTable();
+            }
+
             if (commandResult.isExit()) {
                 handleExit();
             }

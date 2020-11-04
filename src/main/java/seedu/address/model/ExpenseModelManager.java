@@ -173,6 +173,11 @@ public class ExpenseModelManager implements Model {
     }
 
     @Override
+    public double getExpenseBookSpending() {
+        return expenseBook.totalSpending();
+    }
+
+    @Override
     public Budget getExpenseBookRemaining() {
         return expenseBook.getRemainingBudget();
     }
