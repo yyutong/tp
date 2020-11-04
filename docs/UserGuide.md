@@ -156,7 +156,7 @@ Example:
 ![setBudget](images/setBudgetCommand.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, 
+You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
 </div>
 
@@ -356,9 +356,9 @@ Navigate back to the feature list: [Features](#3-features)
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
-Format: `exchange c/CURRENCY_CODE`
+Format: `exchange cc/CURRENCY_CODE`
 
-Example: `exchange c/CNY`
+Example: `exchange cc/CNY`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
@@ -465,7 +465,7 @@ Action | Format, Examples
 **List** | `list`
 **Sort by amount** | `sort-a ORDER` <br> e.g., `sort-a acsending`
 **Sort by date** | `sort-t ORDER` <br> e.g., `sort-t descending`
-**Exchange Currency** | `exchange c/CURRENCY_CODE` <br> e.g., `exchange c/CNY`
+**Exchange Currency** | `exchange cc/CURRENCY_CODE` <br> e.g., `exchange cc/CNY`
 **Show Currency Codes** | `show-codes`
 **Show Exchange Rates** | `show-rates`
 **Show Statistic** | `show-stats`
