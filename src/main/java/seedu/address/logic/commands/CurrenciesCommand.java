@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 public class CurrenciesCommand extends Command {
-    public static final String COMMAND_WORD = "code";
+    public static final String COMMAND_WORD = "show-codes";
     public static final String SUCCESSFUL_MESSAGE = "A full list of supported currencies "
             + "with their currency codes are shown in the table!";
 

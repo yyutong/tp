@@ -8,7 +8,7 @@ import seedu.address.model.Model;
  */
 public class ShowStatisticCommand extends Command {
 
-    public static final String COMMAND_WORD = "stats";
+    public static final String COMMAND_WORD = "show-stats";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Show number of expenses by categories in ascending order. \n"
             + "Example: " + COMMAND_WORD;

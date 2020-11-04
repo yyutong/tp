@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 public class RatesCommand extends Command {
-    public static final String COMMAND_WORD = "rates";
+    public static final String COMMAND_WORD = "show-rates";
     public static final String SUCCESSFUL_MESSAGE = "A full list of exchange rates from SGD is shown in the table!";
 
     /**
