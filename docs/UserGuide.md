@@ -122,8 +122,11 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
 
 #### 3.1 Clear data in UniSave : `clear`
 
-Clear all the data in the program. You can use this command to clear the sample data when you first launch the app.
+Clear all the data in the program. 
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You can use this command to clear the sample data when you first launch the app, or use it whenever you want to start a new expense book.
+</div>
 
 Format: `clear`
 
