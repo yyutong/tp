@@ -114,9 +114,10 @@ Adds an expense, including fields amount, category, date, description, to your e
 Format: `add a/AMOUNT c/CATEGORY D/DATE d/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date can be given in one of these two forms:
-i) A date is given as a single integer, corresponding to how many days ago.E.g: 1 means you made the expenses one day ago.
-ii) A date is given as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
+1. An amount of an expense must be positive.
+2. A date can be entered in one of these two forms:
+i) Enter date as a single integer, corresponding to how many days ago. E.g: 1 means you made the expenses one day ago.
+ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -468,7 +469,7 @@ Action | Format, Examples
 **Delete Description** | `deleteDes INDEX`<br> e.g., `deleteDes 2`
 **Set Budget** | `setBudget AMOUNT`<br> e.g., `setBudget 1000`
 **Show Budget** | `showBudget` <br> e.g., `showBudget`
-**Exchange Currency** | `exchange s/CURRENCY_CODE xr/EXCHANGE_RATE` <br> e.g., `exchange s/CNY xr/5`
+**Exchange Currency** | `exchange s/CURRENCY_CODE` <br> e.g., `exchange s/CNY`
 **Show Statistic** | `showStatistic`<br> e.g., `showStatistic`
 **Help** | `help` <br> e.g., `help`
 **Clear** | `clear` <br> e.g., `clear`
