@@ -10,7 +10,7 @@ import seedu.address.model.expense.Category;
  */
 public class ViewCategoryCommand extends Command {
 
-    public static final String COMMAND_WORD = "viewcategories";
+    public static final String COMMAND_WORD = "view-c";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Finds all the category labels used in the ExpenseBook so far. \n"

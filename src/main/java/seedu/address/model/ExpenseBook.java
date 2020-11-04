@@ -147,6 +147,11 @@ public class ExpenseBook implements ReadOnlyExpenseBook {
     }
 
     @Override
+    public double totalSpending() {
+        return expenses.totalSpending();
+    }
+
+    @Override
     public Budget getRemainingBudget() {
         return this.budget.remaining(expenses.totalSpending());
     }

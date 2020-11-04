@@ -134,18 +134,20 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Set budget : `set-b`
 
-Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). When your spending the exceed the budget, UniSave will remind you to set a new budget.
+Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). 
+When total spending exceed the budget, UniSave will remind you to set a new budget.
 
 Format: `set-b AMOUNT`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, to see a full list of currency codes for supported currencies use command <b>show-codes</b>.
-</div>
 
 Example:
 `set-b 500`: Set the budget to 500.
 
 ![setBudget](images/setBudgetCommand.png)
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You can change the Currency with command <b>exchange c/CURRENCY_CODE</b>, 
+to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
+</div>
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -160,7 +162,8 @@ Note that an amount of an expense should only be positive numbers.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A date can be entered in one of these two forms:
+If you don't input a date, the default date is today.
+If you do, a date can be entered in one of these two forms:
 i) Enter date as a single integer, corresponding to number of days ago. E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer, it should not be less than 0 or greater than 3650)
 ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28
 </div>
@@ -171,8 +174,8 @@ same result as `add t/1 d/milk tea membership card c/food a/100`.
 </div>
 
 Examples:
-* `add a/100 c/food D/1 d/milk tea membership card`
-* `add a/50 c/entertainment D/2020-09-28 d/yayymovie!`
+* `add a/100 c/food t/1 d/milk tea membership card`
+* `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
 
 ![add](images/addExpenseCommand.png)
 
@@ -222,7 +225,6 @@ View the expense at the specified INDEX.
 
 The index refers to the index number shown in the displayed expense list.
 
-
 * The index must be a **positive integer** 1, 2, 3, …
 
 Examples:
@@ -251,12 +253,11 @@ Show all the expenses whose category match the specified category.
 Format: `filter-c CATEGORY`
 
 Examples:
-* `filter-c entertainment`: list all the expenses under category entertainment.
+* `filter-c entertainment`: filter all the expenses under category `entertainment`.
 
 ![filter-c](images/listByCategoryCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 ##### 3.8.2 Filter by date : `filter-t`
 
@@ -269,12 +270,11 @@ The date format `YYYY-MM-DD` is sensitive and only this format is recognizable f
 </div>
 
 Examples:
-* `filter-t 2020-05-22`: list all the expenses that are saved on 2020-05-22.
+* `filter-t 2020-10-23`: filter all the expenses that are saved on `2020-10-23`.
 
 ![filter-t](images/listByDateCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 ##### 3.8.3 Filter by description : `filter-d`
 
@@ -287,12 +287,11 @@ Multiple description input is allowed.
 </div>
 
 Examples:
-* `filter-d movies`: list all the expenses which description has the keyword 'movies'.
+* `filter-d movie`: filter all the expenses which description has the keyword `movie`.
 
 ![filter-d](images/listByDescCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
-
 
 #### 3.9 List all expenses : `list`
 
@@ -301,7 +300,7 @@ You can list out all the expenses stored in UniSave.
 Format: `list`
 
 Examples:
-* `list`: list all the expenses in all the categories.
+* `list`: list all the expenses in UniSave.
 
 ![list](images/listCommand.png)
 
@@ -320,7 +319,7 @@ Format: `sort-a descending`
 Examples: `sort-a ascending`
 Sort the expenses according to amount in ascending order.
 
-![sort by amount in ascending order](images/sortByAmount%20ascending.png)
+![sort by amount in ascending order](images/sortByAmount.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -341,30 +340,26 @@ Sort the expenses according to date in ascending order (i.e. from past to presen
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.11 Exchange Currency : `exchange`
-Convert the currency of UniSave from current currency to the input currency.
+Convert the currency of UniSave from current currency to the input currency of the currency code, note that the currency code is case-insensitive.
 
-Format: `exchange s/CURRENCY_CODE`
+Format: `exchange c/CURRENCY_CODE`
 
-Example: `exchange s/CNY`
+Example: `exchange c/CNY`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Use command `show-codes` to see a full list of currency codes supported by UniSave.
+Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
 </div>
-
-Before Exchange: 
-
-![exchange_before](images/ExchangeCommand-before.png)
-
-After Exchange: 
 
 ![exchange_after](images/ExchangeCommand-after.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
 #### 3.12 Show Currency Codes: `show-codes`
-Show a full list of currency codes with its corresponding currency full name.
+Show a full list of supported currencies with their corresponding currency codes.
 
 Format: `show-codes`
+
+![currency_codes](images/CurrencyCodes.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -372,6 +367,8 @@ Navigate back to the feature list: [Features](#3-features)
 Show a full list of exchange rates adapted by UniSave. Note that the exchange rates were updated at 2020-10-31 from currency-layer website, there may be a slight inaccuracy compared to current exchange rates.
 
 Format: `show-rates`
+
+![exchange_rates](images/ExchangeRates.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -385,6 +382,7 @@ Format: `show-stats`
 Examples: `show-stats`
 
 ![showStatistic](images/showStatisticCommand.png)
+![showStatistic_table](images/showStatisticTable.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -413,11 +411,8 @@ Navigate back to the feature list: [Features](#3-features)
 --------------------------------------------------------------------------------------------------------------------
 
 ## 4. FAQ(Frequently Asked Question)
-
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous UniSave home folder. <br>
-**Q**: What should I do if I forget what are the command available?<br>
-**A**: You can use `help` command to help you to see the brief summary of the commands available or use the summary table below.
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. Glossary 

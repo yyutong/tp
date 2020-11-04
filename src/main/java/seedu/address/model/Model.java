@@ -99,6 +99,8 @@ public interface Model {
 
     Budget getExpenseBookRemaining();
 
+    double getExpenseBookSpending();
+
     void expenseBookExchange(ExchangeRate exchangeRate);
 
     void setExpenseBookBudget(Budget budget);

@@ -39,7 +39,7 @@ public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
         }
         Amount amount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
         Currency currency = ExpenseBook.currency();
-        Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).orElse(""));
+        Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).orElse("0"));
         Category category = ParserUtil.parseCategory(argMultimap.getValue(PREFIX_CATEGORY).get());
         Description description = ParserUtil.parseExpenseDescription(
                 argMultimap.getValue(PREFIX_DESCRIPTION).orElse(""));
