@@ -122,7 +122,8 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
 
 #### 3.1 Clear data in UniSave : `clear`
 
-Clears the data in the program.
+Clear all the data in the program. You can use this command to clear the sample data when you first launch the app.
+
 
 Format: `clear`
 
@@ -130,7 +131,7 @@ Navigate back to the feature list: [Features](#3-features)
 
 #### 3.2 Set budget : `set-b`
 
-Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD).
+Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). When your spending the exceed the budget, UniSave will remind you to set a new budget.
 
 Format: `set-b AMOUNT`
 
