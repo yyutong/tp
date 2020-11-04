@@ -55,9 +55,19 @@ public class ExchangeCommand extends Command {
      */
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof ExchangeCommand // instanceof handles nulls
-                && toCurrency.equals(((ExchangeCommand) other).toCurrency));
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ExchangeCommand)) {
+            return false;
+        }
+
+        // state check
+        ExchangeCommand e = (ExchangeCommand) other;
+        return toCurrency.equals(e.toCurrency);
     }
 
 }
