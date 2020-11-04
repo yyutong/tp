@@ -14,7 +14,7 @@ public class ExchangeCommandParserTest {
 
     @Test
     public void parse_success() {
-        assertParseSuccess(parser, " c/cny", new ExchangeCommand(new Currency("CNY")));
+        assertParseSuccess(parser, " cc/cny", new ExchangeCommand(new Currency("CNY")));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ExchangeCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        assertParseFailure(parser, " c/oop", ExchangeCommand.MESSAGE_INVALID_CURRENCY);
+        assertParseFailure(parser, " cc/oop", ExchangeCommand.MESSAGE_INVALID_CURRENCY);
     }
 
 }
