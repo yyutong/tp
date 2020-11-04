@@ -5,6 +5,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CurrenciesCommand.SUCCESSFUL_MESSAGE;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 
