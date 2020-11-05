@@ -235,8 +235,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
 
-####Show Budget feature
-<div>
+#### Show Budget feature
+
 The show budget feature is mainly supported by the `ExpenseBook` class.
 
 The following activity diagram summarizes what happens when a user executes a new command:
@@ -374,8 +374,8 @@ The expense management feature supports five main operations:
 * `addDes` - add a description to an existing expense.
 * `deleteDes` - delete the description of an existing expense.
 
-####Add description
-<div>
+#### Add description
+
 The add description features and delete description feature are mainly supported by the `Expense` class.
 
 Given below is the class diagram of the `Expense` class.
@@ -418,8 +418,8 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
 
-####View an expense 
-<div>
+#### View an expense 
+
 The view expense feature is facilitated by the `ExpenseBook` class.
 
 Given below is the class diagram of the `ExpenseBook` class.
@@ -459,8 +459,8 @@ High Level Sequence Diagram for the Execution of `view 1`
          expense list is sorted by date/amount.
          
          
-####View all existing expense categories 
-<div>
+#### View all existing expense categories 
+
 The view existing expense categories feature is facilitated by the ExpenseBook class.
 
 Given below is the class diagram of the `ExpenseBook` class.
