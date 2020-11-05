@@ -11,7 +11,7 @@ the benefits of a Graphical User Interface (GUI).
 Given below are my contributions to the project.
 
 * **Code Contributed**:
-    * Contributed code to transform the address book code base to a working expense book code base
+    * Contributed code to transform the address book code base, including basic model, logic and Ui, to a working expense book code base
     * Implemented the addDes function which allows users to add a description to an existing expense
     * Implemented the deleteDes function which allows users to add a description to an existing expense
     * Implement expense book storage to not just store the expense list but other useful fields such as budget and currency.
