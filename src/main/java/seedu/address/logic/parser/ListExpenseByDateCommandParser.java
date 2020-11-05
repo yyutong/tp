@@ -50,7 +50,7 @@ public class ListExpenseByDateCommandParser implements Parser<ListExpenseByDateC
             String[] splitDateByDash = date.split("-");
             if (splitDateByDash.length != 3) {
                 throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByCategoryCommand.MESSAGE_USAGE));
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByDateCommand.MESSAGE_USAGE));
             }
         }
     }
