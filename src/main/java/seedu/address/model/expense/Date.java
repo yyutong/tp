@@ -20,7 +20,8 @@ public class Date {
                    + "i) A single number to represent number of days before today."
         + "and it should be at least 1 digits long. Eg: 1 refer to 1 day  ago \n"
                     + "and it should be less than 3650. \n"
-            + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12";
+            + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12. Note that the date can't be set "
+                    + "to be in the future.";
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String date;
     public final String howManyDaysAgo;
@@ -65,7 +66,11 @@ public class Date {
         //return test.matches(VALIDATION_REGEX);
         if (test.contains("-")) {
             try {
+                LocalDate today = LocalDate.now();
                 LocalDate date = LocalDate.parse(test);
+                if (today.isBefore(date)) {
+                    return false;
+                }
                 String dateString = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
                 return true;
             } catch (DateTimeParseException e) {

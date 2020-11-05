@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
@@ -48,6 +50,13 @@ public class StatisticTable extends UiPart<Stage> {
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
         statisticTable.setMinWidth(470);
+
+        getRoot().addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+            if (KeyCode.Q == event.getCode()) {
+                getRoot().hide();
+            }
+        }
+        );
     }
 
     /**
