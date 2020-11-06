@@ -38,6 +38,7 @@ public class ListExpenseByCategoryCommand extends Command {
      */
     @Override
     public CommandResult execute(Model model) {
+        assert predicate != null;
         requireNonNull(model);
         model.updateFilteredExpenseList(predicate);
         return new CommandResult(
