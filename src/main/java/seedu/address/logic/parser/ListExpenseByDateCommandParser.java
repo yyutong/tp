@@ -4,7 +4,6 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 
 import java.util.Arrays;
 
-import seedu.address.logic.commands.ListExpenseByCategoryCommand;
 import seedu.address.logic.commands.ListExpenseByDateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.DateContainsKeywordsPredicate;
@@ -50,7 +49,7 @@ public class ListExpenseByDateCommandParser implements Parser<ListExpenseByDateC
             String[] splitDateByDash = date.split("-");
             if (splitDateByDash.length != 3) {
                 throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByCategoryCommand.MESSAGE_USAGE));
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListExpenseByDateCommand.MESSAGE_USAGE));
             }
         }
     }
