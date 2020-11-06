@@ -25,11 +25,11 @@
                     </minWidth>
                 </Label>
 <!--                <Label fx:id="amount" text="\$amount" styleClass="cell_big_label" />-->
-                <Label fx:id="amount" text="\$first" styleClass="cell_big_label" />
+                <Label fx:id="amount" text="\$first" styleClass="cell_big_label" wrapText="true" />
             </HBox>
-            <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
-            <Label fx:id="category" styleClass="cell_small_label" text="\$category" />
-            <Label fx:id="description" styleClass="cell_small_label" text="\$description" />
+            <Label fx:id="date" styleClass="cell_small_label" text="\$date" wrapText="true" />
+            <Label fx:id="category" styleClass="cell_small_label" text="\$category" wrapText="true" />
+            <Label fx:id="description" styleClass="cell_small_label" text="\$description" wrapText="true" />
         </VBox>
     </GridPane>
 </HBox>
