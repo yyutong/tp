@@ -31,9 +31,11 @@ public class SortByTimeCommand extends Command {
      * @param order The order os sorting, which is a string.
      */
     public SortByTimeCommand(String order) {
-        assert order.equals(" descending") || order.equals(" ascending") : "Please enter a valid order"
+        String trimmedOrder = order.trim();
+        assert trimmedOrder.equals("descending") || trimmedOrder.equals("ascending") : "Please enter a valid order"
                 + "(descending or ascending)!";
-        this.order = order;
+
+        this.order = trimmedOrder;
     }
 
     /**
@@ -54,11 +56,11 @@ public class SortByTimeCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        if (this.order.equals(" ascending")) {
+        if (this.order.equals("ascending")) {
             model.sortByAscendingTime();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_ASCENDING));
-        } else if (this.order.equals(" descending")) {
+        } else if (this.order.equals("descending")) {
             model.sortByDescendingTime();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_DESCENDING));

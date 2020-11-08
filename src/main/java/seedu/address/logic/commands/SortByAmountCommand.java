@@ -26,10 +26,11 @@ public class SortByAmountCommand extends Command {
      * @param order The sorting order of this command object.
      */
     public SortByAmountCommand(String order) {
-        assert order.equals(" descending") || order.equals(" ascending") : "Please enter a valid order"
+        String trimmedOrder = order.trim();
+        assert trimmedOrder.equals("descending") || trimmedOrder.equals("ascending") : "Please enter a valid order"
                 + "(descending or ascending)!";
 
-        this.order = order;
+        this.order = trimmedOrder;
     }
 
     /**
@@ -49,11 +50,11 @@ public class SortByAmountCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        if (this.order.equals(" ascending")) {
+        if (this.order.equals("ascending")) {
             model.sortByAscendingAmount();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_ASCENDING));
-        } else if (this.order.equals(" descending")) {
+        } else if (this.order.equals("descending")) {
             model.sortByDescendingAmount();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_DESCENDING));
