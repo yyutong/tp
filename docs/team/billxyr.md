@@ -11,46 +11,40 @@ Given below are my contributions to the project.
 
 * **Code Contributed**: [RepoSense Link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=BILLXYR&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=BILLXYR&tabRepo=AY2021S1-CS2103T-W10-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=test-code)
 * **New Features Added**:
-    * New Features 1: Added addExpense Command (Pull requests: [#72](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/72) [#52](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/52)  [#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
-       * What it does: It allows users to add an expense to the current expense book.  
+    * New Features 1: Added addExpense Command -- It allows users to add an expense to the current expense book. (Pull requests: [#72](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/72) [#52](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/52)  [#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
        * Justification:
             * It has a very user-friendly command as it allows user to quickly recording their expenses. With the optional `Date` and `Description` field, it saves a lot of hassles for users.
-            * When user do not indicate a specific date of the expenses, it will automatically set to today which make it very convenient for users.
-            * Moreover, if the users want to record an expense that happened yesterday, he can simply type in 1 to record that.
+            * With the optimization of `Date`, users can use single number to indicate the date of expenses. Eg. 1 refers to yesterday.
        * Highlight: 
             * This feature required an in-depth analysis of design alternatives. The implementation is challenging as it involves a deep understanding various java concepts, such as Optional.
             * This is one of the indispensable and fundamental features as it affects existing commands and commands to be added in the future.
-    
-    * New Features 2: Added delete Command (Pull requests: [#78](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/78))
-       * What it does: It allows users to delete an expense that they do not want in the expense book.
+   
+    * New Features 2: Added delete Command --  It allows users to delete an expense that they do not want in the expense book. (Pull requests: [#78](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/78))
        * Justification:
             * This feature improves the product significantly because it allows users to delete a wrongly added expenses or expenses that they do not want.
             * Without this feature, users may find himself overwhelmed with unwanted expenses. This is one of the indispensable and fundamental features.
        * Highlight:
             * This feature required an in-depth analysis of design alternatives. The implementation is challenging as it required changes to existing commands.
             * This is one of the indispensable and fundamental features as it affects existing commands and commands to be added in the future.
-       * Credits: This feature was built from the "delete contact" feature in AddressBook Level 3.     
-       
-    * New Features 3: Added Help Command (Pull requests: [#105](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/105)   [#246](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/246))
-       * What it does: It allows users to search for a quick summary of the command while they are using it.
+       * Credits: This feature built from the "delete contact" feature in AddressBook 3.     
+   
+    * New Features 3: Added Help Command -- It allows users to search for a quick summary of the command while they are using it. (Pull requests: [#105](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/105)   [#246](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/246))
        * Justification: 
             * I added in a clear structured table for users to refer, link to complete user guide is also available.
             * This feature improves the product and increase the user experience significantly because it allows users to have a quick view of the command if they forget certain command.
        * Highlight:
             * This feature required an in-depth analysis of design alternatives. This feature requires a significant effort as it requires constant updates of new commands as well as changes to existing command.
-       * Credits: This feature was built from the "help" feature in AddressBook Level 3.
-       
-    * New Features 4: Added Edit Command (Pull requests: [#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
-       * What it does: It allows users to edit an existing expense.
+       * Credits: This feature built from the "help" feature in AddressBook 3.
+    
+    * New Features 4: Added Edit Command -- It allows users to edit an existing expense. (Pull requests: [#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
        * Justification: 
             * This feature saves a lot of effort for users as it allows them to modify their current expenses, such as amount, date or description.
             * This feature improves the product and increase the user experience significantly as it allows users to make amendment to current expenses without the need to delete and re-add them.            
        * Highlight:
             * This feature required an in-depth analysis of design alternatives. This feature requires a significant effort as I need to handle different scenarios, such as added invalid value or invalid followed by valid values.
-       * Credits: This feature was built from the "edit" feature in AddressBook Level 3.
-       
-    * New Features 5: Added showStatistic Command (Pull requests: [#126](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/126)  [#147](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/147)  [#181](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/181))
-       * What it does: It allows users to have a brief overview of their expense.
+       * Credits: This feature built from the "edit" feature in AddressBook 3.
+    
+    * New Features 5: Added showStatistic Command -- It allows users to have a brief overview of their expense. (Pull requests: [#126](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/126)  [#147](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/147)  [#181](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/181))
        * Justification:
             * This feature includes various information,such as total expenses, percentage of expenses per category. They are sorted in decreasing amount and percentage.
             * This feature improves the product and increase the user experience significantly as it gives users a better sense of their spending which can help them make better spending decision.
