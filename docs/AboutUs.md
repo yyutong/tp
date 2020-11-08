@@ -13,9 +13,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/billxyr.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/BILLXYR)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/billxyr.md)]
 
 * Role: Developer, Testing
 * Responsibilities: Model
