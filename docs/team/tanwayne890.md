@@ -37,7 +37,7 @@ Given below are my contributions to the project.
 * **Community**:
   * PRs reviewed (with non-trivial review comments): 
   [\#18](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/18), [\#24](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/24), 
-  [\#70](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/70), [\78](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/78)
-  * Reported bugs and suggestions for other teams in the class (examples: [205](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/205), 
-  [206](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/206), [207](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/207), 
-  [208](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/208))
+  [\#70](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/70), [\#78](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/78)
+  * Reported bugs and suggestions for other teams in the class (examples: [\#205](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/205), 
+  [\#206](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/206), [\#207](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/207), 
+  [\#208](https://github.com/AY2021S1-CS2103T-T17-4/tp/issues/208))
