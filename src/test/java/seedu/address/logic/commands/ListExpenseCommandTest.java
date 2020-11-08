@@ -9,9 +9,12 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.ExpenseModelManager;
 import seedu.address.model.Model;
 import seedu.address.model.UserPrefs;
+
 /**
  * Contains integration tests (interaction with the Model) for {@code ListExpenseCommand}.
  */
+
+//@author BILLXYR
 public class ListExpenseCommandTest {
 
     private Model model;
@@ -28,3 +31,4 @@ public class ListExpenseCommandTest {
         assertCommandSuccess(new ListExpenseCommand(), model, ListExpenseCommand.MESSAGE_SUCCESS, expectedModel);
     }
 }
+//@author
