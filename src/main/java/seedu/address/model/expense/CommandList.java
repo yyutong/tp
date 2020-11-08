@@ -6,8 +6,8 @@ import java.util.List;
 public class CommandList {
 
     public static final String ADD_EXPENSE = "ADD EXPENSE COMMAND";
-    public static final String ADD_EXPENSE_USAGE = "ADD expense";
-    public static final String ADD_EXPENSE_FORMAT = "add a/AMOUNT c/CATEGORY t/DATE [d/DESCRIPTION]";
+    public static final String ADD_EXPENSE_USAGE = "ADD expense, date and time filed are optional";
+    public static final String ADD_EXPENSE_FORMAT = "add a/AMOUNT c/CATEGORY [t/DATE] [d/DESCRIPTION]";
     public static final String ADD_EXPENSE_EXAMPLE = "add a/50 c/ENTERTAINMENT t/1 d/movie";
     public static final String LIST_EXPENSE = "LIST EXPENSE COMMAND";
     public static final String LIST_EXPENSE_USAGE = "LIST all expenses";
@@ -39,8 +39,8 @@ public class CommandList {
     public static final String DELETE_DESCRIPTION_EXAMPLE = "delete-d 6";
     public static final String SET_BUDGET = "SET BUDGET";
     public static final String SET_BUDGET_USAGE = "set the budget";
-    public static final String SET_BUDGET_FORMAT = "setbudget AMOUNT";
-    public static final String SET_BUDGET_EXAMPLE = "setbudget 500.0";
+    public static final String SET_BUDGET_FORMAT = "set-b AMOUNT";
+    public static final String SET_BUDGET_EXAMPLE = "set-b 500.0";
     public static final String SHOW_BUDGET = "SHOW BUDGET";
     public static final String SHOW_BUDGET_USAGE = "show the budget";
     public static final String SHOW_BUDGET_FORMAT = "showbudget AMOUNT";
@@ -65,6 +65,11 @@ public class CommandList {
     public static final String FILTER_BY_DESCRIPTION_USAGE = "filter the expenses by keywords in description";
     public static final String FILTER_BY_DESCRIPTION_FORMAT = "filter-d KEYWORD";
     public static final String FILTER_BY_DESCRIPTION_EXAMPLE = "filter-d movie";
+    public static final String FILTER_BY_CATEGORY = "FILTER BY CATEGORY";
+    public static final String FILTER_BY_CATEGORY_USAGE = "Show all the expenses "
+            + "whose category match the specified category";
+    public static final String FILTER_BY_CATEGORY_FORMAT = "filter-c CATEGORY";
+    public static final String FILTER_BY_CATEGORY_EXAMPLE = "filter-c entertainment";
     public static final String FILTER_BY_DATE = "FILTER BY DATE";
     public static final String FILTER_BY_DATE_USAGE = "filter the expenses by date";
     public static final String FILTER_BY_DATE_FORMAT = "filter-t YYYY-MM-DD";
@@ -73,6 +78,22 @@ public class CommandList {
     public static final String HELP_USAGE = "look for help when using the app";
     public static final String HELP_FORMAT = "help";
     public static final String HELP_EXAMPLE = "help";
+    public static final String CLEAR = "CLEAR";
+    public static final String CLEAR_USAGE = "Clear all the data in the program";
+    public static final String CLEAR_FORMAT = "clear";
+    public static final String CLEAR_EXAMPLE = "clear";
+    public static final String EDIT = "EDIT";
+    public static final String EDIT_USAGE = "Edits the expense at the specified INDEX";
+    public static final String EDIT_FORMAT = "edit INDEX [a/AMOUNT] [c/CATEGORY] [t/DATE] [d/DESCRIPTION] ";
+    public static final String EDIT_EXAMPLE = "edit 1 a/12";
+    public static final String EXCHANGE_CURRENCY = "EXCHANGE";
+    public static final String EXCHANGE_CURRENCY_USAGE = "Convert current currency to currency of input currency code";
+    public static final String EXCHANGE_CURRENCY_FORMAT = "exchange cc/CURRENCY_CODE";
+    public static final String EXCHANGE_CURRENCY_EXAMPLE = "exchange cc/CNY";
+    public static final String SHOW_CURRENCY_CODE = "SHOW CURRENCY CODE";
+    public static final String SHOW_CURRENCY_CODE_USAGE = "Show a full list of supported currencies and their codes";
+    public static final String SHOW_CURRENCY_CODE_FORMAT = "show-codes";
+    public static final String SHOW_CURRENCY_CODE_EXAMPLE = "show-codes";
     private final String command;
     private final String usage;
     private final String format;
@@ -131,23 +152,38 @@ public class CommandList {
                 FILTER_BY_DESCRIPTION_FORMAT, FILTER_BY_DESCRIPTION_EXAMPLE);
         CommandList helpCommand = new CommandList(HELP, HELP_USAGE,
                 HELP_FORMAT, HELP_EXAMPLE);
-        list.add(addCommand);
-        list.add(deleteCommand);
-        list.add(listCommand);
-        list.add(listByCategoryCommand);
-        list.add(filterByDescriptionCommand);
-        list.add(filterByTimeCommand);
-        list.add(sortByAmountCommand);
-        list.add(sortByTimeCommand);
+        CommandList filterByCategoryCommand = new CommandList(FILTER_BY_CATEGORY, FILTER_BY_CATEGORY_USAGE,
+                FILTER_BY_CATEGORY_FORMAT, FILTER_BY_CATEGORY_EXAMPLE);
+        CommandList clearCommand = new CommandList(CLEAR, CLEAR_USAGE,
+                CLEAR_FORMAT, CLEAR_EXAMPLE);
+        CommandList editCommand = new CommandList(EDIT, EDIT_USAGE,
+                EDIT_FORMAT, EDIT_EXAMPLE);
+        CommandList exchangeCurrencyCommand = new CommandList(EXCHANGE_CURRENCY, EXCHANGE_CURRENCY_USAGE,
+                EXCHANGE_CURRENCY_FORMAT, EXCHANGE_CURRENCY_EXAMPLE);
+        CommandList showCurrencyCodeCommand = new CommandList(SHOW_CURRENCY_CODE, SHOW_CURRENCY_CODE_USAGE,
+                SHOW_CURRENCY_CODE_FORMAT, SHOW_CURRENCY_CODE_EXAMPLE);
         list.add(addDesCommand);
+        list.add(addCommand);
+        list.add(clearCommand);
+        list.add(deleteCommand);
         list.add(deleteDesCommand);
+        list.add(editCommand);
+        list.add(exchangeCurrencyCommand);
+        list.add(exitCommand);
+        list.add(filterByCategoryCommand);
+        list.add(filterByTimeCommand);
+        list.add(filterByDescriptionCommand);
+        list.add(helpCommand);
+        list.add(listByCategoryCommand);
+        list.add(listCommand);
         list.add(setBudgeCommand);
         list.add(showBudgeCommand);
+        list.add(showCurrencyCodeCommand);
         list.add(showStatisticCommand);
+        list.add(sortByAmountCommand);
+        list.add(sortByTimeCommand);
         list.add(viewCommand);
         list.add(viewCategoryCommand);
-        list.add(helpCommand);
-        list.add(exitCommand);
         return list;
     }
 }

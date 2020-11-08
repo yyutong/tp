@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.DeleteDescriptionCommand;
 
 
+//@author BILLXYR
 public class DeleteDescriptionCommandParserTest {
 
     private DeleteDescriptionCommandParser parser = new DeleteDescriptionCommandParser();
@@ -25,3 +26,5 @@ public class DeleteDescriptionCommandParserTest {
                 MESSAGE_INVALID_COMMAND_FORMAT, DeleteDescriptionCommand.MESSAGE_USAGE));
     }
 }
+
+// @author
