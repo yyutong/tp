@@ -16,6 +16,8 @@ import seedu.address.testutil.TypicalIndexes;
 /**
  * Contains integration tests (interaction with the Model) for {@code DeleteDescriptionCommand}.
  */
+
+//@author BILLXYR
 public class DeleteDescriptionCommandTest {
 
     @Test
@@ -70,3 +72,5 @@ public class DeleteDescriptionCommandTest {
         CommandTestUtil.assertCommandFailure(deleteDesCommand, model, Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
     }
 }
+
+//@author

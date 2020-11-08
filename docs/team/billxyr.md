@@ -9,6 +9,7 @@ the benefits of a Graphical User Interface (GUI).
 
 Given below are my contributions to the project.
 
+* **Code Contributed**: [[RepoSense Link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=BILLXYR&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=BILLXYR&tabRepo=AY2021S1-CS2103T-W10-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=test-code)]
 * **Code Contributed**:
     * Implemented the delete function which allows users to delete an unwanted expense record
     * Implemented the version 1.0 AddExpense function which allows users to add an expense
