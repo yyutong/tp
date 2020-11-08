@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Xie Yaoren
 
-<img src="images/BILLXYR.png" width="200px">
+<img src="images/billxyr.png" width="200px">
 
 [[github](https://github.com/BILLXYR)]
 [[portfolio](team/billxyr.md)]
