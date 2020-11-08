@@ -18,7 +18,6 @@ Given below are my contributions to the project.
        * Highlight: 
             * This feature required an in-depth analysis of design alternatives. The implementation is challenging as it involves a deep understanding various java concepts, such as Optional.
             * This is one of the indispensable and fundamental features as it affects existing commands and commands to be added in the future.
-   
     * New Features 2: Added delete Command --  It allows users to delete an expense that they do not want in the expense book. (Pull requests: [#78](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/78))
        * Justification:
             * This feature improves the product significantly because it allows users to delete a wrongly added expenses or expenses that they do not want.
@@ -27,7 +26,6 @@ Given below are my contributions to the project.
             * This feature required an in-depth analysis of design alternatives. The implementation is challenging as it required changes to existing commands.
             * This is one of the indispensable and fundamental features as it affects existing commands and commands to be added in the future.
        * Credits: This feature built from the "delete contact" feature in AddressBook 3.     
-   
     * New Features 3: Added Help Command -- It allows users to search for a quick summary of the command while they are using it. (Pull requests: [#105](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/105)   [#246](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/246))
        * Justification: 
             * I added in a clear structured table for users to refer, link to complete user guide is also available.
@@ -35,7 +33,6 @@ Given below are my contributions to the project.
        * Highlight:
             * This feature required an in-depth analysis of design alternatives. This feature requires a significant effort as it requires constant updates of new commands as well as changes to existing command.
        * Credits: This feature built from the "help" feature in AddressBook 3.
-    
     * New Features 4: Added Edit Command -- It allows users to edit an existing expense. (Pull requests: [#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
        * Justification: 
             * This feature saves a lot of effort for users as it allows them to modify their current expenses, such as amount, date or description.
@@ -43,7 +40,6 @@ Given below are my contributions to the project.
        * Highlight:
             * This feature required an in-depth analysis of design alternatives. This feature requires a significant effort as I need to handle different scenarios, such as added invalid value or invalid followed by valid values.
        * Credits: This feature built from the "edit" feature in AddressBook 3.
-    
     * New Features 5: Added showStatistic Command -- It allows users to have a brief overview of their expense. (Pull requests: [#126](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/126)  [#147](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/147)  [#181](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/181))
        * Justification:
             * This feature includes various information,such as total expenses, percentage of expenses per category. They are sorted in decreasing amount and percentage.
