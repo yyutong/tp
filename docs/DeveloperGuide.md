@@ -889,7 +889,7 @@ testers are expected to do more *exploratory* testing.
         
 ### Add a description to current expenses
 
-1. Add an description into the expense with the index specified. Index and description field are compulsory.
+1. Add a description into the expense with the index specified. Index and description field are compulsory.
 
    i.   Prerequisites: The expense book is not empty.
    ii.  Test case: `add-d 1 d/movie` <br>
