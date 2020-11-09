@@ -56,7 +56,6 @@ public class Date {
         this.date = localdate.toString();
         localDate = localdate;
     }
-
     /**
      * Returns true if a given string is a valid Day.
      */
