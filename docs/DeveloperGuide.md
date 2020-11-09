@@ -576,7 +576,7 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **Appendix A: Requirements**
 
 ### Product scope
 
@@ -796,12 +796,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. UniSave detects an error in the entered order.
-    * 1a1. UniSave requests for the correct order.
-    * 1a2. User enters a valid order.
-    * 1a3. UniSave sorts the expense list in specified order by time.
-    * 1a4. UniSave displays the new sorted expense list.
-    * Use case ends.
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
+
 
 **Use case: Sort expenses by amount**
 
@@ -815,12 +814,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. UniSave detects an error in the entered order.
-    * 1a1. UniSave requests for the correct order.
-    * 1a2. User enters a valid order.
-    * 1a3. UniSave sorts the expense list in specified order by amount.
-    * 1a4. UniSave displays the new sorted expense list.
-    * Use case ends.
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
 
 **Use case: Alert**
 
@@ -844,6 +841,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Expense**: The amount of money spent by the user student in a certain event
 * **Budget**: The maximum amount of money that the user student can spend
+* **Currency code** The representation of a currency, following ISO4217, which is published by the International Organisation for Standadization.
+It is unique for every currency.
 
 --------------------------------------------------------------------------------------------------------------------
 
