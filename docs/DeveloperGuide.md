@@ -769,53 +769,31 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to set a new budget.
-2.  UniSave updates and displays the new budget.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave requests for the correct value.
-    * 1a2. User enters a valid value.
-    * 1a3. UniSave updates and displays the new budget.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Total Budget**
+**Use case: Exchange Currency**
 
 **MSS**
 
-1.  User requests to view total budget.
-2.  UniSave displays the total budget.
+1.  User requests to exchange the currency of ExpenseBook.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. User does not have a budget set yet.
-    * 2a1. Unisave displays the default budget 0.
-    * 2a2. UniSave requests for setting a budget.
-    * 2a3. User sets a budget.
-    * 2a4. UniSave displays the amount set by the user.
+* 1a. UniSave detects an error in the entered value.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Remaining Budget**
-
-**MSS**
-
-1.  User requests to view remaining budget.
-2.  UniSave displays the remaining budget.
-
-    Use case ends.
-
-**Use case: Alert**
-
-**MSS**
-
-1.  User's spending exceed budget.
-2.  UniSave shows alerts.
-
-    Use case ends.
 
 ### Non-Functional Requirements
 
