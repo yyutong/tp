@@ -39,23 +39,21 @@ Given below are my contributions to the project.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=yyutong&tabRepo=AY2021S1-CS2103T-W10-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
 
-* **Project management**:
-  *
-
 * **Enhancements implemented**:
     * Functional Code:
-       * Added documentation for the features `view expense`
-    * Documentation:
-       * User Guide:
+       * Changed UI background color
+       * Added additional budget panel to UI layout
+       * Added more elements to the UI menu bar
     * Test Code:
        * Wrote additional tests for existing features to increase coverage
+       * Wrote useful classes for testing, such as ExpenseBuilder, ExpenseBookBuilder, Typical Expenses.
 
 * **Documentation**:
    * User Guide:
       * Added documentation for the features `view expense`
-      * Added documentation for the features `view categories`
-      * Added documentation for the features `Sort by time`
-      * Added documentation for the features `Sort by amount`
+      * Added documentation for the features `view-c`
+      * Added documentation for the features `sort-a`
+      * Added documentation for the features `sort-t`
 
    * Developer Guide:
       * Added implementation details of `sort-a`, `sort-t`, `view index`, `view-c`.
@@ -68,4 +66,6 @@ Given below are my contributions to the project.
 * **Contributions beyond the project team**:
    * Evidence of helping others:
        * Report the bugs I found during PE-dry run
+       * Discuss related questions with peers in the forum
+       * Solve issues reported along the project development and PE-dry run
 
