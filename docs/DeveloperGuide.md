@@ -534,7 +534,9 @@ Step 1. The user launches the application.
 Step 2. UniSave displays a list of existing expenses in the UI.
 
 Step 3. The user executes `exchange cc/cny` to exchange the currency of the ExpenseBook from `SGD` (Default Currency) to `CNY`.
-The `ExchangeCommand` exchanges the `Budget` and `ExpenseList` of `ExpenseBook` at the exchange rate from `SGD` to `CNY`. (i.e. around 4.91 in UniSave), the `Currency` of the ExpenseBook is changed to `CNY`.
+
+Step 4. The `ExchangeCommand` build a new `CurrencyConverter` to calculate the exchange rate from `SGD` to `CNY`. 
+The `ExchangeCommand` exchanges the `Budget` and `ExpenseList` of `ExpenseBook` at the calculated exchange rate, and changes the `Currency` of the ExpenseBook to `CNY`.
 
 The sequence diagram below shows the high-level abstraction of how UniSave processes user request to execute `exchange cc/cny`:
 
