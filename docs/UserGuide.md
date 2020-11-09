@@ -124,7 +124,23 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
   e.g `a/AMOUNT c/CATEGORY [t/date]` can be used as `a/100 c/shopping` or as `a/100 c/shopping t/2020-10-30`
   
 * Parameters can be in any order.<br>
+  e.g. if the command specifies `a/AMOUNT c/CATEGORY`, `c/CATEGORY a/AMOUNT` is also acceptable.
+  
+* Multiple instances of the same prefix/flag will not throw an error. However, the app will only read the <b>last instance</b> in the input.
+  e.g. if `add a/100 c/entertainment c/food` will add the expense to "food" category.
+  
+* All additional input after commands which do not have input fields such as list, exit, clear, etc. will be ignored.
+eg. `help` and `help 123` will have the same effect.
+
+* Prefixes are case-sensitive.
+eg. `d/` is not the same as `D/`.
   e.g. if the command specifies `a/AMOUNT c/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
+  
+* Here are the prefix used in our command.
+  *   a/ : amount
+  *   c/ : category
+  *   t/ : date of expenses
+  *   d/ : description for the expenses
 
 </div>
 
@@ -134,12 +150,11 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
 
 Clear all the data in the program. 
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can use this command to clear the sample data when you first launch the app, 
-or use it whenever you want to start a new expense book.
-</div>
+You can use this command to clear the sample data when you first launch the app, or use it whenever you want to start a new expense book. <br>
+Note that budget will be cleared when you use this command.
 
 Format: `clear`
+Example: `clear`
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -155,10 +170,10 @@ Example:
 
 ![setBudget](images/setBudgetCommand.png)
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+**Note** :
 You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
-</div>
+
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -168,28 +183,23 @@ Adds an expense.
 
 Format: `add a/AMOUNT c/CATEGORY [t/DATE] [d/description]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Note that an amount of an expense should only be positive numbers.
-</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-If you don't input a date, the default date is today.<br>
-If you do, a date can be entered in one of these two forms:<br>
-i) Enter date as a single integer, corresponding to number of days ago. <br>
-E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
-it should not be less than 0 or greater than 3650.)   
-
-ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
-</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You may enter each field in a different order. That means `add a/100 c/food t/1 d/milk tea membership card` gives the 
-same result as `add t/1 d/milk tea membership card c/food a/100`.
-</div>
+**Note** :
+1. The amount of an expense should only be positive numbers. <br>
+2. If you do, a date can be entered in one of these two forms:<br>
+  i) Enter date as a single integer, corresponding to number of days ago. <br>
+  E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
+  it should not be less than 0 or greater than 3650.) <br>
+  ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
+3.The date and field are optional but amount and category are compulsory. <br>
+4. when more than one same field is entered, the last one is chosen. For example, there are t/2 and t/3 being entered, t/3 will be chosen. <br>
+5. When the date field is left empty, the default is today. When description field is left empty, the default is no description. <br>
+6. You may enter each field in a different order. That means `add a/100 c/food t/1 d/milk tea membership card` gives the 
+   same result as `add t/1 d/milk tea membership card c/food a/100`. <br>
 
 Examples:
 * `add a/100 c/food t/1 d/milk tea membership card`
 * `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
+* `add a/100 c/food`
 
 ![add](images/addExpenseCommand.png)
 
@@ -254,6 +264,9 @@ Show all existing categories in the expense list. Note that a category is added 
 
 Format: `view-c`
 
+Examples:
+* `view-c`
+
 ![viewCategory](images/viewCategoryCommand.png)
 
 #### 3.8 Filter Expenses
@@ -277,13 +290,15 @@ Navigate back to the feature list: [Features](#3-features)
 
 Show all the expenses whose date match the specified date.
 
-Format: `filter-t YYYY-MM-DD`
+Format: `filter-t YYYY-MM-DD` or `filter-t NUMBEROFDAYSAGO`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The date format `YYYY-MM-DD` is sensitive and only this format is recognizable for this command.
+NUMBEROFDAYSAGO is used to specify how many days ago from current day.
+It accepts number from 0 to 3650 (10 years).
 </div>
 
 Examples:
+* `filter-t 3`: filter all the expenses that are saved on 3 days ago from current day.
 * `filter-t 2020-10-23`: filter all the expenses that are saved on `2020-10-23`.
 
 ![filter-t](images/listByDateCommand.png)
@@ -329,9 +344,10 @@ Sort the expenses in specified order.
 
 Format: `sort-a descending`
         `sort-a ascending`
+* Note that only ascending or descending order is valid.
 
-Examples: `sort-a ascending`
-Sort the expenses according to amount in ascending order.
+Examples:
+* `sort-a ascending`: sort the expenses according to amount in ascending order.
 
 ![sort by amount in ascending order](images/sortByAmount.png)
 
@@ -343,9 +359,10 @@ Sort the expenses according to date in specified order.
 
 Format: `sort-t ascending`
         `sort-t descending`
+* Note that only ascending or descending order is valid.
 
-Examples: `sort-t ascending`
-Sort the expenses according to date in ascending order (i.e. from past to present.).
+Examples:
+* `sort-t ascending`: sort the expenses according to date in ascending order (i.e. from past to present.).
 
 ![sort by time in ascending order](images/sortByTime ascending.png)
 
@@ -355,13 +372,17 @@ Navigate back to the feature list: [Features](#3-features)
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
-Format: `exchange cc/CURRENCY_CODE`
-
-Example: `exchange cc/CNY`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Note that the currency code is case-insensitive. <b>cny</b> is the same as <b>CNY</b>.
+</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
 </div>
+
+Format: `exchange cc/CURRENCY_CODE`
+
+Example: `exchange cc/CNY`
 
 ![exchange_after](images/ExchangeCommand-after.png)
 

@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Yang Yutong's Project Portfolio Page
-------
-
+---
 
 ## Project: UniSave
+
 
 Unisave is a desktop finance planner app, optimized for use via a Command Line Interface (CLI) while still having
 the benefits of a Graphical User Interface (GUI).
@@ -69,3 +69,4 @@ Given below are my contributions to the project.
        * Report the bugs I found during PE-dry run
        * Discuss related questions with peers in the forum
        * Solve issues reported along the project development and PE-dry run
+
