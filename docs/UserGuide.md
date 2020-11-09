@@ -165,17 +165,15 @@ When total spending exceed the budget, UniSave will remind you to set a new budg
 
 Format: `set-b BUDGET`
 
-**Note** :
-A valid budget should be at least 0.01 (i.e. 1 cent).
-
 Example:
 `set-b 500`: Set the budget to 500.
 
 ![setBudget](images/setBudgetCommand.png)
 
 **Note** :
-You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
+1. You can change the Currency before setting budget with command <b>exchange cc/CURRENCY_CODE</b>, so that you can set your budget in another currency.
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
+2. Budget should only be positive numbers.
 
 
 Navigate back to the feature list: [Features](#3-features)
@@ -187,7 +185,7 @@ Adds an expense.
 Format: `add a/AMOUNT c/CATEGORY [t/DATE] [d/description]`
 
 **Note** :
-1. The amount of an expense should only be positive numbers. The minimum amount should be at least 0.01 (i.e. 1 cent) <br>
+1. The amount of an expense should only be positive numbers. <br>
 2. If you do, a date can be entered in one of these two forms:<br>
   i) Enter date as a single integer, corresponding to number of days ago. <br>
   E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
