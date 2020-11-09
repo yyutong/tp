@@ -11,13 +11,14 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
+participant ":ExpenseBook" as ExpenseBook MODEL_COLOR
 participant ":ExpenseList" as ExpenseList MODEL_COLOR
 end box
 
-[-> LogicManager : execute("sort-t descending")
+[-> LogicManager : execute("sort-a descending")
 activate LogicManager
 
-LogicManager -> ExpenseBookParser : parseCommand("sort-t descending")
+LogicManager -> ExpenseBookParser : parseCommand("sort-a descending")
 activate ExpenseBookParser
 
 create SortByAmountCommandParser
@@ -52,11 +53,17 @@ activate SortByAmountCommand
 SortByAmountCommand -> Model : sortByDescendingAmount()
 activate Model
 
-Model --> ExpenseList: sortByDescendingAmount()
+Model -> ExpenseBook : sortByDescendingAmount()
+activate ExpenseBook
+
+ExpenseBook --> ExpenseList: sortByDescendingAmount()
 activate ExpenseList
 
-ExpenseList --> Model
+ExpenseList --> ExpenseBook
 deactivate ExpenseList
+
+ExpenseBook --> Model
+deactivate ExpenseBook
 
 Model --> SortByAmountCommand
 deactivate Model
