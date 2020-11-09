@@ -23,18 +23,18 @@ public class AddDescriptionCommandParser implements Parser<AddDescriptionCommand
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
 
-        if (!argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                            AddDescriptionCommand.MESSAGE_ADD_DESCRIPTION_PREDIX_MISSING));
-        }
-
         Index index;
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (IllegalValueException ive) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddDescriptionCommand.MESSAGE_USAGE), ive);
+        }
+
+        if (!argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            AddDescriptionCommand.MESSAGE_ADD_DESCRIPTION_PREDIX_MISSING));
         }
 
         String descriptionString = argMultimap.getValue(PREFIX_DESCRIPTION).orElse("");
