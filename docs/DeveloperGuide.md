@@ -478,7 +478,7 @@ The view existing expense categories feature is facilitated by the ExpenseBook c
 
 Given below is the class diagram of the `ExpenseBook` class.
 
-Fig. Class Diagram for ExpenseBook.
+Fig. Class Diagram for Expense.
 ![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
 
 Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
@@ -506,6 +506,80 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 #### Design Considerations
 
 ##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1: Directly search for existing expense categories from the UI.
+** Pros: No need to type in any command.
+** Cons: Takes a lot of time to do so.
+
+## 3.7 Set Budget features
+
+The set budget feature allows the user to set a budget for ExpenseBook.
+
+Given below is a class diagram for `Expensebook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `set-b BUDGET`:
+
+Fig. Activity Diagram for the Execution of `SetBudgetCommand`
+![SetBudgetActivityDiagram](images/SetBudgetActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook to in Unisave.
+The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request
+to execute `set-b 1000`:
+
+High Level Sequence Diagram for the Execution of `set-b 1000`
+![SetBudgetSequenceDiagram](images/SetBudgetSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How do user check the updated budget.
+
+* Alternative 1: Use ShowBudget Command `show-b`
+** Pros: Simplier Implementation.
+** Cons: Users cannot see their remaining budget all the time.
+
+## 3.8 Exchange features
+
+The Exchange feature allows exchange the currency of the whole ExpenseBook.
+
+Given below is a class diagram for `Expensebook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `set-b BUDGET`:
+
+Fig. Activity Diagram for the Execution of `SetBudgetCommand`
+![SetBudgetActivityDiagram](images/SetBudgetActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook to in Unisave.
+The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request
+to execute `set-b 1000`:
+
+High Level Sequence Diagram for the Execution of `set-b 1000`
+![SetBudgetSequenceDiagram](images/SetBudgetSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to handle 0 budget.
 
 * Alternative 1: Directly search for existing expense categories from the UI.
 ** Pros: No need to type in any command.
