@@ -37,7 +37,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/yuanxing-y.md)]
 
 * Role: Developer, Documentation & Code Quality
-* Responsibilities: Data, Storage
+* Responsibilities: Model, Logic
 
 ### Yao Yuming
 
