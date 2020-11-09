@@ -1213,3 +1213,6 @@ testers are expected to do more *exploratory* testing.
 
    ii.  Test case: `view-c x` (where x is any number or alphabet) <br>
         Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct.
+
+# 7. **Appendix C: *Model Component***
+![Model Component](images/ModelClassDiagram.png)
