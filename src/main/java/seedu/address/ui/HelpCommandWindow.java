@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.CommandList;
@@ -39,6 +41,12 @@ public class HelpCommandWindow extends UiPart<Stage> {
         helpCommandWindow.setGraphic(tableView);
         helpCommandWindow.setMinWidth(1205);
         helpCommandWindow.setMinHeight(580);
+
+        getRoot().addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+            if (KeyCode.Q == event.getCode()) {
+                getRoot().hide();
+            }
+        });
     }
 
     /**

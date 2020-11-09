@@ -355,26 +355,132 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
-### Manage description of Expense Feature
 
-As an expense management application, one of the most important features is to add a description when
-recording down and tracking the expenses, so that later when users review their expenses, they have a better
-idea of what he spent on. 
+### Expense Management Feature
+
+As an expense management application, the most important features are to be able to add, edit, view and delete your
+expenses 
 
 This section will cover the details of the current implementation and design considerations of
 the description management feature.
 
 #### Current Implementation
 
-The expense management feature supports five main operations:
+The expense management feature supports six main operations:
 
 * `add` - record an expense, with an amount, a date, a category and a description as fields.
 * `view` - view the details of an existing expense.
+* `edit` - edit the details of an existing expense.
 * `delete` - delete an existing expense from the expense list.
-* `addDes` - add a description to an existing expense.
-* `deleteDes` - delete the description of an existing expense.
+* `add-d` - add a description to an existing expense.
+* `delete-d` - delete the description of an existing expense.
+
+
+### Expense model
+
+The add expense, view expense, edit expense, delete expense, as well as add description features and delete description
+feature are mainly supported by the `Expense` class.
+
+Given below is the class diagram of the `Expense` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+
+Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
+
+Fig. Activity Diagram for the Execution of `AddTaskCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `Spent on books` to add the description 
+"Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
+
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+
+
+#### Edit expense
+
+The add description features and delete description feature are mainly supported by the `Expense` class.
+
+Given below is the class diagram of the `Expense` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+
+Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
+
+Fig. Activity Diagram for the Execution of `AddTaskCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `Spent on books` to add the description 
+"Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
+
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+
+
+
+
+
 
 #### Add description
+
+
+As an expense management application, one of the most important features is to add a description when
+recording down and tracking the expenses, so that later when users review their expenses, they have a better
+idea of what he spent on. 
 
 The add description features and delete description feature are mainly supported by the `Expense` class.
 

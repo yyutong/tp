@@ -10,7 +10,7 @@ class DescriptionTest {
 
     @Test
     public void constructor_invalidDescription_throwsIllegalArgumentException() {
-        String invalidDescription = " ";
+        String invalidDescription = "";
         assertThrows(IllegalArgumentException.class, () -> new Description(invalidDescription));
     }
 
@@ -25,10 +25,10 @@ class DescriptionTest {
         assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
         // invalid name
-        assertFalse(Description.isValidDescription(" ")); // spaces only
+        assertFalse(Description.isValidDescription("")); // empty string
 
         // valid description
-        assertTrue(Description.isValidDescription("")); // empty string
+        assertTrue(Description.isValidDescription(" ")); // spaces only
         assertTrue(Description.isValidDescription("bought jacket at Zara"));
         assertTrue(Description.isValidDescription("Bought logitech keyboard"));
         assertTrue(Description.isValidDescription("shopped at capital city"));

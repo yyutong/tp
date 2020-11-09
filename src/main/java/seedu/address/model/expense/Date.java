@@ -71,7 +71,6 @@ public class Date {
                 if (today.isBefore(date)) {
                     return false;
                 }
-                String dateString = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
                 return true;
             } catch (DateTimeParseException e) {
                 return false;

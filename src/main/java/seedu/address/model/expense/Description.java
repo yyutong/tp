@@ -8,13 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Description {
 
-    public static final String MESSAGE_CONSTRAINTS = "Descriptions can take any values, and it should not be blank";
-
-    /*
-     * The first character of the description must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String MESSAGE_CONSTRAINTS = "Descriptions can take any values, and it should not be empty";
 
     public final String value;
 
@@ -37,7 +31,7 @@ public class Description {
      * Returns true if a given description is a valid description.
      */
     public static boolean isValidDescription(String value) {
-        return !value.equals(" ");
+        return !value.equals("");
     }
 
 

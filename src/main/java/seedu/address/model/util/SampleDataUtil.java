@@ -13,7 +13,7 @@ import seedu.address.model.expense.Expense;
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
 public class SampleDataUtil {
-    public static final Description EMPTY_DESCRIPTION = new Description("");
+    public static final Description EMPTY_DESCRIPTION = new Description(" ");
     public static Expense[] getSampleExpenses() {
         return new Expense[]{
             new Expense(new Amount(11.2), new Date("2"), new Category("entertainment"),
