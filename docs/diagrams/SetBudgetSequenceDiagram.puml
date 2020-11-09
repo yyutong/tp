@@ -64,6 +64,6 @@ deactivate CommandResult
 SetBudgetCommand --> LogicManager : budget, remaining budget
 deactivate SetBudgetCommand
 
-[<--LogicManager : update(budget)
+[<--LogicManager : setGuiSettings(model)
 deactivate LogicManager
 @enduml

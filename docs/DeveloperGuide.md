@@ -511,14 +511,53 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 ** Pros: No need to type in any command.
 ** Cons: Takes a lot of time to do so.
 
-## 3.7 Set Budget features
+## 3.7 Exchange features
 
-The set budget feature allows the user to set a budget for ExpenseBook.
+The Exchange feature allows converting the currency of the whole ExpenseBook. Each individual expense along with the budget in the ExpenseBook will be exchanged into the input currency at exchange rate from the current currency.
 
-Given below is a class diagram for `Expensebook` class.
+Given below is a class diagram for `ExpenseBook` class.
 
 Fig. Class Diagram for ExpenseBook.
 ![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
+
+When executing `exchange` command, the `Currency` field will be changed if the input currency code is valid.
+
+Given below is an example usage scenario and how the mechanism of exchange behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `exchange cc/cny`:
+
+Fig. Activity Diagram for the Execution of `ExchangeCommand`
+![ExchangeActivityDiagram](images/ExchangeActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `exchange cc/cny` to exchange the currency of the ExpenseBook from `SGD` (Default Currency) to `CNY`.
+The `ExchangeCommand` exchanges the `Budget` and `ExpenseList` of `ExpenseBook` at the exchange rate from `SGD` to `CNY`. (i.e. around 4.91 in UniSave), the `Currency` of the ExpenseBook is changed to `CNY`.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request to execute `exchange cc/cny`:
+
+High Level Sequence Diagram for the Execution of `exchange cc/cny`
+![ExchangeSequenceDiagram](images/ExchangeSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to handle Exchange Rates
+* Alternative 1: Let the user to type in real-time exchange rate.
+** Pros: Correct input of the exchange rate can make the conversion more accurate.
+** Cons: More prone to error, cannot check for incorrect exchange rates.
+
+* Alternative 2: Let the user to download additional text file, and read the exchange rates from the text file.
+** Pros: More flexibility when updating the exchange rates.
+** Cons: 
+(1) Users can modify the text file, more prone to error when parsing from the text file.
+(2) More files to download other than `UniSave.jar`, less user-friendly.
+
+
+## 3.8 Set Budget features
+
+The set budget feature allows the user to set a budget for ExpenseBook.
 
 Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
 
@@ -531,7 +570,7 @@ Step 1. The user launches the application.
 
 Step 2. UniSave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook to in Unisave.
+Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook.
 The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
 
 The sequence diagram below shows the high-level abstraction of how UniSave processes user request
@@ -547,43 +586,6 @@ High Level Sequence Diagram for the Execution of `set-b 1000`
 * Alternative 1: Use ShowBudget Command `show-b`
 ** Pros: Simplier Implementation.
 ** Cons: Users cannot see their remaining budget all the time.
-
-## 3.8 Exchange features
-
-The Exchange feature allows exchange the currency of the whole ExpenseBook.
-
-Given below is a class diagram for `Expensebook` class.
-
-Fig. Class Diagram for ExpenseBook.
-![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
-
-Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `set-b BUDGET`:
-
-Fig. Activity Diagram for the Execution of `SetBudgetCommand`
-![SetBudgetActivityDiagram](images/SetBudgetActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. UniSave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook to in Unisave.
-The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
-
-The sequence diagram below shows the high-level abstraction of how UniSave processes user request
-to execute `set-b 1000`:
-
-High Level Sequence Diagram for the Execution of `set-b 1000`
-![SetBudgetSequenceDiagram](images/SetBudgetSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to handle 0 budget.
-
-* Alternative 1: Directly search for existing expense categories from the UI.
-** Pros: No need to type in any command.
-** Cons: Takes a lot of time to do so.
 
 --------------------------------------------------------------------------------------------------------------------
 
