@@ -26,6 +26,7 @@ public class AddDescriptionCommand extends Command {
             + "d/ [DESCRIPTION]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + "d/ Movie time.";
+    public static final String MESSAGE_ADD_DESCRIPTION_PREDIX_MISSING = "The description d/ field is missing. \n";
 
     public static final String MESSAGE_ADD_DESCRIPTION_SUCCESS = "Added description to Expense: %1$s \n";
     public static final String MESSAGE_DELETE_DESCRIPTION_SUCCESS = "Removed description from Expense: %1$s \n";

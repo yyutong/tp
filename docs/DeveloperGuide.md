@@ -3,7 +3,21 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-{:toc}
+    * [1. Overview](#1-overview)
+    * [2. Design](#2-design)
+    * [3. Implementation](#3-implementation)
+        * [3.1 Expense management feature](#31-expense-management-feature)
+            * [3.1.1 Add expense feature](#311-add-expense-feature)
+            * [3.1.2 View expense feature](#312-view-expense-feature)
+            * [3.1.3 Edit expense feature](#313-edit-expense-feature)
+            * [3.1.4 Delete expense feature](#314-delete-expense-feature)
+            * [3.1.5 Add description to expense feature](#315-add-description-to-expense-feature)
+            * [3.1.6 List all expenses](#316-delete-an-expense-delete)
+        * [3.2 Exchange feature](#32-exchange-feature)
+        * [3.3 Budget feature](#33-budget-feature)
+        * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionalities)
+        * [3.5 Expense list sorting functionalities](#35-expense-list-filter-functionalities)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -127,7 +141,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 
-### Expense Management Feature
+### 3.1 Expense Management Feature
 
 As an expense management application, the most important features are to be able to add, edit, view and delete your
 expenses.
@@ -135,7 +149,7 @@ expenses.
 This section will cover the details of the current implementation and design considerations of
 the description management feature.
 
-#### Current Implementation
+### Current Implementation
 
 The expense management feature supports six main operations:
 
@@ -144,7 +158,7 @@ The expense management feature supports six main operations:
 * `edit` - edit the details of an existing expense.
 * `delete` - delete an existing expense from the expense list.
 * `add-d` - add a description to an existing expense.
-* `delete-d` - delete the description of an existing expense.
+* `list` - list the descriptions in the expense book.
 
 
 ### Expense model
@@ -159,155 +173,92 @@ Fig. Class Diagram for Expense.
 
 
 
-#### Add Expense feature
+#### 3.1.1 Add expense feature
 
 Given below is an example usage scenario and how the mechanism for adding expenses behaves at each step.
 
 The following activity diagram summarizes what happens when a user executes the `AddExpenseCommand`:
 
 Fig. Activity Diagram for the Execution of `AddExpenseCommand`
-![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+![AddExpenseActivityDiagram](images/AddExpenseActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI, or a sample expense list if the file storing the
+expense data is not found.
+
+Step 3. The user executes `add a/AMOUNT c/CATEGORY [t/DATE] [d/DESCRIPTION]` to add an expense.
+For example, the user can use `add a/100 c/food t/2020-11-08 d/had dinner with friends` to add the expense incurred on
+"2020-11-08", with an amount of "100", a category "food", and a description "had dinner with friends" to the UniSave expense list.
+The `AddExpenseCommand` calls `Expense` to create a new Expense object and add it to the `ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `add a/100 c/food`:
+
+High Level Sequence Diagram for the Execution of `add a/100 c/food`
+![AddDescriptionActivityDiagram](images/AddExpenseSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage optional fields.
+
+* Alternative 1 (current choice): Check if the prefix of the specific optional field is provided by the user. If not, add
+the prefix and the default value when creating the expense object.
+** Pros: Expense always contains the optional objects. No possibility of 0 date object or description object in expense.
+** Cons: When setting these fields to default value, it is crucial to use the right default values.
+* Alternative 2: Use an `Optional` for optional fields.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+#### 3.1.2 View expense feature
+
+
+
+#### 3.1.3 Edit expense feature
+
+Given below is an example usage scenario and how the mechanism for editing expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `EditExpenseCommand`:
+
+Fig. Activity Diagram for the Execution of `EditExpenseCommand`
+![AddDescriptionActivityDiagram](images/EditExpenseActivityDiagram.png)
 
 Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `Spent on books` to add the description 
-"Spent on books" to the expense with index 2 in the displayed expense list.
-The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
-this newly created description object, and replace the previous expense object with this updated expense in the 
-`ExpenseList` stored in `UniSave`.
+Step 3. The user executes `edit INDEX [a/AMOUNT] [c/CATEGORY] [t/DATE] [d/DESCRIPTION]` to edit existing expense. 
+`edit 1 a/12` edit the amount field of the 1st expense in the currently displayed expense list from 10 to 12.
+The `EditExpenseCommand` calls `Expense` to create a new expense object with the provided fields replaced by the new
+values.
 
 The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `addDes 2 d/Spent on books`:
+to execute `edit 1 a/12`:
 
-High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
-![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+High Level Sequence Diagram for the Execution of `edit 1 a/12`
+![AddDescriptionActivityDiagram](images/EditExpenseSequenceDiagram.png)
 
 #### Design Considerations
 
-##### Aspect: How to manage empty description, as description is optional.
+##### Aspect: How to allow editing different number of fields each time.
 
-* Alternative 1 (current choice): Use empty string to create description, if description is empty.
-** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
-* Alternative 2: Use an `Optional` for descriptions.
-** Pros: More intuitive.
-** Cons: Harder to manage and prone to error.
-
-
-
-
-#### Edit expense feature
-
-The add description features and delete description feature are mainly supported by the `Expense` class.
-
-Given below is the class diagram of the `Expense` class.
-
-Fig. Class Diagram for Expense.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+* Alternative 1 (current choice): For every prefix, check if the prefix and a value is provided.
+If no prefix is provided, return an error as no change in any fields means this is not a valid edit.
+** Pros: Less prone to error. If a certain prefix is not provided, simply use the field object in the current expense
+without changing it. 
+** Cons: Performance is slower, especially when the number of prefixed is large. Iterating through all and checking
+through all of them might reduce the speed of processing the edit command.
+* Alternative 2: Check the number of prefix provided.
+** Pros: Fast to check the number.
+** Cons: Require extra data structure to keep track of the prefixes.
 
 
-Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
+### 3.1.4 Delete Expense feature
 
-The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
+#### Implementation
 
-Fig. Activity Diagram for the Execution of `AddTaskCommand`
-![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `Spent on books` to add the description 
-"Spent on books" to the expense with index 2 in the displayed expense list.
-The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
-this newly created description object, and replace the previous expense object with this updated expense in the 
-`ExpenseList` stored in `UniSave`.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `addDes 2 d/Spent on books`:
-
-High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
-![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1 (current choice): Use empty string to create description, if description is empty.
-** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
-* Alternative 2: Use an `Optional` for descriptions.
-** Pros: More intuitive.
-** Cons: Harder to manage and prone to error.
-
-
-
-
-
-
-
-
-#### Add description
-
-
-As an expense management application, one of the most important features is to add a description when
-recording down and tracking the expenses, so that later when users review their expenses, they have a better
-idea of what he spent on. 
-
-The add description features and delete description feature are mainly supported by the `Expense` class.
-
-Given below is the class diagram of the `Expense` class.
-
-Fig. Class Diagram for Expense.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
-
-
-Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
-
-Fig. Activity Diagram for the Execution of `AddTaskCommand`
-![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `Spent on books` to add the description 
-"Spent on books" to the expense with index 2 in the displayed expense list.
-The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
-this newly created description object, and replace the previous expense object with this updated expense in the 
-`ExpenseList` stored in `UniSave`.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `addDes 2 d/Spent on books`:
-
-High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
-![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1 (current choice): Use empty string to create description, if description is empty.
-** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
-* Alternative 2: Use an `Optional` for descriptions.
-** Pros: More intuitive.
-** Cons: Harder to manage and prone to error.
-
-
-
-
-
-
-### \[Proposed\] Delete Expense feature
-
-#### Proposed Implementation
-
-The proposed delete mechanism is facilitated by `VersionedExpenseBook`. It extends `ExpenseBook` and stored internally as an `ExpenseBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The delete mechanism is facilitated by `VersionedExpenseBook`. It extends `ExpenseBook` and stored internally as an `ExpenseBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
 * `VersionedExpenseBook#save()` — Saves the current expense book state in its history.
 * `VersionedExpenseBook#delete()` — Restores the previous expense book state from its history.
@@ -346,48 +297,48 @@ The following sequence diagram shows how the delete operation works:
 
 ![UndoSequenceDiagram](images/deleteExpenseSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteExpenseCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
-</div>
+#### 3.1.5 Add description to expense
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+The add description features and delete description feature are mainly supported by the `Expense` class.
 
-</div>
+Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
 
-![UndoRedoState4](images/UndoRedoState4.png)
+Fig. Activity Diagram for the Execution of `AddTaskCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+Step 1. The user launches the application.
 
-![UndoRedoState5](images/UndoRedoState5.png)
+Step 2. Unisave displays a list of existing expenses in the UI.
 
-The following activity diagram summarizes what happens when a user executes a new command:
+Step 3. The user executes `Spent on books` to add the description "Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
 
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
 
-#### Design consideration:
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
 
-##### Aspect: How undo & redo executes
+#### Design Considerations
 
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+##### Aspect: How to manage empty description, as description is optional.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the expense being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
 
-_{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
 
-_{Explain here how the data archiving feature will be implemented}_
-
-### \[Proposed\] List feature
+### 3.1.6 List feature
 
 #### Proposed Implementation
 
@@ -411,6 +362,9 @@ Step 3: As we can see from the sequence diagram, a result is also returned to `U
 The following activity diagram summarizes what happens when a user executes a new command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
+
+
+### Budget management feature
 
 #### Show Budget feature
 
