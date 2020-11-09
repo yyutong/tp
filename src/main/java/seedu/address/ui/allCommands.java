@@ -1,9 +1,10 @@
-package seedu.address.model.expense;
+package seedu.address.ui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandList {
+public class allCommands {
+
 
     public static final String ADD_EXPENSE = "ADD EXPENSE COMMAND";
     public static final String ADD_EXPENSE_USAGE = "ADD expense, date and time filed are optional";
@@ -41,10 +42,6 @@ public class CommandList {
     public static final String SET_BUDGET_USAGE = "set the budget";
     public static final String SET_BUDGET_FORMAT = "set-b AMOUNT";
     public static final String SET_BUDGET_EXAMPLE = "set-b 500.0";
-    public static final String SHOW_BUDGET = "SHOW BUDGET";
-    public static final String SHOW_BUDGET_USAGE = "show the budget";
-    public static final String SHOW_BUDGET_FORMAT = "showbudget AMOUNT";
-    public static final String SHOW_BUDGET_EXAMPLE = "showbudget 500.0";
     public static final String EXIT = "EXIT";
     public static final String EXIT_USAGE = "exit from the application";
     public static final String EXIT_FORMAT = "exit";
@@ -98,7 +95,7 @@ public class CommandList {
     private final String usage;
     private final String format;
     private final String example;
-    protected CommandList(String command, String usage, String format, String example) {
+    protected allCommands(String command, String usage, String format, String example) {
         this.command = command;
         this.usage = usage;
         this.format = format;
@@ -116,51 +113,49 @@ public class CommandList {
     public String getExample() {
         return this.example;
     }
-    public static List<CommandList> getCommandList() {
-        List<CommandList> list = new ArrayList<>();
-        CommandList addCommand = new CommandList(ADD_EXPENSE, ADD_EXPENSE_USAGE,
+    public static List<allCommands> getComandList() {
+        List<allCommands> list = new ArrayList<>();
+        allCommands addCommand = new allCommands(ADD_EXPENSE, ADD_EXPENSE_USAGE,
                 ADD_EXPENSE_FORMAT, ADD_EXPENSE_EXAMPLE);
-        CommandList listCommand = new CommandList(LIST_EXPENSE, LIST_EXPENSE_USAGE,
+        allCommands listCommand = new allCommands(LIST_EXPENSE, LIST_EXPENSE_USAGE,
                 LIST_EXPENSE_FORMAT, LIST_EXPENSE_EXAMPLE);
-        CommandList listByCategoryCommand = new CommandList(LIST_BY_CATEGORY, LIST_BY_CATEGORY_USAGE,
+        allCommands listByCategoryCommand = new allCommands(LIST_BY_CATEGORY, LIST_BY_CATEGORY_USAGE,
                 LIST_BY_CATEGORY_FORMAT, LIST_BY_CATEGORY_EXAMPLE);
-        CommandList deleteCommand = new CommandList(DELETE, DELETE_USAGE,
+        allCommands deleteCommand = new allCommands(DELETE, DELETE_USAGE,
                 DELETE_FORMAT, DELETE_EXAMPLE);
-        CommandList viewCommand = new CommandList(VIEW, VIEW_USAGE,
+        allCommands viewCommand = new allCommands(VIEW, VIEW_USAGE,
                 VIEW_FORMAT, VIEW_EXAMPLE);
-        CommandList viewCategoryCommand = new CommandList(VIEW_CATEGORY, VIEW_CATEGORY_USAGE,
+        allCommands viewCategoryCommand = new allCommands(VIEW_CATEGORY, VIEW_CATEGORY_USAGE,
                 VIEW_CATEGORY_FORMAT, VIEW_CATEGORY_EXAMPLE);
-        CommandList addDesCommand = new CommandList(ADD_DESCRIPTION, ADD_DESCRIPTION_USAGE,
+        allCommands addDesCommand = new allCommands(ADD_DESCRIPTION, ADD_DESCRIPTION_USAGE,
                 ADD_DESCRIPTION_FORMAT, ADD_DESCRIPTION_EXAMPLE);
-        CommandList deleteDesCommand = new CommandList(DELETE_DESCRIPTION, DELETE_DESCRIPTION_USAGE,
+        allCommands deleteDesCommand = new allCommands(DELETE_DESCRIPTION, DELETE_DESCRIPTION_USAGE,
                 DELETE_DESCRIPTION_FORMAT, DELETE_DESCRIPTION_EXAMPLE);
-        CommandList setBudgeCommand = new CommandList(SET_BUDGET, SET_BUDGET_USAGE,
+        allCommands setBudgeCommand = new allCommands(SET_BUDGET, SET_BUDGET_USAGE,
                 SET_BUDGET_FORMAT, SET_BUDGET_EXAMPLE);
-        CommandList showBudgeCommand = new CommandList(SHOW_BUDGET, SHOW_BUDGET_USAGE,
-                SHOW_BUDGET_FORMAT, SHOW_BUDGET_EXAMPLE);
-        CommandList exitCommand = new CommandList(EXIT, EXIT_USAGE,
+        allCommands exitCommand = new allCommands(EXIT, EXIT_USAGE,
                 EXIT_FORMAT, EXIT_EXAMPLE);
-        CommandList showStatisticCommand = new CommandList(SHOW_STATISTIC, SHOW_STATISTIC_USAGE,
+        allCommands showStatisticCommand = new allCommands(SHOW_STATISTIC, SHOW_STATISTIC_USAGE,
                 SHOW_STATISTIC_FORMAT, SHOW_STATISTIC_EXAMPLE);
-        CommandList sortByAmountCommand = new CommandList(SORT_BY_AMOUNT, SORT_BY_AMOUNT_USAGE,
+        allCommands sortByAmountCommand = new allCommands(SORT_BY_AMOUNT, SORT_BY_AMOUNT_USAGE,
                 SORT_BY_AMOUNT_FORMAT, SORT_BY_AMOUNT_EXAMPLE);
-        CommandList sortByTimeCommand = new CommandList(SORT_BY_TIME, SORT_BY_TIME_USAGE,
+        allCommands sortByTimeCommand = new allCommands(SORT_BY_TIME, SORT_BY_TIME_USAGE,
                 SORT_BY_TIME_FORMAT, SORT_BY_TIME_EXAMPLE);
-        CommandList filterByTimeCommand = new CommandList(FILTER_BY_DATE, FILTER_BY_DATE_USAGE,
+        allCommands filterByTimeCommand = new allCommands(FILTER_BY_DATE, FILTER_BY_DATE_USAGE,
                 FILTER_BY_DATE_FORMAT, FILTER_BY_DATE_EXAMPLE);
-        CommandList filterByDescriptionCommand = new CommandList(FILTER_BY_DESCRIPTION, FILTER_BY_DESCRIPTION_USAGE,
+        allCommands filterByDescriptionCommand = new allCommands(FILTER_BY_DESCRIPTION, FILTER_BY_DESCRIPTION_USAGE,
                 FILTER_BY_DESCRIPTION_FORMAT, FILTER_BY_DESCRIPTION_EXAMPLE);
-        CommandList helpCommand = new CommandList(HELP, HELP_USAGE,
+        allCommands helpCommand = new allCommands(HELP, HELP_USAGE,
                 HELP_FORMAT, HELP_EXAMPLE);
-        CommandList filterByCategoryCommand = new CommandList(FILTER_BY_CATEGORY, FILTER_BY_CATEGORY_USAGE,
+        allCommands filterByCategoryCommand = new allCommands(FILTER_BY_CATEGORY, FILTER_BY_CATEGORY_USAGE,
                 FILTER_BY_CATEGORY_FORMAT, FILTER_BY_CATEGORY_EXAMPLE);
-        CommandList clearCommand = new CommandList(CLEAR, CLEAR_USAGE,
+        allCommands clearCommand = new allCommands(CLEAR, CLEAR_USAGE,
                 CLEAR_FORMAT, CLEAR_EXAMPLE);
-        CommandList editCommand = new CommandList(EDIT, EDIT_USAGE,
+        allCommands editCommand = new allCommands(EDIT, EDIT_USAGE,
                 EDIT_FORMAT, EDIT_EXAMPLE);
-        CommandList exchangeCurrencyCommand = new CommandList(EXCHANGE_CURRENCY, EXCHANGE_CURRENCY_USAGE,
+        allCommands exchangeCurrencyCommand = new allCommands(EXCHANGE_CURRENCY, EXCHANGE_CURRENCY_USAGE,
                 EXCHANGE_CURRENCY_FORMAT, EXCHANGE_CURRENCY_EXAMPLE);
-        CommandList showCurrencyCodeCommand = new CommandList(SHOW_CURRENCY_CODE, SHOW_CURRENCY_CODE_USAGE,
+        allCommands showCurrencyCodeCommand = new allCommands(SHOW_CURRENCY_CODE, SHOW_CURRENCY_CODE_USAGE,
                 SHOW_CURRENCY_CODE_FORMAT, SHOW_CURRENCY_CODE_EXAMPLE);
         list.add(addDesCommand);
         list.add(addCommand);
@@ -177,7 +172,6 @@ public class CommandList {
         list.add(listByCategoryCommand);
         list.add(listCommand);
         list.add(setBudgeCommand);
-        list.add(showBudgeCommand);
         list.add(showCurrencyCodeCommand);
         list.add(showStatisticCommand);
         list.add(sortByAmountCommand);
