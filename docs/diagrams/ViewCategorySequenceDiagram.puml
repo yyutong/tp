@@ -11,6 +11,8 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
+participant ":ExpenseBook" as ExpenseBook MODEL_COLOR
+participant ":ExpenseList" as ExpenseList MODEL_COLOR
 end box
 
 [-> LogicManager : execute("view-c")
@@ -48,8 +50,20 @@ deactivate ExpenseBookParser
 LogicManager -> ViewCategoryCommand : execute()
 activate ViewCategoryCommand
 
-ViewCategoryCommand -> Model : ViewCategoryCommand()
+ViewCategoryCommand -> Model : getCategoryLabels()
 activate Model
+
+Model -> ExpenseBook : getCategoryLabels()
+activate ExpenseBook
+
+ExpenseBook --> ExpenseList: getCategoryLabels()
+activate ExpenseList
+
+ExpenseList --> ExpenseBook
+deactivate ExpenseList
+
+ExpenseBook --> Model
+deactivate ExpenseBook
 
 Model --> ViewCategoryCommand
 deactivate Model

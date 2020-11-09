@@ -61,11 +61,12 @@ Given below are my contributions to the project.
       * Added use cases details of `sort-a`, `sort-t`, `view index`, `view-c`.
 
 * **Review/mentoring contributions**:
-   * Help to review and approve the pull requests.
+   * Help to review, approve and merge the pull requests.
+   * Solve issues reported along the project development and PE-dry run
 
 * **Contributions beyond the project team**:
    * Evidence of helping others:
        * Report the bugs I found during PE-dry run
        * Discuss related questions with peers in the forum
-       * Solve issues reported along the project development and PE-dry run
+
 
