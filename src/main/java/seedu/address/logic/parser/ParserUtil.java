@@ -165,7 +165,7 @@ public class ParserUtil {
             double value = Double.parseDouble(budget.trim());
             if (value <= 0) {
                 throw new ParseException(
-                        SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL);
+                    SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL);
             }
             return new Budget(value);
         } catch (Exception pe) {

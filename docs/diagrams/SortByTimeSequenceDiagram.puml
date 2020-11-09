@@ -11,13 +11,14 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
+participant ":ExpenseBook" as ExpenseBook MODEL_COLOR
 participant ":ExpenseList" as ExpenseList MODEL_COLOR
 end box
 
-[-> LogicManager : execute("sort-t descending")
+[-> LogicManager : execute("sort-t ascending")
 activate LogicManager
 
-LogicManager -> ExpenseBookParser : parseCommand("sort-t descending")
+LogicManager -> ExpenseBookParser : parseCommand("sort-t ascending")
 activate ExpenseBookParser
 
 create SortByTimeCommandParser
@@ -27,7 +28,7 @@ activate SortByTimeCommandParser
 SortByTimeCommandParser --> ExpenseBookParser
 deactivate SortByTimeCommandParser
 
-ExpenseBookParser -> SortByTimeCommandParser : parse("descending")
+ExpenseBookParser -> SortByTimeCommandParser : parse("ascending")
 activate SortByTimeCommandParser
 
 create SortByTimeCommand
@@ -49,14 +50,20 @@ deactivate ExpenseBookParser
 LogicManager -> SortByTimeCommand : execute()
 activate SortByTimeCommand
 
-SortByTimeCommand -> Model : sortByDescendingTime()
+SortByTimeCommand -> Model : sortByAscendingTime()
 activate Model
 
-Model --> ExpenseList: sortByDescendingTime()
+Model -> ExpenseBook : sortByAscendingTime()
+activate ExpenseBook
+
+ExpenseBook --> ExpenseList: sortByAscendingTime()
 activate ExpenseList
 
-ExpenseList --> Model
+ExpenseList --> ExpenseBook
 deactivate ExpenseList
+
+ExpenseBook --> Model
+deactivate ExpenseBook
 
 Model --> SortByTimeCommand
 deactivate Model

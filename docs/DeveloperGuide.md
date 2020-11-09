@@ -340,6 +340,7 @@ High Level Sequence Diagram for the Execution of `edit 1 a/12`
 
 #### Design Considerations
 
+
 ##### Aspect: How to allow editing different number of fields each time.
 
 * Alternative 1 (current choice): For every prefix, check if the prefix and a value is provided.
@@ -435,12 +436,11 @@ High Level Sequence Diagram for the Execution of `add-d 2 d/Spent on books`:
 ** Cons: Harder to manage and prone to error.
 
 
-
 ### 3.1.6 List feature
 
-#### Proposed Implementation
+#### Implementation
 
-The proposed list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
+The list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
 `ListExpenseCommand` is created at `ExpenseBookParser` which is called by `LogicManager` to parse input string into `Command`.
 `LogicManager` takes in input string from `CommandBox` which belongs to one of the GUI component.
 
@@ -451,93 +451,16 @@ Step 2. After user inputs list command, the steps can be shown from this sequenc
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  
-`FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
 </div>
 
-Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app GUI.
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
 
-The following activity diagram summarizes what happens when a user executes a new command:
+The following activity diagram summarizes what happens when a user executes list command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
 
-
-### 3.2 Budget feature
-
-#### Show Budget feature
-
-The show budget feature is mainly supported by the `ExpenseBook` class.
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-Fig. Activity Diagram for the Execution of `ShowBudgetCommand`
-![ShowBudgetActivityDiagram](images/ShowBudgetActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. User set a budget.
-
-Step 4. The user executes `showBudget` to check the current budget.
-UI shows the message of current budget and remaining budget.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `showBudget` when a budget was set:
-
-High Level Sequence Diagram for the Execution of `showBudget`.
-![ShowBudgetSequenceDiagram](images/ShowBudgetSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to handle the case when the remaining budget is negative (i.e. current spending exceed the budget).
-
-* Alternative 1 (current choice): Show the remaining budget at negative value, and ask the user to set a new budget.
-  * Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-  * Cons: Is not supposed to happen in real life, not intuitive.
-
-* Alternative 2: Show alerts when the user is overspending, and does not allow the user to spend more before set a new budget.
-  * Pros: No more negative budget, more intuitive.
-  * Cons: Much more complicated implementation.
-
-#### View all existing expense categories 
-
-The view existing expense categories feature is facilitated by the ExpenseBook class.
-
-Given below is the class diagram of the `ExpenseBook` class.
-
-Fig. Class Diagram for Expense.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
-
-Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
-
-Fig. Activity Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `viewCategory` to view all the existing expense category labels 
-        in the ExpenseBook in Unisave.
-The `ViewCategoryCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
-and creates a CommandResult which contains the details of the first expense found in the list.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `viewCategory`:
-
-High Level Sequence Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategorySequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1: Directly search for existing expense categories from the UI.
-** Pros: No need to type in any command.
-** Cons: Takes a lot of time to do so.
 
 ### 3.2 Exchange features
 
@@ -618,7 +541,7 @@ High Level Sequence Diagram for the Execution of `set-b 1000`
 ** Cons: Users cannot see their remaining budget all the time.
 
 
-#### Sort expense list by amount in ascending/descending order
+### Sort expense list by amount in ascending/descending order
 
 The sort by amount feature is facilitated by the `ExpenseBook` class.
 
@@ -649,7 +572,7 @@ High Level Sequence Diagram for the Execution of `sort-a descending`
 
 #### Design Considerations
 
-#### Sort expense list by time in ascending/descending order
+### Sort expense list by time in ascending/descending order
 
 The sort by amount feature is facilitated by the `ExpenseBook` class.
 
@@ -665,7 +588,7 @@ Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+Step 3. The user executes `sort-t ascending` to sort the displayed expenses  
 in descending order of amount.
 
 The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
@@ -679,6 +602,77 @@ to execute `sort-t ascending`:
 High Level Sequence Diagram for the Execution of `sort-t ascending`
 ![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
 
+
+## 3.4 Expense List Filter Functionality
+
+#### Implementation - Filter Expense By Category
+
+The filter expense by category feature belongs to `ListExpenseByCategoryCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByCategoryCommand` is created at `ExpenseBookParser` by `ListExpenseByCategoryCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by category feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-c food` command, the steps can be shown from this sequence diagram.
+
+![FilterCategorySequenceDiagram](images/FilterCategorySequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by category command:
+
+![FilterCategoryActivityDiagram](images/FilterCategoryActivityDiagram.png)
+
+#### Implementation - Filter Expense By Date
+
+The filter expense by date feature belongs to `ListExpenseByDateCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByDateCommand` is created at `ExpenseBookParser` by `ListExpenseByDateCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by date feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-t 2020-12-12` command, the steps can be shown from this sequence diagram.
+
+![FilterDateSequenceDiagram](images/FilterDateSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by date command:
+
+![FilterDateActivityDiagram](images/FilterDateActivityDiagram.png)
+
+#### Implementation - Filter Expense By Description
+
+The filter expense by description feature belongs to `ListExpenseByDescCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByDescCommand` is created at `ExpenseBookParser` by `ListExpenseByDescCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by description feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-d kfc` command, the steps can be shown from this sequence diagram.
+
+![FilterDescSequenceDiagram](images/FilterDescSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by date command:
+
+![FilterDescActivityDiagram](images/FilterDescActivityDiagram.png)
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -718,48 +712,83 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                                  |
-| -------- | ------------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------- |
-| `* * *`  | user                                       | Add an expense with category       | keep track of my accounts                                                               |
-| `* * *`  | user                                       | View an expense                    | easily see the details such as dates, amount and descriptions of a specific expense     |
-| `* * *`  | user                                       | Delete an expense                  | delete the expense when I added wrongly                                                 |
-| `* * *`  | user                                       | List all expenses                  | view all expenses                                                                       |
-| `* * *`  | user                                       | Tag an expense                     | view the specific task I spend on                                                       |
-| `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
-| `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
-| `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
-| `* * *`  | user                                       | Sort expenses by amount            | view existing expenses in descending/ascending order of amount                          |
-| `* * *`  | user                                       | Sort expenses by time              | view existing expenses in descending/ascending order of amount                          |
-| `* *`    | user                                       | List all categories                | view all expenses                                                                       |
-| `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
+| Priority | As a …​                                 | I want to …​                     | So that I can…​                                                                      |
+| -------- | ------------------------------------------ | ----------------------------------- | --------------------------------------------------------------------------------------- |
+| `* * *`  | user                                       | Add an expense with category        | keep track of my accounts                                                               |
+| `* * *`  | user                                       | View an expense                     | easily see the details such as dates, amount and descriptions of a specific expense     |
+| `* * *`  | user                                       | Delete an expense                   | delete the expense when I added wrongly                                                 |
+| `* * *`  | user                                       | List all expenses                   | view all expenses                                                                       |
+| `* * *`  | user                                       | Edit certain expenses               | make amendment if i enter wrong information                                             | 
+| `* * *`  | user                                       | see a brief summary of my expenses  | make better spending decision as i know which area takes uo the most                    |
+| `* * *`  | user                                       | see the list of command available   | quickly use the features and commands if i forget some of them                          |
+| `* * *`  | user                                       | Set budget                          | plan my expenses                                                                        |
+| `* * *`  | user                                       | View budget                         | view how much i can spend before exceeding the monthly limit                            |
+| `* * *`  | user                                       | Sort expenses by amount             | view existing expenses in descending/ascending order of amount                          |
+| `* * *`  | user                                       | Sort expenses by time               | view existing expenses in descending/ascending order of amount                          |
+| `* *`    | user                                       | List all categories                 | view all categories                                                                     |
+| `* *`    | user                                       | List all expenses in one category   | view all expenses spent under one category                                              |
+| `* *`    | user                                       | List all expenses in one date       | view all expenses spent on a day                                                        |
+| `* *`    | user                                       | List all expenses in one description| view all expenses spent under same description                                          |
+| `* *`    | user                                       | Convert to another currency         | view my expenses when i spend another currency such as going overseas                   |
+| `* *`    | user                                       | Show country's currency codes       | know the country's currency codes before converting                                     |
+| `* *`    | user                                       | Show country's exchange rates       | know the country's exchange rates before converting                                     |
+| `* `     | user                                       | Clear all data                      |                                                                                         |
+
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `ExpenseBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Add expense with its category**
+**Use case: Add expense to current expense book **
 
 **MSS**
 
-1.  User requests to list expenses
-2.  UniSave shows a list of existing expenses
-3.  User requests to add a category to a specific expense in the list
-4.  UniSave adds the category input by user to the specific expense
-
+1.  User chooses to add an expense into the expense book.
+2.  UniSave adds the expense to the expense book.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The expense is invalid.
 
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. UniSave shows an error message.
+    * 1a1. UniSave shows an error message.
+    * 1a2. User enters new expense. Steps 1a1-1a2 are repeated until the data entered is valid.
 
     Use case resume at Step 2
+
+**Use case: Edit an expense in current expense book **
+
+**MSS**
+
+1.  User chooses to edit an expense in the expense book.
+2.  UniSave edit the specified expense to the expense book.
+    Use case ends.
+
+**Extensions**
+
+* 1a. The edited expense is invalid or the requested expense is invalid.
+
+    * 1a1. UniSave shows an error message.
+    * 1a2. User enters new information to be edited. Steps 1a1-1a2 are repeated until the data entered is valid.
+
+    Use case resume at Step 2
+
+**Use case: View help**
+
+**MSS**
+
+1.  User wants to view all valid commands they can use.
+2.  UniSave shows a table with all commands as well as a link to UniSave's user guide.
+    Use case ends.
+    
+**Use case: Show Statistic**
+
+**MSS**
+
+1.  User wants to see a brief summary of his expenses
+2.  UniSave shows a table with brief expense summary as well as a pie chart for the expenses.
+    Use case ends.
 
 **Use case: View expense**
 
@@ -838,7 +867,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to list all the expenses
-2.  AddressBook shows a list of expenses
+2.  UniSave shows a list of all expenses
 
     Use case ends.
 
@@ -851,11 +880,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-**Use case: List all expenses in a specific category**
+**Use case: Filter all expenses in a specific category**
 
 **MSS**
-1.  User requests to list all the expenses in a specific category
-2.  AddressBook shows a list of expenses in that category
+1.  User requests to filter all the expenses in a specific category
+2.  UniSave shows a list of expenses in that category
+    
+    Use case ends.
+
+**Use case: Filter all expenses in a specific date**
+
+**MSS**
+1.  User requests to filter all the expenses in a specific date
+2.  UniSave shows a list of expenses saved on that day.
+    
+    Use case ends.
+    
+**Extensions**
+
+* 1a. UniSave detects an error in the entered date.
+    * 1a1. UniSave shows an error message with the correct usage of filter expenses by date command.
+    * Use case ends.
+
+**Use case: Filter all expenses in a specific description**
+
+**MSS**
+1.  User requests to filter all the expenses in a specific description
+2.  UniSave shows a list of expenses in that category
+    
+    Use case ends.
 
 **Use case: Set Budget**
 
@@ -877,14 +930,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to exchange the currency of ExpenseBook.
-2.  UniSave updates and displays the new budget and remaining budget in budget panel.
+2.  UniSave do the conversion from current currency to input currency.
+3.  UniSave updates and displays the budget and all the expenses in the new currency.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave shows an error message with the correct usage of setting budget.
+* 1a. UniSave detects an error in the entered currency code.
+    * 1a1. UniSave shows an error message with the correct usage of exchange.
+    * 1a2. User request to check for the currency codes according to the error message.
+    * 1a3. UniSave shows a table of Currency Codes.
+    * 1a4. User requests to exchange the currency of ExpenseBook with a valid currency code.
     * Use case ends.
 
 
@@ -965,8 +1022,6 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
-
 ### Add an expense
 
 1. Add an expense into the expense book. Amount and category are compulsory. Date and description are optional.
@@ -986,7 +1041,7 @@ testers are expected to do more *exploratory* testing.
         
 ### Add a description to current expenses
 
-1. Add an description into the expense with the index specified. Index and description field are compulsory.
+1. Add a description into the expense with the index specified. Index and description field are compulsory.
 
    i.   Prerequisites: The expense book is not empty.
    ii.  Test case: `add-d 1 d/movie` <br>
