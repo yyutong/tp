@@ -25,8 +25,37 @@ title: Developer Guide
         * [3.3 Budget feature](#33-budget-features)
         * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionalities)
         * [3.5 Expense list sorting functionalities](#35-expense-list-sorting-functionalities)
+    * [4. Documentation, logging, testing, configuration, dev-ops](#4-documentation-logging-testing-configuration-dev-ops)
+    * [5. Appendix A: Requirements](#5-appendix-a-requirements)
+        * [5.1 Product scope](#51-product-scope)
+        * [5.2 User stories](#52-user-stories)
+        * [5.3 Use cases](#53-use-cases)
+        * [5.4 Non-Functional Requirementss](#54-non-functional-requirements)
+        * [5.5 Glossary](#55-glossary)
+    * [6. Appendix B: Instructions for manual testing](#6-appendix-b-instructions-for-manual-testing)
+        * [6.1 Launch and shutdown](#61-launch-and-shutdown)
+        * [6.2 Add an expense](#62-add-an-expense)
+        * [6.3 Add a description to current expenses](#63-add-a-description-to-current-expenses)
+        * [6.4 Delete a description to current expenses](#64-delete-a-description-to-current-expenses)
+        * [6.5 Clear all expenses](#65-clear-all-expenses)
+        * [6.6 Edit an expense](#66-edit-an-expense)
+        * [6.7 Covert currency of current expenses to new currency](#67-covert-currency-of-current-expenses-to-new-currency)
+        * [6.8 Delete an expense](#68-delete-an-expense)
+        * [6.9 Exit from the application](#69-exit-from-the-application)
+        * [6.10 Filter by Category](#610-filter-by-category)
+        * [6.11 Filter by Date](#611-filter-by-date)
+        * [6.12 Filter by Description](#612-filter-by-description)
+        * [6.13 Help Command](#613-help-command)
+        * [6.14 Listing all expenses](#614-listing-all-expenses)
+        * [6.15 Set budget for the expense book](#615-set-budget-for-the-expense-book)
+        * [6.16 Show Currency Code](#616-show-currency-code)
+        * [6.17 Show Statistic](#617-show-statistic)
+        * [6.18 Sort by amount](#618-sort-by-amount)
+        * [6.19 Sort by time](#619-sort-by-time)
+        * [6.20 View a specific expenses](#620-view-a-specific-expenses)
+        * [6.21 View all the categories](#621-view-all-the-categories)
+    * [7. Appendix C: Model Component](#7-appendix-c-model-component)
     
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -675,7 +704,7 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **4. Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -685,9 +714,9 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix A: Requirements**
+## **5. Appendix A: Requirements**
 
-### Product scope
+### 5.1 Product scope
 
 **Target user profile**:
 
@@ -706,7 +735,7 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 4. Problem: Student spend at various fields, too messy to record -> the labels functions allow students to organize their spending
 5. Problem: Existing apps are complicated, not easy to use -> this app is simple to use and very user-friendly.
 
-### User stories
+### 5.2 User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -734,7 +763,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 *{More to be added}*
 
-### Use cases
+### 5.3 Use cases
 
 (For all use cases below, the **System** is the `ExpenseBook` and the **Actor** is the `user`, unless specified otherwise)
 
@@ -978,7 +1007,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a2. UniSave requests for the correct order.
     * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
 
-### Non-Functional Requirements
+### 5.4 Non-Functional Requirements
 
 1. Should be able to function well without connecting to internet.
 2. Should be accessed for a single user.
@@ -986,7 +1015,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. The product should be easy to use by a novice with no experience of using a finance tracking application.
 5. Documentation should be easy to read and understand with proper highlighting.
 
-### Glossary
+### 5.5 Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Expense**: The amount of money spent by the user student in a certain event
@@ -996,7 +1025,7 @@ It is unique for every currency.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **6. Appendix B: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -1005,7 +1034,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### 6.1 Launch and shutdown
 
 1. Initial launch
 
@@ -1020,7 +1049,7 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-### Add an expense
+### 6.2 Add an expense
 
 1. Add an expense into the expense book. Amount and category are compulsory. Date and description are optional.
 
@@ -1037,7 +1066,7 @@ testers are expected to do more *exploratory* testing.
    v.   Other incorrect add expense commands to try: `add a/100`, `add c/entertainment` (missing compulsory field)<br>
         Expected: Similar to previous test case.
         
-### Add a description to current expenses
+### 6.3 Add a description to current expenses
 
 1. Add a description into the expense with the index specified. Index and description field are compulsory.
 
@@ -1055,7 +1084,7 @@ testers are expected to do more *exploratory* testing.
    v.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
         Expected: Similar to previous test case.
 
-### Delete a description to current expenses
+### 6.4 Delete a description to current expenses
 
 1. Delete an description into the expense with the index specified. Index and description field are compulsory.
 
@@ -1068,14 +1097,14 @@ testers are expected to do more *exploratory* testing.
    iv.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
         Expected: Similar to previous test case.
         
-### Clear all expenses
+### 6.5 Clear all expenses
 
 1. Clear all expenses in the expense book. The budget will also be cleared.
 
    i .  Test case: `clear` <br>
         Expected: All expenses and budget are cleared. The result box will show the information that all expenses are cleared.
 
-### Edit an expense
+### 6.6 Edit an expense
 
 1. Edit an expense specified by the index in the expense book. Index is compulsory followed by the field to be edited.
 
@@ -1092,7 +1121,7 @@ testers are expected to do more *exploratory* testing.
    v.   Other incorrect add expense commands to try: `edit 1`, `add c/entertainment` (missing compulsory field)<br>
         Expected: Similar to previous test case.
         
-### Covert currency of current expenses to new currency
+### 6.7 Covert currency of current expenses to new currency
 
 1. Currency of current expenses is converted to new specified currency. Currency code is case-insensitive but compulsory.
 
@@ -1105,7 +1134,7 @@ testers are expected to do more *exploratory* testing.
    iii. Other incorrect add expense commands to try: `exchange CNY`, `exchange cc` (missing compulsory field)<br>
         Expected: Similar to previous test case.
         
-### Delete an expense
+### 6.8 Delete an expense
 
 1. delete an expense in the expense book. Index is compulsory.
 
@@ -1119,14 +1148,14 @@ testers are expected to do more *exploratory* testing.
    iv.  Other incorrect add expense commands to try: `delete -1`(invalid index), `delete 10` (if the expense book has less than 10 expeneses) <br>
         Expected: Similar to previous test case.
 
-### Exit from the application
+### 6.9 Exit from the application
 
 1. Exit from the application
 
    i .  Test case: `exit` <br>
         Expected: Exit from the current application
 
-### Filter by Category
+### 6.10 Filter by Category
 
 1. Filter the expenses by category. Show all the expenses whose category match the specified category
 
@@ -1137,7 +1166,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `filter-c`<br>
         Expected: No expense is filtered. There will be an error message because the index is invalid.
         
-### Filter by Date
+### 6.11 Filter by Date
 
 1. Filter the expenses by date. Show all the expenses whose date match the specified date
 
@@ -1148,7 +1177,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `filter-c`<br>
         Expected: No expense is filtered. There will be an error message because the command is invalid.
 
-### Filter by Description
+### 6.12 Filter by Description
 
 1. Filter the expenses by description. Show all the expenses whose description match the specified description.
 
@@ -1159,14 +1188,14 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `filter-c`<br>
         Expected: No expense is filtered. There will be an error message because the command is invalid.
 
-### Help Command
+### 6.13 Help Command
 
 1. Provide a list of command for users to refer to.
 
    i .  Test case: `help` <br>
         Expected: There will be a command table shown with the link to the user guide.
 
-### Listing all expenses
+### 6.14 Listing all expenses
 
 1. List all the expenses in the expense book.
 
@@ -1177,7 +1206,7 @@ testers are expected to do more *exploratory* testing.
    iii. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
         Expected: Similar to previous. The format of list command is not stated, so the list command is executed as long as the command word `list` is correct.
 
-### Set budget for the expense book
+### 6.15 Set budget for the expense book
 
 1. Set budget for the expense book. The amount of the budget is compulsory.
 
@@ -1190,7 +1219,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `set-b`<br>
         Expected: No budget is filtered. There will be an error message because the index is invalid.
 
-### Show Currency Code
+### 6.16 Show Currency Code
 
 1. Show the list of currency supported by the expense book as well as its corresponding code.
 
@@ -1200,7 +1229,7 @@ testers are expected to do more *exploratory* testing.
    ii.  Other trivial list commands to try: `show-codes x` (where x is any number or alphabet)<br>
         Expected: Similar to previous. The format of `show-codes` command is not stated, so the `show-codes` command is executed as long as the command word `show-codes` is correct.
  
-### Show Statistic
+### 6.17 Show Statistic
 
 1. Show the statistic of the expenses.
 
@@ -1211,7 +1240,7 @@ testers are expected to do more *exploratory* testing.
         Expected: Similar to previous. The format of `show-stats` command is not stated, so the `show-stats` command is executed as long as the command word `show-stats` is correct.
  
 
-### Sort by amount
+### 6.18 Sort by amount
 
 1. Sort the expenses by amount in ascending/descending order. The order is compulsory.
 
@@ -1224,7 +1253,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `sort-a`<br>
         Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
  
-### Sort by time
+### 6.19 Sort by time
 
 1. Sort the expenses by time in ascending/descending order. The order is compulsory.
 
@@ -1237,7 +1266,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `sort-t`<br>
         Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
  
-### View a specific expenses
+### 6.20 View a specific expenses
 
 1. View a specific index. The index is compulsory
 
@@ -1250,7 +1279,7 @@ testers are expected to do more *exploratory* testing.
    iii. Test case: `view 0` <br>
         Expected: No expense is viewed. There index of expense requested is invalid. 
 
-### View all the categories.
+### 6.21 View all the categories
 
 1. View all the categories in the expense book. The category field is compulsory
 
@@ -1260,5 +1289,5 @@ testers are expected to do more *exploratory* testing.
    ii.  Test case: `view-c x` (where x is any number or alphabet) <br>
         Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct.
 
-# 7. **Appendix C: *Model Component***
+#  **7. Appendix C: Model Component**
 ![Model Component](images/ModelClassDiagram.png)
