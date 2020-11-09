@@ -23,7 +23,7 @@ public class Date {
             + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12. Note that the date can't be set "
                     + "to be in the future.";
     public static final String VALIDATION_REGEX = "[^\\s].*";
-    public static final int largestDayAgo = 3650;
+    public static final int LARGEST_DAY_AGO = 3650;
     public final String date;
     public final String howManyDaysAgo;
     private LocalDate localDate;
@@ -37,7 +37,7 @@ public class Date {
         if (!inputDay.contains("-")) {
             this.howManyDaysAgo = inputDay;
             assert Integer.parseInt(inputDay) >= 0
-                    && Integer.parseInt(inputDay) <= largestDayAgo : "Invalid days Being Enter";
+                    && Integer.parseInt(inputDay) <= LARGEST_DAY_AGO : "Invalid days Being Enter";
             LocalDate localdate = LocalDate.now();
             int convertedDay = Integer.parseInt(inputDay);
             LocalDate dayBefore = localdate.minusDays(convertedDay);
@@ -81,7 +81,7 @@ public class Date {
         } else {
             try {
                 int dayBefore = Integer.parseInt(test);
-                return dayBefore >= 0 && dayBefore <= largestDayAgo;
+                return dayBefore >= 0 && dayBefore <= LARGEST_DAY_AGO;
             } catch (NumberFormatException e) {
                 return false;
             }
