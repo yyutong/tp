@@ -253,6 +253,7 @@ public class MainWindow extends UiPart<Stage> {
         statisticTable.hide();
         currencyExchangeTable.hide();
         supportedCurrencyTable.hide();
+        helpCommandWindow.hide();
     }
 
     public ExpenseListPanel getExpenseListPanel() {
