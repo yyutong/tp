@@ -7,8 +7,21 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## 1. **Overview**
+Welcome to UniSave Developer Guide. This documentation provides you an insight on how UniSave is designed and implemented.
 
+## 1.1 Introduction
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI).
+
+It is an application that helps university students manage their finance by tracking your spending, 
+setting budget for each month, as well as viewing their expenses in various categories. 
+Moreover, UniSave allows tracking expenses in different currencies.
+
+UniSave targets university students who tend to incur a large amount of spending.
+It is catered especially for students who are more familiar with desktop applications and type fast.
+UniSave is available for the Linux, Windows and Mac OS operating systems.
+ 
+## 1.2 Setting Up, Getting Started
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
