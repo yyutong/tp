@@ -160,7 +160,7 @@ Example:
 
 ![setBudget](images/setBudgetCommand.png)
 
-*Note*:
+**Note** :
 You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
 
@@ -173,7 +173,7 @@ Adds an expense.
 
 Format: `add a/AMOUNT c/CATEGORY [t/DATE] [d/description]`
 
-*Note* :
+**Note** :
 1. The amount of an expense should only be positive numbers. <br>
 2. If you do, a date can be entered in one of these two forms:<br>
   i) Enter date as a single integer, corresponding to number of days ago. <br>
