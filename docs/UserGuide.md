@@ -197,7 +197,7 @@ Examples:
 * `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Note:**
-1. The date and field are optional but amount and category are compulsory.
+1. The date and field are optional but amount and category are compulsory. <br>
 2. when more than one same field is entered, the last one is chosen. For example, there are t/2 and t/3 being entered, t/3 will be chosen. <br>
 3. When the date field is left empty, the default is today. When description field is left empty, the default is no description.
 </div>
