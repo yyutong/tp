@@ -30,7 +30,7 @@ Given below are my contributions to the project.
        * Added documentation for the features `Add description`, `Delete description`, `Clear`, `Saving the data`, `showstatistic`
        
     * Developer Guide:
-       * Added implementation details of the `Manage description of Expense` feature
+       * Added implementation details of the `Add Expense`, `Edit Expense`, `View Expense` and `Add description to expense` feature
        * Added use cases for `add description`, `delete description` and `view category` feature
        * Update UML diagram for `Storage`, `Expense class` and `add description` 
        
@@ -44,5 +44,5 @@ Given below are my contributions to the project.
   
 * **Contributions beyond the project team**:
    * Evidence of helping others:
-       * Report the bugs I found during PE-dry run
+       * Report the bugs I found during PE-dry run [issues](https://github.com/yuming7144/ped)
 

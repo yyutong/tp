@@ -19,21 +19,23 @@ Choose a section from the table of contents below and start using UniSave.
         * [3.5 Delete an expense: `delete`](#35-delete-an-expense-delete)
         * [3.6 View an expense : `view`](#36-view-an-expense--view)
         * [3.7 View categories : `view-c`](#37-view-categories--view-c)
-        * [3.8 Filter expenses](#38-filter-expenses)
-            * [3.8.1 Filter by category: `filter-c`](#381-filter-by-category-filter-c)
-            * [3.8.2 Filter by date: `filter-t`](#382-filter-by-date--filter-t)
-            * [3.8.3 Filter by description: `filter-d`](#383-filter-by-description--filter-d)
-        * [3.9 List all expenses : `list`](#39-list-all-expenses--list)
-        * [3.10 Sort expenses](#310-sort-the-expenses)
-            * [3.10.1 Sort expenses by the amount of each expense: `sort-a`](#3101-sort-expenses-by-the-amount-of-each-expense-sort-a)
-            * [3.10.2 Sort expenses by the date of each expense: `sort-t`](#3102-sort-expenses-by-the-date-of-each-expense-sort-t)
-        * [3.11 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
-        * [3.12 Show Currency Codes: `show-codes`](#312-show-currency-codes-show-codes)
-        * [3.13 Show Exchange Rates: `show-rates`](#313-show-exchange-rates-show-rates)
-        * [3.14 Show Statistics: `show-stats`](#314-show-statistics-show-stats)
-        * [3.15 View help: `help`](#315--view-help-help)
-        * [3.16 Exiting the program : `exit`](#316-exit-the-program--exit)
-        * [3.17 Saving the data](#317-saving-the-data)
+        * [3.8 Add description to expense](#38-add-description-to-expense--add-d)
+        * [3.9 Delete description of expense](#39-delete-description-of-expense-delete-d)
+        * [3.10 Filter expenses](#310-filter-expenses)
+            * [3.10.1 Filter by category: `filter-c`](#3101-filter-by-category-filter-c)
+            * [3.10.2 Filter by date: `filter-t`](#3102-filter-by-date--filter-t)
+            * [3.10.3 Filter by description: `filter-d`](#3103-filter-by-description--filter-d)
+        * [3.11 List all expenses : `list`](#311-list-all-expenses--list)
+        * [3.12 Sort expenses](#312-sort-the-expenses)
+            * [3.12.1 Sort expenses by the amount of each expense: `sort-a`](#3121-sort-expenses-by-the-amount-of-each-expense-sort-a)
+            * [3.12.2 Sort expenses by the date of each expense: `sort-t`](#3122-sort-expenses-by-the-date-of-each-expense-sort-t)
+        * [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
+        * [3.14 Show Currency Codes: `show-codes`](#314-show-currency-codes-show-codes)
+        * [3.15 Show Exchange Rates: `show-rates`](#315-show-exchange-rates-show-rates)
+        * [3.16 Show Statistics: `show-stats`](#316-show-statistics-show-stats)
+        * [3.17 View help: `help`](#317--view-help-help)
+        * [3.18 Exiting the program : `exit`](#318-exit-the-program--exit)
+        * [3.19 Saving the data](#319-saving-the-data)
     * [4. FAQ(Frequently Asked Question)](#4-faqfrequently-asked-question)
     * [5. Glossary](#5-glossary)
     * [6. Command Summary](#6-command-summary)
@@ -97,21 +99,23 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
 * [3.5 Delete an expense: `delete`](#35-delete-an-expense-delete)
 * [3.6 View an expense : `view`](#36-view-an-expense--view)
 * [3.7 View categories : `view-c`](#37-view-categories--view-c)
-* [3.8 Filter expenses](#38-filter-expenses)
-    * [3.8.1 Filter by category: `filter-c`](#381-filter-by-category-filter-c)
-    * [3.8.2 Filter by date: `filter-t`](#382-filter-by-date--filter-t)
-    * [3.8.3 Filter by description: `filter-d`](#383-filter-by-description--filter-d)
-* [3.9 List all expenses : `list`](#39-list-all-expenses--list)
-* [3.10 Sort expenses](#310-sort-the-expenses)
-    * [3.10.1 Sort expenses by the amount of each expense: `sort-a`](#3101-sort-expenses-by-the-amount-of-each-expense-sort-a)
-    * [3.10.2 Sort expenses by the date of each expense: `sort-t`](#3102-sort-expenses-by-the-date-of-each-expense-sort-t)
-* [3.11 Exchange Currency : `exchange`](#311-exchange-currency--exchange)
-* [3.12 Show Currency Codes: `show-codes`](#312-show-currency-codes-show-codes)
-* [3.13 Show Exchange Rates: `show-rates`](#313-show-exchange-rates-show-rates)
-* [3.14 Show Statistics: `show-stats`](#314-show-statistics-show-stats)
-* [3.15 View help: `help`](#315--view-help-help)
-* [3.16 Exiting the program : `exit`](#316-exit-the-program--exit)
-* [3.17 Saving the data](#317-saving-the-data)
+* [3.8 Add description to expense](#38-add-description-to-expense--add-d)
+* [3.9 Delete description of expense](#39-delete-description-of-expense-delete-d)
+* [3.10 Filter expenses](#310-filter-expenses)
+      * [3.10.1 Filter by category: `filter-c`](#3101-filter-by-category-filter-c)
+      * [3.10.2 Filter by date: `filter-t`](#3102-filter-by-date--filter-t)
+      * [3.10.3 Filter by description: `filter-d`](#3103-filter-by-description--filter-d)
+* [3.11 List all expenses : `list`](#311-list-all-expenses--list)
+* [3.12 Sort expenses](#312-sort-the-expenses)
+      * [3.12.1 Sort expenses by the amount of each expense: `sort-a`](#3121-sort-expenses-by-the-amount-of-each-expense-sort-a)
+      * [3.12.2 Sort expenses by the date of each expense: `sort-t`](#3122-sort-expenses-by-the-date-of-each-expense-sort-t)
+* [3.13 Exchange Currency : `exchange`](#313-exchange-currency--exchange)
+* [3.14 Show Currency Codes: `show-codes`](#314-show-currency-codes-show-codes)
+* [3.15 Show Exchange Rates: `show-rates`](#315-show-exchange-rates-show-rates)
+* [3.16 Show Statistics: `show-stats`](#316-show-statistics-show-stats)
+* [3.17 View help: `help`](#317--view-help-help)
+* [3.18 Exiting the program : `exit`](#318-exit-the-program--exit)
+* [3.19 Saving the data](#319-saving-the-data)
 
 <div markdown="block" class="alert alert-info">
 
@@ -274,11 +278,50 @@ Examples:
 
 ![viewCategory](images/viewCategoryCommand.png)
 
-#### 3.8 Filter Expenses
+
+#### 3.8 Add description to expense : `add-d`
+
+Add a description to an existing expense in the finance book.
+
+**Note** :
+1. The newly added description will override the existing description of the specified expense.
+2. If you input `add-d 2`, this is invalid as the "d/" prefix is missing. If you put the description
+field as "d/" or "d/  " (with blanks only), then the existing description will be removed.
+
+Format: `add-d INDEX d/DESCRIPTION`
+* Add description field to the expense at the specified `INDEX`. The `INDEX` refers to the index number shown in the displayed expense list. The index **must be a positive integer** 1, 2, 3, …​
+* Existing description will be overwrote to the new description.
+Examples:
+* `add-d 3 d/movies`: Add the description field `movies` to the 3rd expense.
+
+![add-d](images/addDescriptionCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.9 Delete description of expense: `delete-d`
+Delete the description field of an existing expense.
+
+**Note** :
+The description field of the specified expense will still exist, just that it will be empty.
+
+Format: `delete-d INDEX`
+* Deletes the description of the expense at the specified INDEX.
+* The `INDEX` refers to the index number shown in the expense list.
+* The `INDEX` **must be a positive integer** 1, 2, 3, …​
+Examples:
+`delete-d 6` Deletes the description field of the 6th expense.
+
+![delete-d](images/deleteDesCommand.png)
+
+Navigate back to the feature list: [Features](#3-features)
+
+
+#### 3.10 Filter Expenses
 
 Filters for specific expense(s) based on the input command.
 
-##### 3.8.1 Filter by category: `filter-c`
+##### 3.10.1 Filter by category: `filter-c`
 
 Show all the expenses whose category match the specified category.
 
@@ -291,24 +334,26 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-##### 3.8.2 Filter by date : `filter-t`
+##### 3.10.2 Filter by date : `filter-t`
 
 Show all the expenses whose date match the specified date.
 
-Format: `filter-t YYYY-MM-DD`
+Format: `filter-t YYYY-MM-DD` or `filter-t NUMBEROFDAYSAGO`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The date format `YYYY-MM-DD` is sensitive and only this format is recognizable for this command.
+NUMBEROFDAYSAGO is used to specify how many days ago from current day.
+It accepts number from 0 to 3650 (10 years).
 </div>
 
 Examples:
+* `filter-t 3`: filter all the expenses that are saved on 3 days ago from current day.
 * `filter-t 2020-10-23`: filter all the expenses that are saved on `2020-10-23`.
 
 ![filter-t](images/listByDateCommand.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
-##### 3.8.3 Filter by description : `filter-d`
+##### 3.10.3 Filter by description : `filter-d`
 
 Show all the expenses whose description contains the specified description.
 
@@ -325,7 +370,7 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.9 List all expenses : `list`
+#### 3.11 List all expenses : `list`
 
 You can list out all the expenses stored in UniSave.
 
@@ -338,11 +383,11 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.10 Sort the expenses
+#### 3.12 Sort the expenses
 
 Sort the expense(s) based on the input command.
 
-##### 3.10.1 Sort expenses by the amount of each expense: `sort-a`
+##### 3.12.1 Sort expenses by the amount of each expense: `sort-a`
 Sort the expenses in specified order.
 
 Format: `sort-a descending`
@@ -357,7 +402,7 @@ Examples:
 Navigate back to the feature list: [Features](#3-features)
 
 
-##### 3.10.2 Sort expenses by the date of each expense: `sort-t`
+##### 3.12.2 Sort expenses by the date of each expense: `sort-t`
 Sort the expenses according to date in specified order. 
 
 Format: `sort-t ascending`
@@ -371,7 +416,7 @@ Examples:
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.11 Exchange Currency : `exchange`
+#### 3.13 Exchange Currency : `exchange`
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
@@ -391,7 +436,7 @@ Example: `exchange cc/CNY`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.12 Show Currency Codes: `show-codes`
+#### 3.14 Show Currency Codes: `show-codes`
 Show a full list of supported currencies with their corresponding currency codes.
 
 Format: `show-codes`
@@ -400,7 +445,7 @@ Format: `show-codes`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.13 Show Exchange Rates: `show-rates`
+#### 3.15 Show Exchange Rates: `show-rates`
 Show a full list of exchange rates adapted by UniSave. 
 Note that the exchange rates were last updated at 2020-10-31 from currency-layer website, 
 there may be a slight inaccuracy compared to current exchange rates.
@@ -411,7 +456,7 @@ Format: `show-rates`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.14 Show Statistics: `show-stats`
+#### 3.16 Show Statistics: `show-stats`
 Show a statistic overview of the expenses, 
 such as the total number of expenses as well as the total spending in each category.
 
@@ -426,7 +471,7 @@ Examples: `show-stats`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.15 : View help: `help`
+#### 3.17 : View help: `help`
 
 Opens a window with a link that directs you to our user guide, and a table shows all the commands of UniSave.
 
@@ -434,7 +479,7 @@ Format: `help`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.16 Exit the program : `exit`
+#### 3.18 Exit the program : `exit`
 
 Exits the program.
 
@@ -442,7 +487,7 @@ Format: `exit`
 
 Navigate back to the feature list: [Features](#3-features)
 
-#### 3.17 Saving the data
+#### 3.19 Saving the data
 
 UniSave data are saved in the hard disk automatically after any command that changes the data. 
 There is no need to save manually.
@@ -479,6 +524,8 @@ Action | Format, Examples
 **Delete** | `delete INDEX` <br> e.g., `delete 3`
 **View** | `view INDEX` <br> e.g., `view 5`
 **View categories** | `view-c`
+**Add description** | `add-d INDEX d/DESCRIPTION` <br> e.g., `add-d 5 d/had dinner`
+**Delete description** | `delete-d INDEX` <br> e.g., `delete-d 5`
 **Filter by category** | `filter-c CATEGORY` <br> e.g., `filter-c food`
 **Filter by date** | `filter-t YYYY-MM-DD` <br> e.g., `filter-t 2020-02-20`
 **Filter by description** | `filter-d DESCRIPTION` <br> e.g., `filter-d movies`

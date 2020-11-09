@@ -253,6 +253,7 @@ public class MainWindow extends UiPart<Stage> {
         statisticTable.hide();
         currencyExchangeTable.hide();
         supportedCurrencyTable.hide();
+        helpCommandWindow.hide();
     }
 
     public ExpenseListPanel getExpenseListPanel() {
@@ -275,7 +276,6 @@ public class MainWindow extends UiPart<Stage> {
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
             budgetPanel.update();
             pieChartWindow.setStats();
-            statisticTable.constructTable();
 
             if (commandResult.isShowHelp()) {
                 handleHelpCommandWindow();
