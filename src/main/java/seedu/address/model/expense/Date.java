@@ -3,7 +3,6 @@ package seedu.address.model.expense;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
@@ -12,18 +11,15 @@ import java.time.format.DateTimeParseException;
  */
 public class Date {
 
-    //public static final String MESSAGE_CONSTRAINTS =
-    // "Date should only contain numbers, and it should be at least 1 digits long";
-    // public static final String VALIDATION_REGEX = "\\d{1,}";
     public static final String MESSAGE_CONSTRAINTS =
             "Date can be entered in one of these two ways: \n"
                    + "i) A single number to represent number of days before today."
         + "and it should be at least 1 digits long. Eg: 1 refer to 1 day  ago \n"
-                    + "and it should be less than 3650. \n"
+                    + "and it should be less than LARGEST_DAY_AGO. \n"
             + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12. Note that the date can't be set "
                     + "to be in the future.";
     public static final String VALIDATION_REGEX = "[^\\s].*";
-    public static final int largestDayAgo = 3650;
+    public static final int LARGEST_DAY_AGO = 3650;
     public final String date;
     public final String howManyDaysAgo;
     private LocalDate localDate;
@@ -36,8 +32,8 @@ public class Date {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
         if (!inputDay.contains("-")) {
             this.howManyDaysAgo = inputDay;
-            assert Integer.parseInt(inputDay) >= 0
-                    && Integer.parseInt(inputDay) <= largestDayAgo : "Invalid days Being Enter";
+            assert Integer.parseInt(inputDay) >= 0 && Integer.parseInt(inputDay) <= LARGEST_DAY_AGO
+                    : "Invalid days Being Enter";
             LocalDate localdate = LocalDate.now();
             int convertedDay = Integer.parseInt(inputDay);
             LocalDate dayBefore = localdate.minusDays(convertedDay);
@@ -73,7 +69,6 @@ public class Date {
                 if (today.isBefore(date)) {
                     return false;
                 }
-                String dateString = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
                 return true;
             } catch (DateTimeParseException e) {
                 return false;
@@ -81,7 +76,7 @@ public class Date {
         } else {
             try {
                 int dayBefore = Integer.parseInt(test);
-                return dayBefore >= 0 && dayBefore <= largestDayAgo;
+                return dayBefore >= 0 && dayBefore <= LARGEST_DAY_AGO;
             } catch (NumberFormatException e) {
                 return false;
             }

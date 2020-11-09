@@ -9,13 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 
 public class HelpCommandWindow extends UiPart<Stage> {
     private static final String FXML = "HelpCommandWindow.fxml";
 
-    private TableView<allCommands> tableView = new TableView<>();
+    private TableView<AllCommands> tableView = new TableView<>();
     private final Logger logger = LogsCenter.getLogger(HelpCommandWindow.class);
 
     private TableColumn command = new TableColumn("command");
@@ -23,7 +25,7 @@ public class HelpCommandWindow extends UiPart<Stage> {
     private TableColumn commandFormat = new TableColumn("format");
     private TableColumn commandExample = new TableColumn("example");
 
-    private ObservableList<allCommands> list = FXCollections.observableArrayList();
+    private ObservableList<AllCommands> list = FXCollections.observableArrayList();
 
     @javafx.fxml.FXML
     private Label helpCommandWindow;
@@ -38,6 +40,13 @@ public class HelpCommandWindow extends UiPart<Stage> {
         helpCommandWindow.setGraphic(tableView);
         helpCommandWindow.setMinWidth(1205);
         helpCommandWindow.setMinHeight(560);
+
+        getRoot().addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+            if (KeyCode.Q == event.getCode()) {
+                getRoot().hide();
+            }
+        });
+
     }
 
     /**
@@ -55,7 +64,7 @@ public class HelpCommandWindow extends UiPart<Stage> {
         commandUsage.setCellValueFactory(new PropertyValueFactory<>("usage"));
         commandFormat.setCellValueFactory(new PropertyValueFactory<>("format"));
         commandExample.setCellValueFactory(new PropertyValueFactory<>("example"));
-        List<allCommands> listOfCommand = allCommands.getComandList();
+        List<AllCommands> listOfCommand = AllCommands.getComandList();
         for (int i = 0; i < listOfCommand.size(); i = i + 1) {
             list.add(listOfCommand.get(i));
         }
