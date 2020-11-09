@@ -4,19 +4,28 @@ title: Developer Guide
 ---
 * Table of Contents
     * [1. Overview](#1-overview)
+        * [1.1 Introduction](#11-introduction)
+        * [1.2 Setting Up, Getting Started](#12-setting-up-getting-started)
     * [2. Design](#2-design)
+        * [2.1 Architecture](#21-architecture)
+        * [2.2 UI Component](#22-ui-component)
+        * [2.3 Logic component](#23-logic-component)
+        * [2.4 Model component](#24-model-component)
+        * [2.5 Storage component](#25-storage-component)
+        * [2.6 Storage component](#26-common-classes)
     * [3. Implementation](#3-implementation)
         * [3.1 Expense management feature](#31-expense-management-feature)
             * [3.1.1 Add expense feature](#311-add-expense-feature)
             * [3.1.2 View expense feature](#312-view-expense-feature)
             * [3.1.3 Edit expense feature](#313-edit-expense-feature)
             * [3.1.4 Delete expense feature](#314-delete-expense-feature)
-            * [3.1.5 Add description to expense feature](#315-add-description-to-expense-feature)
-            * [3.1.6 List all expenses](#316-delete-an-expense-delete)
-        * [3.2 Exchange feature](#32-exchange-feature)
-        * [3.3 Budget feature](#33-budget-feature)
+            * [3.1.5 Add description to expense feature](#315-add-description-to-expense)
+            * [3.1.6 List all expenses](#316-list-feature)
+        * [3.2 Exchange feature](#32-exchange-features)
+        * [3.3 Budget feature](#33-budget-features)
         * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionalities)
         * [3.5 Expense list sorting functionalities](#35-expense-list-filter-functionalities)
+    
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -40,9 +49,9 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## 2. **Design**
 
-### Architecture
+### 2.1 Architecture
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 
@@ -85,7 +94,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-### UI component
+### 2.2 UI component
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -101,7 +110,7 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### Logic component
+### 2.3 Logic component
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -121,7 +130,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-### Model component
+### 2.4 Model component
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -134,7 +143,7 @@ The `Model`,
 * exposes an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 
 
-### Storage component
+### 2.5 Storage component
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -144,13 +153,13 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the expense book data in json format and read it back.
 
-### Common classes
+### 2.6 Common classes
 
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## 3. **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
@@ -163,7 +172,7 @@ expenses.
 This section will cover the details of the current implementation and design considerations of
 the description management feature.
 
-### Current Implementation
+#### Current Implementation
 
 The expense management feature supports six main operations:
 
@@ -175,7 +184,7 @@ The expense management feature supports six main operations:
 * `list` - list the descriptions in the expense book.
 
 
-### Expense model
+#### Expense model
 
 The add expense, view expense, edit expense, delete expense, as well as add description features and delete description
 feature are mainly supported by the `Expense` class.
@@ -187,7 +196,7 @@ Fig. Class Diagram for Expense.
 
 
 
-#### 3.1.1 Add expense feature
+### 3.1.1 Add expense feature
 
 Given below is an example usage scenario and how the mechanism for adding expenses behaves at each step.
 
@@ -204,7 +213,7 @@ expense data is not found.
 Step 3. The user executes `add a/AMOUNT c/CATEGORY [t/DATE] [d/DESCRIPTION]` to add an expense.
 For example, the user can use `add a/100 c/food t/2020-11-08 d/had dinner with friends` to add the expense incurred on
 "2020-11-08", with an amount of "100", a category "food", and a description "had dinner with friends" to the UniSave expense list.
-The `AddExpenseCommand` calls `Expense` to create a new Expense object and add it to the `ExpenseList` stored in `UniSave`.
+The `AddExpenseCommand` calls `Expense` to create a new Expense object and add it to the `ExpenseList` stored in `ExpenseBook`.
 
 The sequence diagram below shows the high-level abstraction of how Unisave processes user request
 to execute `add a/100 c/food`:
@@ -225,11 +234,87 @@ the prefix and the default value when creating the expense object.
 ** Cons: Harder to manage and prone to error.
 
 
-#### 3.1.2 View expense feature
+### 3.1.2 View expense feature
 
+The view expense feature is facilitated by the `ExpenseBook` class.
 
+Given below is the class diagram of the `ExpenseBook` class.
 
-#### 3.1.3 Edit expense feature
+Fig. Class Diagram for ExpenseBook.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `ViewCommand`:
+
+Fig. Activity Diagram for the Execution of `ViewCommand`
+![ViewActivityDiagram](images/ViewActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `view 1` to view the details of the expense with index 1(the first expense) 
+in the displayed expense list.
+The `ViewCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
+and creates a CommandResult which contains the details of the first expense found in the list.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `view 1`:
+
+High Level Sequence Diagram for the Execution of `view 1`
+![ViewCommandSequenceDiagram](images/ViewSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: Expense book already displays information of expenses.
+
+* Alternative 1: Directly see the expense from the UI.
+** Pros: No need to type in any command.
+** Cons: May take some time to scroll down the list to look for the correct index, especially when the 
+         expense list is sorted by date/amount.
+         
+         
+#### View all existing expense categories 
+
+The view existing expense categories feature is facilitated by the ExpenseBook class.
+
+Given below is the class diagram of the `ExpenseBook` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
+
+Fig. Activity Diagram for the Execution of `ViewCategory`
+![ViewCategoryCommandActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `ViewCategory` to view all the existing expense category labels 
+        in the ExpenseBook in Unisave.
+The `ViewCategoryCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
+and creates a CommandResult which contains the details of the first expense found in the list.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `viewCategory`:
+
+High Level Sequence Diagram for the Execution of `viewCategory`
+![ViewCategorySequenceDiagram](images/ViewCategorySequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: Existing categoris can be found from the expense list.
+
+* Alternative 1: Directly search for existing expense categories from the UI.
+** Pros: No need to type in any command.
+** Cons: Takes a lot of time to do so.
+
+### 3.1.3 Edit expense feature
 
 Given below is an example usage scenario and how the mechanism for editing expenses behaves at each step.
 
@@ -260,13 +345,14 @@ High Level Sequence Diagram for the Execution of `edit 1 a/12`
 
 * Alternative 1 (current choice): For every prefix, check if the prefix and a value is provided.
 If no prefix is provided, return an error as no change in any fields means this is not a valid edit.
+
 ** Pros: Less prone to error. If a certain prefix is not provided, simply use the field object in the current expense
-without changing it. 
+without changing it.
 ** Cons: Performance is slower, especially when the number of prefixed is large. Iterating through all and checking
 through all of them might reduce the speed of processing the edit command.
 * Alternative 2: Check the number of prefix provided.
-** Pros: Fast to check the number.
-** Cons: Require extra data structure to keep track of the prefixes.
+** Pros: Fast to check the number. 
+** Cons: Require extra data structure to keep track of the prefixes. 
 
 
 ### 3.1.4 Delete Expense feature
@@ -295,25 +381,23 @@ Step 3. The user executes `add a/100 c/Entertainment D/1 d/Movie` to add a new e
 
 ![UndoRedoState2](images/deleteState2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#saveExpenseBook()`, so the expense book state will not be saved into the `expenseBookStateList`.
+**Note:** If a command fails its execution, it will not call `Model#saveExpenseBook()`, so the expense book state will not be saved into the `expenseBookStateList`.
 
-</div>
 
 Step 4. The user now decides that adding the expense was a mistake, and decides to delete that expense by executing the `delete` command. The `delete` command will call `Model#deleteExpenseBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous expense book state, and restores the expense book to that state.
 
 ![UndoRedoState3](images/deleteState3.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial ExpenseBook state, then there are no previous ExpenseBook states to restore. The `delete` command uses `Model#canDeleteExpenseBook()` to check if this is the case. If so, it will return an error to the user rather
+**Note:** If the `currentStatePointer` is at index 0, pointing to the initial ExpenseBook state, then there are no previous ExpenseBook states to restore. The `delete` command uses `Model#canDeleteExpenseBook()` to check if this is the case. If so, it will return an error to the user rather
 than attempting to perform the undo.
 
-</div>
 
 The following sequence diagram shows how the delete operation works:
 
 ![UndoSequenceDiagram](images/deleteExpenseSequenceDiagram.png)
 
 
-#### 3.1.5 Add description to expense
+### 3.1.5 Add description to expense
 
 
 The add description features and delete description feature are mainly supported by the `Expense` class.
@@ -322,22 +406,22 @@ Given below is an example usage scenario and how the mechanism for adding descri
 
 The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
 
-Fig. Activity Diagram for the Execution of `AddTaskCommand`
+Fig. Activity Diagram for the Execution of `AddDescriptionCommand`
 ![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
 
 Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `Spent on books` to add the description "Spent on books" to the expense with index 2 in the displayed expense list.
+Step 3. The user executes `add-d 2 d/Spent on books` to add the description "Spent on books" to the expense with index 2 in the displayed expense list.
 The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
 this newly created description object, and replace the previous expense object with this updated expense in the 
 `ExpenseList` stored in `UniSave`.
 
 The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `addDes 2 d/Spent on books`:
+to execute `add-d 2 d/Spent on books`.
 
-High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+High Level Sequence Diagram for the Execution of `add-d 2 d/Spent on books`:
 ![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
 
 #### Design Considerations
@@ -378,125 +462,7 @@ The following activity diagram summarizes what happens when a user executes list
 ![ListActivityDiagram](images/ListActivityDiagram.png)
 
 
-### Budget management feature
-
-#### Show Budget feature
-
-The show budget feature is mainly supported by the `ExpenseBook` class.
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-Fig. Activity Diagram for the Execution of `ShowBudgetCommand`
-![ShowBudgetActivityDiagram](images/ShowBudgetActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. User set a budget.
-
-Step 4. The user executes `showBudget` to check the current budget.
-UI shows the message of current budget and remaining budget.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `showBudget` when a budget was set:
-
-High Level Sequence Diagram for the Execution of `showBudget`.
-![ShowBudgetSequenceDiagram](images/ShowBudgetSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to handle the case when the remaining budget is negative (i.e. current spending exceed the budget).
-
-* Alternative 1 (current choice): Show the remaining budget at negative value, and ask the user to set a new budget.
-  * Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-  * Cons: Is not supposed to happen in real life, not intuitive.
-
-* Alternative 2: Show alerts when the user is overspending, and does not allow the user to spend more before set a new budget.
-  * Pros: No more negative budget, more intuitive.
-  * Cons: Much more complicated implementation.
-
-### View an expense 
-
-The view expense feature is facilitated by the `ExpenseBook` class.
-
-Given below is the class diagram of the `ExpenseBook` class.
-
-Fig. Class Diagram for ExpenseBook.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
-
-Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `ViewCommand`:
-
-Fig. Activity Diagram for the Execution of `ViewCommand`
-![AddDescriptionActivityDiagram](images/ViewActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `view 1` to view the details of the expense with index 1(the first expense) 
-in the displayed expense list.
-The `ViewCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
-and creates a CommandResult which contains the details of the first expense found in the list.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `view 1`:
-
-High Level Sequence Diagram for the Execution of `view 1`
-![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1: Directly see the expense from the UI.
-** Pros: No need to type in any command.
-** Cons: May take some time to scroll down the list to look for the correct index, especially when the 
-         expense list is sorted by date/amount.
-         
-         
-### View all existing expense categories 
-
-The view existing expense categories feature is facilitated by the ExpenseBook class.
-
-Given below is the class diagram of the `ExpenseBook` class.
-
-Fig. Class Diagram for Expense.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
-
-Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
-
-Fig. Activity Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `viewCategory` to view all the existing expense category labels 
-        in the ExpenseBook in Unisave.
-The `ViewCategoryCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
-and creates a CommandResult which contains the details of the first expense found in the list.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `viewCategory`:
-
-High Level Sequence Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategorySequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1: Directly search for existing expense categories from the UI.
-** Pros: No need to type in any command.
-** Cons: Takes a lot of time to do so.
-
-## 3.2 Exchange features
+### 3.2 Exchange features
 
 The Exchange feature allows converting the currency of the whole ExpenseBook. Each individual expense along with the budget in the ExpenseBook will be exchanged into the input currency at exchange rate from the current currency.
 
@@ -542,7 +508,7 @@ High Level Sequence Diagram for the Execution of `exchange cc/cny`
 (2) More files to download other than `UniSave.jar`, less user-friendly.
 
 
-## 3.3 Budget features
+### 3.3 Budget features
 
 The set budget feature allows the user to set a budget for ExpenseBook.
 
@@ -575,7 +541,7 @@ High Level Sequence Diagram for the Execution of `set-b 1000`
 ** Cons: Users cannot see their remaining budget all the time.
 
 
-#### Sort expense list by amount in ascending/descending order
+### Sort expense list by amount in ascending/descending order
 
 The sort by amount feature is facilitated by the `ExpenseBook` class.
 
@@ -606,7 +572,7 @@ High Level Sequence Diagram for the Execution of `sort-a descending`
 
 #### Design Considerations
 
-#### Sort expense list by time in ascending/descending order
+### Sort expense list by time in ascending/descending order
 
 The sort by amount feature is facilitated by the `ExpenseBook` class.
 

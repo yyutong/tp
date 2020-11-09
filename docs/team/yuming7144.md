@@ -44,5 +44,5 @@ Given below are my contributions to the project.
   
 * **Contributions beyond the project team**:
    * Evidence of helping others:
-       * Report the bugs I found during PE-dry run
+       * Report the bugs I found during PE-dry run [issues](https://github.com/yuming7144/ped)
 
