@@ -276,7 +276,6 @@ public class MainWindow extends UiPart<Stage> {
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
             budgetPanel.update();
             pieChartWindow.setStats();
-            statisticTable.constructTable();
 
             if (commandResult.isShowHelp()) {
                 handleHelpCommandWindow();
