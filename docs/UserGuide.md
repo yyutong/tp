@@ -140,12 +140,11 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
 
 Clear all the data in the program. 
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can use this command to clear the sample data when you first launch the app, 
-or use it whenever you want to start a new expense book.
-</div>
+You can use this command to clear the sample data when you first launch the app, or use it whenever you want to start a new expense book. <br>
+Note that budget will be cleared when you use this command.
 
 Format: `clear`
+Example: `clear`
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -161,10 +160,10 @@ Example:
 
 ![setBudget](images/setBudgetCommand.png)
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+*Note*:
 You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
-</div>
+
 
 Navigate back to the feature list: [Features](#3-features)
 
@@ -174,34 +173,23 @@ Adds an expense.
 
 Format: `add a/AMOUNT c/CATEGORY [t/DATE] [d/description]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Note that an amount of an expense should only be positive numbers.
-</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-If you do, a date can be entered in one of these two forms:<br>
-i) Enter date as a single integer, corresponding to number of days ago. <br>
-E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
-it should not be less than 0 or greater than 3650.)   
-
-ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
-</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You may enter each field in a different order. That means `add a/100 c/food t/1 d/milk tea membership card` gives the 
-same result as `add t/1 d/milk tea membership card c/food a/100`.
-</div>
+*Note* :
+1. The amount of an expense should only be positive numbers. <br>
+2. If you do, a date can be entered in one of these two forms:<br>
+  i) Enter date as a single integer, corresponding to number of days ago. <br>
+  E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
+  it should not be less than 0 or greater than 3650.) <br>
+  ii) Enter date as the exact date in YYYY-MM-DD format. E.g: 2020-10-28<br>
+3.The date and field are optional but amount and category are compulsory. <br>
+4. when more than one same field is entered, the last one is chosen. For example, there are t/2 and t/3 being entered, t/3 will be chosen. <br>
+5. When the date field is left empty, the default is today. When description field is left empty, the default is no description. <br>
+6. You may enter each field in a different order. That means `add a/100 c/food t/1 d/milk tea membership card` gives the 
+   same result as `add t/1 d/milk tea membership card c/food a/100`. <br>
 
 Examples:
 * `add a/100 c/food t/1 d/milk tea membership card`
 * `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
 * `add a/100 c/food`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
-1. The date and field are optional but amount and category are compulsory. <br>
-2. when more than one same field is entered, the last one is chosen. For example, there are t/2 and t/3 being entered, t/3 will be chosen. <br>
-3. When the date field is left empty, the default is today. When description field is left empty, the default is no description.
-</div>
 
 ![add](images/addExpenseCommand.png)
 
