@@ -3,7 +3,6 @@ package seedu.address.model.expense;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
@@ -71,7 +70,6 @@ public class Date {
                 if (today.isBefore(date)) {
                     return false;
                 }
-                String dateString = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
                 return true;
             } catch (DateTimeParseException e) {
                 return false;
