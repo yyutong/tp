@@ -139,6 +139,183 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+
+### Expense Management Feature
+
+As an expense management application, the most important features are to be able to add, edit, view and delete your
+expenses.
+
+This section will cover the details of the current implementation and design considerations of
+the description management feature.
+
+#### Current Implementation
+
+The expense management feature supports six main operations:
+
+* `add` - record an expense, with an amount, a date, a category and a description as fields.
+* `view` - view the details of an existing expense.
+* `edit` - edit the details of an existing expense.
+* `delete` - delete an existing expense from the expense list.
+* `add-d` - add a description to an existing expense.
+* `delete-d` - delete the description of an existing expense.
+
+
+### Expense model
+
+The add expense, view expense, edit expense, delete expense, as well as add description features and delete description
+feature are mainly supported by the `Expense` class.
+
+Given below is the class diagram of the `Expense` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+
+
+#### Add Expense feature
+
+Given below is an example usage scenario and how the mechanism for adding expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `AddExpenseCommand`:
+
+Fig. Activity Diagram for the Execution of `AddExpenseCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `Spent on books` to add the description 
+"Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
+
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+
+
+#### Edit expense feature
+
+The add description features and delete description feature are mainly supported by the `Expense` class.
+
+Given below is the class diagram of the `Expense` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+
+Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
+
+Fig. Activity Diagram for the Execution of `AddTaskCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `Spent on books` to add the description 
+"Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
+
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+
+
+
+
+
+
+#### Add description
+
+
+As an expense management application, one of the most important features is to add a description when
+recording down and tracking the expenses, so that later when users review their expenses, they have a better
+idea of what he spent on. 
+
+The add description features and delete description feature are mainly supported by the `Expense` class.
+
+Given below is the class diagram of the `Expense` class.
+
+Fig. Class Diagram for Expense.
+![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
+
+
+Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
+
+Fig. Activity Diagram for the Execution of `AddTaskCommand`
+![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `Spent on books` to add the description 
+"Spent on books" to the expense with index 2 in the displayed expense list.
+The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
+this newly created description object, and replace the previous expense object with this updated expense in the 
+`ExpenseList` stored in `UniSave`.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `addDes 2 d/Spent on books`:
+
+High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
+![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to manage empty description, as description is optional.
+
+* Alternative 1 (current choice): Use empty string to create description, if description is empty.
+** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
+** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
+* Alternative 2: Use an `Optional` for descriptions.
+** Pros: More intuitive.
+** Cons: Harder to manage and prone to error.
+
+
+
+
+
+
 ### \[Proposed\] Delete Expense feature
 
 #### Proposed Implementation
@@ -284,152 +461,8 @@ High Level Sequence Diagram for the Execution of `showBudget`.
   * Pros: No more negative budget, more intuitive.
   * Cons: Much more complicated implementation.
 
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th expense in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new expense. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the expense was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
-
-#### Design consideration:
-
-##### Aspect: How undo & redo executes
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
-### Manage description of Expense Feature
-
-As an expense management application, one of the most important features is to add a description when
-recording down and tracking the expenses, so that later when users review their expenses, they have a better
-idea of what he spent on. 
-
-This section will cover the details of the current implementation and design considerations of
-the description management feature.
-
-#### Current Implementation
-
-The expense management feature supports five main operations:
-
-* `add` - record an expense, with an amount, a date, a category and a description as fields.
-* `view` - view the details of an existing expense.
-* `delete` - delete an existing expense from the expense list.
-* `addDes` - add a description to an existing expense.
-* `deleteDes` - delete the description of an existing expense.
-
-#### Add description
-
-The add description features and delete description feature are mainly supported by the `Expense` class.
-
-Given below is the class diagram of the `Expense` class.
-
-Fig. Class Diagram for Expense.
-![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
 
 
-Given below is an example usage scenario and how the mechanism for adding description to expenses behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `AddDescriptionCommand`:
-
-Fig. Activity Diagram for the Execution of `AddTaskCommand`
-![AddDescriptionActivityDiagram](images/AddDescriptionActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `Spent on books` to add the description 
-"Spent on books" to the expense with index 2 in the displayed expense list.
-The `AddDescriptionCommand` calls `Description` to create a new description object and a new Expense object containing 
-this newly created description object, and replace the previous expense object with this updated expense in the 
-`ExpenseList` stored in `UniSave`.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `addDes 2 d/Spent on books`:
-
-High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
-![AddDescriptionActivityDiagram](images/AddDescriptionSequenceDiagram.png)
-
-#### Design Considerations
-
-##### Aspect: How to manage empty description, as description is optional.
-
-* Alternative 1 (current choice): Use empty string to create description, if description is empty.
-** Pros: Expense always contains a description object. No possibility of 0 description object in expense.
-** Cons: When deleting the description, the description object is not deleted and "Description:" field is still shown on UI.
-* Alternative 2: Use an `Optional` for descriptions.
-** Pros: More intuitive.
-** Cons: Harder to manage and prone to error.
 
 #### View an expense 
 
@@ -859,27 +892,242 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a expense
+### Add an expense
 
-1. Deleting an expense while all expenses are being shown
+1. Add an expense into the expense book. Amount and category are compulsory. Date and description are optional.
 
-   1. Prerequisites: List all expenses using the `list` command. Multiple expenses in the list.
+   i.   Prerequisites: The amount entered need to be a valid one.
+   ii.  Test case: `add a/50 c/ENTERTAINMENT t/1 d/movie` <br>
+        Expected: A new expense is added into expense book. Details of the added expense shown in the result box.
 
-   1. Test case: `delete 1`<br>
-      Expected: First expense is deleted from the list. Details of the deleted expense shown in the status message. Timestamp in the status bar is updated.
+   iii. Test case: `add a/50 c/ENTERTAINMENT`<br>
+        Expected: A new expense is added into expense book. Since the `date` filed is empty, it will automatically set to today's date. Details of the added expense shown in the result box
+   
+   iv.  Test case: `add`<br>
+        Expected: No expense is added. There will be an error message because the compulsory field instruction is missing.
 
-   1. Test case: `delete 0`<br>
-      Expected: No expense is deleted. Error details shown in the status message. Status bar remains the same.
+   v.   Other incorrect add expense commands to try: `add a/100`, `add c/entertainment` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Add a description to current expenses
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+1. Add an description into the expense with the index specified. Index and description field are compulsory.
 
-1. _{ more test cases …​ }_
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `add-d 1 d/movie` <br>
+        Expected: A new description is added into the expense with the index specified. Details of the added description shown in the result box
 
-### Saving data
 
-1. Dealing with missing/corrupted data files
+   iii. Test case: `add-d 1 d/movie d/study`<br>
+        Expected: A new description is added into expense with the index specified. When more than one descriptions are added, the last one is used. Details of the added description shown in the result box.
+   
+   iv.  Test case: `add-d`<br>
+        Expected: No description is added. There will be an error message because the compulsory field instruction is missing.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   v.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
 
-1. _{ more test cases …​ }_
+### Delete a description to current expenses
+
+1. Delete an description into the expense with the index specified. Index and description field are compulsory.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `add-d 1 d/` <br>
+        Expected: The description of the expense with the index specified is deleted. Details of the deleted description shown in the result box
+   iii. Test case: `add-d`<br>
+        Expected: No description is deleted. There will be an error message because the compulsory field instruction is missing.
+
+   iv.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Clear all expenses
+
+1. Clear all expenses in the expense book. The budget will also be cleared.
+
+   i .  Test case: `clear` <br>
+        Expected: All expenses and budget are cleared. The result box will show the information that all expenses are cleared.
+
+### Edit an expense
+
+1. Edit an expense specified by the index in the expense book. Index is compulsory followed by the field to be edited.
+
+   i.   Prerequisites: The expense book is not empty .
+   ii.  Test case: `edit 1 a/120` <br>
+        Expected: The first expenses will be updated with an amount of 120. Details of the edited expense shown in the result box.
+
+   iii. Test case: `edit 1 a/120 c/transport`<br>
+        Expected: More than two fields are updated. The first expenses will be updated with an amount of 120 and category of transport. Details of the edited expense shown in the result box.
+   
+   iv.  Test case: `edit`<br>
+        Expected: No expense is edited. There will be an error message because the compulsory field instruction is missing.
+
+   v.   Other incorrect add expense commands to try: `edit 1`, `add c/entertainment` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Covert currency of current expenses to new currency
+
+1. Currency of current expenses is converted to new specified currency. Currency code is case-insensitive but compulsory.
+
+   i.   Test case: `exchange cc/CNY` <br>
+        Expected: The currency of current expense is converted to Chinese Yuan specified by the currency code. Details of the currency conversion shown in the result box.
+
+   ii.  Test case: `exchange`<br>
+        Expected: No conversion is done. There will be an error message because the compulsory field instruction is missing.
+
+   iii. Other incorrect add expense commands to try: `exchange CNY`, `exchange cc` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Delete an expense
+
+1. delete an expense in the expense book. Index is compulsory.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `delete 1` <br>
+        Expected: First expense is deleted from the list. Details of the deleted expense shown in the result box.
+
+   iii. Test case: `delete 0`<br>
+        Expected:No expense is deleted. There will be an error message because the index is invalid.
+
+   iv.  Other incorrect add expense commands to try: `delete -1`(invalid index), `delete 10` (if the expense book has less than 10 expeneses) <br>
+        Expected: Similar to previous test case.
+
+### Exit from the application
+
+1. Exit from the application
+
+   i .  Test case: `exit` <br>
+        Expected: Exit from the current application
+
+### Filter by Category
+
+1. Filter the expenses by category. Show all the expenses whose category match the specified category
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-c entertainment` <br>
+        Expected:  Filter all the expenses under category entertainment.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the index is invalid.
+        
+### Filter by Date
+
+1. Filter the expenses by date. Show all the expenses whose date match the specified date
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-t 2020-11-02` <br>
+        Expected:  Filter all the expenses under the date 2020-11-02.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the command is invalid.
+
+### Filter by Description
+
+1. Filter the expenses by description. Show all the expenses whose description match the specified description.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-d movie` <br>
+        Expected:  Filter all the expenses for the description movie.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the command is invalid.
+
+### Help Command
+
+1. Provide a list of command for users to refer to.
+
+   i .  Test case: `help` <br>
+        Expected: There will be a command table shown with the link to the user guide.
+
+### Listing all expenses
+
+1. List all the expenses in the expense book.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `list` <br>
+        Expected:  Show all the expenses in the expense book. The result box shows the successful message.
+
+   iii. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of list command is not stated, so the list command is executed as long as the command word `list` is correct.
+
+### Set budget for the expense book
+
+1. Set budget for the expense book. The amount of the budget is compulsory.
+
+   i.   Test case: `set-b 500` <br>
+        Expected:  The budget of the expense book is set to $500. The result box shows the successful message.
+
+   ii.  Test case: `set-b 0`<br>
+        Expected: No budget is set. There will be an error message because the budget set is invalid.
+        
+   iii. Test case: `set-b`<br>
+        Expected: No budget is filtered. There will be an error message because the index is invalid.
+
+### Show Currency Code
+
+1. Show the list of currency supported by the expense book as well as its corresponding code.
+
+   i .  Test case: `show-codes` <br>
+        Expected: There will be a command table the currency supported and its corresponding code.
+   
+   ii.  Other trivial list commands to try: `show-codes x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of `show-codes` command is not stated, so the `show-codes` command is executed as long as the command word `show-codes` is correct.
+ 
+### Show Statistic
+
+1. Show the statistic of the expenses.
+
+   i .  Test case: `show-stats` <br>
+        Expected: There will be a command table that provide a brief summary of the expenses.
+   
+   ii.  Other trivial list commands to try: `show-stats x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of `show-stats` command is not stated, so the `show-stats` command is executed as long as the command word `show-stats` is correct.
+ 
+
+### Sort by amount
+
+1. Sort the expenses by amount in ascending/descending order. The order is compulsory.
+
+   i .  Test case: `sort-a ascending` <br>
+        Expected: The expenses will be sorted by amount in ascending order.
+
+   i .  Test case: `sort-a descending` <br>
+        Expected: The expenses will be sorted by amount in descending order.
+   
+   iii. Test case: `sort-a`<br>
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+ 
+### Sort by time
+
+1. Sort the expenses by time in ascending/descending order. The order is compulsory.
+
+   i .  Test case: `sort-t ascending` <br>
+        Expected: The expenses will be sorted by time in ascending order.
+
+   i .  Test case: `sort-t descending` <br>
+        Expected: The expenses will be sorted by time in descending order.
+   
+   iii. Test case: `sort-t`<br>
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+ 
+### View a specific expenses
+
+1. View a specific index. The index is compulsory
+
+   i .  Test case: `view 1` <br>
+        Expected: View the first expenses. The result box shows the details of the expenses requested.
+
+   ii.  Test case: `view` <br>
+        Expected: No expense is viewed. There will be an error message because the compulsory field is missing.
+        
+   iii. Test case: `view 0` <br>
+        Expected: No expense is viewed. There index of expense requested is invalid. 
+
+### View all the categories.
+
+1. View all the categories in the expense book. The category field is compulsory
+
+   i .  Test case: `view-c` <br>
+        Expected: Show all the categories in the expense book. The result box shows the successful message.
+
+   ii.  Test case: `view-c x` (where x is any number or alphabet) <br>
+        Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct.
