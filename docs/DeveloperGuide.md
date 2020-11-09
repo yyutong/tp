@@ -15,7 +15,7 @@ title: Developer Guide
             * [3.1.6 List all expenses](#316-delete-an-expense-delete)
         * [3.2 Exchange feature](#32-exchange-feature)
         * [3.3 Budget feature](#33-budget-feature)
-        * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionalities)
+        * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionality)
         * [3.5 Expense list sorting functionalities](#35-expense-list-filter-functionalities)
 
 
