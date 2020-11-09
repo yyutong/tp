@@ -242,13 +242,6 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
 
-
-
-
-
-
-
-
 #### Add description
 
 
@@ -297,11 +290,6 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 * Alternative 2: Use an `Optional` for descriptions.
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
-
-
-
-
-
 
 ### \[Proposed\] Delete Expense feature
 
@@ -387,11 +375,11 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
-### \[Proposed\] List feature
+### List feature
 
-#### Proposed Implementation
+#### Implementation
 
-The proposed list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
+The list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
 `ListExpenseCommand` is created at `ExpenseBookParser` which is called by `LogicManager` to parse input string into `Command`.
 `LogicManager` takes in input string from `CommandBox` which belongs to one of the GUI component.
 
@@ -402,17 +390,42 @@ Step 2. After user inputs list command, the steps can be shown from this sequenc
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  
-`FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
 </div>
 
-Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app GUI.
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
 
-The following activity diagram summarizes what happens when a user executes a new command:
+The following activity diagram summarizes what happens when a user executes list command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
 
-#### Show Budget feature
+### Filter feature
+
+#### Implementation - Filter Expense By Category
+
+The filter expense by category feature belongs to `ListExpenseByCategoryCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByCategoryCommand` is created at `ExpenseBookParser` by `ListExpenseByCategoryParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by category feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-c food` command, the steps can be shown from this sequence diagram.
+
+![FilterCategorySequenceDiagram](images/FilterCategorySequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by category command:
+
+![ListActivityDiagram](images/ListActivityDiagram.png)
+
+### Show Budget feature
 
 The show budget feature is mainly supported by the `ExpenseBook` class.
 
@@ -448,10 +461,7 @@ High Level Sequence Diagram for the Execution of `showBudget`.
   * Pros: No more negative budget, more intuitive.
   * Cons: Much more complicated implementation.
 
-
-
-
-#### View an expense 
+### View an expense 
 
 The view expense feature is facilitated by the `ExpenseBook` class.
 
@@ -492,7 +502,7 @@ High Level Sequence Diagram for the Execution of `view 1`
          expense list is sorted by date/amount.
          
          
-#### View all existing expense categories 
+### View all existing expense categories 
 
 The view existing expense categories feature is facilitated by the ExpenseBook class.
 
