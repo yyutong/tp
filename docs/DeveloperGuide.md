@@ -880,14 +880,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to exchange the currency of ExpenseBook.
-2.  UniSave updates and displays the new budget and remaining budget in budget panel.
+2.  UniSave do the conversion from current currency to input currency.
+3.  UniSave updates and displays the budget and all the expenses in the new currency.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave shows an error message with the correct usage of setting budget.
+* 1a. UniSave detects an error in the entered currency code.
+    * 1a1. UniSave shows an error message with the correct usage of exchange.
     * Use case ends.
 
 
