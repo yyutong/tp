@@ -277,10 +277,10 @@ Navigate back to the feature list: [Features](#3-features)
 
 Show all the expenses whose date match the specified date.
 
-Format: `filter-t YYYY-MM-DD` or `filter-t NUMBERDAYSAGO`
+Format: `filter-t YYYY-MM-DD` or `filter-t NUMBEROFDAYSAGO`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-NUMBERDAYSAGO is used to specify how many days ago from current day.
+NUMBEROFDAYSAGO is used to specify how many days ago from current day.
 It accepts number from 0 to 3650 (10 years).
 </div>
 
