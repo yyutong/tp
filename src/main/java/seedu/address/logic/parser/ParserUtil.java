@@ -6,12 +6,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Budget;
-import seedu.address.model.expense.Category;
-import seedu.address.model.expense.Currency;
-import seedu.address.model.expense.Date;
-import seedu.address.model.expense.Description;
+import seedu.address.model.expense.*;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -168,5 +163,16 @@ public class ParserUtil {
             throw new ParseException(
                     SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL, pe);
         }
+    }
+
+    /**
+     * Parses a {@code String input} into a {@code Order}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code input} is invalid.
+     */
+    public static Order parseOrder(String input) throws ParseException {
+        String trimmedInput = input.trim();
+        return new Order(trimmedInput);
     }
 }
