@@ -21,8 +21,21 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## 1. **Overview**
+Welcome to UniSave Developer Guide. This documentation provides you an insight on how UniSave is designed and implemented.
 
+## 1.1 Introduction
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI).
+
+It is an application that helps university students manage their finance by tracking your spending, 
+setting budget for each month, as well as viewing their expenses in various categories. 
+Moreover, UniSave allows tracking expenses in different currencies.
+
+UniSave targets university students who tend to incur a large amount of spending.
+It is catered especially for students who are more familiar with desktop applications and type fast.
+UniSave is available for the Linux, Windows and Mac OS operating systems.
+ 
+## 1.2 Setting Up, Getting Started
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
@@ -41,7 +54,7 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`]() and [`MainApp`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/Main.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -58,6 +71,7 @@ Each of the four components,
 
 * defines its *API* in an `interface` with the same name as the Component.
 * exposes its functionality using a concrete `{Component Name}Manager` class (which implements the corresponding API `interface` mentioned in the previous point.
+  This rule is applied to all the four components except `Model` in which we use `ExpenseModelManager` as the name of its concrete class.
 
 For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
@@ -76,7 +90,7 @@ The sections below give more details of each component.
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+[`Ui.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `ExpenseListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
@@ -92,7 +106,7 @@ The `UI` component,
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -111,7 +125,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
@@ -132,7 +146,7 @@ The `Storage` component,
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -402,9 +416,6 @@ High Level Sequence Diagram for the Execution of `showBudget`.
   * Pros: No more negative budget, more intuitive.
   * Cons: Much more complicated implementation.
 
-
-
-
 #### View an expense 
 
 The view expense feature is facilitated by the `ExpenseBook` class.
@@ -452,7 +463,7 @@ The view existing expense categories feature is facilitated by the ExpenseBook c
 
 Given below is the class diagram of the `ExpenseBook` class.
 
-Fig. Class Diagram for ExpenseBook.
+Fig. Class Diagram for Expense.
 ![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
 
 Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
@@ -460,7 +471,7 @@ Given below is an example usage scenario and how the mechanism of viewing an exp
 The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
 
 Fig. Activity Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategoryActivityDiagram.png)
+![AddDescriptionActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
 
 Step 1. The user launches the application.
 
@@ -485,6 +496,148 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 ** Pros: No need to type in any command.
 ** Cons: Takes a lot of time to do so.
 
+## 3.2 Exchange features
+
+The Exchange feature allows converting the currency of the whole ExpenseBook. Each individual expense along with the budget in the ExpenseBook will be exchanged into the input currency at exchange rate from the current currency.
+
+Given below is a class diagram for `ExpenseBook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
+
+When executing `exchange` command, the `Currency` field will be changed if the input currency code is valid.
+
+Given below is an example usage scenario and how the mechanism of exchange behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `exchange cc/cny`:
+
+Fig. Activity Diagram for the Execution of `ExchangeCommand`
+![ExchangeActivityDiagram](images/ExchangeActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `exchange cc/cny` to exchange the currency of the ExpenseBook from `SGD` (Default Currency) to `CNY`.
+
+Step 4. The `ExchangeCommand` build a new `CurrencyConverter` to calculate the exchange rate from `SGD` to `CNY`. 
+The `ExchangeCommand` exchanges the `Budget` and `ExpenseList` of `ExpenseBook` at the calculated exchange rate, and changes the `Currency` of the ExpenseBook to `CNY`.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request to execute `exchange cc/cny`:
+
+High Level Sequence Diagram for the Execution of `exchange cc/cny`
+![ExchangeSequenceDiagram](images/ExchangeSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to handle Exchange Rates
+* Alternative 1: Let the user to type in real-time exchange rate.
+** Pros: Correct input of the exchange rate can make the conversion more accurate.
+** Cons: More prone to error, cannot check for incorrect exchange rates.
+
+* Alternative 2: Let the user to download additional text file, and read the exchange rates from the text file.
+** Pros: More flexibility when updating the exchange rates.
+** Cons: 
+(1) Users can modify the text file, more prone to error when parsing from the text file.
+(2) More files to download other than `UniSave.jar`, less user-friendly.
+
+
+## 3.3 Budget features
+
+The set budget feature allows the user to set a budget for ExpenseBook.
+
+Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `set-b BUDGET`:
+
+Fig. Activity Diagram for the Execution of `SetBudgetCommand`
+![SetBudgetActivityDiagram](images/SetBudgetActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook.
+The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request
+to execute `set-b 1000`:
+
+High Level Sequence Diagram for the Execution of `set-b 1000`
+![SetBudgetSequenceDiagram](images/SetBudgetSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How do user check the updated budget.
+
+* Alternative 1: Use ShowBudget Command `show-b`
+** Pros: Simplier Implementation.
+** Cons: Users cannot see their remaining budget all the time.
+
+
+#### Sort expense list by amount in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in  
+descending order and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByAmountCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByAmountCommand`
+![AddDescriptionActivityDiagram](images/SortByAmountCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByAmountCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of amount
+and the displayed expense will accordingly update to the sorted version of the expense list.
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-a descending`:
+
+High Level Sequence Diagram for the Execution of `sort-a descending`
+![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
+
+#### Design Considerations
+
+#### Sort expense list by time in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in descending order  
+and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByTimeCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByTimeCommand`
+![AddDescriptionActivityDiagram](images/SortByTimeCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
+and the displayed expense will accordingly update to the sorted version of the expense list.
+
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-t ascending`:
+
+High Level Sequence Diagram for the Execution of `sort-t ascending`
+![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
+
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -497,7 +650,7 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **Appendix A: Requirements**
 
 ### Product scope
 
@@ -532,9 +685,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
 | `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
 | `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
+| `* * *`  | user                                       | Sort expenses by amount            | view existing expenses in descending/ascending order of amount                          |
+| `* * *`  | user                                       | Sort expenses by time              | view existing expenses in descending/ascending order of amount                          |
 | `* *`    | user                                       | List all categories                | view all expenses                                                                       |
 | `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
-
 *{More to be added}*
 
 ### Use cases
@@ -665,53 +819,66 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to set a new budget.
-2.  UniSave updates and displays the new budget.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave requests for the correct value.
-    * 1a2. User enters a valid value.
-    * 1a3. UniSave updates and displays the new budget.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Total Budget**
+**Use case: Exchange Currency**
 
 **MSS**
 
-1.  User requests to view total budget.
-2.  UniSave displays the total budget.
+1.  User requests to exchange the currency of ExpenseBook.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. User does not have a budget set yet.
-    * 2a1. Unisave displays the default budget 0.
-    * 2a2. UniSave requests for setting a budget.
-    * 2a3. User sets a budget.
-    * 2a4. UniSave displays the amount set by the user.
+* 1a. UniSave detects an error in the entered value.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Remaining Budget**
+
+**Use case: Sort expenses by time**
 
 **MSS**
 
-1.  User requests to view remaining budget.
-2.  UniSave displays the remaining budget.
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by time.
+3.  UniSave displays the new sorted expense list.
 
     Use case ends.
 
-**Use case: Alert**
+**Extensions**
+
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
+
+
+**Use case: Sort expenses by amount**
 
 **MSS**
 
-1.  User's spending exceed budget.
-2.  UniSave shows alerts.
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by amount.
+3.  UniSave displays the new sorted expense list.
 
     Use case ends.
+
+**Extensions**
+
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
 
 ### Non-Functional Requirements
 
@@ -726,6 +893,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Expense**: The amount of money spent by the user student in a certain event
 * **Budget**: The maximum amount of money that the user student can spend
+* **Currency code** The representation of a currency, following ISO4217, which is published by the International Organisation for Standadization.
+It is unique for every currency.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -755,27 +924,242 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a expense
+### Add an expense
 
-1. Deleting an expense while all expenses are being shown
+1. Add an expense into the expense book. Amount and category are compulsory. Date and description are optional.
 
-   1. Prerequisites: List all expenses using the `list` command. Multiple expenses in the list.
+   i.   Prerequisites: The amount entered need to be a valid one.
+   ii.  Test case: `add a/50 c/ENTERTAINMENT t/1 d/movie` <br>
+        Expected: A new expense is added into expense book. Details of the added expense shown in the result box.
 
-   1. Test case: `delete 1`<br>
-      Expected: First expense is deleted from the list. Details of the deleted expense shown in the status message. Timestamp in the status bar is updated.
+   iii. Test case: `add a/50 c/ENTERTAINMENT`<br>
+        Expected: A new expense is added into expense book. Since the `date` filed is empty, it will automatically set to today's date. Details of the added expense shown in the result box
+   
+   iv.  Test case: `add`<br>
+        Expected: No expense is added. There will be an error message because the compulsory field instruction is missing.
 
-   1. Test case: `delete 0`<br>
-      Expected: No expense is deleted. Error details shown in the status message. Status bar remains the same.
+   v.   Other incorrect add expense commands to try: `add a/100`, `add c/entertainment` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Add a description to current expenses
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+1. Add an description into the expense with the index specified. Index and description field are compulsory.
 
-1. _{ more test cases …​ }_
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `add-d 1 d/movie` <br>
+        Expected: A new description is added into the expense with the index specified. Details of the added description shown in the result box
 
-### Saving data
 
-1. Dealing with missing/corrupted data files
+   iii. Test case: `add-d 1 d/movie d/study`<br>
+        Expected: A new description is added into expense with the index specified. When more than one descriptions are added, the last one is used. Details of the added description shown in the result box.
+   
+   iv.  Test case: `add-d`<br>
+        Expected: No description is added. There will be an error message because the compulsory field instruction is missing.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   v.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
 
-1. _{ more test cases …​ }_
+### Delete a description to current expenses
+
+1. Delete an description into the expense with the index specified. Index and description field are compulsory.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `add-d 1 d/` <br>
+        Expected: The description of the expense with the index specified is deleted. Details of the deleted description shown in the result box
+   iii. Test case: `add-d`<br>
+        Expected: No description is deleted. There will be an error message because the compulsory field instruction is missing.
+
+   iv.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Clear all expenses
+
+1. Clear all expenses in the expense book. The budget will also be cleared.
+
+   i .  Test case: `clear` <br>
+        Expected: All expenses and budget are cleared. The result box will show the information that all expenses are cleared.
+
+### Edit an expense
+
+1. Edit an expense specified by the index in the expense book. Index is compulsory followed by the field to be edited.
+
+   i.   Prerequisites: The expense book is not empty .
+   ii.  Test case: `edit 1 a/120` <br>
+        Expected: The first expenses will be updated with an amount of 120. Details of the edited expense shown in the result box.
+
+   iii. Test case: `edit 1 a/120 c/transport`<br>
+        Expected: More than two fields are updated. The first expenses will be updated with an amount of 120 and category of transport. Details of the edited expense shown in the result box.
+   
+   iv.  Test case: `edit`<br>
+        Expected: No expense is edited. There will be an error message because the compulsory field instruction is missing.
+
+   v.   Other incorrect add expense commands to try: `edit 1`, `add c/entertainment` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Covert currency of current expenses to new currency
+
+1. Currency of current expenses is converted to new specified currency. Currency code is case-insensitive but compulsory.
+
+   i.   Test case: `exchange cc/CNY` <br>
+        Expected: The currency of current expense is converted to Chinese Yuan specified by the currency code. Details of the currency conversion shown in the result box.
+
+   ii.  Test case: `exchange`<br>
+        Expected: No conversion is done. There will be an error message because the compulsory field instruction is missing.
+
+   iii. Other incorrect add expense commands to try: `exchange CNY`, `exchange cc` (missing compulsory field)<br>
+        Expected: Similar to previous test case.
+        
+### Delete an expense
+
+1. delete an expense in the expense book. Index is compulsory.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `delete 1` <br>
+        Expected: First expense is deleted from the list. Details of the deleted expense shown in the result box.
+
+   iii. Test case: `delete 0`<br>
+        Expected:No expense is deleted. There will be an error message because the index is invalid.
+
+   iv.  Other incorrect add expense commands to try: `delete -1`(invalid index), `delete 10` (if the expense book has less than 10 expeneses) <br>
+        Expected: Similar to previous test case.
+
+### Exit from the application
+
+1. Exit from the application
+
+   i .  Test case: `exit` <br>
+        Expected: Exit from the current application
+
+### Filter by Category
+
+1. Filter the expenses by category. Show all the expenses whose category match the specified category
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-c entertainment` <br>
+        Expected:  Filter all the expenses under category entertainment.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the index is invalid.
+        
+### Filter by Date
+
+1. Filter the expenses by date. Show all the expenses whose date match the specified date
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-t 2020-11-02` <br>
+        Expected:  Filter all the expenses under the date 2020-11-02.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the command is invalid.
+
+### Filter by Description
+
+1. Filter the expenses by description. Show all the expenses whose description match the specified description.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `filter-d movie` <br>
+        Expected:  Filter all the expenses for the description movie.
+
+   iii. Test case: `filter-c`<br>
+        Expected: No expense is filtered. There will be an error message because the command is invalid.
+
+### Help Command
+
+1. Provide a list of command for users to refer to.
+
+   i .  Test case: `help` <br>
+        Expected: There will be a command table shown with the link to the user guide.
+
+### Listing all expenses
+
+1. List all the expenses in the expense book.
+
+   i.   Prerequisites: The expense book is not empty.
+   ii.  Test case: `list` <br>
+        Expected:  Show all the expenses in the expense book. The result box shows the successful message.
+
+   iii. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of list command is not stated, so the list command is executed as long as the command word `list` is correct.
+
+### Set budget for the expense book
+
+1. Set budget for the expense book. The amount of the budget is compulsory.
+
+   i.   Test case: `set-b 500` <br>
+        Expected:  The budget of the expense book is set to $500. The result box shows the successful message.
+
+   ii.  Test case: `set-b 0`<br>
+        Expected: No budget is set. There will be an error message because the budget set is invalid.
+        
+   iii. Test case: `set-b`<br>
+        Expected: No budget is filtered. There will be an error message because the index is invalid.
+
+### Show Currency Code
+
+1. Show the list of currency supported by the expense book as well as its corresponding code.
+
+   i .  Test case: `show-codes` <br>
+        Expected: There will be a command table the currency supported and its corresponding code.
+   
+   ii.  Other trivial list commands to try: `show-codes x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of `show-codes` command is not stated, so the `show-codes` command is executed as long as the command word `show-codes` is correct.
+ 
+### Show Statistic
+
+1. Show the statistic of the expenses.
+
+   i .  Test case: `show-stats` <br>
+        Expected: There will be a command table that provide a brief summary of the expenses.
+   
+   ii.  Other trivial list commands to try: `show-stats x` (where x is any number or alphabet)<br>
+        Expected: Similar to previous. The format of `show-stats` command is not stated, so the `show-stats` command is executed as long as the command word `show-stats` is correct.
+ 
+
+### Sort by amount
+
+1. Sort the expenses by amount in ascending/descending order. The order is compulsory.
+
+   i .  Test case: `sort-a ascending` <br>
+        Expected: The expenses will be sorted by amount in ascending order.
+
+   i .  Test case: `sort-a descending` <br>
+        Expected: The expenses will be sorted by amount in descending order.
+   
+   iii. Test case: `sort-a`<br>
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+ 
+### Sort by time
+
+1. Sort the expenses by time in ascending/descending order. The order is compulsory.
+
+   i .  Test case: `sort-t ascending` <br>
+        Expected: The expenses will be sorted by time in ascending order.
+
+   i .  Test case: `sort-t descending` <br>
+        Expected: The expenses will be sorted by time in descending order.
+   
+   iii. Test case: `sort-t`<br>
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+ 
+### View a specific expenses
+
+1. View a specific index. The index is compulsory
+
+   i .  Test case: `view 1` <br>
+        Expected: View the first expenses. The result box shows the details of the expenses requested.
+
+   ii.  Test case: `view` <br>
+        Expected: No expense is viewed. There will be an error message because the compulsory field is missing.
+        
+   iii. Test case: `view 0` <br>
+        Expected: No expense is viewed. There index of expense requested is invalid. 
+
+### View all the categories.
+
+1. View all the categories in the expense book. The category field is compulsory
+
+   i .  Test case: `view-c` <br>
+        Expected: Show all the categories in the expense book. The result box shows the successful message.
+
+   ii.  Test case: `view-c x` (where x is any number or alphabet) <br>
+        Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct.

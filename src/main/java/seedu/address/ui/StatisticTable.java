@@ -49,7 +49,7 @@ public class StatisticTable extends UiPart<Stage> {
         super(FXML, root);
         statisticTable.setGraphicTextGap(20.0);
         statisticTable.setGraphic(tableView);
-        statisticTable.setMinWidth(470);
+        statisticTable.setMinWidth(428);
 
         getRoot().addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.Q == event.getCode()) {

@@ -28,6 +28,7 @@ Given below are my contributions to the project.
   * What it does: allows the user to filter expenses that are spent on a specific date.
   * Justification: This feature improves the product significantly 
   because a user can see what have he spent on the specific date. 
+  * Highlights: This command need to handle for 2 types of parameters: YYYY-MM-DD and NUMBERDAYSAGO.
   * Credits: AddressBook Level 3 `find` feature.
   
 * **New Feature**: Added `filter-d` feature.
