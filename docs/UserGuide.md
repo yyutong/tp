@@ -61,7 +61,7 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 4. For Windows user, double-click the file to start the app. 
 For MacOS user, open your terminal and set the directory to be the same as UniSave, enter `java -jar UniSave.jar`.
-In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
+In a few seconds, you should see a GUI similar to the diagram below. Note the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press `Enter` to execute it.<br>
@@ -347,9 +347,7 @@ Format: `sort-t ascending`
 Examples: `sort-t ascending`
 Sort the expenses according to date in ascending order (i.e. from past to present.).
 
-![sort by time in descending order](images/sortByTime%20descending.png)
-
-![sort by time in ascending order](images/sortByTime%20ascending.png)
+![sort by time in ascending order](images/sortByTime ascending.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
