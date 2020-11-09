@@ -6,7 +6,13 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.*;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Category;
+import seedu.address.model.expense.Currency;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Order;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
