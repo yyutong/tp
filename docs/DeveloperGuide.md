@@ -11,12 +11,12 @@ title: Developer Guide
             * [3.1.2 View expense feature](#312-view-expense-feature)
             * [3.1.3 Edit expense feature](#313-edit-expense-feature)
             * [3.1.4 Delete expense feature](#314-delete-expense-feature)
-            * [3.1.5 Add description to expense feature](#315-add-description-to-expense-feature)
-            * [3.1.6 List all expenses](#316-delete-an-expense-delete)
+            * [3.1.5 Add description to expense feature](#315-add-description-to-expense)
+            * [3.1.6 List all expenses](#316-list-feature)
         * [3.2 Exchange feature](#32-exchange-feature)
         * [3.3 Budget feature](#33-budget-feature)
-        * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionality)
-        * [3.5 Expense list sorting functionalities](#35-expense-list-filter-functionalities)
+        * [3.4 Expense list filter functionalities](#34-expense-list-filter-functionalities)
+        * [3.5 Expense list sorting functionalities](#35-expense-list-sorting-functionalities)
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -574,70 +574,7 @@ High Level Sequence Diagram for the Execution of `set-b 1000`
 ** Pros: Simplier Implementation.
 ** Cons: Users cannot see their remaining budget all the time.
 
-
-#### Sort expense list by amount in ascending/descending order
-
-The sort by amount feature is facilitated by the `ExpenseBook` class.
-
-Given below is an example usage scenario of sort by amount in  
-descending order and how the mechanism of sorting expenses by behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `SortByAmountCommand`:
-
-Fig. Activity Diagram for the Execution of `SortByAmountCommand`
-![AddDescriptionActivityDiagram](images/SortByAmountCommandActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `sort-a descending` to sort the displayed expenses  
-in descending order of amount.
-
-The `SortByAmountCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of amount
-and the displayed expense will accordingly update to the sorted version of the expense list.
-It also creates a CommandResult to notify the user of the successful implementation.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `sort-a descending`:
-
-High Level Sequence Diagram for the Execution of `sort-a descending`
-![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
-
-#### Design Considerations
-
-#### Sort expense list by time in ascending/descending order
-
-The sort by amount feature is facilitated by the `ExpenseBook` class.
-
-Given below is an example usage scenario of sort by amount in descending order  
-and how the mechanism of sorting expenses by behaves at each step.
-
-The following activity diagram summarizes what happens when a user executes the `SortByTimeCommand`:
-
-Fig. Activity Diagram for the Execution of `SortByTimeCommand`
-![AddDescriptionActivityDiagram](images/SortByTimeCommandActivityDiagram.png)
-
-Step 1. The user launches the application.
-
-Step 2. Unisave displays a list of existing expenses in the UI.
-
-Step 3. The user executes `sort-t ascending` to sort the displayed expenses  
-in descending order of amount.
-
-The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
-and the displayed expense will accordingly update to the sorted version of the expense list.
-
-It also creates a CommandResult to notify the user of the successful implementation.
-
-The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `sort-t ascending`:
-
-High Level Sequence Diagram for the Execution of `sort-t ascending`
-![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
-
-
-## 3.4 Expense List Filter Functionality
+## 3.4 Expense List Filter Functionalities
 
 #### Implementation - Filter Expense By Category
 
@@ -708,6 +645,67 @@ The following activity diagram summarizes what happens when a user executes filt
 
 ![FilterDescActivityDiagram](images/FilterDescActivityDiagram.png)
 
+## 3.5 Expense list sorting functionalities
+ 
+#### Implementation - Sort expense list by amount in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in  
+descending order and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByAmountCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByAmountCommand`
+![AddDescriptionActivityDiagram](images/SortByAmountCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByAmountCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of amount
+and the displayed expense will accordingly update to the sorted version of the expense list.
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-a descending`:
+
+High Level Sequence Diagram for the Execution of `sort-a descending`
+![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
+
+
+#### Implementation - Sort expense list by time in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in descending order  
+and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByTimeCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByTimeCommand`
+![AddDescriptionActivityDiagram](images/SortByTimeCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-t ascending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
+and the displayed expense will accordingly update to the sorted version of the expense list.
+
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-t ascending`:
+
+High Level Sequence Diagram for the Execution of `sort-t ascending`
+![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
