@@ -65,9 +65,15 @@ public class StatisticTable extends UiPart<Stage> {
      * @param logic Takes in a logic object.
      */
     public StatisticTable(Logic logic) {
+
         this(new Stage());
         this.logic = logic;
         hasStats = true;
+        category.setCellValueFactory(new PropertyValueFactory<>("category"));
+        numberOfExpense.setCellValueFactory(new PropertyValueFactory<>("numberOfExpense"));
+        percentage.setCellValueFactory(new PropertyValueFactory<>("percentage"));
+        totalSpending.setCellValueFactory(new PropertyValueFactory<>("totalSpending"));
+        constructTable();
     }
 
     /**
@@ -82,10 +88,7 @@ public class StatisticTable extends UiPart<Stage> {
      */
     public void constructTable() {
         if (hasStats) {
-            category.setCellValueFactory(new PropertyValueFactory<>("category"));
-            numberOfExpense.setCellValueFactory(new PropertyValueFactory<>("numberOfExpense"));
-            percentage.setCellValueFactory(new PropertyValueFactory<>("percentage"));
-            totalSpending.setCellValueFactory(new PropertyValueFactory<>("totalSpending"));
+            ObservableList<StatisticSummary> list = FXCollections.observableArrayList();
             List<StatisticSummary> statisticSummaryList = logic.getExpenseBook().getStatisticTable();
             for (int i = 0; i < statisticSummaryList.size(); i = i + 1) {
                 list.add(statisticSummaryList.get(i));
@@ -114,7 +117,7 @@ public class StatisticTable extends UiPart<Stage> {
      * </ul>
      */
     public void show() {
-        constructTable();
+//        constructTable();
         logger.fine("Showing brief summary of the spending!");
         getRoot().show();
         getRoot().centerOnScreen();
