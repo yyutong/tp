@@ -147,6 +147,7 @@ eg. `d/` is not the same as `D/`.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Pop up windows for <b>help</b>, <b>show-stats</b>, <b>show-rates</b>, <b>show-codes</b> commands can be closed with keyboard shortcut "<b>q</b>".
+</div>
 
 ### Commands  <a name="commands"></a>
 
