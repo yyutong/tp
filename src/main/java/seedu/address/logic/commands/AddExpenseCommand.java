@@ -31,7 +31,6 @@ public class AddExpenseCommand extends Command {
 
 
     public static final String MESSAGE_SUCCESS = "New expense added: \n%1$s";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in the expense list";
 
     private final Expense toAdd;
 
