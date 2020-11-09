@@ -785,6 +785,34 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Listing all expenses
+
+1. Listing empty expense list.
+
+   1. Prerequisites: There are no one expense saved in UniSave.
+
+   1. Test case: `list`<br>
+      Expected: No expense shown in the expense list. The result box shows the successful message.
+
+   1. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
+      Expected: Similar to previous.
+      Reason: The format of list command is not stated, so the list command is executed 
+      as long as the command word `list` is correct.
+      
+1. Listing all expenses that are saved in UniSave
+
+   1. Prerequisites: There are at least one expense saved in UniSave.
+
+   1. Test case: `list`<br>
+      Expected: All expenses shown in the expense list. The expense list is scrollable.
+      The details for each expense, for example: Amount, Date, Category and Description, are shown respectively.
+      The result box shows the successful message.
+
+   1. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
+      Expected: Similar to previous.
+      Reason: The format of list command is not stated, so the list command is executed 
+      as long as the command word `list` is correct.
+
 ### Saving data
 
 1. Dealing with missing/corrupted data files

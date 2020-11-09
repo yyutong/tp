@@ -440,12 +440,9 @@ creates with the file that contains the data of your previous UniSave home folde
 Term | Explanation
 --------|------------------
 **UniSave** | UniSave refers to the name of the application.
-**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, 
-a category that you classify this spending into, 
-and a description so that you can recall the details when you view this spending again later.
+**Expense** | An expense consists of an amount spent in some currency, the date on which you spend the money, a category that you classify this spending into, and a description so that you can recall the details when you view this spending again later.
 **CLI** | A command-line interface (CLI) processes commands to a computer program in the form of lines of text.
-**GUI** | The graphical user interface is a form of user interface that allows users to 
-interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
+**GUI** | The graphical user interface is a form of user interface that allows users to interact with a computer program through graphical icons instead of text-based user interfaces or text navigation.
 
 --------------------------------------------------------------------------------------------------------------------
 
