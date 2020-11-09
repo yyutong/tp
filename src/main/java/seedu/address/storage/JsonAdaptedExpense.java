@@ -43,7 +43,7 @@ class JsonAdaptedExpense {
      * Converts a given {@code Expense} into this class for Jackson use.
      */
     public JsonAdaptedExpense(Expense source) {
-        amount = String.format("%.2f", source.getAmount().value);
+        amount = source.getAmount().value.toString();
         currency = source.getCurrency().currencyCode;
         date = source.getDate().date;
         category = source.getCategory().categoryName;
