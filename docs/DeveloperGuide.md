@@ -255,6 +255,7 @@ High Level Sequence Diagram for the Execution of `edit 1 a/12`
 
 #### Design Considerations
 
+
 ##### Aspect: How to allow editing different number of fields each time.
 
 * Alternative 1 (current choice): For every prefix, check if the prefix and a value is provided.
@@ -351,12 +352,11 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 ** Cons: Harder to manage and prone to error.
 
 
-
 ### 3.1.6 List feature
 
-#### Proposed Implementation
+#### Implementation
 
-The proposed list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
+The list feature belongs to `ListExpenseCommand` extends `Command`. This list feature will not modify the expense list of UniSave.
 `ListExpenseCommand` is created at `ExpenseBookParser` which is called by `LogicManager` to parse input string into `Command`.
 `LogicManager` takes in input string from `CommandBox` which belongs to one of the GUI component.
 
@@ -367,13 +367,13 @@ Step 2. After user inputs list command, the steps can be shown from this sequenc
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  
-`FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
 </div>
 
-Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app GUI.
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
 
-The following activity diagram summarizes what happens when a user executes a new command:
+The following activity diagram summarizes what happens when a user executes list command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
 
@@ -416,7 +416,7 @@ High Level Sequence Diagram for the Execution of `showBudget`.
   * Pros: No more negative budget, more intuitive.
   * Cons: Much more complicated implementation.
 
-#### View an expense 
+### View an expense 
 
 The view expense feature is facilitated by the `ExpenseBook` class.
 
@@ -457,7 +457,7 @@ High Level Sequence Diagram for the Execution of `view 1`
          expense list is sorted by date/amount.
          
          
-#### View all existing expense categories 
+### View all existing expense categories 
 
 The view existing expense categories feature is facilitated by the ExpenseBook class.
 
@@ -637,6 +637,77 @@ High Level Sequence Diagram for the Execution of `sort-t ascending`
 ![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
 
 
+## 3.4 Expense List Filter Functionality
+
+#### Implementation - Filter Expense By Category
+
+The filter expense by category feature belongs to `ListExpenseByCategoryCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByCategoryCommand` is created at `ExpenseBookParser` by `ListExpenseByCategoryCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by category feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-c food` command, the steps can be shown from this sequence diagram.
+
+![FilterCategorySequenceDiagram](images/FilterCategorySequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by category command:
+
+![FilterCategoryActivityDiagram](images/FilterCategoryActivityDiagram.png)
+
+#### Implementation - Filter Expense By Date
+
+The filter expense by date feature belongs to `ListExpenseByDateCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByDateCommand` is created at `ExpenseBookParser` by `ListExpenseByDateCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by date feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-t 2020-12-12` command, the steps can be shown from this sequence diagram.
+
+![FilterDateSequenceDiagram](images/FilterDateSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by date command:
+
+![FilterDateActivityDiagram](images/FilterDateActivityDiagram.png)
+
+#### Implementation - Filter Expense By Description
+
+The filter expense by description feature belongs to `ListExpenseByDescCommand` extends `Command`. This feature will not modify the expense list of UniSave.
+`ListExpenseByDescCommand` is created at `ExpenseBookParser` by `ListExpenseByDescCommandParser`.
+Then, `LogicManager` execute this command.
+
+Given below is an example usage scenario of how the filter expense by description feature behaves at each step.
+
+Step 1. User initializes the app. `ExpenseModelManager` extends `Model`, has a FilteredList of expenses. <br/>
+Step 2. After user inputs `filter-d kfc` command, the steps can be shown from this sequence diagram.
+
+![FilterDescSequenceDiagram](images/FilterDescSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: 
+**Note:**  `FilteredList` is a JavaFX class that wraps an `ObservableList` and filters it's content using the provided Predicate. 
+</div>
+
+Step 3: As we can see from the sequence diagram, a result is also returned to `UI` and shown to the app's result box.
+
+The following activity diagram summarizes what happens when a user executes filter expense by date command:
+
+![FilterDescActivityDiagram](images/FilterDescActivityDiagram.png)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -795,7 +866,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to list all the expenses
-2.  AddressBook shows a list of expenses
+2.  UniSave shows a list of all expenses
 
     Use case ends.
 
@@ -808,11 +879,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-**Use case: List all expenses in a specific category**
+**Use case: Filter all expenses in a specific category**
 
 **MSS**
-1.  User requests to list all the expenses in a specific category
-2.  AddressBook shows a list of expenses in that category
+1.  User requests to filter all the expenses in a specific category
+2.  UniSave shows a list of expenses in that category
+    
+    Use case ends.
+
+**Use case: Filter all expenses in a specific date**
+
+**MSS**
+1.  User requests to filter all the expenses in a specific date
+2.  UniSave shows a list of expenses saved on that day.
+    
+    Use case ends.
+    
+**Extensions**
+
+* 1a. UniSave detects an error in the entered date.
+    * 1a1. UniSave shows an error message with the correct usage of filter expenses by date command.
+    * Use case ends.
+
+**Use case: Filter all expenses in a specific description**
+
+**MSS**
+1.  User requests to filter all the expenses in a specific description
+2.  UniSave shows a list of expenses in that category
+    
+    Use case ends.
 
 **Use case: Set Budget**
 
