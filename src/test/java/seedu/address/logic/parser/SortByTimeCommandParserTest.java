@@ -1,10 +1,11 @@
 package seedu.address.logic.parser;
-import seedu.address.testutil.TypicalOrder;
 
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.commands.SortByTimeCommand;
+import seedu.address.testutil.TypicalOrder;
 
 public class SortByTimeCommandParserTest {
     private SortByTimeCommandParser parser = new SortByTimeCommandParser();
