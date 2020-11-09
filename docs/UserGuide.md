@@ -124,7 +124,16 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
   e.g `a/AMOUNT c/CATEGORY [t/date]` can be used as `a/100 c/shopping` or as `a/100 c/shopping t/2020-10-30`
   
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `a/AMOUNT c/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
+  e.g. if the command specifies `a/AMOUNT c/CATEGORY`, `c/CATEGORY a/AMOUNT` is also acceptable.
+  
+* Multiple instances of the same prefix/flag will not throw an error. However, the app will only read the <b>last instance</b> in the input.
+  e.g. if `add a/100 c/entertainment c/food` will add the expense to "food" category.
+  
+* All additional input after commands which do not have input fields such as list, exit, clear, etc. will be ignored.
+eg. `help` and `help 123` will have the same effect.
+
+* Prefixes are case-sensitive.
+eg. `d/` is not the same as `D/`.
 
 </div>
 
