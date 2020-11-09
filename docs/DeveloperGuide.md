@@ -889,6 +889,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. UniSave detects an error in the entered currency code.
     * 1a1. UniSave shows an error message with the correct usage of exchange.
+    * 1a2. User request to check for the currency codes according to the error message.
+    * 1a3. UniSave shows a table of Currency Codes.
+    * 1a4. User requests to exchange the currency of ExpenseBook with a valid currency code.
     * Use case ends.
 
 
