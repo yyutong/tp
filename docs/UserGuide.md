@@ -347,9 +347,7 @@ Format: `sort-t ascending`
 Examples: `sort-t ascending`
 Sort the expenses according to date in ascending order (i.e. from past to present.).
 
-![sort by time in descending order](images/sortByTime%20descending.png)
-
-![sort by time in ascending order](images/sortByTime%20ascending.png)
+![sort by time in ascending order](images/sortByTime ascending.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
