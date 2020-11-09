@@ -32,7 +32,8 @@ public class Date {
         checkArgument(isValidDate(inputDay), MESSAGE_CONSTRAINTS);
         if (!inputDay.contains("-")) {
             this.howManyDaysAgo = inputDay;
-            assert Integer.parseInt(inputDay) >= 0 && Integer.parseInt(inputDay) <= LARGEST_DAY_AGO : "Invalid days Being Enter";
+            assert Integer.parseInt(inputDay) >= 0 && Integer.parseInt(inputDay) <= LARGEST_DAY_AGO
+                    : "Invalid days Being Enter";
             LocalDate localdate = LocalDate.now();
             int convertedDay = Integer.parseInt(inputDay);
             LocalDate dayBefore = localdate.minusDays(convertedDay);

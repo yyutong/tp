@@ -14,7 +14,8 @@ public class ListExpenseByDateCommand extends Command {
 
     public static final String COMMAND_WORD = "filter-t";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filter all expenses by specifying YYYY-MM-DD or DAYSAGO"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filter all expenses "
+            + "by specifying YYYY-MM-DD or DAYSAGO"
             + " and displays them as a list with index numbers.\n"
             + "Parameters: YYYY-MM-DD or DAYSAGO \n"
             + "The parameters of DAYSAGO must be at least zero or below 3650(10 years)\n"
