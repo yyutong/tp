@@ -277,13 +277,15 @@ Navigate back to the feature list: [Features](#3-features)
 
 Show all the expenses whose date match the specified date.
 
-Format: `filter-t YYYY-MM-DD`
+Format: `filter-t YYYY-MM-DD` or `filter-t NUMBERDAYSAGO`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The date format `YYYY-MM-DD` is sensitive and only this format is recognizable for this command.
+NUMBERDAYSAGO is used to specify how many days ago from current day.
+It accepts number from 0 to 3650 (10 years).
 </div>
 
 Examples:
+* `filter-t 3`: filter all the expenses that are saved on 3 days ago from current day.
 * `filter-t 2020-10-23`: filter all the expenses that are saved on `2020-10-23`.
 
 ![filter-t](images/listByDateCommand.png)
