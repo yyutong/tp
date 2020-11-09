@@ -746,24 +746,28 @@ The following activity diagram summarizes what happens when a user executes filt
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                                  |
-| -------- | ------------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------- |
-| `* * *`  | user                                       | Add an expense with category       | keep track of my accounts                                                               |
-| `* * *`  | user                                       | View an expense                    | easily see the details such as dates, amount and descriptions of a specific expense     |
-| `* * *`  | user                                       | Delete an expense                  | delete the expense when I added wrongly                                                 |
-| `* * *`  | user                                       | List all expenses                  | view all expenses                                                                       |
-| `* * *`  | user                                       | Edit certain expenses              | make amendment if i enter wrong information                                             | 
-| `* * *`  | user                                       | see a brief summary of my expenses | make better spending decision as i know which area takes uo the most                    |
-| `* * *`  | user                                       | see the list of command available  | quickly use the features and commands if i forget some of them                          |
-| `* * *`  | user                                       | Tag an expense                     | view the specific task I spend on                                                       |
-| `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
-| `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
-| `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
-| `* * *`  | user                                       | Sort expenses by amount            | view existing expenses in descending/ascending order of amount                          |
-| `* * *`  | user                                       | Sort expenses by time              | view existing expenses in descending/ascending order of amount                          |
-| `* *`    | user                                       | List all categories                | view all expenses                                                                       |
-| `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
-| `* *`    | user                                       | Convert to another currency        | view my expenses when i spend another currency such as going overseas                   |
+| Priority | As a …​                                 | I want to …​                     | So that I can…​                                                                      |
+| -------- | ------------------------------------------ | ----------------------------------- | --------------------------------------------------------------------------------------- |
+| `* * *`  | user                                       | Add an expense with category        | keep track of my accounts                                                               |
+| `* * *`  | user                                       | View an expense                     | easily see the details such as dates, amount and descriptions of a specific expense     |
+| `* * *`  | user                                       | Delete an expense                   | delete the expense when I added wrongly                                                 |
+| `* * *`  | user                                       | List all expenses                   | view all expenses                                                                       |
+| `* * *`  | user                                       | Edit certain expenses               | make amendment if i enter wrong information                                             | 
+| `* * *`  | user                                       | see a brief summary of my expenses  | make better spending decision as i know which area takes uo the most                    |
+| `* * *`  | user                                       | see the list of command available   | quickly use the features and commands if i forget some of them                          |
+| `* * *`  | user                                       | Set budget                          | plan my expenses                                                                        |
+| `* * *`  | user                                       | View budget                         | view how much i can spend before exceeding the monthly limit                            |
+| `* * *`  | user                                       | Sort expenses by amount             | view existing expenses in descending/ascending order of amount                          |
+| `* * *`  | user                                       | Sort expenses by time               | view existing expenses in descending/ascending order of amount                          |
+| `* *`    | user                                       | List all categories                 | view all categories                                                                     |
+| `* *`    | user                                       | List all expenses in one category   | view all expenses spent under one category                                              |
+| `* *`    | user                                       | List all expenses in one date       | view all expenses spent on a day                                                        |
+| `* *`    | user                                       | List all expenses in one description| view all expenses spent under same description                                          |
+| `* *`    | user                                       | Convert to another currency         | view my expenses when i spend another currency such as going overseas                   |
+| `* *`    | user                                       | Show country's currency codes       | know the country's currency codes before converting                                     |
+| `* *`    | user                                       | Show country's exchange rates       | know the country's exchange rates before converting                                     |
+| `* `     | user                                       | Clear all data                      |                                                                                         |
+
 *{More to be added}*
 
 ### Use cases
