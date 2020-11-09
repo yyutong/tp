@@ -39,7 +39,7 @@ public class CommandTestUtil {
     public static final String VALID_CATEGORY_MOVIE = "entertainment";
     public static final String VALID_DESCRIPTION_BOOKS = "Bought textbook";
     public static final String VALID_EMPTY_DATE_BOOKS = "";
-    public static final String VALID_EMPTY_DESCRIPTION_BOOKS = " ";
+    public static final String VALID_EMPTY_DESCRIPTION_BOOKS = "";
     public static final String VALID_DESCRIPTION_MOVIE = "Watched 1917 on Tuesday";
     public static final String AMOUNT_DESC_BOOKS = " " + PREFIX_AMOUNT + VALID_AMOUNT_BOOKS;
     public static final String AMOUNT_DESC_MOVIE = " " + PREFIX_AMOUNT + VALID_AMOUNT_MOVIE;

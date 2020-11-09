@@ -25,10 +25,11 @@ class DescriptionTest {
         assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
         // invalid name
-        assertFalse(Description.isValidDescription("")); // empty string
+        assertFalse(Description.isValidDescription(" ")); // spaces only
+        assertFalse(Description.isValidDescription("      ")); // spaces only
 
         // valid description
-        assertTrue(Description.isValidDescription(" ")); // spaces only
+        assertTrue(Description.isValidDescription("")); // empty string
         assertTrue(Description.isValidDescription("bought jacket at Zara"));
         assertTrue(Description.isValidDescription("Bought logitech keyboard"));
         assertTrue(Description.isValidDescription("shopped at capital city"));
