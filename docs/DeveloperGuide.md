@@ -386,17 +386,11 @@ through all of them might reduce the speed of processing the edit command.
 
 #### Implementation
 
-The delete mechanism is facilitated by `VersionedExpenseBook`. It extends `ExpenseBook` and stored internally as an `ExpenseBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedExpenseBook#save()` — Saves the current expense book state in its history.
-* `VersionedExpenseBook#delete()` — Restores the previous expense book state from its history.
-
-
-These operations are exposed in the `Model` interface as `Model#saveExpenseBook()`, `Model#deleteExpenseBook()` respectively.
+The delete mechanism extends `ExpenseBook` and stored internally as an `ExpenseBookStateList` and `currentStatePointer`.
 
 Given below is an example usage scenario and how the delete mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedExpenseBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single expense book state.
+Step 1. The user launches the application for the first time. The ExpenseBook will be initialized with the initial expense book state, and the `currentStatePointer` pointing to that single expense book state.
 
 ![UndoRedoState0](images/deleteState0.png)
 
@@ -1048,191 +1042,191 @@ testers are expected to do more *exploratory* testing.
 
 1. Add an expense into the expense book. Amount and category are compulsory. Date and description are optional.
 
-   i.   Prerequisites: The amount entered need to be a valid one.
+   i.   Prerequisites: The amount entered need to be a valid one.<br>
    ii.  Test case: `add a/50 c/ENTERTAINMENT t/1 d/movie` <br>
-        Expected: A new expense is added into expense book. Details of the added expense shown in the result box.
+        Expected: A new expense is added into expense book. Details of the added expense shown in the result box. <br>
 
    iii. Test case: `add a/50 c/ENTERTAINMENT`<br>
-        Expected: A new expense is added into expense book. Since the `date` filed is empty, it will automatically set to today's date. Details of the added expense shown in the result box
+        Expected: A new expense is added into expense book. Since the `date` filed is empty, it will automatically set to today's date. Details of the added expense shown in the result box <br>
    
    iv.  Test case: `add`<br>
-        Expected: No expense is added. There will be an error message because the compulsory field instruction is missing.
+        Expected: No expense is added. There will be an error message because the compulsory field instruction is missing.<br>
 
    v.   Other incorrect add expense commands to try: `add a/100`, `add c/entertainment` (missing compulsory field)<br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
         
 ### 6.3 Add a description to current expenses
 
 1. Add a description into the expense with the index specified. Index and description field are compulsory.
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `add-d 1 d/movie` <br>
-        Expected: A new description is added into the expense with the index specified. Details of the added description shown in the result box
+        Expected: A new description is added into the expense with the index specified. Details of the added description shown in the result box <br>
 
 
    iii. Test case: `add-d 1 d/movie d/study`<br>
-        Expected: A new description is added into expense with the index specified. When more than one descriptions are added, the last one is used. Details of the added description shown in the result box.
+        Expected: A new description is added into expense with the index specified. When more than one descriptions are added, the last one is used. Details of the added description shown in the result box. <br>
    
    iv.  Test case: `add-d`<br>
-        Expected: No description is added. There will be an error message because the compulsory field instruction is missing.
+        Expected: No description is added. There will be an error message because the compulsory field instruction is missing. <br>
 
    v.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
 
 ### 6.4 Delete a description to current expenses
 
 1. Delete an description into the expense with the index specified. Index and description field are compulsory.
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `add-d 1 d/` <br>
-        Expected: The description of the expense with the index specified is deleted. Details of the deleted description shown in the result box
+        Expected: The description of the expense with the index specified is deleted. Details of the deleted description shown in the result box. <br>
    iii. Test case: `add-d`<br>
-        Expected: No description is deleted. There will be an error message because the compulsory field instruction is missing.
+        Expected: No description is deleted. There will be an error message because the compulsory field instruction is missing. <br>
 
    iv.   Other incorrect add expense commands to try: `add-d 1`, `add-d d/` (missing compulsory field)<br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
         
 ### 6.5 Clear all expenses
 
 1. Clear all expenses in the expense book. The budget will also be cleared.
 
    i .  Test case: `clear` <br>
-        Expected: All expenses and budget are cleared. The result box will show the information that all expenses are cleared.
+        Expected: All expenses and budget are cleared. The result box will show the information that all expenses are cleared. <br>
 
 ### 6.6 Edit an expense
 
 1. Edit an expense specified by the index in the expense book. Index is compulsory followed by the field to be edited.
 
-   i.   Prerequisites: The expense book is not empty .
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `edit 1 a/120` <br>
-        Expected: The first expenses will be updated with an amount of 120. Details of the edited expense shown in the result box.
+        Expected: The first expenses will be updated with an amount of 120. Details of the edited expense shown in the result box. <br>
 
    iii. Test case: `edit 1 a/120 c/transport`<br>
-        Expected: More than two fields are updated. The first expenses will be updated with an amount of 120 and category of transport. Details of the edited expense shown in the result box.
+        Expected: More than two fields are updated. The first expenses will be updated with an amount of 120 and category of transport. Details of the edited expense shown in the result box. <br>
    
    iv.  Test case: `edit`<br>
-        Expected: No expense is edited. There will be an error message because the compulsory field instruction is missing.
+        Expected: No expense is edited. There will be an error message because the compulsory field instruction is missing. <br>
 
    v.   Other incorrect add expense commands to try: `edit 1`, `add c/entertainment` (missing compulsory field)<br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
         
 ### 6.7 Covert currency of current expenses to new currency
 
 1. Currency of current expenses is converted to new specified currency. Currency code is case-insensitive but compulsory.
 
    i.   Test case: `exchange cc/CNY` <br>
-        Expected: The currency of current expense is converted to Chinese Yuan specified by the currency code. Details of the currency conversion shown in the result box.
+        Expected: The currency of current expense is converted to Chinese Yuan specified by the currency code. Details of the currency conversion shown in the result box. <br>
 
    ii.  Test case: `exchange`<br>
-        Expected: No conversion is done. There will be an error message because the compulsory field instruction is missing.
+        Expected: No conversion is done. There will be an error message because the compulsory field instruction is missing. <br>
 
    iii. Other incorrect add expense commands to try: `exchange CNY`, `exchange cc` (missing compulsory field)<br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
         
 ### 6.8 Delete an expense
 
 1. delete an expense in the expense book. Index is compulsory.
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `delete 1` <br>
-        Expected: First expense is deleted from the list. Details of the deleted expense shown in the result box.
+        Expected: First expense is deleted from the list. Details of the deleted expense shown in the result box. <br>
 
    iii. Test case: `delete 0`<br>
-        Expected:No expense is deleted. There will be an error message because the index is invalid.
+        Expected:No expense is deleted. There will be an error message because the index is invalid. <br>
 
    iv.  Other incorrect add expense commands to try: `delete -1`(invalid index), `delete 10` (if the expense book has less than 10 expeneses) <br>
-        Expected: Similar to previous test case.
+        Expected: Similar to previous test case. <br>
 
 ### 6.9 Exit from the application
 
 1. Exit from the application
 
    i .  Test case: `exit` <br>
-        Expected: Exit from the current application
+        Expected: Exit from the current application. <br>
 
 ### 6.10 Filter by Category
 
 1. Filter the expenses by category. Show all the expenses whose category match the specified category
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `filter-c entertainment` <br>
-        Expected:  Filter all the expenses under category entertainment.
+        Expected:  Filter all the expenses under category entertainment. <br>
 
    iii. Test case: `filter-c`<br>
-        Expected: No expense is filtered. There will be an error message because the index is invalid.
+        Expected: No expense is filtered. There will be an error message because the index is invalid. <br>
         
 ### 6.11 Filter by Date
 
 1. Filter the expenses by date. Show all the expenses whose date match the specified date
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `filter-t 2020-11-02` <br>
-        Expected:  Filter all the expenses under the date 2020-11-02.
+        Expected:  Filter all the expenses under the date 2020-11-02. <br>
 
    iii. Test case: `filter-c`<br>
-        Expected: No expense is filtered. There will be an error message because the command is invalid.
+        Expected: No expense is filtered. There will be an error message because the command is invalid. <br>
 
 ### 6.12 Filter by Description
 
 1. Filter the expenses by description. Show all the expenses whose description match the specified description.
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `filter-d movie` <br>
-        Expected:  Filter all the expenses for the description movie.
+        Expected:  Filter all the expenses for the description movie. <br>
 
    iii. Test case: `filter-c`<br>
-        Expected: No expense is filtered. There will be an error message because the command is invalid.
+        Expected: No expense is filtered. There will be an error message because the command is invalid. <br>
 
 ### 6.13 Help Command
 
 1. Provide a list of command for users to refer to.
 
    i .  Test case: `help` <br>
-        Expected: There will be a command table shown with the link to the user guide.
+        Expected: There will be a command table shown with the link to the user guide. <br>
 
 ### 6.14 Listing all expenses
 
 1. List all the expenses in the expense book.
 
-   i.   Prerequisites: The expense book is not empty.
+   i.   Prerequisites: The expense book is not empty. <br>
    ii.  Test case: `list` <br>
-        Expected:  Show all the expenses in the expense book. The result box shows the successful message.
+        Expected:  Show all the expenses in the expense book. The result box shows the successful message. <br>
 
    iii. Other trivial list commands to try: `list x` (where x is any number or alphabet)<br>
-        Expected: Similar to previous. The format of list command is not stated, so the list command is executed as long as the command word `list` is correct.
+        Expected: Similar to previous. The format of list command is not stated, so the list command is executed as long as the command word `list` is correct. <br>
 
 ### 6.15 Set budget for the expense book
 
 1. Set budget for the expense book. The amount of the budget is compulsory.
 
    i.   Test case: `set-b 500` <br>
-        Expected:  The budget of the expense book is set to $500. The result box shows the successful message.
+        Expected:  The budget of the expense book is set to $500. The result box shows the successful message. <br>
 
    ii.  Test case: `set-b 0`<br>
-        Expected: No budget is set. There will be an error message because the budget set is invalid.
+        Expected: No budget is set. There will be an error message because the budget set is invalid. <br>
         
    iii. Test case: `set-b`<br>
-        Expected: No budget is filtered. There will be an error message because the index is invalid.
+        Expected: No budget is filtered. There will be an error message because the index is invalid. <br>
 
 ### 6.16 Show Currency Code
 
 1. Show the list of currency supported by the expense book as well as its corresponding code.
 
    i .  Test case: `show-codes` <br>
-        Expected: There will be a command table the currency supported and its corresponding code.
+        Expected: There will be a command table the currency supported and its corresponding code. <br>
    
    ii.  Other trivial list commands to try: `show-codes x` (where x is any number or alphabet)<br>
-        Expected: Similar to previous. The format of `show-codes` command is not stated, so the `show-codes` command is executed as long as the command word `show-codes` is correct.
+        Expected: Similar to previous. The format of `show-codes` command is not stated, so the `show-codes` command is executed as long as the command word `show-codes` is correct. <br>
  
 ### 6.17 Show Statistic
 
 1. Show the statistic of the expenses.
 
    i .  Test case: `show-stats` <br>
-        Expected: There will be a command table that provide a brief summary of the expenses.
+        Expected: There will be a command table that provide a brief summary of the expenses. <br>
    
    ii.  Other trivial list commands to try: `show-stats x` (where x is any number or alphabet)<br>
-        Expected: Similar to previous. The format of `show-stats` command is not stated, so the `show-stats` command is executed as long as the command word `show-stats` is correct.
+        Expected: Similar to previous. The format of `show-stats` command is not stated, so the `show-stats` command is executed as long as the command word `show-stats` is correct. <br>
  
 
 ### 6.18 Sort by amount
@@ -1240,49 +1234,49 @@ testers are expected to do more *exploratory* testing.
 1. Sort the expenses by amount in ascending/descending order. The order is compulsory.
 
    i .  Test case: `sort-a ascending` <br>
-        Expected: The expenses will be sorted by amount in ascending order.
+        Expected: The expenses will be sorted by amount in ascending order. <br>
 
    i .  Test case: `sort-a descending` <br>
-        Expected: The expenses will be sorted by amount in descending order.
+        Expected: The expenses will be sorted by amount in descending order. <br>
    
    iii. Test case: `sort-a`<br>
-        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing. <br>
  
 ### 6.19 Sort by time
 
 1. Sort the expenses by time in ascending/descending order. The order is compulsory.
 
    i .  Test case: `sort-t ascending` <br>
-        Expected: The expenses will be sorted by time in ascending order.
+        Expected: The expenses will be sorted by time in ascending order. <br>
 
    i .  Test case: `sort-t descending` <br>
-        Expected: The expenses will be sorted by time in descending order.
+        Expected: The expenses will be sorted by time in descending order. <br>
    
    iii. Test case: `sort-t`<br>
-        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing.
+        Expected: Expenses are not sorted. There will be an error message because the compulsory field is missing. <br>
  
 ### 6.20 View a specific expenses
 
 1. View a specific index. The index is compulsory
 
    i .  Test case: `view 1` <br>
-        Expected: View the first expenses. The result box shows the details of the expenses requested.
+        Expected: View the first expenses. The result box shows the details of the expenses requested. <br>
 
    ii.  Test case: `view` <br>
-        Expected: No expense is viewed. There will be an error message because the compulsory field is missing.
+        Expected: No expense is viewed. There will be an error message because the compulsory field is missing. <br>
         
    iii. Test case: `view 0` <br>
-        Expected: No expense is viewed. There index of expense requested is invalid. 
+        Expected: No expense is viewed. There index of expense requested is invalid. <br>
 
 ### 6.21 View all the categories
 
 1. View all the categories in the expense book. The category field is compulsory
 
    i .  Test case: `view-c` <br>
-        Expected: Show all the categories in the expense book. The result box shows the successful message.
+        Expected: Show all the categories in the expense book. The result box shows the successful message. <br>
 
    ii.  Test case: `view-c x` (where x is any number or alphabet) <br>
-        Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct.
+        Expected: Similar to previous. The format of `view-c` command is not stated, so the `view-c` command is executed as long as the command word `view-c` is correct. <br>
 
 #  **7. Appendix C: Model Component**
 ![Model Component](images/ModelClassDiagram.png)
