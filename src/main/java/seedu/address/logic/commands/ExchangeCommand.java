@@ -16,13 +16,13 @@ public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String SUCCESSFUL_MESSAGE = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s. \n"
-            + "To see a full list of exchange rates adapted by UniSave, use command "
-            + RatesCommand.COMMAND_WORD + ".\n";
+            + "To see a full list of exchange rates adapted by UniSave, use command '"
+            + RatesCommand.COMMAND_WORD + "'.\n";
     public static final String MESSAGE_USAGE = "The correct format is: exchange cc/CURRENCY_CODE. "
             + "(e.g. exchange cc/SGD)";
     public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency code!\n"
-            + "To see a full list of supported currencies with their currency codes, "
-            + "type in command " + CurrenciesCommand.COMMAND_WORD + ".";
+            + "To see a full list of supported currencies with their currency codes, \n"
+            + "type in command '" + CurrenciesCommand.COMMAND_WORD + "'.";
 
     private final Currency toCurrency;
 
