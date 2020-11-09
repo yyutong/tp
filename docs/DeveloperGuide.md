@@ -739,30 +739,57 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `ExpenseBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Add expense with its category**
+**Use case: Add expense to current expense book **
 
 **MSS**
 
-1.  User requests to list expenses
-2.  UniSave shows a list of existing expenses
-3.  User requests to add a category to a specific expense in the list
-4.  UniSave adds the category input by user to the specific expense
-
+1.  User chooses to add an expense into the expense book.
+2.  UniSave adds the expense to the expense book.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The expense is invalid.
 
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. UniSave shows an error message.
+    * 1a1. UniSave shows an error message.
+    * 1a2. User enters new expense. Steps 1a1-1a2 are repeated until the data entered is valid.
 
     Use case resume at Step 2
+
+**Use case: Edit an expense in current expense book **
+
+**MSS**
+
+1.  User chooses to edit an expense in the expense book.
+2.  UniSave edit the specified expense to the expense book.
+    Use case ends.
+
+**Extensions**
+
+* 1a. The edited expense is invalid or the requested expense is invalid.
+
+    * 1a1. UniSave shows an error message.
+    * 1a2. User enters new information to be edited. Steps 1a1-1a2 are repeated until the data entered is valid.
+
+    Use case resume at Step 2
+
+**Use case: View help**
+
+**MSS**
+
+1.  User wants to view all valid commands they can use.
+2.  UniSave shows a table with all commands as well as a link to UniSave's user guide.
+    Use case ends.
+    
+**Use case: Show Statistic**
+
+**MSS**
+
+1.  User wants to see a brief summary of his expenses
+2.  UniSave shows a table with brief expense summary as well as a pie chart for the expenses.
+    Use case ends.
 
 **Use case: View expense**
 
