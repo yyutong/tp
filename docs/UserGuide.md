@@ -125,6 +125,12 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
   
 * Parameters can be in any order.<br>
   e.g. if the command specifies `a/AMOUNT c/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
+  
+* Here are the prefix used in our command.
+  *   a/ : amount
+  *   c/ : category
+  *   t/ : date of expenses
+  *   d/ : description for the expenses
 
 </div>
 
@@ -173,7 +179,6 @@ Note that an amount of an expense should only be positive numbers.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-If you don't input a date, the default date is today.<br>
 If you do, a date can be entered in one of these two forms:<br>
 i) Enter date as a single integer, corresponding to number of days ago. <br>
 E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
@@ -190,6 +195,12 @@ same result as `add t/1 d/milk tea membership card c/food a/100`.
 Examples:
 * `add a/100 c/food t/1 d/milk tea membership card`
 * `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+1. The date and field are optional but amount and category are compulsory.
+2. when more than one same field is entered, the last one is chosen. For example, there are t/2 and t/3 being entered, t/3 will be chosen. <br>
+3. When the date field is left empty, the default is today. When description field is left empty, the default is no description.
+</div>
 
 ![add](images/addExpenseCommand.png)
 
