@@ -499,6 +499,8 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 ** Pros: No need to type in any command.
 ** Cons: Takes a lot of time to do so.
 
+####
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -546,9 +548,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
 | `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
 | `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
+| `* * *`  | user                                       | Sort expenses by amount            | view existing expenses in descending/ascending order of amount                          |
+| `* * *`  | user                                       | Sort expenses by time              | view existing expenses in descending/ascending order of amount                          |
 | `* *`    | user                                       | List all categories                | view all expenses                                                                       |
 | `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
-
 *{More to be added}*
 
 ### Use cases
