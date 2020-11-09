@@ -167,7 +167,7 @@ Navigate back to the feature list: [Features](#3-features)
 Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). 
 When total spending exceed the budget, UniSave will remind you to set a new budget.
 
-Format: `set-b AMOUNT`
+Format: `set-b BUDGET`
 
 Example:
 `set-b 500`: Set the budget to 500.
@@ -175,8 +175,9 @@ Example:
 ![setBudget](images/setBudgetCommand.png)
 
 **Note** :
-You can change the Currency with command <b>exchange cc/CURRENCY_CODE</b>, 
+1. You can change the Currency before setting budget with command <b>exchange cc/CURRENCY_CODE</b>, so that you can set your budget in another currency.
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
+2. Budget should only be positive numbers.
 
 
 Navigate back to the feature list: [Features](#3-features)
@@ -513,7 +514,7 @@ Term | Explanation
 Action | Format, Examples
 --------|------------------
 **Clear data**|`clear`
-**Set budget** | `set-b AMOUNT` <br> e.g., `set-b 1000`
+**Set budget** | `set-b BUDGET` <br> e.g., `set-b 1000`
 **Add** | `add a/AMOUNT c/CATEGORY [t/DATE] [d/DESCRIPTION]` <br> e.g., `add a/100 c/food`
 **Edit** | `edit INDEX [a/AMOUNT] [c/CATEGORY] [t/DATE] [d/DESCRIPTION]` <br> e.g., `edit 1 a/12`
 **Delete** | `delete INDEX` <br> e.g., `delete 3`

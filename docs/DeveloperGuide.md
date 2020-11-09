@@ -960,14 +960,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to exchange the currency of ExpenseBook.
-2.  UniSave updates and displays the new budget and remaining budget in budget panel.
+2.  UniSave do the conversion from current currency to input currency.
+3.  UniSave updates and displays the budget and all the expenses in the new currency.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave shows an error message with the correct usage of setting budget.
+* 1a. UniSave detects an error in the entered currency code.
+    * 1a1. UniSave shows an error message with the correct usage of exchange.
+    * 1a2. User request to check for the currency codes according to the error message.
+    * 1a3. UniSave shows a table of Currency Codes.
+    * 1a4. User requests to exchange the currency of ExpenseBook with a valid currency code.
     * Use case ends.
 
 
@@ -1067,7 +1071,7 @@ testers are expected to do more *exploratory* testing.
         
 ### Add a description to current expenses
 
-1. Add an description into the expense with the index specified. Index and description field are compulsory.
+1. Add a description into the expense with the index specified. Index and description field are compulsory.
 
    i.   Prerequisites: The expense book is not empty.
    ii.  Test case: `add-d 1 d/movie` <br>
