@@ -18,7 +18,6 @@ public class Date {
                     + "and it should be less than LARGEST_DAY_AGO. \n"
             + "ii) The actual date,format: YYYY-MM-DD. Eg: 2020-11-12. Note that the date can't be set "
                     + "to be in the future.";
-    public static final String VALIDATION_REGEX = "[^\\s].*";
     public static final int LARGEST_DAY_AGO = 3650;
     public final String date;
     public final String howManyDaysAgo;
@@ -41,8 +40,6 @@ public class Date {
             this.date = dayBefore.toString();
         } else {
             this.howManyDaysAgo = "undefined";
-            // LocalDate date = LocalDate.parse(inputDay);
-            // this.date = date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
             this.date = inputDay;
             localDate = LocalDate.parse(date);
         }
@@ -56,7 +53,6 @@ public class Date {
         this.date = localdate.toString();
         localDate = localdate;
     }
-
     /**
      * Returns true if a given string is a valid Day.
      */
@@ -104,9 +100,6 @@ public class Date {
 
     public String getDate() {
         return this.date;
-    }
-    public String getHowManyDaysAgo() {
-        return this.howManyDaysAgo;
     }
 
     @Override

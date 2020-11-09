@@ -13,10 +13,10 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("viewCategory")
+[-> LogicManager : execute("view-c")
 activate LogicManager
 
-LogicManager -> ExpenseBookParser : parseCommand("viewCategory")
+LogicManager -> ExpenseBookParser : parseCommand("view-c")
 activate ExpenseBookParser
 
 create ViewCategoryCommandParser
