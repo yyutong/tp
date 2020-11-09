@@ -27,7 +27,7 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`]() and [`MainApp`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/Main.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -44,6 +44,7 @@ Each of the four components,
 
 * defines its *API* in an `interface` with the same name as the Component.
 * exposes its functionality using a concrete `{Component Name}Manager` class (which implements the corresponding API `interface` mentioned in the previous point.
+  This rule is applied to all the four components except `Model` in which we use `ExpenseModelManager` as the name of its concrete class.
 
 For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
@@ -62,7 +63,7 @@ The sections below give more details of each component.
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+[`Ui.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `ExpenseListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
@@ -78,7 +79,7 @@ The `UI` component,
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -97,7 +98,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
@@ -118,7 +119,7 @@ The `Storage` component,
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -506,7 +507,7 @@ Given below is an example usage scenario and how the mechanism of viewing an exp
 The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
 
 Fig. Activity Diagram for the Execution of `viewCategory`
-![AddDescriptionActivityDiagram](images/ViewCategoryActivityDiagram.png)
+![AddDescriptionActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
 
 Step 1. The user launches the application.
 
@@ -531,6 +532,71 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 ** Pros: No need to type in any command.
 ** Cons: Takes a lot of time to do so.
 
+#### Sort expense list by amount in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in  
+descending order and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByAmountCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByAmountCommand`
+![AddDescriptionActivityDiagram](images/SortByAmountCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByAmountCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of amount
+and the displayed expense will accordingly update to the sorted version of the expense list.
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-a descending`:
+
+High Level Sequence Diagram for the Execution of `sort-a descending`
+![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
+
+#### Design Considerations
+
+#### Sort expense list by time in ascending/descending order
+
+The sort by amount feature is facilitated by the `ExpenseBook` class.
+
+Given below is an example usage scenario of sort by amount in descending order  
+and how the mechanism of sorting expenses by behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `SortByTimeCommand`:
+
+Fig. Activity Diagram for the Execution of `SortByTimeCommand`
+![AddDescriptionActivityDiagram](images/SortByTimeCommandActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. Unisave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+in descending order of amount.
+
+The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
+and the displayed expense will accordingly update to the sorted version of the expense list.
+
+It also creates a CommandResult to notify the user of the successful implementation.
+
+The sequence diagram below shows the high-level abstraction of how Unisave processes user request
+to execute `sort-t ascending`:
+
+High Level Sequence Diagram for the Execution of `sort-t ascending`
+![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
+
+#### Design Considerations
+
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -543,7 +609,7 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **Appendix A: Requirements**
 
 ### Product scope
 
@@ -578,9 +644,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | Set budget                         | plan my expenses                                                                        |
 | `* * *`  | user                                       | View budget                        | view how much i can spend before exceeding the monthly limit                            |
 | `* * *`  | user                                       | Delete a tag of an expense         | delete the category label when I tagged wrongly                                         |
+| `* * *`  | user                                       | Sort expenses by amount            | view existing expenses in descending/ascending order of amount                          |
+| `* * *`  | user                                       | Sort expenses by time              | view existing expenses in descending/ascending order of amount                          |
 | `* *`    | user                                       | List all categories                | view all expenses                                                                       |
 | `* *`    | user                                       | List all expenses in one category  | view all expenses spent under one category                                              |
-
 *{More to be added}*
 
 ### Use cases
@@ -750,6 +817,41 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
+**Use case: Sort expenses by time**
+
+**MSS**
+
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by time.
+3.  UniSave displays the new sorted expense list.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
+
+
+**Use case: Sort expenses by amount**
+
+**MSS**
+
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by amount.
+3.  UniSave displays the new sorted expense list.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The user enters an invalid order.
+    * 1a1. UniSave detects the error and displays an error message to the user.
+    * 1a2. UniSave requests for the correct order.
+    * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
+
 **Use case: Alert**
 
 **MSS**
@@ -772,6 +874,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Expense**: The amount of money spent by the user student in a certain event
 * **Budget**: The maximum amount of money that the user student can spend
+* **Currency code** The representation of a currency, following ISO4217, which is published by the International Organisation for Standadization.
+It is unique for every currency.
 
 --------------------------------------------------------------------------------------------------------------------
 

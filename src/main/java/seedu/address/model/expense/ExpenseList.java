@@ -305,6 +305,7 @@ public class ExpenseList implements Iterable<Expense> {
      * @return The statistics of this expense book.
      */
     public Statistics getStatistics() {
+        updateStatisticSummary();
         updateStatistics();
         return this.statistics;
     }
