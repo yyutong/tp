@@ -146,7 +146,7 @@ The `UI` component,
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-W10-1/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
-1. `Logic` uses the `AddressBookParser` class to parse the user command.
+1. `Logic` uses the `ExpenseBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
 1. The command execution can affect the `Model` (e.g. adding a expense).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
@@ -275,6 +275,7 @@ Given below is an example usage scenario and how the mechanism of viewing an exp
 The following activity diagram summarizes what happens when a user executes the `ViewCommand`:
 
 Fig. Activity Diagram for the Execution of `ViewCommand`
+
 ![ViewActivityDiagram](images/ViewActivityDiagram.png)
 
 Step 1. The user launches the application.
@@ -642,6 +643,7 @@ descending order and how the mechanism of sorting expenses by behaves at each st
 The following activity diagram summarizes what happens when a user executes the `SortByAmountCommand`:
 
 Fig. Activity Diagram for the Execution of `SortByAmountCommand`
+
 ![AddDescriptionActivityDiagram](images/SortByAmountCommandActivityDiagram.png)
 
 Step 1. The user launches the application.
@@ -659,6 +661,7 @@ The sequence diagram below shows the high-level abstraction of how Unisave proce
 to execute `sort-a descending`:
 
 High Level Sequence Diagram for the Execution of `sort-a descending`
+
 ![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
 
 #### Implementation - Sort expense list by time in ascending/descending order
@@ -671,6 +674,7 @@ and how the mechanism of sorting expenses by behaves at each step.
 The following activity diagram summarizes what happens when a user executes the `SortByTimeCommand`:
 
 Fig. Activity Diagram for the Execution of `SortByTimeCommand`
+
 ![AddDescriptionActivityDiagram](images/SortByTimeCommandActivityDiagram.png)
 
 Step 1. The user launches the application.
@@ -689,6 +693,7 @@ The sequence diagram below shows the high-level abstraction of how Unisave proce
 to execute `sort-t ascending`:
 
 High Level Sequence Diagram for the Execution of `sort-t ascending`
+
 ![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
 
 --------------------------------------------------------------------------------------------------------------------
