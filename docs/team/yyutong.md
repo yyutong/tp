@@ -16,7 +16,7 @@ Given below are my contributions to the project.
   * Justification: This feature allows the user to have a clearer idea of how much have they spended on each expense.
   * Highlights: It is useful for other functionalities such as delete. For example, it is now easy for the user to delete the expense with the highest/lowest amount.
 
-* **New Feature**: Added SortByTime Command `sort-a`
+* **New Feature**: Added SortByTime Command `sort-t`
   * What it does: Allows the user to sort the expense list in ascending/descending order of time.
   * Justification: This feature allows the user to have a clearer idea of when have they made each expense.
   * Highlights: It is useful for other functionalities such as delete. For example, it is now easy for the user to delete the expense with the nearest date.
