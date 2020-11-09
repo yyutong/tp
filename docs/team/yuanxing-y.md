@@ -4,7 +4,7 @@ title: Zhang Yuanxing's Project Portfolio Page
 ---
 ## Project: UniSave
 
-Unisave is a desktop finance planner app, optimized for use via a Command Line Interface (CLI) while still having
+UniSave is a desktop finance planner app, optimized for use via a Command Line Interface (CLI) while still having
 the benefits of a Graphical User Interface (GUI).
 
 Given below are my contributions to the project.
@@ -17,7 +17,7 @@ Given below are my contributions to the project.
 * **New Feature**: Added Currencies Command `show-codes` that displays a table of currency codes with the corresponding currency full names.
 * **New Feature**: Added Rates Command `show-rates` that allows the user to check the exchange rates from SGD.
 
-* Credits: *{The exchange rates, currency codes with corresponding full names are adapted from 
+* Credits: *{The exchange rates, currency codes with corresponding full names are adopted from 
 [currencylayer](https://currencylayer.com/) on 2020-10-31, but are converted into java code by me.}*
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=yuanxing-y&tabRepo=AY2021S1-CS2103T-W10-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
@@ -27,15 +27,13 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Change the flow of User Guide 
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    * Change the flow of User Guide [\#240](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/240)
+    * Added documentation for the features `set-b`, `exchange`, `show-rates`, `show-codes` [\#240](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/240)
   * Developer Guide:
-    * Added implementation details of the `delete` feature.
+    * Reorder the flow of DG (Pull request [\#42](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/42))
+    * Added implementation details of the `set-b`, `exchange` feature.
+    * Added use cases for `Set Budget`, `Exchange Currency` feature.
+    * Update UML diagram for `Model`, `Expense class`, `Budget Activity Diagram` and `Budget Sequence Diagram` [\#134](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/134)
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
-
+  * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/yuanxing-y/ped/issues/1), [2](https://github.com/yuanxing-y/ped/issues/2), [3](https://github.com/yuanxing-y/ped/issues/3))
