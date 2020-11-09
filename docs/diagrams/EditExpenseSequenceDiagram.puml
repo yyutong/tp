@@ -14,10 +14,10 @@ participant ":Model" as Model MODEL_COLOR
 participant ":ExpenseList" as ExpenseList MODEL_COLOR
 end box
 
-[-> LogicManager : execute("edit a/100 c/food")
+[-> LogicManager : execute("edit 2 a/100")
 activate LogicManager
 
-LogicManager -> ExpenseBookParser : parseCommand("edit a/100 c/food")
+LogicManager -> ExpenseBookParser : parseCommand("edit 2 a/100")
 activate ExpenseBookParser
 
 create EditExpenseCommandParser
@@ -27,7 +27,7 @@ activate EditExpenseCommandParser
 EditExpenseCommandParser --> ExpenseBookParser
 deactivate EditExpenseCommandParser
 
-ExpenseBookParser -> EditExpenseCommandParser : parse("a/100 c/food")
+ExpenseBookParser -> EditExpenseCommandParser : parse("2 a/100")
 activate EditExpenseCommandParser
 
 create EditExpenseCommand
