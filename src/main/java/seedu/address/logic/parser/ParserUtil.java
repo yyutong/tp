@@ -134,12 +134,11 @@ public class ParserUtil {
      * @throws ParseException if the given {@code description} is invalid.
      */
     public static Description parseExpenseDescription(String description) throws ParseException {
-        //requireNonNull(description);
-        //String trimmedDescription = description.trim();
-        //return new Description(trimmedDescription);
-
         requireNonNull(description);
         String trimmedDescription = description.trim();
+        if (!Description.isValidDescription(trimmedDescription)) {
+            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+        }
         return new Description(trimmedDescription);
     }
 
