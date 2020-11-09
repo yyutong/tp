@@ -42,32 +42,30 @@ Given below are my contributions to the project.
 
 * **Enhancements implemented**:
     * Functional Code:
-       * Changed UI background color
-       * Added additional budget panel to UI layout
-       * Added more elements to the UI menu bar
+       * Changed UI background color ([\#161](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/161))
+       * Added more elements to UI layout ([\#154](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/154),
+       [\#227](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/227))
     * Test Code:
-       * Wrote additional tests for existing features to increase coverage
-       * Wrote useful classes for testing, such as ExpenseBuilder, ExpenseBookBuilder, Typical Expenses.
+       * Wrote additional tests for existing features to increase coverage ([\#118](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/118))
+       * Wrote useful classes for testing, such as ExpenseBuilder, ExpenseBookBuilder, Typical Expenses. ( [\#118](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/118))
 
 * **Documentation**:
-   * User Guide:
+   * User Guide: ([\#162](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/162))
       * Added documentation for the features `view expense`
       * Added documentation for the features `view-c`
       * Added documentation for the features `sort-a`
       * Added documentation for the features `sort-t`
 
    * Developer Guide:
-      * Added implementation details of `sort-a`, `sort-t`, `view index`, `view-c`.
-      * Added UML diagram for `sort-a`, `sort-t`, `view index`, `view-c`.
-      * Added use cases details of `sort-a`, `sort-t`, `view index`, `view-c`.
+      * Added implementation details of `sort-a`, `sort-t`, `view index`, `view-c`. ([\#267](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/267)) ([\#130](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/130))
+      * Added UML diagram for `sort-a`, `sort-t`, `view index`, `view-c`. ([\#130](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/130))
+      * Added use cases details of `sort-a`, `sort-t`, `view index`, `view-c`. ([\#30](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/30))
 
 * **Review/mentoring contributions**:
-   * Help to review, approve and merge the pull requests.
-   * Solve issues reported along the project development and PE-dry run
+   * Help to review, approve and merge the pull requests. ([\#236](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/30), [\#123](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/123), [\#52](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/52), [\#233](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/233))
+   * Solve issues reported along the project development and PE-dry run. [issues solved](https://github.com/AY2021S1-CS2103T-W10-1/tp/issues?q=is%3Aissue+is%3Aclosed+assignee%3Ayyutong)
 
 * **Contributions beyond the project team**:
    * Evidence of helping others:
-       * Report the bugs I found during PE-dry run
-       * Discuss related questions with peers in the forum
-
-
+       * Report the bugs I found during PE-dry run [PED](https://github.com/yyutong/ped/issues)
+       * Discuss related questions with peers in the forum [forum posts](https://nus-cs2103-ay2021s1.github.io/dashboards/contents/forum-activities.html#58-yang-tong-yyutong-7-posts)
