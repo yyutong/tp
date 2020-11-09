@@ -163,7 +163,10 @@ Navigate back to the feature list: [Features](#3-features)
 Set the budget for UniSave. Default budget is 0 Singapore Dollar (SGD). 
 When total spending exceed the budget, UniSave will remind you to set a new budget.
 
-Format: `set-b AMOUNT`
+Format: `set-b BUDGET`
+
+**Note** :
+A valid budget should be at least 0.01 (i.e. 1 cent).
 
 Example:
 `set-b 500`: Set the budget to 500.
@@ -184,7 +187,7 @@ Adds an expense.
 Format: `add a/AMOUNT c/CATEGORY [t/DATE] [d/description]`
 
 **Note** :
-1. The amount of an expense should only be positive numbers. <br>
+1. The amount of an expense should only be positive numbers. The minimum amount should be at least 0.01 (i.e. 1 cent) <br>
 2. If you do, a date can be entered in one of these two forms:<br>
   i) Enter date as a single integer, corresponding to number of days ago. <br>
   E.g: 1 means you made the expenses one day ago. (Note that when date is given as a single integer,
@@ -468,7 +471,7 @@ Term | Explanation
 Action | Format, Examples
 --------|------------------
 **Clear data**|`clear`
-**Set budget** | `set-b AMOUNT` <br> e.g., `set-b 1000`
+**Set budget** | `set-b BUDGET` <br> e.g., `set-b 1000`
 **Add** | `add a/AMOUNT c/CATEGORY [t/DATE] [d/DESCRIPTION]` <br> e.g., `add a/100 c/food`
 **Edit** | `edit INDEX [a/AMOUNT] [c/CATEGORY] [t/DATE] [d/DESCRIPTION]` <br> e.g., `edit 1 a/12`
 **Delete** | `delete INDEX` <br> e.g., `delete 3`

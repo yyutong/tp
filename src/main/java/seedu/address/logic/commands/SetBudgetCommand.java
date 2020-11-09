@@ -12,7 +12,7 @@ public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "set-b";
     public static final String MESSAGE_SET_BUDGET_SUCCESS = "Successful! The budget is now %s %s.\n";
     public static final String MESSAGE_SET_BUDGET_FAIL = "Set budget failed, "
-            + "please enter a valid budget with value greater than 0.\n";
+            + "please enter a valid budget with value greater than or equal to 0.01 (i.e. 1 cent).\n";
 
     private final Budget budget;
 

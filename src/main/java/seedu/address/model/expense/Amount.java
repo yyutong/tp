@@ -8,7 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Amount {
     public static final String MESSAGE_CONSTRAINTS =
-            "Amount should only positive numbers.";
+            "Amount should only be positive numbers, the minimum amount is 0.01 (i.e. 1 cent).";
 
 
     public final Double value;
