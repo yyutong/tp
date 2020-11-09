@@ -254,6 +254,9 @@ Show all existing categories in the expense list. Note that a category is added 
 
 Format: `view-c`
 
+Examples:
+* `view-c`
+
 ![viewCategory](images/viewCategoryCommand.png)
 
 #### 3.8 Filter Expenses
@@ -329,9 +332,10 @@ Sort the expenses in specified order.
 
 Format: `sort-a descending`
         `sort-a ascending`
+* Note that only ascending or descending order is valid.
 
-Examples: `sort-a ascending`
-Sort the expenses according to amount in ascending order.
+Examples:
+* `sort-a ascending`: sort the expenses according to amount in ascending order.
 
 ![sort by amount in ascending order](images/sortByAmount.png)
 
@@ -343,9 +347,10 @@ Sort the expenses according to date in specified order.
 
 Format: `sort-t ascending`
         `sort-t descending`
+* Note that only ascending or descending order is valid.
 
-Examples: `sort-t ascending`
-Sort the expenses according to date in ascending order (i.e. from past to present.).
+Examples:
+* `sort-t ascending`: sort the expenses according to date in ascending order (i.e. from past to present.).
 
 ![sort by time in ascending order](images/sortByTime ascending.png)
 
