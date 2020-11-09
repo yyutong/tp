@@ -65,13 +65,7 @@ public class ParserUtil {
             return new Amount();
         } else {
             try {
-                int index2Dp = amount.trim().indexOf(".");
-                double entered;
-                if (index2Dp > 0) {
-                    entered = Double.parseDouble(amount.substring(0, index2Dp + 3));
-                } else {
-                    entered = Double.parseDouble(amount.trim());
-                }
+                double entered = Double.parseDouble(amount.trim());
                 if (!Amount.isValidAmount(entered)) {
                     throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
                 }
@@ -168,17 +162,7 @@ public class ParserUtil {
      */
     public static Budget parseBudget(String budget) throws ParseException {
         try {
-            int index2Dp = budget.trim().indexOf(".");
-            double value;
-            if (index2Dp > 0) {
-                value = Double.parseDouble(budget.substring(0, index2Dp + 3));
-            } else {
-                value = Double.parseDouble(budget.trim());
-            }
-            if (value <= 0) {
-                throw new ParseException(
-                        SetBudgetCommand.MESSAGE_SET_BUDGET_FAIL);
-            }
+            double value = Double.parseDouble(budget.trim());
             return new Budget(value);
         } catch (Exception pe) {
             throw new ParseException(
