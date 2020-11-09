@@ -46,6 +46,7 @@ public class SortByTimeCommand extends Command {
 
     /**
      * Executes the sort by amount command.
+     *
      * @param model {@code Model} which the command should operate on.
      * @return A command result in which the message will be shown to users.
      * @throws CommandException Throws exception if the order is not "descending" or "ascending".
@@ -53,21 +54,22 @@ public class SortByTimeCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        if(this.order.isAscendingOrder()){
+        if (this.order.isAscendingOrder()) {
             model.sortByAscendingTime();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_ASCENDING));
-        } else if(this.order.isDescendingOrder()){
+        } else if (this.order.isDescendingOrder()) {
             model.sortByDescendingTime();
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS_DESCENDING));
-        } else{
+        } else {
             throw new CommandException(MESSAGE_FAILURE);
         }
     }
 
     /**
      * Checks if a command objects are equal.
+     *
      * @param other Another object.
      * @return Whether the 2 command objects are equal or not. Return true if they are equal and false otherwise.
      */

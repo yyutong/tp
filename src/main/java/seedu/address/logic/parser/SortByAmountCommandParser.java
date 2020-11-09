@@ -3,7 +3,6 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.SortByAmountCommand;
-import seedu.address.logic.commands.SortByTimeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Order;
 
