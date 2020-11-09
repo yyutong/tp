@@ -668,7 +668,7 @@ Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `sort-a descending` to sort the displayed expenses  
+Step 3. The user executes `sort-t ascending` to sort the displayed expenses  
 in descending order of amount.
 
 The `SortByTimeCommand` sorts the `ExpenseList` stored in `UniSave`  in the specified descending order of time
