@@ -52,7 +52,7 @@ public class BudgetPanel extends UiPart<Region> {
                     logic.getExpenseBook().getCurrency()));
         }
 
-        totalSpending.setText(String.format("Total spending: %s %s",
+        totalSpending.setText(String.format("Total spending: %.2f %s",
                 logic.getExpenseBook().totalSpending(),
                 logic.getExpenseBook().getCurrency()));
     }

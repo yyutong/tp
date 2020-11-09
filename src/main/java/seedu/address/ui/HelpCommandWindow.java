@@ -13,12 +13,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.expense.CommandList;
 
 public class HelpCommandWindow extends UiPart<Stage> {
     private static final String FXML = "HelpCommandWindow.fxml";
 
-    private TableView<CommandList> tableView = new TableView<>();
+    private TableView<allCommands> tableView = new TableView<>();
     private final Logger logger = LogsCenter.getLogger(HelpCommandWindow.class);
 
     private TableColumn command = new TableColumn("command");
@@ -26,7 +25,7 @@ public class HelpCommandWindow extends UiPart<Stage> {
     private TableColumn commandFormat = new TableColumn("format");
     private TableColumn commandExample = new TableColumn("example");
 
-    private ObservableList<CommandList> list = FXCollections.observableArrayList();
+    private ObservableList<allCommands> list = FXCollections.observableArrayList();
 
     @javafx.fxml.FXML
     private Label helpCommandWindow;
@@ -40,13 +39,14 @@ public class HelpCommandWindow extends UiPart<Stage> {
         super(FXML, root);
         helpCommandWindow.setGraphic(tableView);
         helpCommandWindow.setMinWidth(1205);
-        helpCommandWindow.setMinHeight(580);
+        helpCommandWindow.setMinHeight(560);
 
         getRoot().addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.Q == event.getCode()) {
                 getRoot().hide();
             }
         });
+
     }
 
     /**
@@ -64,7 +64,7 @@ public class HelpCommandWindow extends UiPart<Stage> {
         commandUsage.setCellValueFactory(new PropertyValueFactory<>("usage"));
         commandFormat.setCellValueFactory(new PropertyValueFactory<>("format"));
         commandExample.setCellValueFactory(new PropertyValueFactory<>("example"));
-        List<CommandList> listOfCommand = CommandList.getCommandList();
+        List<allCommands> listOfCommand = allCommands.getComandList();
         for (int i = 0; i < listOfCommand.size(); i = i + 1) {
             list.add(listOfCommand.get(i));
         }
