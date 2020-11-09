@@ -124,6 +124,16 @@ In a few seconds, you should see a GUI similar to the diagram below. Note the ap
   e.g `a/AMOUNT c/CATEGORY [t/date]` can be used as `a/100 c/shopping` or as `a/100 c/shopping t/2020-10-30`
   
 * Parameters can be in any order.<br>
+  e.g. if the command specifies `a/AMOUNT c/CATEGORY`, `c/CATEGORY a/AMOUNT` is also acceptable.
+  
+* Multiple instances of the same prefix/flag will not throw an error. However, the app will only read the <b>last instance</b> in the input.
+  e.g. if `add a/100 c/entertainment c/food` will add the expense to "food" category.
+  
+* All additional input after commands which do not have input fields such as list, exit, clear, etc. will be ignored.
+eg. `help` and `help 123` will have the same effect.
+
+* Prefixes are case-sensitive.
+eg. `d/` is not the same as `D/`.
   e.g. if the command specifies `a/AMOUNT c/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
   
 * Here are the prefix used in our command.
@@ -360,13 +370,17 @@ Navigate back to the feature list: [Features](#3-features)
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
-Format: `exchange cc/CURRENCY_CODE`
-
-Example: `exchange cc/CNY`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Note that the currency code is case-insensitive. <b>cny</b> is the same as <b>CNY</b>.
+</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
 </div>
+
+Format: `exchange cc/CURRENCY_CODE`
+
+Example: `exchange cc/CNY`
 
 ![exchange_after](images/ExchangeCommand-after.png)
 

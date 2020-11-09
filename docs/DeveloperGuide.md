@@ -7,8 +7,21 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## 1. **Overview**
+Welcome to UniSave Developer Guide. This documentation provides you an insight on how UniSave is designed and implemented.
 
+## 1.1 Introduction
+UniSave is a **desktop app for managing expenses, optimized for use via a Command Line Interface** (CLI).
+
+It is an application that helps university students manage their finance by tracking your spending, 
+setting budget for each month, as well as viewing their expenses in various categories. 
+Moreover, UniSave allows tracking expenses in different currencies.
+
+UniSave targets university students who tend to incur a large amount of spending.
+It is catered especially for students who are more familiar with desktop applications and type fast.
+UniSave is available for the Linux, Windows and Mac OS operating systems.
+ 
+## 1.2 Setting Up, Getting Started
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
@@ -449,9 +462,6 @@ High Level Sequence Diagram for the Execution of `showBudget`.
   * Pros: No more negative budget, more intuitive.
   * Cons: Much more complicated implementation.
 
-
-
-
 #### View an expense 
 
 The view expense feature is facilitated by the `ExpenseBook` class.
@@ -499,7 +509,7 @@ The view existing expense categories feature is facilitated by the ExpenseBook c
 
 Given below is the class diagram of the `ExpenseBook` class.
 
-Fig. Class Diagram for ExpenseBook.
+Fig. Class Diagram for Expense.
 ![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
 
 Given below is an example usage scenario and how the mechanism of viewing an expense behaves at each step.
@@ -531,6 +541,85 @@ High Level Sequence Diagram for the Execution of `viewCategory`
 * Alternative 1: Directly search for existing expense categories from the UI.
 ** Pros: No need to type in any command.
 ** Cons: Takes a lot of time to do so.
+
+## 3.2 Exchange features
+
+The Exchange feature allows converting the currency of the whole ExpenseBook. Each individual expense along with the budget in the ExpenseBook will be exchanged into the input currency at exchange rate from the current currency.
+
+Given below is a class diagram for `ExpenseBook` class.
+
+Fig. Class Diagram for ExpenseBook.
+![ExpenseBookClassDiagram](images/ExpensebookClassDiagram.png)
+
+When executing `exchange` command, the `Currency` field will be changed if the input currency code is valid.
+
+Given below is an example usage scenario and how the mechanism of exchange behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `exchange cc/cny`:
+
+Fig. Activity Diagram for the Execution of `ExchangeCommand`
+![ExchangeActivityDiagram](images/ExchangeActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `exchange cc/cny` to exchange the currency of the ExpenseBook from `SGD` (Default Currency) to `CNY`.
+
+Step 4. The `ExchangeCommand` build a new `CurrencyConverter` to calculate the exchange rate from `SGD` to `CNY`. 
+The `ExchangeCommand` exchanges the `Budget` and `ExpenseList` of `ExpenseBook` at the calculated exchange rate, and changes the `Currency` of the ExpenseBook to `CNY`.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request to execute `exchange cc/cny`:
+
+High Level Sequence Diagram for the Execution of `exchange cc/cny`
+![ExchangeSequenceDiagram](images/ExchangeSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How to handle Exchange Rates
+* Alternative 1: Let the user to type in real-time exchange rate.
+** Pros: Correct input of the exchange rate can make the conversion more accurate.
+** Cons: More prone to error, cannot check for incorrect exchange rates.
+
+* Alternative 2: Let the user to download additional text file, and read the exchange rates from the text file.
+** Pros: More flexibility when updating the exchange rates.
+** Cons: 
+(1) Users can modify the text file, more prone to error when parsing from the text file.
+(2) More files to download other than `UniSave.jar`, less user-friendly.
+
+
+## 3.3 Budget features
+
+The set budget feature allows the user to set a budget for ExpenseBook.
+
+Given below is an example usage scenario and how the mechanism of setting a budget behaves at each step.
+
+The following activity diagram summarizes what happens when a user executes the `set-b BUDGET`:
+
+Fig. Activity Diagram for the Execution of `SetBudgetCommand`
+![SetBudgetActivityDiagram](images/SetBudgetActivityDiagram.png)
+
+Step 1. The user launches the application.
+
+Step 2. UniSave displays a list of existing expenses in the UI.
+
+Step 3. The user executes `set-b 1000` to set a new budget for the ExpenseBook.
+The `SetBudgetCommand` set the budget of ExpenseBook to be `1000` under current currency.
+
+The sequence diagram below shows the high-level abstraction of how UniSave processes user request
+to execute `set-b 1000`:
+
+High Level Sequence Diagram for the Execution of `set-b 1000`
+![SetBudgetSequenceDiagram](images/SetBudgetSequenceDiagram.png)
+
+#### Design Considerations
+
+##### Aspect: How do user check the updated budget.
+
+* Alternative 1: Use ShowBudget Command `show-b`
+** Pros: Simplier Implementation.
+** Cons: Users cannot see their remaining budget all the time.
+
 
 #### Sort expense list by amount in ascending/descending order
 
@@ -592,8 +681,6 @@ to execute `sort-t ascending`:
 
 High Level Sequence Diagram for the Execution of `sort-t ascending`
 ![AddDescriptionActivityDiagram](images/SortByTimeSequenceDiagram.png)
-
-#### Design Considerations
 
 
 
@@ -778,44 +865,31 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to set a new budget.
-2.  UniSave updates and displays the new budget.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. UniSave detects an error in the entered value.
-    * 1a1. UniSave requests for the correct value.
-    * 1a2. User enters a valid value.
-    * 1a3. UniSave updates and displays the new budget.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Total Budget**
+**Use case: Exchange Currency**
 
 **MSS**
 
-1.  User requests to view total budget.
-2.  UniSave displays the total budget.
+1.  User requests to exchange the currency of ExpenseBook.
+2.  UniSave updates and displays the new budget and remaining budget in budget panel.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. User does not have a budget set yet.
-    * 2a1. Unisave displays the default budget 0.
-    * 2a2. UniSave requests for setting a budget.
-    * 2a3. User sets a budget.
-    * 2a4. UniSave displays the amount set by the user.
+* 1a. UniSave detects an error in the entered value.
+    * 1a1. UniSave shows an error message with the correct usage of setting budget.
     * Use case ends.
 
-**Use case: View Remaining Budget**
-
-**MSS**
-
-1.  User requests to view remaining budget.
-2.  UniSave displays the remaining budget.
-
-    Use case ends.
 
 **Use case: Sort expenses by time**
 
@@ -851,15 +925,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. UniSave detects the error and displays an error message to the user.
     * 1a2. UniSave requests for the correct order.
     * 1a3. User re-enters the command. Step 1a1 and 1a2 are repeated until the user enters a valid order.
-
-**Use case: Alert**
-
-**MSS**
-
-1.  User's spending exceed budget.
-2.  UniSave shows alerts.
-
-    Use case ends.
 
 ### Non-Functional Requirements
 
