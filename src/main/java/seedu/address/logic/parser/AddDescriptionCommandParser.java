@@ -25,7 +25,8 @@ public class AddDescriptionCommandParser implements Parser<AddDescriptionCommand
 
         if (!argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddDescriptionCommand.MESSAGE_ADD_DESCRIPTION_PREDIX_MISSING));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            AddDescriptionCommand.MESSAGE_ADD_DESCRIPTION_PREDIX_MISSING));
         }
 
         Index index;
