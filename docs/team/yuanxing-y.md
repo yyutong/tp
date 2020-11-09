@@ -30,10 +30,11 @@ Given below are my contributions to the project.
     * Change the flow of User Guide [\#240](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/240)
     * Added documentation for the features `set-b`, `exchange`, `show-rates`, `show-codes` [\#240](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/240)
   * Developer Guide:
-    * Reorder the flow of DG (Pull request [\#42](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/42))
+    * Reorder the flow for USS (Pull request [\#42](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/42))
+    * Update Overview Session ([\#258](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/258])
     * Added implementation details of the `set-b`, `exchange` feature.
     * Added use cases for `Set Budget`, `Exchange Currency` feature.
-    * Update UML diagram for `Model`, `Expense class`, `Budget Activity Diagram` and `Budget Sequence Diagram` [\#134](https://github.com/AY2021S1-CS2103T-W10-1/tp/pull/134)
+    * Update UML diagram for `Model`, `Expense class`, `Budget Activity Diagram` and `Budget Sequence Diagram`.
 
 * **Community**:
   * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/yuanxing-y/ped/issues/1), [2](https://github.com/yuanxing-y/ped/issues/2), [3](https://github.com/yuanxing-y/ped/issues/3))
