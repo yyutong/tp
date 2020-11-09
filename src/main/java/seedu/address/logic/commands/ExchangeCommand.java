@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.CliSyntax;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Currency;
 import seedu.address.model.expense.CurrencyConverter;
@@ -16,11 +17,14 @@ public class ExchangeCommand extends Command {
     public static final String COMMAND_WORD = "exchange";
     public static final String SUCCESSFUL_MESSAGE = "Your expenses is now converted from %s to %s "
             + "at exchange rate %s. \n"
-            + "To see a full list of exchange rates adapted by UniSave, use command 'rates'.\n";
-    public static final String MESSAGE_USAGE = "The correct format is: exchange cc/CNY";
+            + "To see a full list of exchange rates adapted by UniSave, use command "
+            + "'" + RatesCommand.COMMAND_WORD + "'.\n";
+    public static final String MESSAGE_USAGE = "The correct format is: " + COMMAND_WORD
+            + " " + CliSyntax.PREFIX_SIGN + "CURRENCY_CODE. "
+            + "(e.g. exchange cc/SGD)";
     public static final String MESSAGE_INVALID_CURRENCY = "Please enter a valid currency code!\n"
-            + "To see a full list of supported currencies with their currency codes, "
-            + "type in command 'code'.";
+            + "To see a full list of supported currencies with their currency codes, \n"
+            + "type in command '" + CurrenciesCommand.COMMAND_WORD + "'.";
 
     private final Currency toCurrency;
 

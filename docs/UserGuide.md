@@ -61,7 +61,7 @@ UniSave is available for the Linux, Windows and Mac OS operating systems.
 
 4. For Windows user, double-click the file to start the app. 
 For MacOS user, open your terminal and set the directory to be the same as UniSave, enter `java -jar UniSave.jar`.
-In a few seconds, you should see a GUI similar to the diagram below. Note how the app contains some sample data.<br>
+In a few seconds, you should see a GUI similar to the diagram below. Note the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press `Enter` to execute it.<br>
@@ -72,11 +72,11 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
    
    * **`set-b 1000`** : Set the budget of UniSave to be 1000 SGD (Singapore Dollar is the Default Currency for UniSave).
 
-   * **`add a/50 c/entertainment D/1 d/yayymovie!`** : 
+   * **`add a/50 c/entertainment t/1 d/yayymovie!`** : 
    Adds an expense of `50` SGD under category `entertainment` you spent `1` day ago (i.e. yesterday), 
    with `yayymovie!` description.
 
-   * **`exchange c/cny`** : Change the currency of the whole expense book to Chinese Yuan 
+   * **`exchange cc/cny`** : Change the currency of the whole expense book to Chinese Yuan 
    (CNY is the currency code for Chinese Yuan).
    
    * **`show-stats`** : Show a statistic overview of all your expenses.
@@ -124,7 +124,7 @@ In a few seconds, you should see a GUI similar to the diagram below. Note how th
   e.g `a/AMOUNT c/CATEGORY [t/date]` can be used as `a/100 c/shopping` or as `a/100 c/shopping t/2020-10-30`
   
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `a/AMOUNT C/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
+  e.g. if the command specifies `a/AMOUNT c/CATEGORY, c/CATEGORY a/AMOUNT` is also acceptable.
 
 </div>
 
@@ -347,9 +347,7 @@ Format: `sort-t ascending`
 Examples: `sort-t ascending`
 Sort the expenses according to date in ascending order (i.e. from past to present.).
 
-![sort by time in descending order](images/sortByTime%20descending.png)
-
-![sort by time in ascending order](images/sortByTime%20ascending.png)
+![sort by time in ascending order](images/sortByTime ascending.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
