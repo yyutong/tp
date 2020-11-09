@@ -141,8 +141,12 @@ eg. `d/` is not the same as `D/`.
   *   c/ : category
   *   t/ : date of expenses
   *   d/ : description for the expenses
+  *   cc/ : currency code of currency
 
 </div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Pop up windows for <b>help</b>, <b>show-stats</b>, <b>show-rates</b>, <b>show-codes</b> commands can be closed with keyboard shortcut "<b>q</b>".
 
 ### Commands  <a name="commands"></a>
 
@@ -174,7 +178,6 @@ Example:
 1. You can change the Currency before setting budget with command <b>exchange cc/CURRENCY_CODE</b>, so that you can set your budget in another currency.
 to see a full list of supported currencies with their currency codes use command <b>show-codes</b>.
 2. Budget should only be positive numbers.
-
 
 Navigate back to the feature list: [Features](#3-features)
 
