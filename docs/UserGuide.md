@@ -355,13 +355,17 @@ Navigate back to the feature list: [Features](#3-features)
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
-Format: `exchange cc/CURRENCY_CODE`
-
-Example: `exchange cc/CNY`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Note that the currency code is case-insensitive. <b>cny</b> is the same as <b>CNY</b>.
+</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
 </div>
+
+Format: `exchange cc/CURRENCY_CODE`
+
+Example: `exchange cc/CNY`
 
 ![exchange_after](images/ExchangeCommand-after.png)
 
