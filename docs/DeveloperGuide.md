@@ -718,6 +718,44 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
+**Use case: Sort expenses by time**
+
+**MSS**
+
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by time.
+3.  UniSave displays the new sorted expense list.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. UniSave detects an error in the entered order.
+    * 1a1. UniSave requests for the correct order.
+    * 1a2. User enters a valid order.
+    * 1a3. UniSave sorts the expense list in specified order by time.
+    * 1a4. UniSave displays the new sorted expense list.
+    * Use case ends.
+
+**Use case: Sort expenses by amount**
+
+**MSS**
+
+1.  User requests to sort existing expenses on ascending/descending order.
+2.  UniSave sorts the expense list in specified order by amount.
+3.  UniSave displays the new sorted expense list.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. UniSave detects an error in the entered order.
+    * 1a1. UniSave requests for the correct order.
+    * 1a2. User enters a valid order.
+    * 1a3. UniSave sorts the expense list in specified order by amount.
+    * 1a4. UniSave displays the new sorted expense list.
+    * Use case ends.
+
 **Use case: Alert**
 
 **MSS**
