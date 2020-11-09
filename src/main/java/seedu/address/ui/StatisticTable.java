@@ -117,7 +117,7 @@ public class StatisticTable extends UiPart<Stage> {
      * </ul>
      */
     public void show() {
-//        constructTable();
+        constructTable();
         logger.fine("Showing brief summary of the spending!");
         getRoot().show();
         getRoot().centerOnScreen();
