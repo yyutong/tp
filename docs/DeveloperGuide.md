@@ -210,8 +210,6 @@ High Level Sequence Diagram for the Execution of `addDes 2 d/Spent on books`
 ** Cons: Harder to manage and prone to error.
 
 
-
-
 #### Edit expense feature
 
 The add description features and delete description feature are mainly supported by the `Expense` class.
@@ -339,7 +337,7 @@ Step 2. The user executes `delete 5` command to delete the 5th expenses in the e
 
 ![UndoRedoState1](images/deleteState1.png)
 
-Step 3. The user executes `add a/100 c/Entertainment D/1 d/Movie` to add a new expense. The `add` command also calls `Model#saveAddressBook()`, causing another modified expense book state to be saved into the `expenseBookStateList`.
+Step 3. The user executes `add a/100 c/Entertainment t/1 d/Movie` to add a new expense. The `add` command also calls `Model#saveAddressBook()`, causing another modified expense book state to be saved into the `expenseBookStateList`.
 
 ![UndoRedoState2](images/deleteState2.png)
 
@@ -516,22 +514,22 @@ Given below is an example usage scenario and how the mechanism of viewing an exp
 
 The following activity diagram summarizes what happens when a user executes the `ViewCategoryCommand`:
 
-Fig. Activity Diagram for the Execution of `viewCategory`
+Fig. Activity Diagram for the Execution of `view-c`
 ![AddDescriptionActivityDiagram](images/ViewCategoryCommandActivityDiagram.png)
 
 Step 1. The user launches the application.
 
 Step 2. Unisave displays a list of existing expenses in the UI.
 
-Step 3. The user executes `viewCategory` to view all the existing expense category labels 
+Step 3. The user executes `view-c` to view all the existing expense category labels 
         in the ExpenseBook in Unisave.
 The `ViewCategoryCommand` searches for the first expense in the `ExpenseList` stored in `UniSave`
 and creates a CommandResult which contains the details of the first expense found in the list.
 
 The sequence diagram below shows the high-level abstraction of how Unisave processes user request
-to execute `viewCategory`:
+to execute `view-c`:
 
-High Level Sequence Diagram for the Execution of `viewCategory`
+High Level Sequence Diagram for the Execution of `view-c`
 ![AddDescriptionActivityDiagram](images/ViewCategorySequenceDiagram.png)
 
 #### Design Considerations
