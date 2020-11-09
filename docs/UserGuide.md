@@ -195,6 +195,7 @@ same result as `add t/1 d/milk tea membership card c/food a/100`.
 Examples:
 * `add a/100 c/food t/1 d/milk tea membership card`
 * `add a/50 c/entertainment t/2020-09-28 d/yayymovie!`
+* `add a/100 c/food`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Note:**
 1. The date and field are optional but amount and category are compulsory. <br>
