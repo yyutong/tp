@@ -195,7 +195,6 @@ Fig. Class Diagram for Expense.
 ![ExpenseClassDiagram](images/ExpenseClassDiagram.png)
 
 
-
 ### 3.1.1 Add expense feature
 
 Given below is an example usage scenario and how the mechanism for adding expenses behaves at each step.
@@ -232,7 +231,6 @@ the prefix and the default value when creating the expense object.
 * Alternative 2: Use an `Optional` for optional fields.
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
-
 
 ### 3.1.2 View expense feature
 
@@ -377,7 +375,7 @@ Step 2. The user executes `delete 5` command to delete the 5th expenses in the e
 
 ![UndoRedoState1](images/deleteState1.png)
 
-Step 3. The user executes `add a/100 c/Entertainment D/1 d/Movie` to add a new expense. The `add` command also calls `Model#saveAddressBook()`, causing another modified expense book state to be saved into the `expenseBookStateList`.
+Step 3. The user executes `add a/100 c/Entertainment t/1 d/Movie` to add a new expense. The `add` command also calls `Model#saveAddressBook()`, causing another modified expense book state to be saved into the `expenseBookStateList`.
 
 ![UndoRedoState2](images/deleteState2.png)
 
@@ -435,7 +433,6 @@ High Level Sequence Diagram for the Execution of `add-d 2 d/Spent on books`:
 ** Pros: More intuitive.
 ** Cons: Harder to manage and prone to error.
 
-
 ### 3.1.6 List feature
 
 #### Implementation
@@ -460,7 +457,6 @@ Step 3: As we can see from the sequence diagram, a result is also returned to `U
 The following activity diagram summarizes what happens when a user executes list command:
 
 ![ListActivityDiagram](images/ListActivityDiagram.png)
-
 
 ### 3.2 Exchange features
 
@@ -641,7 +637,6 @@ to execute `sort-a descending`:
 
 High Level Sequence Diagram for the Execution of `sort-a descending`
 ![AddDescriptionActivityDiagram](images/SortByAmountSequenceDiagram.png)
-
 
 #### Implementation - Sort expense list by time in ascending/descending order
 
