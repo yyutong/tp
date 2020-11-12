@@ -386,8 +386,8 @@ Sort the expense(s) based on the input command.
 ##### 3.12.1 Sort expenses by the amount of each expense: `sort-a`
 Sort the expenses in specified order.
 
-Format: `sort-a descending`
-        `sort-a ascending`
+Format: `sort-a ascending`
+        `sort-descending`
 * Note that only ascending or descending order is valid.
 
 Examples:
@@ -408,7 +408,7 @@ Format: `sort-t ascending`
 Examples:
 * `sort-t ascending`: sort the expenses according to date in ascending order (i.e. from past to present.).
 
-![sort by time in ascending order](images/sortByTime ascending.png)
+![sort by time in ascending order](images/sortByTimeAscending.png)
 
 Navigate back to the feature list: [Features](#3-features)
 
