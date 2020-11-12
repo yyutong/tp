@@ -147,11 +147,10 @@ eg. `d/` is not the same as `D/`.
   *   d/ : description for the expenses
   *   cc/ : currency code of currency
 
+* Pop up windows for <b>help</b>, <b>show-stats</b>, <b>show-rates</b>, <b>show-codes</b> commands can be closed with keyboard shortcut "<b>q</b>".
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Pop up windows for <b>help</b>, <b>show-stats</b>, <b>show-rates</b>, <b>show-codes</b> commands can be closed with keyboard shortcut "<b>q</b>".
-</div>
+
 
 ### Commands  <a name="commands"></a>
 
@@ -340,10 +339,9 @@ Show all the expenses whose date match the specified date.
 
 Format: `filter-t YYYY-MM-DD` or `filter-t NUMBEROFDAYSAGO`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 NUMBEROFDAYSAGO is used to specify how many days ago from current day.
 It accepts number from 0 to 3650 (10 years).
-</div>
+
 
 Examples:
 * `filter-t 3`: filter all the expenses that are saved on 3 days ago from current day.
@@ -359,9 +357,7 @@ Show all the expenses whose description contains the specified description.
 
 Format: `filter-d DESCRIPTION`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Multiple description input is allowed.
-</div>
 
 Examples:
 * `filter-d movie`: filter all the expenses which description has the keyword `movie`.
@@ -420,13 +416,10 @@ Navigate back to the feature list: [Features](#3-features)
 Convert the currency of UniSave from current currency to the input currency of the currency code, 
 note that the currency code is case-insensitive.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Note that the currency code is case-insensitive. <b>cny</b> is the same as <b>CNY</b>.
-</div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Use command <b>show-codes</b> to see a full list of currency codes supported by UniSave.
-</div>
+
 
 Format: `exchange cc/CURRENCY_CODE`
 
